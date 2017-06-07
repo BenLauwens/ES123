@@ -25,5 +25,4 @@ octave:
 
 flowchart:
 	pdflatex hello.tex
-	open hello.pdf
 	@rm *.aux *.log
