@@ -18,6 +18,7 @@ python:
 	@cp ../00_utils/ES123.py ./
 	python3 hello.py
 	@rm ES123.py
+	@rm -rf __pycache__
 
 octave:
 	octave -W hello.m
