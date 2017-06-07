@@ -2,6 +2,6 @@
 # Course: ES123
 # By: Ben Lauwens
 
-clear variables;
+clear variables; # Good practice to clear memory before executing a script
 
 disp('Hello, World!');

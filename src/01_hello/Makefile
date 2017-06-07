@@ -16,8 +16,9 @@ julia:
 
 python:
 	@cp ../00_utils/ES123.py ./
-	python3 hello.py
+	python hello.py
 	@rm ES123.py
+	@rm ES123.pyc
 	@rm -rf __pycache__
 
 octave:
