@@ -22,3 +22,8 @@ python:
 
 octave:
 	octave -W hello.m
+
+flowchart:
+	pdflatex hello.tex
+	open hello.pdf
+	@rm *.aux *.log
