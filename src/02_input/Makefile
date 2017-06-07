@@ -3,27 +3,27 @@ all: cpp julia python octave
 cpp:
 	@cp ../00_utils/ES123.hpp ./
 	@cp ../00_utils/ES123.cpp ./
-	g++ -o hello ES123.cpp hello.cpp
+	g++ -o input ES123.cpp input.cpp
 	@rm ES123.hpp
 	@rm ES123.cpp
-	./hello
-	@rm hello
+	./input
+	@rm input
 
 julia:
 	@cp ../00_utils/ES123.jl ./
-	julia hello.jl
+	julia input.jl
 	@rm ES123.jl
 
 python:
 	@cp ../00_utils/ES123.py ./
-	python3 hello.py
+	python3 input.py
 	@rm ES123.py
 	@rm -f ES123.pyc
 	@rm -rf __pycache__
 
 octave:
-	octave -W hello.m
+	octave -W input.m
 
 flowchart:
-	pdflatex hello.tex
+	pdflatex input.tex
 	@rm *.aux *.log
