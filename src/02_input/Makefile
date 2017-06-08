@@ -22,7 +22,7 @@ python:
 	@rm -rf __pycache__
 
 octave:
-	octave -W input.m
+	octave -W input_ES123.m
 
 flowchart:
 	pdflatex input.tex
