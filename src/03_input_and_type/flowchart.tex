@@ -1,0 +1,18 @@
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (out1) [io, below of=start] {Display ``Please enter your first name:''};
+\node (in1) [io, below of=out1] {Input string {\it first\_name}};
+\node (out2) [io, below of=in1] {Display ``Please enter your age:''};
+\node (in2) [io, below of=out2] {Input integer {\it age}};
+\node (out3) [io, below of=in2] {Display ``Hello, {\it first\_name} (age {\it age})''};
+\node (stop) [startstop, below of=out3] {Stop};
+
+\draw [arrow] (start) -- (out1);
+\draw [arrow] (out1) -- (in1);
+\draw [arrow] (in1) -- (out2);
+\draw [arrow] (out2) -- (in2);
+\draw [arrow] (in2) -- (out3);
+\draw [arrow] (out3) -- (stop);
+
+\end{tikzpicture}
