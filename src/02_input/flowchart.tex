@@ -2,8 +2,8 @@
 
 \node (start) [startstop] {Start};
 \node (out1) [io, below of=start] {Display ``Please enter your first name (followed by 'enter'):''};
-\node (in) [io, below of=out1] {Input string \it{first\_name}};
-\node (out2) [io, below of=in] {Display ``Hello, \it{first\_name}!''};
+\node (in) [io, below of=out1] {Input string {\it first\_name}};
+\node (out2) [io, below of=in] {Display ``Hello, {\it first\_name}!''};
 \node (stop) [startstop, below of=out2] {Stop};
 
 \draw [arrow] (start) -- (out1);
