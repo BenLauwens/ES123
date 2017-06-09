@@ -1,0 +1,10 @@
+\begin{tikzpicture}[node distance=2cm]
+
+\node (start) [startstop] {Start};
+\node (out) [io, below of=start] {Display "Hello, World!"};
+\node (stop) [startstop, below of=out] {Stop};
+
+\draw [arrow] (start) -- (out);
+\draw [arrow] (out) -- (stop);
+
+\end{tikzpicture}
