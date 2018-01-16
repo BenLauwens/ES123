@@ -1,3 +1,2 @@
-*.pdf
-*.pyc
-__pycache__
+octave-workspace
+.ipynb_checkpoints/
