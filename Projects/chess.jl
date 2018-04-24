@@ -223,26 +223,17 @@ module ES123Chess
     end
 
     function nopiecesinbetween(chess::Chess, x₀::Int64, y₀::Int64, x₁::Int64, y₁::Int64)
-        δx = x₁ - x₀
-        δy = y₁ - y₀
-        if isverticalmove(x₀, y₀, x₁, y₁)
-            for y in y₀+δy:δy:y₁-δy
-                if chess.board[x₀, y] ≠ ' '
-                    return false
-                end
-            end
-        elseif ishorizontalmove(x₀, y₀, x₁, y₁)
-            for x in x₀+δx:δx:x₁-δx
-                if chess.board[x, y₀] ≠ ' '
-                    return false
-                end
-            end
-        else
-            for (i, x) in enumerate(x₀+δx:δx:x₁-δx)
-                y = y₀ + δy
-                if chess.board[x, y] ≠ ' '
-                    return false
-                end
+        δx = sign(x₁ - x₀)
+        δy = sign(y₁ - y₀)
+        n = max(abs(x₁ - x₀), abs(y₁ - y₀))
+        x = x₀
+        y = y₀
+        println(δx, ", ", δy, ": ", n)
+        for i in 1:n-1
+            x = x + δx
+            y = y + δy
+            if chess.board[x, y] ≠ ' '
+                return false
             end
         end
         true
