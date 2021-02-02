@@ -1,6 +1,5 @@
-octave-workspace
-.ipynb_checkpoints/
 *.tex
 *.pdf
 *.svg
 *.aux
+.DS_Store
