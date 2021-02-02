@@ -13,9 +13,9 @@ md"""# Introduction"""
 # ╔═╡ 0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
 md"""## Who are we?
 
-* Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](ben.lauwens@mil.be)
+* Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
-* Assistant: CDT IMM François Dossogne / D30.25 / [francois.dossogne@mil.be](francois.dossogne@mil.be)"""
+* Assistant: CDT IMM François Dossogne / D30.25 / [francois.dossogne@mil.be](mailto:francois.dossogne@mil.be)"""
 
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
@@ -109,7 +109,7 @@ pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 
 # ╔═╡ Cell order:
 # ╟─7b921bd0-64a0-11eb-1683-998ca0325d4d
-# ╟─0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
+# ╠═0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
 # ╟─4bfff530-64a1-11eb-2baa-270ad32c69f9
 # ╟─ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
