@@ -359,7 +359,7 @@ md"""## Exercises
 !!! tip
     It is a good idea to read this book in front of a computer so you can try out the examples as you go.
 
-### Exercise 1-1
+#### Exercise 1-1
 
 Whenever you are experimenting with a new feature, you should try to make mistakes. For example, in the “Hello, World!” program, what happens if you leave out one of the quotation marks? What if you leave out both? What if you spell println wrong?
 
@@ -373,7 +373,7 @@ This kind of experiment helps you remember what you read; it also helps when you
 """
 
 # ╔═╡ 6472f940-64ca-11eb-0492-0953cf692c54
-md"""### Exercise 1-2
+md"""#### Exercise 1-2
 
 Start the Julia REPL and use it as a calculator.
 

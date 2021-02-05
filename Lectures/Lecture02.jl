@@ -286,7 +286,7 @@ md"""
 """
 
 # ╔═╡ 9f56ada0-64dd-11eb-2689-89413775adb1
-md"""### Exercise 2-1
+md"""#### Exercise 2-1
 
 To check your understanding, type the following statements in the Julia REPL and see
 what they do:
@@ -511,7 +511,7 @@ An error in a program that makes it do something other than what the programmer 
 # ╔═╡ 763c5320-64e7-11eb-16e0-1bdc148f2e24
 md"""## Exercises
 
-### Exercise 2-2
+#### Exercise 2-2
 
 Repeating my advice from the previous chapter, whenever you learn a new feature, you should try it out in interactive mode and make errors on purpose to see what goes wrong.
 
@@ -523,7 +523,7 @@ Repeating my advice from the previous chapter, whenever you learn a new feature,
 """
 
 # ╔═╡ c3de97a2-64e7-11eb-077e-a1692cd76929
-md"""### Exercise 2-3
+md"""#### Exercise 2-3
 
 Practice using the Julia REPL as a calculator:
 
