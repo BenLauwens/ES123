@@ -36,7 +36,7 @@ md"""## Running Julia
 
 One of the challenges of getting started with Julia is that you might have to install it and related software on your computer. Fortunately, the installation of Julia is straightforward. Julia is available for various operating systems at the [Julia](https://julialang.org/downloads/) website.
 
-We will start out running Julia in a browser. Later, when you are comfortable with Julia, I’ll make suggestions for installing a dedicated programming environment on your computer.
+We will start out running Julia in the terminal and in a browser. Later, when you are comfortable with Julia, I’ll make suggestions for installing a dedicated programming environment on your computer.
 
 The Julia *REPL* (Read–Eval–Print Loop) is a program that reads and executes Julia code. You can start the REPL by opening a terminal on your computer and typing **`julia`** on the command line. When it starts, you should see output like this:
 
