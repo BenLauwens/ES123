@@ -10,6 +10,53 @@ begin
 	using NativeSVG
 end
 
+# ╔═╡ 02c52b84-6991-11eb-1dbd-93af9a7ca7f1
+let
+	include("../src/chap04.jl")
+	🐢 = Turtle()
+	penup(🐢)
+	forward(🐢, -200)
+	pendown(🐢)
+	flower(🐢, 7, 110.0, 60.0)
+	penup(🐢)
+	forward(🐢, 200)
+	pendown(🐢)
+	flower(🐢, 10, 80.0, 80.0)
+	penup(🐢)
+	forward(🐢, 200)
+	pendown(🐢)
+	flower(🐢, 20, 280.0, 20.0)
+	Drawing(🐢, 720, 220)
+end
+
+# ╔═╡ 7933043e-6992-11eb-27b6-c10f5cb6dd29
+let
+	include("../src/chap04.jl")
+	🐢 = Turtle()
+	penup(🐢)
+	forward(🐢, -280)
+	pendown(🐢)
+	size = 80
+	drawpie(🐢, 5, size)
+	drawpie(🐢, 6, size)
+	drawpie(🐢, 7, size)
+	drawpie(🐢, 8, size)
+	Drawing(🐢, 720, 160)
+end
+
+# ╔═╡ 31bc6732-6993-11eb-295e-eb9f409a95fa
+let
+	include("../src/chap04.jl")
+	🐢 = Turtle()
+	penup(🐢)
+	turn(🐢, 90)
+	forward(🐢, 25)
+	turn(🐢, -90)
+	pendown(🐢)
+  	spiral(🐢, 230, 6, 0.1, 0.0002)
+	Drawing(🐢, 720, 220)
+end
+
 # ╔═╡ dc4299ea-68d9-11eb-273b-a597294ef196
 md"""# Case Study: Interface Design
 
@@ -437,11 +484,11 @@ search: polyline
 
 Docstrings are often triple-quoted strings, also known as “multiline” strings because the triple quotes allow the string to span more than one line.
 
-A docstring contains the essential information someone would need to use the func‐ tion. It explains concisely what the function does (without getting into the details of how it does it). It explains what effect each parameter has on the behavior of the function and what type each parameter should be (if it is not obvious).
+A docstring contains the essential information someone would need to use the function. It explains concisely what the function does (without getting into the details of how it does it). It explains what effect each parameter has on the behavior of the function and what type each parameter should be (if it is not obvious).
 
 
 !!! tip
-    Writing this kind of documentation is an important part of inter‐ face design. A well-designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.
+    Writing this kind of documentation is an important part of interface design. A well-designed interface should be simple to explain; if you have a hard time explaining one of your functions, maybe the interface could be improved.
 """
 
 # ╔═╡ d24c63c8-6981-11eb-3be3-2f258a4436c5
@@ -457,6 +504,117 @@ Preconditions are the responsibility of the caller. If the caller violates a (pr
 
 If the preconditions are satisfied and the postconditions are not, the bug is in the function. If your pre- and postconditions are clear, they can help with debugging.
 """
+
+# ╔═╡ 4f879090-698e-11eb-2aa6-37a98c300038
+md"""## Glossary
+
+*module*:
+A collection of related functions and other definitions.
+
+*package*:
+An external library with additional functionality.
+
+*using statement*:
+A statement that reads a module file and creates a module object.
+
+*loop*:
+A part of a program that can run repeatedly.
+
+*encapsulation*:
+The process of transforming a sequence of statements into a function definition.
+
+*generalization*:
+The process of replacing something unnecessarily specific (like a number) with something appropriately general (like a variable or parameter).
+
+*interface*:
+A description of how to use a function, including the name and descriptions of the arguments and return value.
+
+*refactoring*:
+The process of modifying a working program to improve function interfaces and other qualities of the code.
+
+*development plan*:
+A process for writing programs.
+
+*docstring*:
+A string that appears at the top of a function definition to document the func‐ tion’s 
+
+*precondition*:
+A requirement that should be satisfied by the caller before a function starts.
+
+*postcondition*:
+A requirement that should be satisfied by the function before it ends.
+"""
+
+# ╔═╡ d2baf7ea-698e-11eb-1261-db00582907a3
+md"## Exercises"
+
+# ╔═╡ e3fd2546-698e-11eb-3031-c1cde742aa22
+md"""#### Exercise 4-7
+
+Enter the code in this chapter in a Pluto notebook.
+
+1. Draw a stack diagram that shows the state of the program while executing `circle(🐢, radius)`. You can do the arithmetic by hand or add print statements to the code.
+
+2. The version of `arc` in “Refactoring” is not very accurate because the linear approximation of the circle is always outside the true circle. As a result, the turtle ends up a few pixels away from the correct destination. The solution shown here illustrates a way to reduce the effect of this error. Read the code and see if it makes sense to you. If you draw a diagram, you might see how it works.
+   
+   ```julia
+   \"\"\"
+   arc(t, r, angle)
+   
+   Draws an arc with the given radius and angle:
+   
+       t: turtle
+       r: radius
+       angle: angle subtended by the arc, in degrees
+   \"\"\"
+   function arc(t, r, angle) 
+       arc_len = 2π * r * abs(angle) / 360 
+       n = trunc(arc_len / 4) + 3
+       step_len = arc_len / n
+       step_angle = angle / n
+       
+       # making a slight left turn before starting reduces
+       # the error caused by the linear approximation of the arc 
+       turn(t, -step_angle/2)
+       polyline(t, n, step_len, step_angle)
+       turn(t, step_angle/2)
+   end
+   ```
+"""
+
+# ╔═╡ 9beec042-698f-11eb-3808-058f5e8e3bab
+md"""#### Exercise 4-8
+Write an appropriately general set of functions that can draw flowers as in Figure 4-2.
+"""
+
+# ╔═╡ 6168b66a-6991-11eb-1721-37fcb97a3b8b
+md"*Figure 4-2. Turtle flowers.*"
+
+# ╔═╡ 68fa7d90-6992-11eb-06f8-01089d2b49b9
+md"""#### Exercise 4-9
+
+Write an appropriately general set of functions that can draw shapes as in Figure 4-3.
+"""
+
+# ╔═╡ c791f734-6992-11eb-2187-8b79c9ae0e61
+md"*Figure 4-3. Turtle pies.*"
+
+# ╔═╡ 9e8cecc2-6992-11eb-39e9-fd8b983a88f7
+md"""#### Exercise 4-10
+
+The letters of the alphabet can be constructed from a moderate number of basic elements, like vertical and horizontal lines and a few curves. Design an alphabet that can be drawn with a minimal number of basic elements and then write functions that draw the letters.
+
+You should write one function for each letter, with names `draw_a`, `draw_b`, etc., and put your functions in a file named *letters.jl*.
+"""
+
+# ╔═╡ 0e943bec-6993-11eb-39d4-b3350f7b238c
+md"""#### Exercise 4-11
+
+Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedia.org/wiki/Spiral); then write a program that draws an Archimedean spiral as in Figure 4-4.
+"""
+
+# ╔═╡ 03c84024-6994-11eb-1619-6b1d19725997
+md"*Figure 4-4. Archimedean spiral.*"
 
 # ╔═╡ Cell order:
 # ╟─2ade0260-68da-11eb-3c47-51af562ca746
@@ -476,3 +634,16 @@ If the preconditions are satisfied and the postconditions are not, the bug is in
 # ╟─090f60d4-6981-11eb-1c3d-df12052e6c4f
 # ╟─31ff7108-6981-11eb-1fb7-2ff7384538ab
 # ╟─d24c63c8-6981-11eb-3be3-2f258a4436c5
+# ╟─4f879090-698e-11eb-2aa6-37a98c300038
+# ╟─d2baf7ea-698e-11eb-1261-db00582907a3
+# ╟─e3fd2546-698e-11eb-3031-c1cde742aa22
+# ╟─9beec042-698f-11eb-3808-058f5e8e3bab
+# ╟─02c52b84-6991-11eb-1dbd-93af9a7ca7f1
+# ╟─6168b66a-6991-11eb-1721-37fcb97a3b8b
+# ╟─68fa7d90-6992-11eb-06f8-01089d2b49b9
+# ╟─7933043e-6992-11eb-27b6-c10f5cb6dd29
+# ╟─c791f734-6992-11eb-2187-8b79c9ae0e61
+# ╟─9e8cecc2-6992-11eb-39e9-fd8b983a88f7
+# ╟─0e943bec-6993-11eb-39d4-b3350f7b238c
+# ╟─31bc6732-6993-11eb-295e-eb9f409a95fa
+# ╟─03c84024-6994-11eb-1619-6b1d19725997
