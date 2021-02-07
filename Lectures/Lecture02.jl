@@ -36,33 +36,33 @@ A common way to represent variables on paper is to write the name of each with a
 """
 
 # ╔═╡ 58ba9f20-64d1-11eb-30e7-71ec2290f593
-Drawing(width=720, height=120) do
-    rect(x=10, y=10, width=700, height=100, fill="rgb(242, 242, 242)")
-	text(x=100, y=40, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
+Drawing(width=720, height=110) do
+    rect(x=110, y=10, width=500, height=90, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=180, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
 		str("message") 
 	end
-	text(x=110, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=190, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("->") 
 	end
-	text(x=140, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"And now for something completely different\"") 
 	end
-	text(x=100, y=65, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
+	text(x=180, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
 		str("n") 
 	end
-	text(x=110, y=65, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("->") 
 	end
-	text(x=140, y=65, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=220, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("17") 
 	end
-	text(x=100, y=90, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
+	text(x=180, y=90, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
 		str("π_val") 
 	end
-	text(x=110, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=190, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("->") 
 	end
-	text(x=140, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
+	text(x=220, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("3.141592653589793") 
 	end
 end
