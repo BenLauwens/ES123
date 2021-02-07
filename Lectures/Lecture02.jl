@@ -97,15 +97,6 @@ md"""
     ```
 """
 
-# ╔═╡ 3dc3e11e-64ce-11eb-00af-a321556544be
-message = "And now for something completely different"
-
-# ╔═╡ 42ec6000-64ce-11eb-0d3d-ffa67bbbed49
-n = 17
-
-# ╔═╡ 469dcf40-64ce-11eb-067c-014e3017110f
-π_val = 3.141592653589793
-
 # ╔═╡ 60d71100-64ce-11eb-2a71-dd40eded5474
 md"""## Variable Names
 
@@ -146,15 +137,6 @@ true      try       using       struct      where      while
 
 You don’t have to memorize this list. In most development environments, keywords are displayed in a different color; if you try to use one as a variable name, you’ll know."""
 
-# ╔═╡ ffa4f8c0-64d7-11eb-3847-0bcf6022986e
-76trombones = "big parade"
-
-# ╔═╡ 049b4410-64d8-11eb-1222-65d7ae546bd5
-more@ = 1000000
-
-# ╔═╡ 0f545270-64d8-11eb-1209-f55601482ee4
-struct = "Advanced Theoretical Zymurgy"
-
 # ╔═╡ 14697060-64d8-11eb-105d-d39759df9d42
 md"""## Expressions and Statements
 An *expression* is a combination of values, variables, and operators. A value all by itself is considered an expression, and so is a variable, so the following are all legal expressions:
@@ -184,20 +166,6 @@ The first line here is an assignment statement that gives a value to `n`. The se
 When you type a statement, the REPL *executes* it, which means that it does whatever
 the statement says.
 """
-
-# ╔═╡ 35a4fd40-64dc-11eb-1809-0fc682972330
-42
-
-# ╔═╡ 38afa530-64dc-11eb-12a4-9b7521d8b888
-n
-
-# ╔═╡ 3a3fe222-64dc-11eb-2fda-1dda6738d0ec
-n + 25
-
-# ╔═╡ 41a90230-64dc-11eb-3f3e-69da27ed0649
-with_terminal() do
-	println(n)
-end
 
 # ╔═╡ 567fc950-64dc-11eb-22e2-df958738bfff
 md"""## Script Mode
@@ -249,25 +217,6 @@ produces the output:
 
 The assignment statement produces no output.
 """
-
-# ╔═╡ 76431572-64dd-11eb-0cc9-e1d072c1bb52
-miles = 26.2
-
-# ╔═╡ 7bc12e60-64dd-11eb-1efd-17d464fed2e4
-miles * 1.61
-
-# ╔═╡ 6997acf0-64dd-11eb-2c53-edf0ea8cf3d9
-with_terminal() do
-	miles = 26.2
-	println(miles * 1.61)
-end
-
-# ╔═╡ 89a56500-64dd-11eb-26e4-ad84879a3c8f
-with_terminal() do
-	println(1)
-	x = 2
-	println(x)
-end
 
 # ╔═╡ ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 md"""
@@ -345,18 +294,6 @@ The `^` operator also works on strings; it performs repetition. For example, `"S
 This use of `*` and `^` makes sense by analogy with multiplication and exponentiation.
 Just as ``4^3`` is equivalent to ``4\cdot4\cdot4``, we expect `"Spam"^3` to be the same as `"Spam"*"Spam"*"Spam"`, and it is.
 """
-
-# ╔═╡ 56566800-64df-11eb-226a-89bacff46777
-first_str = "throat"
-
-# ╔═╡ 5b0a0500-64df-11eb-3d75-2b0316d3b75c
-second_str = "warbler"
-
-# ╔═╡ 5f155410-64df-11eb-3709-6fa962de538b
-first_str * second_str
-
-# ╔═╡ 62ec4cb0-64df-11eb-2933-f92af21d4fe6
-"Spam"^3
 
 # ╔═╡ 0579eaa0-64e0-11eb-3fba-211e3857675f
 md"""
@@ -539,31 +476,13 @@ Practice using the Julia REPL as a calculator:
 # ╟─58ba9f20-64d1-11eb-30e7-71ec2290f593
 # ╟─7f908a10-64d6-11eb-1629-9179dc49bad7
 # ╟─5cb86662-64e1-11eb-0c04-41643ac1fc94
-# ╠═3dc3e11e-64ce-11eb-00af-a321556544be
-# ╠═42ec6000-64ce-11eb-0d3d-ffa67bbbed49
-# ╠═469dcf40-64ce-11eb-067c-014e3017110f
 # ╟─60d71100-64ce-11eb-2a71-dd40eded5474
-# ╠═ffa4f8c0-64d7-11eb-3847-0bcf6022986e
-# ╠═049b4410-64d8-11eb-1222-65d7ae546bd5
-# ╠═0f545270-64d8-11eb-1209-f55601482ee4
 # ╟─14697060-64d8-11eb-105d-d39759df9d42
-# ╠═35a4fd40-64dc-11eb-1809-0fc682972330
-# ╠═38afa530-64dc-11eb-12a4-9b7521d8b888
-# ╠═3a3fe222-64dc-11eb-2fda-1dda6738d0ec
-# ╠═41a90230-64dc-11eb-3f3e-69da27ed0649
 # ╟─567fc950-64dc-11eb-22e2-df958738bfff
-# ╠═76431572-64dd-11eb-0cc9-e1d072c1bb52
-# ╠═7bc12e60-64dd-11eb-1efd-17d464fed2e4
-# ╠═6997acf0-64dd-11eb-2c53-edf0ea8cf3d9
-# ╠═89a56500-64dd-11eb-26e4-ad84879a3c8f
 # ╟─ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 # ╟─9f56ada0-64dd-11eb-2689-89413775adb1
 # ╟─c95baab0-64dd-11eb-00c7-af9957ec1614
 # ╟─d619bb60-64de-11eb-3d7b-572676f08d00
-# ╠═56566800-64df-11eb-226a-89bacff46777
-# ╠═5b0a0500-64df-11eb-3d75-2b0316d3b75c
-# ╠═5f155410-64df-11eb-3709-6fa962de538b
-# ╠═62ec4cb0-64df-11eb-2933-f92af21d4fe6
 # ╟─0579eaa0-64e0-11eb-3fba-211e3857675f
 # ╟─68695430-64df-11eb-2c75-bd24a518cceb
 # ╟─e11055b0-64e3-11eb-2bdd-6702d0a3fe84

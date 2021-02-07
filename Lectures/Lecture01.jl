@@ -67,9 +67,6 @@ Code snippets can be copied and pasted verbatim, including the `julia>` prompt a
 Now you’re ready to get started. From here on, I assume that you know how to start the Julia REPL and run code.
 """
 
-# ╔═╡ 92a681fc-6543-11eb-34b1-5d9012a36a29
-1 + 1
-
 # ╔═╡ cdb192f0-64bf-11eb-0a21-2987e4b81296
 md"""## The First Program
 Traditionally, the first program you write in a new language is called “Hello, World!” because all it does is display the words “Hello, World!” In Julia, it looks like this:
@@ -106,11 +103,6 @@ md"""
     ```
 """
 
-# ╔═╡ d22364a0-64c2-11eb-1510-efc38432b06d
-with_terminal() do
-	println("Hello, World")
-end
-
 # ╔═╡ 5a40a0b0-64c2-11eb-00e4-6fb54d1a31bb
 md"""## Arithmetic Operators
 
@@ -143,21 +135,6 @@ julia> 6^2 + 6
 42
 ```
 """
-
-# ╔═╡ 5c5f1e72-64c3-11eb-3bba-fdf3704a7100
-40 + 2
-
-# ╔═╡ 710a8fd0-64c3-11eb-1b30-abbb512e72b3
-43 - 1
-
-# ╔═╡ 7351c0b2-64c3-11eb-2ecf-8da2ec6467db
-6 * 7
-
-# ╔═╡ 8f1a2df2-64c3-11eb-0745-596fa9713e57
-84 / 2
-
-# ╔═╡ 9260cd70-64c3-11eb-10a7-179e2bf8109e
-6^2 + 6
 
 # ╔═╡ 97df5b90-64c3-11eb-1b21-31020fae745d
 md"""## Values and Types
@@ -213,27 +190,6 @@ md"""
     <class 'str'>
     ```
 """
-
-# ╔═╡ 5ee7cfb0-64c4-11eb-2f5a-03e3b5a3b091
-typeof(2)
-
-# ╔═╡ 6277d440-64c4-11eb-1043-bd62b84042de
-typeof(42.0)
-
-# ╔═╡ 69e75cf0-64c4-11eb-1255-35f19615aa48
-typeof("Hello, World!")
-
-# ╔═╡ 70c37f40-64c4-11eb-15bd-6165384256a9
-typeof("2")
-
-# ╔═╡ 7a6fd890-64c4-11eb-2639-f5d5ae33f546
-typeof("42.0")
-
-# ╔═╡ 8229d7be-64c4-11eb-3a32-e19bc7afee9e
-1,000,000
-
-# ╔═╡ 86e95ba0-64c4-11eb-2957-3f63527959c0
-1_000_000
 
 # ╔═╡ 92130620-64c4-11eb-1790-df61511ecf87
 md"""## Formal and Natural Languages
@@ -386,25 +342,11 @@ Start the Julia REPL and use it as a calculator.
 # ╟─b40446e0-64a6-11eb-3652-85fdb1612e5e
 # ╟─6b1e8390-64a7-11eb-2249-adcf7f79fc61
 # ╟─b2560330-64bd-11eb-0a30-57ada26f6ad1
-# ╠═92a681fc-6543-11eb-34b1-5d9012a36a29
 # ╟─cdb192f0-64bf-11eb-0a21-2987e4b81296
 # ╟─224a71b0-64e3-11eb-0f83-4d671426a415
-# ╠═d22364a0-64c2-11eb-1510-efc38432b06d
 # ╟─5a40a0b0-64c2-11eb-00e4-6fb54d1a31bb
-# ╠═5c5f1e72-64c3-11eb-3bba-fdf3704a7100
-# ╠═710a8fd0-64c3-11eb-1b30-abbb512e72b3
-# ╠═7351c0b2-64c3-11eb-2ecf-8da2ec6467db
-# ╠═8f1a2df2-64c3-11eb-0745-596fa9713e57
-# ╠═9260cd70-64c3-11eb-10a7-179e2bf8109e
 # ╟─97df5b90-64c3-11eb-1b21-31020fae745d
 # ╟─437336b0-64e3-11eb-39de-3bec9939b989
-# ╠═5ee7cfb0-64c4-11eb-2f5a-03e3b5a3b091
-# ╠═6277d440-64c4-11eb-1043-bd62b84042de
-# ╠═69e75cf0-64c4-11eb-1255-35f19615aa48
-# ╠═70c37f40-64c4-11eb-15bd-6165384256a9
-# ╠═7a6fd890-64c4-11eb-2639-f5d5ae33f546
-# ╠═8229d7be-64c4-11eb-3a32-e19bc7afee9e
-# ╠═86e95ba0-64c4-11eb-2957-3f63527959c0
 # ╟─92130620-64c4-11eb-1790-df61511ecf87
 # ╟─75792d30-64c6-11eb-2b86-b13f35f42768
 # ╟─a7270080-64c8-11eb-175a-192fbae1322b

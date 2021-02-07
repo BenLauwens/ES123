@@ -201,7 +201,7 @@ md"""
     ...    
     ```
     
-    `def` instead of `function` is used to indicate that this is a function definition. The function body starts after the colon. To end the function, you have to enter an empty line.
+    `def` instead of `function` is used to indicate that this is a function definition. The header ends with a colon and the body is indented. To end the function definition, you have to enter an empty line.
 
     In C the function definition of `printlyrics` is also similar:
     
@@ -214,23 +214,6 @@ md"""
 
     The keyword `void` indicates that this function does not return a value. The body of the function is enclosed between brackets.
 """
-
-# ╔═╡ 44e3b72e-6806-11eb-2a26-2d3483ccd891
-function printlyrics()
-    println("I'm a lumberjack, and I'm okay.") 
-    println("I sleep all night and I work all day.")
-end
-
-# ╔═╡ 6fb494e6-6806-11eb-2ce2-45aebe0c7c2e
-function repeatlyrics() 
-    printlyrics()
-    printlyrics() 
-end
-
-# ╔═╡ 7404401e-6806-11eb-1d6f-85edc42e49be
-with_terminal() do
-	repeatlyrics()
-end
 
 # ╔═╡ 8eb04e9c-6806-11eb-2191-6f9a8bd5d57a
 md"""## Definitions and Uses
@@ -361,17 +344,6 @@ md"""
     
     In this case `bruce` is of type `char*`, i.e. a pointer to the first character of the string.
 """
-
-# ╔═╡ af301e7c-68d5-11eb-0c97-5b4ef08c45f2
-function printtwice(bruce) 
-    println(bruce)
-    println(bruce) 
-end
-
-# ╔═╡ b173c738-68d5-11eb-1bc4-7526e28972ad
-with_terminal() do
-	printtwice("Spam "^4)
-end
 
 # ╔═╡ d92f58e6-6808-11eb-1c83-49d4a6a8b4bd
 md"""## Variables and Parameters Are Local
@@ -561,18 +533,6 @@ Nothing
 The functions we have written so far are all void. We will start writing fruitful functions in a few chapters.
 """
 
-# ╔═╡ 865931a0-68d5-11eb-2b83-fb7624a4901b
-sqrt(5)
-
-# ╔═╡ d3d159da-68d5-11eb-342c-f7b4759f2f16
-with_terminal() do
-	result = printtwice("Bing")
-	show(result)
-end
-
-# ╔═╡ dc38600a-68d5-11eb-2791-7d1af113f617
-typeof(nothing)
-
 # ╔═╡ fe683d58-68d5-11eb-22c6-8d59946b6043
 md"""## Why Functions?
 
@@ -759,25 +719,17 @@ md"""#### Exercise 3-4
 # ╟─14d4c81c-6805-11eb-330e-b31bc35b924e
 # ╟─844c788e-6805-11eb-0387-6bf667e2ba6d
 # ╟─5edc214e-68cb-11eb-23a6-2bbae196847e
-# ╠═44e3b72e-6806-11eb-2a26-2d3483ccd891
-# ╠═6fb494e6-6806-11eb-2ce2-45aebe0c7c2e
-# ╠═7404401e-6806-11eb-1d6f-85edc42e49be
 # ╟─8eb04e9c-6806-11eb-2191-6f9a8bd5d57a
 # ╟─ff341d78-6806-11eb-1cf9-e75f47ca002e
 # ╟─850fbbd0-6807-11eb-382a-5b580659afad
 # ╟─bd2a3eee-6807-11eb-00f9-2dc1666a7ed9
 # ╟─05da4942-68ce-11eb-3634-4f77c713ba1e
-# ╠═af301e7c-68d5-11eb-0c97-5b4ef08c45f2
-# ╠═b173c738-68d5-11eb-1bc4-7526e28972ad
 # ╟─d92f58e6-6808-11eb-1c83-49d4a6a8b4bd
 # ╟─b0a0c234-6808-11eb-062f-b5be2390f714
 # ╟─94c0413e-68d0-11eb-23c2-31909597a1f8
 # ╟─e8234ee4-68d4-11eb-2ab7-b7427f356d4c
 # ╟─73f6657c-68d1-11eb-1537-8b9791787e36
 # ╟─a0971d9e-68d4-11eb-0614-0d91989881cd
-# ╠═865931a0-68d5-11eb-2b83-fb7624a4901b
-# ╠═d3d159da-68d5-11eb-342c-f7b4759f2f16
-# ╠═dc38600a-68d5-11eb-2791-7d1af113f617
 # ╟─fe683d58-68d5-11eb-22c6-8d59946b6043
 # ╟─640b2da0-68d6-11eb-1e2d-cdf06b701b35
 # ╟─d1f91354-68d6-11eb-011d-c7dbdb310949
