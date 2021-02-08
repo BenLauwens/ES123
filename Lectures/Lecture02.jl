@@ -147,7 +147,7 @@ julia> 42
 julia> n
 17
 julia> n + 25
-45
+42
 ```
 
 When you type an expression at the prompt, the REPL *evaluates* it, which means that it finds the value of the expression. In this example, `n` has the value `17` and `n + 25` has the value `42`.
