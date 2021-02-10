@@ -473,7 +473,7 @@ Practice using the Julia REPL as a calculator:
 # ╟─62f36be0-64cf-11eb-0b86-9d4b55165cbf
 # ╟─46a00ea0-64cd-11eb-3e3f-b7cfa00d69ce
 # ╟─63956320-64cd-11eb-30d5-b1f23c40108f
-# ╟─58ba9f20-64d1-11eb-30e7-71ec2290f593
+# ╠═58ba9f20-64d1-11eb-30e7-71ec2290f593
 # ╟─7f908a10-64d6-11eb-1629-9179dc49bad7
 # ╟─5cb86662-64e1-11eb-0c04-41643ac1fc94
 # ╟─60d71100-64ce-11eb-2a71-dd40eded5474
