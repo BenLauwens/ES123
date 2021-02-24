@@ -25,6 +25,9 @@ e = exp(1.0)
 height = radius * sin(radians)
 ```
 
+!!! tip
+    Julia provides the Euler's number ``\mathcal e`` by the symbol `ℯ` (**`\euler TAB`**).
+
 The functions we have written so far are void. Speaking casually, they have no return value; more precisely, their return value is nothing. In this chapter, we are (finally) going to write fruitful functions. The first example is area, which returns the area of a circle with the given radius:
 
 ```julia
@@ -48,7 +51,7 @@ where the last expression is automatically returned; or
 area(radius) = π * radius^2
 ```
 
-but this is only usefull for a oneline function.
+but this is only usefull for a function consisting of a oneline expression.
 
 However, *temporary variables* like `a` and explicit return statements can make debugging easier.
 
@@ -78,7 +81,7 @@ function absvalue(x)
 end
 ```
 
-again because the last expression evaluated is automatically returned.
+because the last expression evaluated is automatically returned.
 
 Since these return statements are in an alternative conditional, only one runs.
 
@@ -112,7 +115,47 @@ nothing
 # ╔═╡ 4219f3ac-7612-11eb-3167-f55e643f9235
 md"""#### Exercise 6-1
 
-Write a compare function that takes two values, `x` and `y`, and returns `1` if `x > y`, `0` if `x == y`, and `-1 if `x < y`.
+Write a compare function that takes two values, `x` and `y`, and returns `1` if `x > y`, `0` if `x == y`, and `-1` if `x < y`.
+"""
+
+# ╔═╡ 8b79bba4-7682-11eb-2ea1-0986a9911b40
+md"""!!! languages
+    In Python and the C programming language, `return` cannot be omitted, neither is the last evaluated expression returned automatically.
+    
+    ```python
+    def absvalue(x):
+        if x < 0:
+            return -x
+        else:
+            return x
+    
+    ```
+    
+    The return type has to be provided in C:
+    
+    ```c
+    double absvalue(double x) {
+        if (x < 0) {
+            return -x;
+        } else {
+            return x;
+        }
+    }
+    ```
+    
+    Matlab doesn't use the `return` keyword but the return values have to be specified in the header:
+
+    ```matlab
+    function [ret] = absvalue(x)
+        if x < 0
+            ret = -x;
+        else
+            ret = x;
+        end
+    end
+    ```
+    
+    A function in Matlab has also to be defined in a file having the same name as the function, in this case *`absvalue.m`*.
 """
 
 # ╔═╡ bfecb80e-7612-11eb-0633-035cbcd3e426
@@ -777,6 +820,7 @@ Write a function called `gcd` that takes parameters `a` and `b` and returns thei
 # ╟─334f2774-7610-11eb-197e-eb4c20530a0c
 # ╟─b1a8c332-7610-11eb-1b18-f7bf7f28ea27
 # ╟─4219f3ac-7612-11eb-3167-f55e643f9235
+# ╟─8b79bba4-7682-11eb-2ea1-0986a9911b40
 # ╟─bfecb80e-7612-11eb-0633-035cbcd3e426
 # ╟─f5edc4c2-7613-11eb-0765-cba4f0286212
 # ╟─47e45c90-7615-11eb-0fe7-358b9d219497
