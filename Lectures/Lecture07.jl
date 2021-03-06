@@ -493,7 +493,7 @@ Write a function called `estimatepi` that uses this formula to compute and retur
 # ╟─d6bc6cde-7686-11eb-0a34-f1e7c9841275
 # ╟─f030f70c-7686-11eb-3c72-c59f85af6c83
 # ╟─b464d026-7687-11eb-2e68-99bb4a60f392
-# ╟─f001d996-7687-11eb-1215-5940f40d3fed
+# ╠═f001d996-7687-11eb-1215-5940f40d3fed
 # ╟─55c7f344-768d-11eb-2f35-e52d557f4c61
 # ╟─67411830-768d-11eb-1cf0-f9011222c68d
 # ╟─13602200-768e-11eb-389b-fb726834e96f
