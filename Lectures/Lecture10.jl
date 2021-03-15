@@ -181,7 +181,7 @@ for cheese in cheeses
 end
 ```
 
-This works well if you only need to read the elements of the array. But if you want to write or update the elements, you need the indices. One technique is to use the built- in function `eachindex`:
+This works well if you only need to read the elements of the array. But if you want to write or update the elements, you need the indices. One technique is to use the built-in function `eachindex`:
 
 ```julia
 for i in eachindex(numbers) 
@@ -322,7 +322,7 @@ is equivalent to:
 total = total + x
 ```
 
-As the loop runs, `total` accumulates the sum of the elements; a variable used this wa is sometimes called an *accumulator*.
+As the loop runs, `total` accumulates the sum of the elements; a variable used this way is sometimes called an *accumulator*.
 
 Adding up the elements of an array is such a common operation that Julia provides it
 as a built-in function, `sum`: 
@@ -351,7 +351,7 @@ end
 `res` is initialized with an empty array; each time through the loop, we append the next element. So, `res` is another kind of accumulator.
 
 
-An operation like `capitalizeall` is sometimes called a *map* because it “maps” a func‐ tion (in this case `uppercase`) onto each of the elements in a sequence.
+An operation like `capitalizeall` is sometimes called a *map* because it “maps” a function (in this case `uppercase`) onto each of the elements in a sequence.
 
 
 Another common operation is to select some of the elements from an array and return a subarray. For example, the following function takes an array of strings and returns an array that contains only the uppercase strings:
@@ -693,7 +693,7 @@ deletehead!(t) = popfirst!(t)
 
 Here’s how it is used:
 
-```juli
+```julia
 julia> letters = ['a', 'b', 'c']; 
 
 julia> deletehead!(letters);
@@ -762,7 +762,7 @@ It is important to distinguish between operations that modify arrays and operati
 
 Here’s an example using `push!`: 
 
-```juli
+```julia
 julia> t1 = [1, 2];
 
 julia> t2 = push!(t1, 3); 
@@ -1132,4 +1132,4 @@ Two words “interlock” if taking alternating letters from each forms a new wo
 # ╟─4db45f7c-7eca-11eb-0d84-697b0f34ba19
 # ╟─644ba7a4-7eca-11eb-005c-450b665506f8
 # ╟─9b0559d6-7eca-11eb-0e90-b35daf751f26
-# ╠═b70a0e20-7eca-11eb-2181-a3b160b3c369
+# ╟─b70a0e20-7eca-11eb-2181-a3b160b3c369
