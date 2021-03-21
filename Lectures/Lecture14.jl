@@ -8,6 +8,7 @@ using InteractiveUtils
 begin
 	using PlutoUI
 	using NativeSVG
+	using GDBM
 end
 
 # ╔═╡ fa2d4204-8a79-11eb-0a0a-69a684f6c422
@@ -221,7 +222,7 @@ md"""## Databases
 
 A *database* is a file that is organized for storing data. Many databases are organized like dictionaries, in the sense that they map from keys to values. The biggest difference between a database and a dictionary is that the database is on disk (or other permanent storage), so it persists after the program ends.
 
-The `GDBM` package provides an interface to the *GDBM* (GNU dbm) library of functions for creating and updating database files. As an example, I’ll create a database that contains captions for image files.
+The `GDBM` package (`pkg"add https://github.com/BenLauwens/GDBM.jl.git"`) provides an interface to the *GDBM* (GNU dbm) library of functions for creating and updating database files. As an example, I’ll create a database that contains captions for image files.
 
 Opening a database is similar to opening other files:
 

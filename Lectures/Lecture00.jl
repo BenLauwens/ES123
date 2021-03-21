@@ -107,6 +107,9 @@ pkg"add PlutoUI"
 # ╔═╡ 56a63380-64d0-11eb-33e1-09c879da551c
 pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 
+# ╔═╡ 045aeb3e-8a91-11eb-05c2-7bfe69d7f97f
+
+
 # ╔═╡ Cell order:
 # ╟─7b921bd0-64a0-11eb-1683-998ca0325d4d
 # ╟─0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
@@ -118,3 +121,4 @@ pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 # ╠═41b66620-64d0-11eb-24a9-4f77cf2d6280
 # ╠═4b982750-64d0-11eb-04ef-bdf336df89ad
 # ╠═56a63380-64d0-11eb-33e1-09c879da551c
+# ╠═045aeb3e-8a91-11eb-05c2-7bfe69d7f97f
