@@ -102,6 +102,21 @@ julia> pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 ```
 """
 
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.7.1"
+manifest_format = "2.0"
+
+[deps]
+"""
+
 # ╔═╡ Cell order:
 # ╟─7b921bd0-64a0-11eb-1683-998ca0325d4d
 # ╟─0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
@@ -110,3 +125,5 @@ julia> pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
 # ╟─325b6010-64a6-11eb-06bb-dd521b29756f
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002

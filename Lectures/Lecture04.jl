@@ -1,12 +1,15 @@
 ### A Pluto.jl notebook ###
-# v0.12.20
+# v0.17.7
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 2ade0260-68da-11eb-3c47-51af562ca746
 begin
-	using PlutoUI
+    import Pkg
+    Pkg.activate()
+
+    using PlutoUI
 	using NativeSVG
 end
 
@@ -638,7 +641,7 @@ md"*Figure 4-4. Archimedean spiral.*"
 # ╟─d2baf7ea-698e-11eb-1261-db00582907a3
 # ╟─e3fd2546-698e-11eb-3031-c1cde742aa22
 # ╟─9beec042-698f-11eb-3808-058f5e8e3bab
-# ╠═02c52b84-6991-11eb-1dbd-93af9a7ca7f1
+# ╟─02c52b84-6991-11eb-1dbd-93af9a7ca7f1
 # ╟─6168b66a-6991-11eb-1721-37fcb97a3b8b
 # ╟─68fa7d90-6992-11eb-06f8-01089d2b49b9
 # ╟─7933043e-6992-11eb-27b6-c10f5cb6dd29
