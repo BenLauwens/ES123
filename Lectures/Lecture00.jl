@@ -1,11 +1,8 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.17.7
 
 using Markdown
 using InteractiveUtils
-
-# ╔═╡ 41b66620-64d0-11eb-24a9-4f77cf2d6280
-using Pkg
 
 # ╔═╡ 7b921bd0-64a0-11eb-1683-998ca0325d4d
 md"""# Introduction"""
@@ -20,9 +17,9 @@ md"""## Who are we?
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
 
-* Theory: 18 Hr 	→ 54 Hr (preparation of exercises)
-* Exercises: 18 Hr 	→ 36 Hr (preparation of project)
-* Project: 14 Hr 	→ 42 Hr (implementation of project)"""
+* Theory: 16 Hr 	→ 48 Hr (preparation of exercises)
+* Exercises: 16 Hr 	→ 32 Hr (preparation of project)
+* Project: 10 Hr 	→ 30 Hr (implementation of project)"""
 
 # ╔═╡ ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 md"""## Documentation
@@ -36,42 +33,39 @@ md"""## Schedule
 
 ### Theory
 
-* 08/02: Ch 1 and Ch 2
-* 11/02: Ch 3
-* 18/02: Ch 4 and Ch 5
-* 25/02: Ch 6 and Ch 7
-* 04/03: Ch 8 and Ch 9
-* 11/03: Ch 10
-* 18/03: Ch 11 and Ch 12
-* 25/03: Ch 13 and Ch 14
-* 01/04: Ch 15, Ch 16 and Ch 17
+* 14/02: 1/2 Hr
+* 15/02: 3/4 Hr
+* 21/02: 5/6 Hr
+* 07/03: 7/8 Hr
+* 14/03: 9/10 Hr
+* 21/03: 11/12 Hr
+* 28/03: 13/14 Hr
+* 04/04: 15/16 Hr
 
 ### Exercises
 
-* 22/02: Ch 1 and Ch 2
-* 01/03: Ch 3
-* 08/03: Ch 4 and Ch 5
-* 15/03: Ch 6 and Ch 7
-* 22/03: Ch 8 and Ch 9
-* 29/03: Ch 10
-* 12/04: Ch 11 and Ch 12
-* 19/04: Ch 13 and Ch 14
-* 22/04: Ch 15, Ch 16 and Ch 17
+* 08/02: Revision
+* 22/02: 1/2 Hr
+* 08/03: 3/4 Hr
+* 15/03: 5/6 Hr
+* 22/03: 7/8 Hr
+* 29/03: 9/10 Hr
+* 05/04: 11/12 Hr
+* 19/04: 13/14 Hr
+* 25/04: 15/16 Hr
 
 ### Project
 
 * 19/04: Project list available
-* 22/04: Choice of project (groups of 2)
-* 29/04: First contact: Understanding of the problem
+* 25/04: Choice of project (groups of 2)
+* 16-17/05: Feedback project
 
 We are always available during contact hours"""
 
 # ╔═╡ b227f7b0-64a4-11eb-384b-8ba98563d161
 md"""## Evaluation
 
-Tests: 
-* 18/03 - 2Hr: Exercises
-* 06-10/05: Intermediate evaluation of project (group of 2)
+Test: 31/03 - 2Hr: Exercises
 
 Exam: final evaluation of project (individual)"""
 
@@ -99,16 +93,14 @@ julia> Pluto.run()
 * Open [https://localhost:1234]()
 
 * Extra packages you will need:
+
+```julia
+julia> pkg"add PlutoUI"
+
+julia> pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
+
+```
 """
-
-# ╔═╡ 4b982750-64d0-11eb-04ef-bdf336df89ad
-pkg"add PlutoUI"
-
-# ╔═╡ 56a63380-64d0-11eb-33e1-09c879da551c
-pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
-
-# ╔═╡ 045aeb3e-8a91-11eb-05c2-7bfe69d7f97f
-
 
 # ╔═╡ Cell order:
 # ╟─7b921bd0-64a0-11eb-1683-998ca0325d4d
@@ -118,7 +110,3 @@ pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
 # ╟─325b6010-64a6-11eb-06bb-dd521b29756f
-# ╠═41b66620-64d0-11eb-24a9-4f77cf2d6280
-# ╠═4b982750-64d0-11eb-04ef-bdf336df89ad
-# ╠═56a63380-64d0-11eb-33e1-09c879da551c
-# ╠═045aeb3e-8a91-11eb-05c2-7bfe69d7f97f
