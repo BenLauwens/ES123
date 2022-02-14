@@ -5,7 +5,12 @@ using Markdown
 using InteractiveUtils
 
 # ╔═╡ d9ed9070-64c2-11eb-316d-9f82842705be
-using PlutoUI
+begin
+    import Pkg
+    Pkg.activate()
+
+    using PlutoUI
+end
 
 # ╔═╡ b40446e0-64a6-11eb-3652-85fdb1612e5e
 md"""# The Way of the Program

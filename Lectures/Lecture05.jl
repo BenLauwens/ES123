@@ -15,7 +15,10 @@ end
 
 # ╔═╡ 867b290c-6bd9-11eb-1afb-47757ee13936
 begin
-	using PlutoUI
+	import Pkg
+    Pkg.activate()
+
+    using PlutoUI
 	using NativeSVG
 end
 

@@ -6,7 +6,10 @@ using InteractiveUtils
 
 # ╔═╡ d7cb8fd0-8ff7-11eb-3acf-c960087ff109
 begin
-	using PlutoUI
+	import Pkg
+    Pkg.activate()
+
+    using PlutoUI
 	using NativeSVG
 end
 
