@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.17.7
 
 using Markdown
 using InteractiveUtils
@@ -203,7 +203,7 @@ At this point we have confirmed that the function is syntactically correct, and 
 function distance(x₁, y₁, x₂, y₂)
 	dx = x₂ - x₁
 	dy = y₂ - y₁
-	@show dx dy 
+	@info dx dy 
 	0.0
 end
 ```
@@ -217,7 +217,7 @@ function distance(x₁, y₁, x₂, y₂)
 	dx = x₂ - x₁
 	dy = y₂ - y₁
 	d² = dx^2 + dy^2
-	@show d² 
+	@info d² 
 	0.0
 end
 ```
