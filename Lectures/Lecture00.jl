@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
@@ -12,7 +12,7 @@ md"""## Who are we?
 
 * Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
-* Assistant: CDT IMM François Dossogne / D30.25 / [francois.dossogne@mil.be](mailto:francois.dossogne@mil.be)"""
+* Assistant: CDT Piet Van Der Paelt / D30.xy / [piet.vanderpaelt@mil.be](mailto:francois.dossogne@mil.be)"""
 
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
@@ -95,8 +95,6 @@ julia> Pluto.run()
 * Extra packages you will need:
 
 ```julia
-julia> pkg"add PlutoUI"
-
 julia> pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
 
 ```
@@ -111,8 +109,9 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.7.1"
+julia_version = "1.8.2"
 manifest_format = "2.0"
+project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 
 [deps]
 """
@@ -124,6 +123,6 @@ manifest_format = "2.0"
 # ╟─ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
-# ╟─325b6010-64a6-11eb-06bb-dd521b29756f
+# ╠═325b6010-64a6-11eb-06bb-dd521b29756f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

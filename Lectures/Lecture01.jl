@@ -1,16 +1,8 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
-
-# ╔═╡ d9ed9070-64c2-11eb-316d-9f82842705be
-begin
-    import Pkg
-    Pkg.activate()
-
-    using PlutoUI
-end
 
 # ╔═╡ b40446e0-64a6-11eb-3652-85fdb1612e5e
 md"""# The Way of the Program
@@ -51,7 +43,7 @@ The Julia *REPL* (Read–Eval–Print Loop) is a program that reads and executes
   (_)     | (_) (_)    |
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.7.1 (2021-12-22)
+  | | |_| | | | (_| |  |  Version 1.8.1 (2022-09-11)
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
@@ -69,19 +61,101 @@ julia> 1 + 1
 
 Code snippets can be copied and pasted verbatim, including the `julia>` prompt and any output.
 
-Now you’re ready to get started. From here on, I assume that you know how to start the Julia REPL and run code.
+Now we can install the Pluto *notebook* interface:
+
+```julia
+julia> using Pkg
+
+julia> pkg"add Pluto"
+  Resolving package versions...
+   Installed RegistryInstances ─────── v0.1.0
+   Installed BitFlags ──────────────── v0.1.6
+   Installed LoggingExtras ─────────── v1.0.0
+   Installed RelocatableFolders ────── v1.0.0
+   Installed Tables ────────────────── v1.10.0
+   Installed DataAPI ───────────────── v1.13.0
+   Installed ExproniconLite ────────── v0.7.6
+   Installed OpenSSL ───────────────── v1.3.1
+   Installed TranscodingStreams ────── v0.9.9
+   Installed HTTP ──────────────────── v1.5.4
+   Installed MbedTLS ───────────────── v1.1.7
+   Installed LazilyInitializedFields ─ v1.2.0
+   Installed Pluto ─────────────────── v0.19.15
+    Updating `~/.julia/environments/v1.8/Project.toml`
+  [c3e4b0f8] + Pluto v0.19.15
+    Updating `~/.julia/environments/v1.8/Manifest.toml`
+  [d1d4a3ce] + BitFlags v0.1.6
+  [944b1d66] + CodecZlib v0.7.0
+  [5218b696] + Configurations v0.17.4
+  [9a962f9c] + DataAPI v1.13.0
+  [e2d170a0] + DataValueInterfaces v1.0.0
+  [55351af7] + ExproniconLite v0.7.6
+  [fb4132e2] + FuzzyCompletions v0.5.1
+  [cd3eb016] + HTTP v1.5.4
+  [ac1192a8] + HypertextLiteral v0.9.4
+  [83e8ac13] + IniFile v0.5.1
+  [82899510] + IteratorInterfaceExtensions v1.0.0
+  [0e77f7df] + LazilyInitializedFields v1.2.0
+  [e6f89c97] + LoggingExtras v1.0.0
+  [6c6e2e6c] + MIMEs v0.1.4
+  [739be429] + MbedTLS v1.1.7
+  [99f44e22] + MsgPack v1.1.0
+  [4d8831e6] + OpenSSL v1.3.1
+  [bac558e1] + OrderedCollections v1.4.1
+  [c3e4b0f8] + Pluto v0.19.15
+  [91cefc8d] + PrecompileSignatures v3.0.3
+  [2792f1a3] + RegistryInstances v0.1.0
+  [05181044] + RelocatableFolders v1.0.0
+  [6c6a2e73] + Scratch v1.1.1
+  [777ac1f9] + SimpleBufferStream v1.1.0
+  [3783bdb8] + TableTraits v1.0.1
+  [bd369af6] + Tables v1.10.0
+  [3bb67fe8] + TranscodingStreams v0.9.9
+  [410a4b4d] + Tricks v0.1.6
+  [5c2747f8] + URIs v1.4.0
+  [8ba89e20] + Distributed
+  [37e2e46d] + LinearAlgebra
+  [8dfed614] + Test
+  [4536629a] + OpenBLAS_jll v0.3.20+0
+  [8e850b90] + libblastrampoline_jll v5.1.1+0
+Precompiling project...
+  31 dependencies successfully precompiled in 16 seconds. 14 already precompiled.
+```
+
+Once installed the browser based environment can be started with:
+
+```julia
+julia> using Pluto
+
+julia> Pluto.run()
+[ Info: Loading...
+[ Info: Listening on: 127.0.0.1:1234
+┌ Info:
+└ Opening http://localhost:1234/?secret=F3mXM9nq in your default browser... ~ have fun!
+┌ Info:
+│ Press Ctrl+C in this terminal to stop Pluto
+└
+```
+
+Your default browser opens a tab with the “Welcome to Pluto.jl” page. From there you can create a new notebook or open and existing one.
+
+A Pluto notebook is made up of cells containg arbitrary Julia code. After entering the code, cells are evaluated by hitting **`SHIFT ENTER`**. During the opening of an existing notebook all cells will be evaluated automatically. **`CTRL ENTER`** will also evaluate the active cell and will create a new cell having focus.
+
+All chapters of this book are available as notebooks. The text you read, is the result of the evaluation of a Markdown string. The code is hidden to not disturb the reader but will be shown when you click on the barred eye icon on the left.
+
+Now you’re ready to get started. From here on, I assume that you know how to start the Julia REPL, start the Pluto notebook environment and run code both in the REPL and in a browser.
 """
 
 # ╔═╡ cdb192f0-64bf-11eb-0a21-2987e4b81296
 md"""## The First Program
 Traditionally, the first program you write in a new language is called “Hello, World!” because all it does is display the words “Hello, World!” In Julia, it looks like this:
+"""
 
-```julia
-julia> println("Hello, World!")
-Hello, World!
-```
+# ╔═╡ 5ed8116e-c007-46e3-8975-078d16402e95
+println("Hello, World!")
 
-This is an example of a *print statement*, although it doesn’t actually print anything on paper. It displays a result on the screen.
+# ╔═╡ 758ae87d-5d83-4b08-b9d0-939996fcd968
+md"""This is an example of a *print statement*, although it doesn’t actually print anything on paper. It displays a result on the screen. In the notebook interface the output is shown in a terminal alike box underneath the cell.
 
 The quotation marks in the program mark the beginning and end of the text to be displayed; they don’t appear in the result.
 
@@ -98,7 +172,7 @@ md"""
     #include <stdio.h>
 
     int main(void) {
-        printf("hello, world\n");
+        printf("Hello, world!\n");
     }
     ```
 
@@ -114,32 +188,33 @@ md"""## Arithmetic Operators
 After “Hello, World!” the next step is arithmetic. Julia provides *operators*, which are symbols that represent computations like addition and multiplication.
 
 The operators `+`, `-`, and `*` perform addition, subtraction, and multiplication, as in the following examples:
+"""
 
-```julia
-julia> 40 + 2
-42
-julia> 43 - 1
-42
-julia> 6 * 7
-42
-```
+# ╔═╡ f800ffc3-0b88-47e0-8e88-54f3b82b6f86
+40 + 2
 
-The operator `/` performs division:
+# ╔═╡ 9a9adf0b-2865-4461-8253-39c106385d79
+43 - 1
 
-```julia
-julia> 84 / 2
-42.0
-```
+# ╔═╡ 4238b1c2-484d-4de8-8b52-e07f06f29493
+6 * 7
 
-You might wonder why the result is `42.0` instead of `42`. I’ll explain in the next section.
+# ╔═╡ ad0a29fc-546d-49c5-8716-b36c9ca12ac6
+md"""In the notebook interface the result is shown above the cell containing the operation.
+
+The operator `/` performs division:"""
+
+# ╔═╡ 14269dfd-e3c6-4f24-9a9a-cf5460efb6ef
+84 / 2
+
+# ╔═╡ 4d5d4811-e4b3-4b7f-87eb-002b5730ec52
+md"""You might wonder why the result is `42.0` instead of `42`. I’ll explain in the next section.
 
 Finally, the operator `^` performs exponentiation; that is, it raises a number to a power:
-
-```julia
-julia> 6^2 + 6
-42
-```
 """
+
+# ╔═╡ be9b5ac0-65c7-4ea2-a3fa-6d98e7b4f41c
+6^2 + 6
 
 # ╔═╡ 97df5b90-64c3-11eb-1b21-31020fae745d
 md"""## Values and Types
@@ -149,35 +224,38 @@ A `value` is one of the basic things a program works with, like a letter or a nu
 These values belong to different types: `2` is an *integer*, `42.0` is a *floating-point number*, and `"Hello, World!"` is a *string*, so called because the letters it contains are strung together.
 
 If you are not sure what type a value has, the REPL can tell you:
+"""
 
-```julia
-julia> typeof(2)
-Int64
-julia> typeof(42.0)
-Float64
-julia> typeof("Hello, World!")
-String
-```
+# ╔═╡ 8f0eb0af-3555-406b-a5d9-dedd09eca867
+typeof(2)
 
-Integers belong to the type `Int64`, strings belong to `String`, and floating-point numbers belong to `Float64`.
+# ╔═╡ 0e7bf532-1cb6-49eb-9b44-056cfd002607
+typeof(42.0)
+
+# ╔═╡ 1efca602-00d5-4475-880d-e630425bd16b
+typeof("Hello, World!")
+
+# ╔═╡ 9125d76f-b931-4738-ad32-703a2e4bfa7c
+md"""Integers belong to the type `Int64`, strings belong to `String`, and floating-point numbers belong to `Float64`.
 
 What about values like `"2"` and `"42.0"`? They look like numbers, but they are in quotation marks like strings. These are strings too:
+"""
 
-```julia
-julia> typeof("2")
-String
-julia> typeof("42.0")
-String
-```
+# ╔═╡ bffc1a9b-db65-4cc0-b428-5e266188f7aa
+typeof("2")
 
-When you type a large integer, you might be tempted to use commas between groups of digits, as in `1,000,000`. This is not a legal integer in Julia, but it is legal:
+# ╔═╡ fb25a121-d2c9-41a2-bc24-c390d45b8f85
+typeof("42.0")
 
-```julia
-julia> 1,000,000
-(1, 0, 0)
-```
+# ╔═╡ ecfc2835-481f-41d4-adb9-ce9249330b16
+md"""When you type a large integer, you might be tempted to use commas between groups of digits, as in `1,000,000`. This is not a legal integer in Julia, but it is legal:
+"""
 
-That’s not what we expected at all! Julia parses `1,000,000` as a comma-separated sequence of integers. We’ll learn more about this kind of sequence later.
+# ╔═╡ 6987b8dc-a353-4ff9-acb6-3a74758d5c60
+1,000,000
+
+# ╔═╡ 5357621c-fe9f-4458-a4f6-2437079fd67b
+md"""That’s not what we expected at all! Julia parses `1,000,000` as a comma-separated sequence of integers. We’ll learn more about this kind of sequence later.
 
 You can get the expected result using `1_000_000`, however.
 """
@@ -267,6 +345,9 @@ A program that repeatedly reads input, executes it, and outputs results.
 *prompt*:
 Characters displayed by the REPL to indicate that it is ready to take input from the user.
 
+*notebook*:
+Browser based environment displaying cells that contain arbitrary code, executed automatically during the opening of the notebook, or manually by hitting **`SHIFT ENTER`**.
+
 *print statement*:
 An instruction that causes the Julia REPL to display a value on the screen.
 
@@ -317,7 +398,7 @@ The process of finding and correcting bugs.
 md"""## Exercises
 
 !!! tip
-    It is a good idea to read this book in front of a computer so you can try out the examples as you go.
+    It is a good idea to read this book in front of a computer or in your browser so you can try out the examples as you go.
 
 #### Exercise 1-1
 
@@ -342,235 +423,35 @@ Start the Julia REPL and use it as a calculator.
 3. If you run a 10-kilometer race in 37 minutes 48 seconds, what is your average pace (time per mile in minutes and seconds)? What is your average speed in miles per hour?
 """
 
-# ╔═╡ 00000000-0000-0000-0000-000000000001
-PLUTO_PROJECT_TOML_CONTENTS = """
-[deps]
-PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-
-[compat]
-PlutoUI = "~0.7.32"
-"""
-
-# ╔═╡ 00000000-0000-0000-0000-000000000002
-PLUTO_MANIFEST_TOML_CONTENTS = """
-# This file is machine-generated - editing it directly is not advised
-
-julia_version = "1.7.1"
-manifest_format = "2.0"
-
-[[deps.AbstractPlutoDingetjes]]
-deps = ["Pkg"]
-git-tree-sha1 = "8eaf9f1b4921132a4cff3f36a1d9ba923b14a481"
-uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.1.4"
-
-[[deps.ArgTools]]
-uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
-
-[[deps.Artifacts]]
-uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
-
-[[deps.Base64]]
-uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
-
-[[deps.ColorTypes]]
-deps = ["FixedPointNumbers", "Random"]
-git-tree-sha1 = "024fe24d83e4a5bf5fc80501a314ce0d1aa35597"
-uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
-version = "0.11.0"
-
-[[deps.CompilerSupportLibraries_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-
-[[deps.Dates]]
-deps = ["Printf"]
-uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
-
-[[deps.Downloads]]
-deps = ["ArgTools", "LibCURL", "NetworkOptions"]
-uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
-
-[[deps.FixedPointNumbers]]
-deps = ["Statistics"]
-git-tree-sha1 = "335bfdceacc84c5cdf16aadc768aa5ddfc5383cc"
-uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
-version = "0.8.4"
-
-[[deps.Hyperscript]]
-deps = ["Test"]
-git-tree-sha1 = "8d511d5b81240fc8e6802386302675bdf47737b9"
-uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
-version = "0.0.4"
-
-[[deps.HypertextLiteral]]
-git-tree-sha1 = "2b078b5a615c6c0396c77810d92ee8c6f470d238"
-uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.3"
-
-[[deps.IOCapture]]
-deps = ["Logging", "Random"]
-git-tree-sha1 = "f7be53659ab06ddc986428d3a9dcc95f6fa6705a"
-uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
-version = "0.2.2"
-
-[[deps.InteractiveUtils]]
-deps = ["Markdown"]
-uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
-
-[[deps.JSON]]
-deps = ["Dates", "Mmap", "Parsers", "Unicode"]
-git-tree-sha1 = "8076680b162ada2a031f707ac7b4953e30667a37"
-uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-version = "0.21.2"
-
-[[deps.LibCURL]]
-deps = ["LibCURL_jll", "MozillaCACerts_jll"]
-uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-
-[[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
-uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-
-[[deps.LibGit2]]
-deps = ["Base64", "NetworkOptions", "Printf", "SHA"]
-uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
-
-[[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
-uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-
-[[deps.Libdl]]
-uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
-
-[[deps.LinearAlgebra]]
-deps = ["Libdl", "libblastrampoline_jll"]
-uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-
-[[deps.Logging]]
-uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
-
-[[deps.Markdown]]
-deps = ["Base64"]
-uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
-
-[[deps.MbedTLS_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
-
-[[deps.Mmap]]
-uuid = "a63ad114-7e13-5084-954f-fe012c677804"
-
-[[deps.MozillaCACerts_jll]]
-uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-
-[[deps.NetworkOptions]]
-uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
-
-[[deps.OpenBLAS_jll]]
-deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
-uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-
-[[deps.Parsers]]
-deps = ["Dates"]
-git-tree-sha1 = "0b5cfbb704034b5b4c1869e36634438a047df065"
-uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.2.1"
-
-[[deps.Pkg]]
-deps = ["Artifacts", "Dates", "Downloads", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "REPL", "Random", "SHA", "Serialization", "TOML", "Tar", "UUIDs", "p7zip_jll"]
-uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-
-[[deps.PlutoUI]]
-deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "Markdown", "Random", "Reexport", "UUIDs"]
-git-tree-sha1 = "ae6145ca68947569058866e443df69587acc1806"
-uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.32"
-
-[[deps.Printf]]
-deps = ["Unicode"]
-uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
-
-[[deps.REPL]]
-deps = ["InteractiveUtils", "Markdown", "Sockets", "Unicode"]
-uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
-
-[[deps.Random]]
-deps = ["SHA", "Serialization"]
-uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
-
-[[deps.Reexport]]
-git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
-uuid = "189a3867-3050-52da-a836-e630ba90ab69"
-version = "1.2.2"
-
-[[deps.SHA]]
-uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
-
-[[deps.Serialization]]
-uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
-
-[[deps.Sockets]]
-uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
-
-[[deps.SparseArrays]]
-deps = ["LinearAlgebra", "Random"]
-uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
-
-[[deps.Statistics]]
-deps = ["LinearAlgebra", "SparseArrays"]
-uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-
-[[deps.TOML]]
-deps = ["Dates"]
-uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
-
-[[deps.Tar]]
-deps = ["ArgTools", "SHA"]
-uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-
-[[deps.Test]]
-deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
-uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-[[deps.UUIDs]]
-deps = ["Random", "SHA"]
-uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
-
-[[deps.Unicode]]
-uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
-
-[[deps.Zlib_jll]]
-deps = ["Libdl"]
-uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
-
-[[deps.libblastrampoline_jll]]
-deps = ["Artifacts", "Libdl", "OpenBLAS_jll"]
-uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-
-[[deps.nghttp2_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-
-[[deps.p7zip_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-"""
-
 # ╔═╡ Cell order:
-# ╟─d9ed9070-64c2-11eb-316d-9f82842705be
 # ╟─b40446e0-64a6-11eb-3652-85fdb1612e5e
 # ╟─6b1e8390-64a7-11eb-2249-adcf7f79fc61
 # ╟─b2560330-64bd-11eb-0a30-57ada26f6ad1
 # ╟─cdb192f0-64bf-11eb-0a21-2987e4b81296
+# ╠═5ed8116e-c007-46e3-8975-078d16402e95
+# ╟─758ae87d-5d83-4b08-b9d0-939996fcd968
 # ╟─224a71b0-64e3-11eb-0f83-4d671426a415
 # ╟─5a40a0b0-64c2-11eb-00e4-6fb54d1a31bb
+# ╠═f800ffc3-0b88-47e0-8e88-54f3b82b6f86
+# ╠═9a9adf0b-2865-4461-8253-39c106385d79
+# ╠═4238b1c2-484d-4de8-8b52-e07f06f29493
+# ╟─ad0a29fc-546d-49c5-8716-b36c9ca12ac6
+# ╠═14269dfd-e3c6-4f24-9a9a-cf5460efb6ef
+# ╟─4d5d4811-e4b3-4b7f-87eb-002b5730ec52
+# ╠═be9b5ac0-65c7-4ea2-a3fa-6d98e7b4f41c
 # ╟─97df5b90-64c3-11eb-1b21-31020fae745d
+# ╠═8f0eb0af-3555-406b-a5d9-dedd09eca867
+# ╠═0e7bf532-1cb6-49eb-9b44-056cfd002607
+# ╠═1efca602-00d5-4475-880d-e630425bd16b
+# ╟─9125d76f-b931-4738-ad32-703a2e4bfa7c
+# ╠═bffc1a9b-db65-4cc0-b428-5e266188f7aa
+# ╠═fb25a121-d2c9-41a2-bc24-c390d45b8f85
+# ╟─ecfc2835-481f-41d4-adb9-ce9249330b16
+# ╠═6987b8dc-a353-4ff9-acb6-3a74758d5c60
+# ╟─5357621c-fe9f-4458-a4f6-2437079fd67b
 # ╟─437336b0-64e3-11eb-39de-3bec9939b989
 # ╟─92130620-64c4-11eb-1790-df61511ecf87
 # ╟─75792d30-64c6-11eb-2b86-b13f35f42768
 # ╟─a7270080-64c8-11eb-175a-192fbae1322b
 # ╟─ce5393c0-64c9-11eb-25ec-c55227798aa8
 # ╟─6472f940-64ca-11eb-0492-0953cf692c54
-# ╟─00000000-0000-0000-0000-000000000001
-# ╟─00000000-0000-0000-0000-000000000002
