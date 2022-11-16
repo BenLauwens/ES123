@@ -91,13 +91,6 @@ julia> Pluto.run()
 ```
 
 * Open [https://localhost:1234]()
-
-* Extra packages you will need:
-
-```julia
-julia> pkg"add https://github.com/BenLauwens/NativeSVG.jl.git"
-
-```
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -123,6 +116,6 @@ project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 # ╟─ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
-# ╠═325b6010-64a6-11eb-06bb-dd521b29756f
+# ╟─325b6010-64a6-11eb-06bb-dd521b29756f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

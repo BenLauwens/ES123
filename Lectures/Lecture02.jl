@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.18.0
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
@@ -7,9 +7,14 @@ using InteractiveUtils
 # ╔═╡ 62f36be0-64cf-11eb-0b86-9d4b55165cbf
 begin
     import Pkg
-    Pkg.activate()
-
-    using PlutoUI
+	io = IOBuffer()
+    Pkg.activate(io = io)
+	deps = [pair.second for pair in Pkg.dependencies()]
+	direct_deps = filter(p -> p.is_direct_dep, deps)
+    pkgs = [x.name for x in direct_deps]
+	if "NativeSVG" ∉ pkgs
+		Pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
+	end
 	using NativeSVG
 end
 
@@ -22,17 +27,19 @@ One of the most powerful features of a programming language is the ability to ma
 md"""## Assignment Statements
 
 An assignment statement creates a new variable and gives it a value:
+"""
 
-```julia
-julia> message = "And now for something completely different"
-"And now for something completely different"
-julia> n = 17
-17
-julia> π_val = 3.141592653589793
-3.141592653589793
-```
+# ╔═╡ bb9a2fc7-1de9-40ec-b1a4-555188f1c0f0
+message = "And now for something completely different"
 
-This example makes three assignments. The first assigns a string to a new variable named `message`, the second assigns the integer `17` to `n`, and the third assigns the
+# ╔═╡ 6518eab5-971f-4598-999f-b832597fd233
+n = 17
+
+# ╔═╡ ad15ca54-8fd9-4acb-8a06-cb7dfc86c77a
+π_val = 3.141592653589793
+
+# ╔═╡ 7a3f5809-5a58-4280-93ef-83366bd893d5
+md"""This example makes three assignments. The first assigns a string to a new variable named `message`, the second assigns the integer `17` to `n`, and the third assigns the
 (approximate) value of π to `π_val` (**`\pi TAB`**).
 
 A common way to represent variables on paper is to write the name of each with an arrow pointing to its value. This kind of figure is called a *state diagram* because it shows what state each of the variables is in (think of it as the variable’s state of mind). Figure 2-1 shows the result of the previous example.
@@ -45,7 +52,7 @@ Drawing(width=720, height=110) do
 		str("message") 
 	end
 	text(x=190, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"And now for something completely different\"") 
@@ -54,7 +61,7 @@ Drawing(width=720, height=110) do
 		str("n") 
 	end
 	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=220, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("17") 
@@ -63,7 +70,7 @@ Drawing(width=720, height=110) do
 		str("π_val") 
 	end
 	text(x=190, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=220, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("3.141592653589793") 
@@ -113,23 +120,25 @@ the Julia REPL.
 The underscore character, `_`, can appear in a name. It is often used in names with multiple words, such as `your_name` or `airspeed_of_unladen_swallow`.
 
 If you give a variable an illegal name, you get a syntax error:
+"""
 
-```julia
-julia> 76trombones = "big parade"
-ERROR: syntax: "76" is not a valid function argument name
-julia> more@ = 1000000
-ERROR: syntax: extra token "@" after end of expression
-julia> struct = "Advanced Theoretical Zymurgy"
-ERROR: syntax: unexpected "="
-```
+# ╔═╡ 346735bc-ca51-41eb-8a8e-61e5f60bda3c
+76trombones = "big parade"
 
-`76trombones` is illegal because it begins with a number. `more@` is illegal because it contains an illegal character, `@`. But what’s wrong with `struct`?
+# ╔═╡ 90f03d4b-7ce4-429e-85f0-f829f24021aa
+more@ = 1000000
+
+# ╔═╡ 0f1d1e0f-8d38-4686-bffa-16c34be69c63
+struct = "Advanced Theoretical Zymurgy"
+
+# ╔═╡ 9ad6716c-9775-4483-ae98-ca6bf690e55e
+md"""`76trombones` is illegal because it begins with a number. `more@` is illegal because it contains an illegal character, `@`. But what’s wrong with `struct`?
 
 It turns out that `struct` is one of Julia’s keywords. The REPL uses *keywords* to recognize the structure of the program, and they cannot be used as variable names.
 
 Julia has these keywords:
 
-```julia
+```
 abstract  type      baremodule  begin       break      catch
 const     continue  do          else        elseif     end 
 export    finally   for         false       function   global 
@@ -138,37 +147,59 @@ module    mutable   primitive   type        quote      return
 true      try       using       struct      where      while
 ```
 
-You don’t have to memorize this list. In most development environments, keywords are displayed in a different color; if you try to use one as a variable name, you’ll know."""
+You don’t have to memorize this list. In most development environments, keywords are displayed in a different color; if you try to use one as a variable name, you’ll know.
+"""
 
 # ╔═╡ 14697060-64d8-11eb-105d-d39759df9d42
 md"""## Expressions and Statements
 An *expression* is a combination of values, variables, and operators. A value all by itself is considered an expression, and so is a variable, so the following are all legal expressions:
+"""
 
-```julia
-julia> 42
+# ╔═╡ fcfe4f69-6b65-4834-aebf-1b7859e5ca7c
 42
-julia> n
-17
-julia> n + 25
-42
-```
 
-When you type an expression at the prompt, the REPL *evaluates* it, which means that it finds the value of the expression. In this example, `n` has the value `17` and `n + 25` has the value `42`.
+# ╔═╡ 3859fc50-4eba-4a09-9327-9c3497c6d543
+n
+
+# ╔═╡ 1c0664a1-1f8e-4e71-8501-f465ef0dfb35
+n + 25
+
+# ╔═╡ 28b6582c-02e6-458c-b2bc-33a0fe3243b5
+md"""When you type an expression at the prompt, the REPL *evaluates* it, which means that it finds the value of the expression. In this example, `n` has the value `17` and `n + 25` has the value `42`.
 
 A *statement* is a unit of code that has an effect, like creating a variable or displaying a value:
-
-```julia
-julia> n = 17
-17
-julia> println(n)
-17
-```
-
-The first line here is an assignment statement that gives a value to `n`. The second line is a print statement that displays the value of `n`.
-
-When you type a statement, the REPL *executes* it, which means that it does whatever
-the statement says.
 """
+
+# ╔═╡ 40eceb9a-efbb-462b-95cd-0ad626002cb1
+m = 25
+
+# ╔═╡ d967dc30-f1a0-4ea9-8aae-83cb28790057
+println(m)
+
+# ╔═╡ 5d288a22-10ed-4661-9b39-b579679fa581
+md"""The first line here is an assignment statement that gives a value to `m`. The second line is a print statement that displays the value of `m`.
+
+When you type a statement, the REPL or notebook *executes* it, which means that it does whatever the statement says. A notebook cell can contain only one statement.
+
+A *compound statement* can however group multiple statements:
+"""
+
+# ╔═╡ 6071a653-8776-4600-af10-40516dd3d4d8
+begin
+	answer = m - n
+	println(answer)
+	n + m
+end
+
+# ╔═╡ 3c0d30cd-a56e-44d4-8389-fd2deb1e907d
+md"""All print statements will be displayed but only the result of the last executed statement in the `begin` block will be shown. The result of a compound statement is the result of the last executed statement in the block. A variable can be assigned to a compound statements and its value will logically be this result: 
+"""
+
+# ╔═╡ d5949df7-0d18-4ad3-b8bb-34970aeb0863
+the_answer = begin
+	m - n
+	n + m
+end
 
 # ╔═╡ 567fc950-64dc-11eb-22e2-df958738bfff
 md"""## Script Mode
@@ -221,6 +252,10 @@ produces the output:
 The assignment statement produces no output.
 """
 
+# ╔═╡ 4ed959f8-3202-4a4d-9af9-19985032d739
+md"""A script can be included in a notebook cell using the function call `include("`**`name_of_the_script.jl`**`")`.
+"""
+
 # ╔═╡ ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 md"""
 !!! languages
@@ -240,8 +275,7 @@ md"""
 # ╔═╡ 9f56ada0-64dd-11eb-2689-89413775adb1
 md"""#### Exercise 2-1
 
-To check your understanding, type the following statements in the Julia REPL and see
-what they do:
+To check your understanding, type the following statements in the Julia REPL or using a `begin` block in the notebook interface and see what they do:
 
 ```julia
 5
@@ -282,20 +316,21 @@ In general, you can’t perform mathematical operations on strings, even if the 
 But there are two exceptions, `*` and `^`.
 
 The `*` operator performs *string concatenation*, which means it joins the strings by linking them end-to-end. For example:
+"""
 
-```julia
-julia> first_str = "throat"
-"throat"
-julia> second_str = "warbler"
-"warbler"
-julia> first_str * second_str
-"throatwarbler"
-```
+# ╔═╡ bb26a1de-fd67-4823-8c78-1a640be4b363
+first_str = "throat"
 
-The `^` operator also works on strings; it performs repetition. For example, `"Spam"^3` is `"SpamSpamSpam"`. If one of the values is a string, the other has to be an integer.
+# ╔═╡ 8f0d0c96-0466-4ad5-954b-da25dee96737
+second_str = "warbler"
 
-This use of `*` and `^` makes sense by analogy with multiplication and exponentiation.
-Just as ``4^3`` is equivalent to ``4\cdot4\cdot4``, we expect `"Spam"^3` to be the same as `"Spam"*"Spam"*"Spam"`, and it is.
+# ╔═╡ ee43eb83-ab63-4db2-9935-42fe30f95b61
+first_str * second_str
+
+# ╔═╡ c08f0e14-2d6d-4624-9887-df3541cc2103
+md"""The `^` operator also works on strings; it performs repetition. For example, `"Spam"^3` is `"SpamSpamSpam"`. If one of the values is a string, the other has to be an integer.
+
+This use of `*` and `^` makes sense by analogy with multiplication and exponentiation. Just as ``4^3`` is equivalent to ``4\cdot4\cdot4``, we expect `"Spam"^3` to be the same as `"Spam"*"Spam"*"Spam"`, and it is.
 """
 
 # ╔═╡ 0579eaa0-64e0-11eb-3fba-211e3857675f
@@ -417,6 +452,9 @@ A section of code that represents a command or action. So far, the statements we
 *execute*:
 To run a statement and do what it says.
 
+*compound statement*:
+A statement grouping multiple statements. Its result is the last statement executed.
+
 *interactive mode*:
 A way of using the Julia REPL by typing code at the prompt.
 
@@ -476,16 +514,39 @@ Practice using the Julia REPL as a calculator:
 # ╟─62f36be0-64cf-11eb-0b86-9d4b55165cbf
 # ╟─46a00ea0-64cd-11eb-3e3f-b7cfa00d69ce
 # ╟─63956320-64cd-11eb-30d5-b1f23c40108f
+# ╠═bb9a2fc7-1de9-40ec-b1a4-555188f1c0f0
+# ╠═6518eab5-971f-4598-999f-b832597fd233
+# ╠═ad15ca54-8fd9-4acb-8a06-cb7dfc86c77a
+# ╟─7a3f5809-5a58-4280-93ef-83366bd893d5
 # ╟─58ba9f20-64d1-11eb-30e7-71ec2290f593
 # ╟─7f908a10-64d6-11eb-1629-9179dc49bad7
 # ╟─5cb86662-64e1-11eb-0c04-41643ac1fc94
 # ╟─60d71100-64ce-11eb-2a71-dd40eded5474
+# ╠═346735bc-ca51-41eb-8a8e-61e5f60bda3c
+# ╠═90f03d4b-7ce4-429e-85f0-f829f24021aa
+# ╠═0f1d1e0f-8d38-4686-bffa-16c34be69c63
+# ╟─9ad6716c-9775-4483-ae98-ca6bf690e55e
 # ╟─14697060-64d8-11eb-105d-d39759df9d42
+# ╠═fcfe4f69-6b65-4834-aebf-1b7859e5ca7c
+# ╠═3859fc50-4eba-4a09-9327-9c3497c6d543
+# ╠═1c0664a1-1f8e-4e71-8501-f465ef0dfb35
+# ╟─28b6582c-02e6-458c-b2bc-33a0fe3243b5
+# ╠═40eceb9a-efbb-462b-95cd-0ad626002cb1
+# ╠═d967dc30-f1a0-4ea9-8aae-83cb28790057
+# ╟─5d288a22-10ed-4661-9b39-b579679fa581
+# ╠═6071a653-8776-4600-af10-40516dd3d4d8
+# ╟─3c0d30cd-a56e-44d4-8389-fd2deb1e907d
+# ╠═d5949df7-0d18-4ad3-b8bb-34970aeb0863
 # ╟─567fc950-64dc-11eb-22e2-df958738bfff
+# ╟─4ed959f8-3202-4a4d-9af9-19985032d739
 # ╟─ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 # ╟─9f56ada0-64dd-11eb-2689-89413775adb1
 # ╟─c95baab0-64dd-11eb-00c7-af9957ec1614
-# ╟─d619bb60-64de-11eb-3d7b-572676f08d00
+# ╠═d619bb60-64de-11eb-3d7b-572676f08d00
+# ╠═bb26a1de-fd67-4823-8c78-1a640be4b363
+# ╠═8f0d0c96-0466-4ad5-954b-da25dee96737
+# ╠═ee43eb83-ab63-4db2-9935-42fe30f95b61
+# ╟─c08f0e14-2d6d-4624-9887-df3541cc2103
 # ╟─0579eaa0-64e0-11eb-3fba-211e3857675f
 # ╟─68695430-64df-11eb-2c75-bd24a518cceb
 # ╟─e11055b0-64e3-11eb-2bdd-6702d0a3fe84
