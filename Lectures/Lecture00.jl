@@ -73,24 +73,44 @@ Exam: final evaluation of project (individual)"""
 md"""## Julia
 
 * Install Julia on CDN laptop
-* Install Notepad++ on CDN laptop with the [Julia plugin](https://github.com/JuliaEditorSupport/julia-NotepadPlusPlus)
-* Start Julia REPL and install Pluto:
-
+* Save following code to a file `start.jl` in the `Downloads` folder:
 ```julia
-julia> using Pkg
+const downloadfolder = joinpath(homedir(),"Documents")
+!ispath(downloadfolder) ? mkdir(downloadfolder) : nothing
+cd(downloadfolder)
 
-julia> pkg"add Pluto"
+using Pkg
+const deps = [pair.second for pair in Pkg.dependencies()]
+const direct_deps = filter(p -> p.is_direct_dep, deps)
+const pkgs = [x.name for x in direct_deps]
+if "Git" ∉ pkgs
+    @info "Installing Git tools for Julia $(VERSION)..."
+    Pkg.add("Git")
+end
+
+@info "Downloading course material into $(downloadfolder)"
+using Git
+try
+    run(`$(git()) clone https://github.com/BenLauwens/ES123.git`)
+    @info "Download complete"
+catch err
+    @warn "Something went wrong, check one of the following:\n  - .gitignore file location\n  - destination folder already is a git repository"
+    @info err
+end
 ```
-
-* Start Pluto:
-
-```julia
-julia> using Pluto
-
-julia> Pluto.run()
+* Start Julia and enter following command in the REPL:
 ```
+julia> include(joinpath(homedir(),"Downloads","install.jl"))
+```
+"""
 
-* Open [https://localhost:1234]()
+# ╔═╡ 12ec8511-9c21-4509-8ba8-b3141f7d5705
+md"""## Pluto Notebook interface
+
+The browser based interface can be started from the Julia REPL with the following command:
+```
+julia> include(joinpath(homedir(),"Documents","ES123.jl","setup","start.jl"))
+```
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -117,5 +137,6 @@ project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
 # ╟─325b6010-64a6-11eb-06bb-dd521b29756f
+# ╟─12ec8511-9c21-4509-8ba8-b3141f7d5705
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
