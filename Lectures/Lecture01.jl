@@ -180,6 +180,11 @@ md"""
     ```python
     >>> print('Hello, World!')
     ```
+
+	MATLAB has also a REPL:
+    ```matlab
+    >> disp('Hello, world!')
+    ```
 """
 
 # ╔═╡ 5a40a0b0-64c2-11eb-00e4-6fb54d1a31bb
@@ -271,6 +276,19 @@ md"""
     <class 'float'>
     >>> type('Hello, World!')
     <class 'str'>
+    ```
+
+    and so has MATLAB:
+    ```matlab
+    >> class(2)
+    ans =
+        'double'
+    >> class(42)
+    ans =
+        'double'
+    >> class('Hello, World!')
+    ans =
+        'char'
     ```
 """
 
@@ -423,6 +441,22 @@ Start the Julia REPL and use it as a calculator.
 3. If you run a 10-kilometer race in 37 minutes 48 seconds, what is your average pace (time per mile in minutes and seconds)? What is your average speed in miles per hour?
 """
 
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.8.2"
+manifest_format = "2.0"
+project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+
+[deps]
+"""
+
 # ╔═╡ Cell order:
 # ╟─b40446e0-64a6-11eb-3652-85fdb1612e5e
 # ╟─6b1e8390-64a7-11eb-2249-adcf7f79fc61
@@ -455,3 +489,5 @@ Start the Julia REPL and use it as a calculator.
 # ╟─a7270080-64c8-11eb-175a-192fbae1322b
 # ╟─ce5393c0-64c9-11eb-25ec-c55227798aa8
 # ╟─6472f940-64ca-11eb-0492-0953cf692c54
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002

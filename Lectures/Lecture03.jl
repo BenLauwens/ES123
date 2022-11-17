@@ -26,90 +26,93 @@ In the context of programming, a *function* is a named sequence of statements th
 # ╔═╡ d0c2a30c-6803-11eb-3c6d-69265f8e8e8a
 md"""## Function Calls
 
-We have already seen one example of a function call:
+We have already seen one example of a function call: 
+"""
 
-```julia
-julia> println("Hello, World!")
-Hello, World!
-```
+# ╔═╡ 1800c6a4-ff70-4499-86e1-07d5ff495bfd
+println("Hello, World!")
 
-The name of the function is `println`. The expression in parentheses is called the *argument* of the function.
+# ╔═╡ dc752538-43f1-44fb-b526-16475e2a03cb
+md"""The name of the function is `println`. The expression in parentheses is called the *argument* of the function.
 
 It is common to say that a function “takes” an argument and “returns” a result. The result is also called the *return value*.
 
 Julia provides functions that convert values from one type to another. The `parse` function takes a string and converts it to any number type, if it can, or complains otherwise:
-
-```julia
-julia> parse(Int64, "32")
-32
-julia> parse(Float64, "3.14159")
-3.14159
-julia> parse(Int64, "Hello")
-ERROR: ArgumentError: invalid base 10 digit 'H' in "Hello"
-```
-
-`trunc` can convert floating-point values to integers, but it doesn’t round off; it chops off the fraction part:
-
-```julia
-julia> trunc(Int64, 3.99999)
-3
-julia> trunc(Int64, -2.3) 
--2
-```
-
-`float` converts integers to floating-point numbers: 
-
-```julia
-julia> float(32)
-32.0
-```
-
-Finally, `string` converts its argument to a string:
-
-```julia
-julia> string(32) 
-"32"
-julia> string(3.14159) 
-"3.14159"
-```
 """
+
+# ╔═╡ 43bac4c4-653d-4fdc-ad79-8ee2c2584c95
+parse(Int64, "32")
+
+# ╔═╡ 18a74656-33a9-41d7-b0b6-ab48f37b9202
+parse(Float64, "3.14159")
+
+# ╔═╡ 465f1d71-4f8d-4cce-97a9-25c697187da1
+parse(Int64, "Hello")
+
+# ╔═╡ 8cd91165-8538-4734-b7fd-eac9f04ab3e3
+md"""`trunc` can convert floating-point values to integers, but it doesn’t round off; it chops off the fraction part:
+"""
+
+# ╔═╡ 27a9597d-06c4-46b2-afa3-7882b2997aaa
+trunc(Int64, 3.99999)
+
+# ╔═╡ db0cc555-31a4-4e7a-9e56-847a430c6919
+trunc(Int64, -2.3) 
+
+# ╔═╡ 12871031-7c0a-46d2-9e99-c1caf0986380
+md"""`float` converts integers to floating-point numbers: 
+"""
+
+# ╔═╡ a38b1abd-74bd-40bc-8897-2455b4777db5
+float(32)
+
+# ╔═╡ 6fe51f2f-65b2-44d3-ab33-75ee093ab139
+md"""Finally, `string` converts its argument to a string:
+"""
+
+# ╔═╡ 6ac117cc-c47f-46a8-8e67-99bdb794949e
+string(32) 
+
+# ╔═╡ 46f32313-f91d-4216-aca0-a9bec58561f0
+string(3.14159) 
 
 # ╔═╡ 5c7adb76-6804-11eb-3e57-4f0e9ff68b17
 md"""## Math Functions
 
 In Julia, most of the familiar mathematical functions are directly available. The following example uses `log10` to compute a signal-to-noise ratio in decibels (assuming that `signal_power` and `noise_power` are defined). `log`, which computes natural logarithms, is also provided:
+"""
 
-```julia
-ratio = signal_power / noise_power
-decibels = 10 * log10(ratio)
-```
+# ╔═╡ d6df8701-9e75-408c-a3ce-521c63c1efae
+md"""This next example finds the sine of radians. The name of the variable is a hint that `sin` and the other trigonometric functions (`cos`, `tan`, etc.) take arguments in radians:
+"""
 
-This next example finds the sine of radians. The name of the variable is a hint that `sin` and the other trigonometric functions (`cos`, `tan`, etc.) take arguments in radians:
+# ╔═╡ 64d1a56b-5271-4f67-9c7d-ae61988b33c8
+begin
+	radians = π / 4
+	height = sin(radians)
+end
 
-```julia
-radians = 0.7
-height = sin(radians)
-```
+# ╔═╡ a3491cdf-7a67-45c6-9809-b7aaae3abe3f
+md"""The value of the variable `π `is a floating-point approximation of π, accurate to about 16 digits.
 
 To convert from degrees to radians, divide by 180 and multiply by π:
+"""
 
-```julia
-julia> degrees = 45
-45
-julia> radians = degrees / 180 * π 
-0.7853981633974483
-julia> sin(radians) 
-0.7071067811865475
-```
+# ╔═╡ b534c2d9-5eaf-4a4e-967a-f30ca67daffc
+degrees = 45
 
-The value of the variable `π `is a floating-point approximation of π, accurate to about 16 digits.
+# ╔═╡ ac35a41e-e7c2-4d7c-8263-897d46ea96f9
+md"""A new compound statement is used in this example. Due to the mechanism how the reactivity of the notebook is implemented, a variable can be assigned in only one cell. Variables created in a `let` block have always a new location and are local to the block. The `radians` variable of the `let` block is a new variable and we don't have colliding definitions for the `radians` variable defined in the `begin` block. Variables defined outside the `let` block are still accessible inside.
 
 If you know trigonometry, you can check the previous result by comparing it to the square root of 2 divided by 2:
+"""
 
-```julia
-julia> sqrt(2) / 2 
-0.7071067811865476
-```
+# ╔═╡ 20b00dd0-3644-4fbd-bcbd-b565523b0506
+sqrt(2) / 2 
+
+# ╔═╡ 46a2dff3-660c-4838-91d8-51f0b02060bf
+md"""!!! tip
+    A `let` block should be your first choice when using a compound statement. A `begin` block can be used when variables are assigned that have to be accessible from outside the block.
 """
 
 # ╔═╡ 14d4c81c-6805-11eb-330e-b31bc35b924e
@@ -118,40 +121,57 @@ md"""## Composition
 So far, we have looked at the elements of a program—variables, expressions, and statements—in isolation, without talking about how to combine them.
 
 One of the most useful features of programming languages is their ability to take small building blocks and *compose* them. For example, the argument of a function can be any kind of expression, including arithmetic operators:
-
-```julia
-x = sin(degrees/360*2*π)
-```
-
-and even function calls:
-
-```julia
-x = exp(log(x+1))
-```
-
-Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. We’ll see exceptions to this later, but as a general rule any other expression on the left side is a syntax error:
-
-```julia
-julia> minutes = hours * 60 # right
-120
-julia> hours * 60 = minutes # wrong!
-ERROR: syntax: "60" is not a valid function argument name
-```
 """
+
+# ╔═╡ 9d4c81b8-4306-4467-a4ae-b9cd6cae01db
+md"""and even function calls:
+"""
+
+# ╔═╡ b5ca010d-48f3-4e55-a753-97b47dc60f39
+md"""Almost anywhere you can put a value, you can put an arbitrary expression, with one exception: the left side of an assignment statement has to be a variable name. We’ll see exceptions to this later, but as a general rule any other expression on the left side is a syntax error:
+"""
+
+# ╔═╡ ed0dd3d4-3364-4e57-80dd-e0c0facc71f6
+begin
+	hours = 2
+	minutes = hours * 60 # right
+	hours * 60 = minutes # wrong!
+end
+
+# ╔═╡ 528153af-ec22-4068-b2b2-e920c059fe6c
+begin
+	signal_power = 0.1e-15 # 0.1 fWatt
+	noise_power = 4e-15 # 4 fWatt
+	ratio = signal_power / noise_power
+	decibels = 10 * log10(ratio)
+end
+
+# ╔═╡ acb13fae-d14d-4c08-9916-6f3ac51cd945
+let
+	radians = degrees / 180 * π 
+	sin(radians) 
+end
+
+# ╔═╡ d81ea2b9-5528-4e22-b747-a400cf84ddf2
+x = sin(degrees / 360 * 2π)
+
+# ╔═╡ 044ae05e-2396-459d-8740-ea928620cc97
+exp(log(x+1))
 
 # ╔═╡ 844c788e-6805-11eb-0387-6bf667e2ba6d
 md"""## Adding New Functions
 
 So far, we have only been using the functions that come with Julia, but it is also possible to add new functions. A *function definition* specifies the name of a new function and the sequence of statements that run when the function is called. Here is an example:
+"""
 
-```julia
+# ╔═╡ bff25d47-cbd0-45dd-b83e-fdb21de50235
 function printlyrics()
 	println("I'm a lumberjack, and I'm okay.") 
 	println("I sleep all night and I work all day.")
 end
-```
 
-`function` is a keyword that indicates that this is a function definition. The name of the function is `printlyrics`. The rules for function names are the same as for varable names: they can contain almost all Unicode characters (see “Characters”), but the first character can’t be a number. You can’t use a keyword as the name of a function, and you should avoid having a variable and a function with the same name.
+# ╔═╡ 7f296c1b-12c5-4916-b17e-9fb888f0c953
+md"""`function` is a keyword that indicates that this is a function definition. The name of the function is `printlyrics`. The rules for function names are the same as for varable names: they can contain almost all Unicode characters (see “Characters”), but the first character can’t be a number. You can’t use a keyword as the name of a function, and you should avoid having a variable and a function with the same name.
 The empty parentheses after the name indicate that this function doesn’t take any arguments.
 
 The first line of the function definition is called the *header*; the rest is called the *body*. The body is terminated with the keyword `end`, and it can contain any number of statements. For readability the body of the function should be indented.
@@ -168,33 +188,30 @@ println("I'm a lumberjack, and I'm okay.")
 To end the function, you have to enter `end`.
 
 The syntax for calling the new function is the same as for built-in functions:
+"""
 
-```julia
-julia> printlyrics()
-I'm a lumberjack, and I'm okay.
-I sleep all night and I work all day.
-```
+# ╔═╡ 0e7392d0-bcbb-4e22-9bd4-d989bafa316e
+printlyrics()
 
-Once you have defined a function, you can use it inside another function. For exam‐ ple, to repeat the previous refrain, we could write a function called `repeatlyrics`:
+# ╔═╡ ba4cd1eb-c2d4-4d98-a66f-c53d30cb66a8
+md"""Once you have defined a function, you can use it inside another function. For example, to repeat the previous refrain, we could write a function called `repeatlyrics`:
+"""
 
-```julia
+# ╔═╡ d8b2cf61-32f8-4191-8e4d-beb51b1ce7e4
 function repeatlyrics() 
 	printlyrics()
 	printlyrics() 
 end
-```
 
-And then call `repeatlyrics`:
+# ╔═╡ 497a72bb-9c99-4deb-a714-87deaf37fd50
+md"""And then call `repeatlyrics`:
+"""
 
-```julia
-julia> repeatlyrics()
-I'm a lumberjack, and I'm okay.
-I sleep all night and I work all day. 
-I'm a lumberjack, and I'm okay.
-I sleep all night and I work all day.
-```
+# ╔═╡ 549b213e-45e5-45e3-bb16-5f5c19be48f5
+repeatlyrics()
 
-But that’s not really how the song goes.
+# ╔═╡ c5161f26-7a40-4cb2-92dd-85ee87cbdb5c
+md"""But that’s not really how the song goes.
 """
 
 # ╔═╡ 5edc214e-68cb-11eb-23a6-2bbae196847e
@@ -221,6 +238,17 @@ md"""
     ```
 
     The keyword `void` indicates that this function does not return a value. The body of the function is enclosed between brackets.
+
+    MATLAB requires that the function is defined in a file having as name the function name and extension `.m`:
+
+    ```matlab
+    function printlyrics()
+        disp("I'm a lumberjack, and I'm okay.")
+        disp("I sleep all night and I work all day.")
+    end
+    ```
+
+    The syntax is very familiar if you know Julia.
 """
 
 # ╔═╡ 8eb04e9c-6806-11eb-2191-6f9a8bd5d57a
@@ -279,66 +307,74 @@ md"""## Parameters and Arguments
 Some of the functions we have seen require arguments. For example, when you call `sin` you pass a number as an argument. Some functions take more than one argument: `parse` takes two, a number type and a string.
 
 Inside the function, the arguments are assigned to variables called *parameters*. Here is a definition for a function that takes an argument:
+"""
 
-```julia
+# ╔═╡ 2d882d96-f751-40d6-963c-1ad4f0b1af35
 function printtwice(bruce) 
 	println(bruce)
 	println(bruce) 
 end
-```
 
-This function assigns the argument to a parameter named `bruce`. When the function is called, it prints the value of the parameter (whatever it is) twice.
+# ╔═╡ 81f9ccbc-6143-47f3-abd6-645047a098da
+md"""This function assigns the argument to a parameter named `bruce`. When the function is called, it prints the value of the parameter (whatever it is) twice.
 
 This function works with any value that can be printed:
+"""
 
-```julia
-julia> printtwice("Spam") 
-Spam
-Spam
-julia> printtwice(42)
-42
-42
-julia> printtwice(π) 
-π
-π
-```
+# ╔═╡ 6f198f09-29ba-45fa-ae31-3020443e5a6f
+printtwice("Spam") 
 
-The same rules of composition that apply to built-in functions also apply to programmer-defined functions, so we can use any kind of expression as an argument for `printtwice`:
+# ╔═╡ efd471aa-cdfa-456a-8b05-114dd6806793
+printtwice(42)
 
-```julia
-julia> printtwice("Spam "^4) 
-Spam Spam Spam Spam
-Spam Spam Spam Spam
-julia> printtwice(cos(π)) 
--1.0
--1.0
-```
+# ╔═╡ 797e01dd-f6b8-4351-b18b-048e9034e45d
+printtwice(π)
 
-The argument is evaluated before the function is called, so in these examples the expressions `"Spam "^4` and `cos(π)` are only evaluated once.
+# ╔═╡ 68773bb1-7357-45e2-90f9-a4f1c2d97e4e
+md"""The same rules of composition that apply to built-in functions also apply to programmer-defined functions, so we can use any kind of expression as an argument for `printtwice`:
+"""
+
+# ╔═╡ 818f33df-e7dd-4109-814b-963f91fe30a4
+printtwice("Spam "^4) 
+
+# ╔═╡ add7e8f0-7680-4794-9659-23fb8b54029e
+printtwice(cos(π)) 
+
+# ╔═╡ c9f63a60-6ed7-4bdd-80f2-774bce24c293
+md"""The argument is evaluated before the function is called, so in these examples the expressions `"Spam "^4` and `cos(π)` are only evaluated once.
 
 You can also use a variable as an argument:
+"""
 
-```julia
-julia> michael = "Eric, the half a bee." 
-"Eric, the half a bee."
-julia> printtwice(michael)
-Eric, the half a bee.
-Eric, the half a bee.
-```
+# ╔═╡ f0e5109a-600e-4935-a62a-04b8b3b0161c
+michael = "Eric, the half a bee."
 
-The name of the variable we pass as an argument (michael) has nothing to do with the name of the parameter (`bruce`). It doesn’t matter what the value was called back home (in the caller); here in `printtwice`, we call everybody `bruce`.
+# ╔═╡ 2b71c511-4013-47af-ae78-aaaecaa15bc6
+printtwice(michael)
+
+# ╔═╡ 047aa249-7b80-491b-912e-a470331428a1
+md"""The name of the variable we pass as an argument (michael) has nothing to do with the name of the parameter (`bruce`). It doesn’t matter what the value was called back home (in the caller); here in `printtwice`, we call everybody `bruce`.
 """
 
 # ╔═╡ 05da4942-68ce-11eb-3634-4f77c713ba1e
 md"""
 !!! languages
-    In Python the arguments of a function are also specified after the function name:
+    In Python the arguments of a function are specified after the function name:
     
     ```python
     >>> def printtwice(bruce):
     ...     print(bruce)
     ...     print(bruce)
     ...
+    ```
+
+    and this is also the case for MATLAB:
+
+    ```matlab
+    function printtwice(bruce)
+        disp(bruce)
+        disp(bruce)
+    end
     ```
     
     The type of arguments has to be specified in C:
@@ -357,34 +393,39 @@ md"""
 md"""## Variables and Parameters Are Local
 
 When you create a variable inside a function, it is local, which means that it only exists inside the function. For example:
+"""
 
-```julia
+# ╔═╡ 9ab6f64d-0621-4af0-9321-4f9401d190a2
 function cattwice(part1, part2) 
 	concat = part1 * part2 
 	printtwice(concat)
 end
-```
 
-This function takes two arguments, concatenates them, and prints the result twice. Here is an example that uses it:
+# ╔═╡ ca8dc216-acc4-4e5b-b262-e71153b5fc9d
+md"""This function takes two arguments, concatenates them, and prints the result twice. Here is an example that uses it:
+"""
 
-```julia
-julia> line1 = "Bing tiddle " 
-"Bing tiddle "
-julia> line2 = "tiddle bang." 
-"tiddle bang."
-julia> cattwice(line1, line2) 
-Bing tiddle tiddle bang. 
-Bing tiddle tiddle bang.
-```
+# ╔═╡ cc4e568a-19fe-4355-884b-20b17b0ca0ba
+begin
+	line1 = "Bing tiddle "
+	line2 = "tiddle bang."
+	cattwice(line1, line2)
+end
 
-When `cattwice` terminates, the variable `concat` is destroyed. If we try to print it, we get an exception:
+# ╔═╡ b1aa718a-75b3-40c0-918e-f7d28c6299d5
+md"""When `cattwice` terminates, the variable `concat` is destroyed. If we try to print it, we get an exception:
+"""
 
-```julia
-julia> println(concat)
-ERROR: UndefVarError: concat not defined
-```
+# ╔═╡ baa2b86c-e0ad-4392-9f77-7ef4a6702eb2
+println(concat)
 
-Parameters are also local. For example, outside `printtwice`, there is no such thing as `bruce`.
+# ╔═╡ 25468639-8a32-431b-a5c0-043f894c1a03
+md"""Parameters are also local. For example, outside `printtwice`, there is no such thing as `bruce`.
+"""
+
+# ╔═╡ 23dd6e64-ee48-4604-b978-935e0b7b9a77
+md"""!!! remark
+    You can consider a `let` block as a function body that is executed immediately after its definition.
 """
 
 # ╔═╡ b0a0c234-6808-11eb-062f-b5be2390f714
@@ -405,7 +446,7 @@ Drawing(width=720, height=220) do
 		str("line1") 
 	end
 	text(x=290, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"Bing tiddle \"") 
@@ -414,7 +455,7 @@ Drawing(width=720, height=220) do
 		str("line2") 
 	end
 	text(x=290, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"tiddle bang\"") 
@@ -427,7 +468,7 @@ Drawing(width=720, height=220) do
 		str("part1") 
 	end
 	text(x=290, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"Bing tiddle \"") 
@@ -436,7 +477,7 @@ Drawing(width=720, height=220) do
 		str("part2") 
 	end
 	text(x=290, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"tiddle bang\"") 
@@ -445,7 +486,7 @@ Drawing(width=720, height=220) do
 		str("concat") 
 	end
 	text(x=290, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"Bing tiddle tiddle bang\"") 
@@ -458,7 +499,7 @@ Drawing(width=720, height=220) do
 		str("bruce") 
 	end
 	text(x=290, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("->") 
+		str("→") 
 	end
 	text(x=320, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"Bing tiddle tiddle bang\"") 
@@ -477,16 +518,27 @@ Each parameter refers to the same value as its corresponding argument. So, `part
 
 If an error occurs during a function call, Julia prints the name of the function, the name of the function that called it, and the name of the function that called that, all the way back to `Main`.
 
-For example, if you try to access `concat` from within `printtwice`, you get an `UndefVarError`:
+For example, if you try to access `concat` from within `printtwice_err`, you get an `UndefVarError`:
+"""
 
-```julia
-ERROR: UndefVarError: concat not defined
-Stacktrace:
-[1] printtwice at ./REPL[1]:2 [inlined]
-[2] cattwice(::String, ::String) at ./REPL[2]:3
-```
+# ╔═╡ 400680b0-6162-4812-8a2d-c82e757a51a0
+function printtwice_err(bruce) 
+	println(bruce)
+	concat
+	println(bruce) 
+end
 
-This list of functions is called a *stacktrace*. It tells you what program file the error occurred in, and what line, and what functions were executing at the time. It also shows the line of code that caused the error.
+# ╔═╡ 645d2eaf-17f1-4f95-8d1e-ec1d4e971727
+function cattwice_err(part1, part2) 
+	concat = part1 * part2 
+	printtwice_err(concat)
+end
+
+# ╔═╡ d3580f24-4879-4e06-8b91-cd30e7cb60b6
+cattwice_err(line1, line2)
+
+# ╔═╡ b2f0648f-425e-4ec7-a542-62fdca047cc7
+md"""This list of functions is called a *stacktrace*. It tells you what program file the error occurred in, and what line, and what functions were executing at the time. It also shows the line of code that caused the error.
 
 The order of the functions in the stacktrace is the inverse of the order of the frames in the stack diagram. The function that is currently running is at the top.
 """
@@ -497,48 +549,54 @@ md"""## Fruitful Functions and Void Functions
 Some of the functions we have used, such as the math functions, return results; for lack of a better name, I call them *fruitful functions*. Other functions, like `printtwice`, perform an action but don’t return a value. They are called *void functions*.
 
 When you call a fruitful function, you almost always want to do something with the result. For example, you might assign it to a variable or use it as part of an expression:
+"""
 
-```julia
-x = cos(radians)
+# ╔═╡ 72f3b853-5015-49af-9ec0-39b0abd2f2de
+y = cos(radians)
+
+# ╔═╡ e68df0ff-53b3-4965-ab09-9579c385e717
 golden = (sqrt(5) + 1) / 2
-```
 
-When you call a function in interactive mode, Julia displays the result:
+# ╔═╡ b049e781-b903-41b0-ad0a-971704ea5709
+md"""When you call a function in interactive mode, Julia displays the result:
+"""
 
-```julia
-julia> sqrt(5) 
-2.23606797749979
-```
-
-But in a script, if you call a fruitful function all by itself, the return value is lost forever!
-
-```julia
+# ╔═╡ 754f2403-ccbc-44dd-89d7-75548fbfd9ca
 sqrt(5)
-```
 
-This script computes the square root of 5, but since it doesn’t store or display the
-result, it is not very useful.
+# ╔═╡ 7196b12d-b64d-47a7-ae71-b77bd5f8b8ad
+md"""But in a script or in compound statement, if you call a fruitful function all by itself, the return value is lost forever!
+"""
 
-Void functions might display something on the screen or have some other effect, but they don’t have a return value. If you assign the result to a variable, you get a special value called nothing:
+# ╔═╡ d4787e1f-24f9-4ba0-b309-c0ca1f16c4c0
+begin
+	sqrt(5)
+	sqrt(9)
+end
 
-```julia
-julia> result = printtwice("Bing") 
-Bing
-Bing
-julia> show(result)
-nothing
-```
+# ╔═╡ d1e3f107-bd3a-4a87-848e-1ab5b410f6af
+md"""This `begin` block computes the square root of 5, but since it doesn’t store or display the result, it is not very useful. The square root of 9 however is the result of the compound statement, its last executed statement, and as such will be displayed. 
 
-To print the value `nothing`, you have to use the function `show`, which is like `print` but can handle this special value.
+Void functions might display something on the screen or have some other effect, but they don’t have a return value. If you assign the result to a variable, you get a special value called `nothing`:
+"""
+
+# ╔═╡ ec761da6-35af-406c-9917-8e7f111a5325
+result = printtwice("Bing")
+
+# ╔═╡ 5ab48a64-8dbb-4502-bd8b-707dcd7482ce
+show(result)
+
+# ╔═╡ ae78dea0-e602-4a29-831d-577f14737af2
+md"""To print the value `nothing`, you have to use the function `show`, which is like `print` but can handle this special value.
 
 The value `nothing` is not the same as the string `"nothing"`. It is a special value that has its own type:
+"""
 
-```julia
-julia> typeof(nothing) 
-Nothing
-```
+# ╔═╡ 975a07b0-0034-4ed4-be80-12fd6a577e92
+typeof(nothing) 
 
-The functions we have written so far are all void. We will start writing fruitful functions in a few chapters.
+# ╔═╡ f89fd1a4-6867-4e2c-b6b7-ad7306e420b0
+md"""The functions we have written so far are all void. We will start writing fruitful functions in a few chapters.
 """
 
 # ╔═╡ fe683d58-68d5-11eb-22c6-8d59946b6043
@@ -588,6 +646,9 @@ The result of a function. If a function call is used as an expression, the retur
 
 *composition*:
 Using an expression as part of a larger expression, or a statement as part of a larger statement.
+
+*`let` block*:
+A compound statement always creating a new location for variables created in the block. Often used in a notebook cell to avoid definition collisions.
 
 *function definition*:
 A statement that creates a new function, specifying its name, parameters, and the statements it contains.
@@ -723,21 +784,91 @@ md"""#### Exercise 3-4
 # ╟─83a971d0-6806-11eb-3d06-d585d1137246
 # ╟─6b429bb8-6803-11eb-0653-1538c7fdbe03
 # ╟─d0c2a30c-6803-11eb-3c6d-69265f8e8e8a
+# ╠═1800c6a4-ff70-4499-86e1-07d5ff495bfd
+# ╟─dc752538-43f1-44fb-b526-16475e2a03cb
+# ╠═43bac4c4-653d-4fdc-ad79-8ee2c2584c95
+# ╠═18a74656-33a9-41d7-b0b6-ab48f37b9202
+# ╠═465f1d71-4f8d-4cce-97a9-25c697187da1
+# ╟─8cd91165-8538-4734-b7fd-eac9f04ab3e3
+# ╠═27a9597d-06c4-46b2-afa3-7882b2997aaa
+# ╠═db0cc555-31a4-4e7a-9e56-847a430c6919
+# ╟─12871031-7c0a-46d2-9e99-c1caf0986380
+# ╠═a38b1abd-74bd-40bc-8897-2455b4777db5
+# ╟─6fe51f2f-65b2-44d3-ab33-75ee093ab139
+# ╠═6ac117cc-c47f-46a8-8e67-99bdb794949e
+# ╠═46f32313-f91d-4216-aca0-a9bec58561f0
 # ╟─5c7adb76-6804-11eb-3e57-4f0e9ff68b17
+# ╠═528153af-ec22-4068-b2b2-e920c059fe6c
+# ╟─d6df8701-9e75-408c-a3ce-521c63c1efae
+# ╠═64d1a56b-5271-4f67-9c7d-ae61988b33c8
+# ╟─a3491cdf-7a67-45c6-9809-b7aaae3abe3f
+# ╠═b534c2d9-5eaf-4a4e-967a-f30ca67daffc
+# ╠═acb13fae-d14d-4c08-9916-6f3ac51cd945
+# ╟─ac35a41e-e7c2-4d7c-8263-897d46ea96f9
+# ╠═20b00dd0-3644-4fbd-bcbd-b565523b0506
+# ╟─46a2dff3-660c-4838-91d8-51f0b02060bf
 # ╟─14d4c81c-6805-11eb-330e-b31bc35b924e
+# ╠═d81ea2b9-5528-4e22-b747-a400cf84ddf2
+# ╟─9d4c81b8-4306-4467-a4ae-b9cd6cae01db
+# ╠═044ae05e-2396-459d-8740-ea928620cc97
+# ╟─b5ca010d-48f3-4e55-a753-97b47dc60f39
+# ╠═ed0dd3d4-3364-4e57-80dd-e0c0facc71f6
 # ╟─844c788e-6805-11eb-0387-6bf667e2ba6d
+# ╠═bff25d47-cbd0-45dd-b83e-fdb21de50235
+# ╟─7f296c1b-12c5-4916-b17e-9fb888f0c953
+# ╠═0e7392d0-bcbb-4e22-9bd4-d989bafa316e
+# ╟─ba4cd1eb-c2d4-4d98-a66f-c53d30cb66a8
+# ╠═d8b2cf61-32f8-4191-8e4d-beb51b1ce7e4
+# ╟─497a72bb-9c99-4deb-a714-87deaf37fd50
+# ╠═549b213e-45e5-45e3-bb16-5f5c19be48f5
+# ╟─c5161f26-7a40-4cb2-92dd-85ee87cbdb5c
 # ╟─5edc214e-68cb-11eb-23a6-2bbae196847e
 # ╟─8eb04e9c-6806-11eb-2191-6f9a8bd5d57a
 # ╟─ff341d78-6806-11eb-1cf9-e75f47ca002e
 # ╟─850fbbd0-6807-11eb-382a-5b580659afad
 # ╟─bd2a3eee-6807-11eb-00f9-2dc1666a7ed9
+# ╠═2d882d96-f751-40d6-963c-1ad4f0b1af35
+# ╟─81f9ccbc-6143-47f3-abd6-645047a098da
+# ╠═6f198f09-29ba-45fa-ae31-3020443e5a6f
+# ╠═efd471aa-cdfa-456a-8b05-114dd6806793
+# ╠═797e01dd-f6b8-4351-b18b-048e9034e45d
+# ╟─68773bb1-7357-45e2-90f9-a4f1c2d97e4e
+# ╠═818f33df-e7dd-4109-814b-963f91fe30a4
+# ╠═add7e8f0-7680-4794-9659-23fb8b54029e
+# ╟─c9f63a60-6ed7-4bdd-80f2-774bce24c293
+# ╠═f0e5109a-600e-4935-a62a-04b8b3b0161c
+# ╠═2b71c511-4013-47af-ae78-aaaecaa15bc6
+# ╟─047aa249-7b80-491b-912e-a470331428a1
 # ╟─05da4942-68ce-11eb-3634-4f77c713ba1e
 # ╟─d92f58e6-6808-11eb-1c83-49d4a6a8b4bd
+# ╠═9ab6f64d-0621-4af0-9321-4f9401d190a2
+# ╟─ca8dc216-acc4-4e5b-b262-e71153b5fc9d
+# ╠═cc4e568a-19fe-4355-884b-20b17b0ca0ba
+# ╟─b1aa718a-75b3-40c0-918e-f7d28c6299d5
+# ╠═baa2b86c-e0ad-4392-9f77-7ef4a6702eb2
+# ╟─25468639-8a32-431b-a5c0-043f894c1a03
+# ╟─23dd6e64-ee48-4604-b978-935e0b7b9a77
 # ╟─b0a0c234-6808-11eb-062f-b5be2390f714
 # ╟─94c0413e-68d0-11eb-23c2-31909597a1f8
 # ╟─e8234ee4-68d4-11eb-2ab7-b7427f356d4c
 # ╟─73f6657c-68d1-11eb-1537-8b9791787e36
+# ╠═400680b0-6162-4812-8a2d-c82e757a51a0
+# ╠═645d2eaf-17f1-4f95-8d1e-ec1d4e971727
+# ╠═d3580f24-4879-4e06-8b91-cd30e7cb60b6
+# ╟─b2f0648f-425e-4ec7-a542-62fdca047cc7
 # ╟─a0971d9e-68d4-11eb-0614-0d91989881cd
+# ╠═72f3b853-5015-49af-9ec0-39b0abd2f2de
+# ╠═e68df0ff-53b3-4965-ab09-9579c385e717
+# ╟─b049e781-b903-41b0-ad0a-971704ea5709
+# ╠═754f2403-ccbc-44dd-89d7-75548fbfd9ca
+# ╟─7196b12d-b64d-47a7-ae71-b77bd5f8b8ad
+# ╠═d4787e1f-24f9-4ba0-b309-c0ca1f16c4c0
+# ╟─d1e3f107-bd3a-4a87-848e-1ab5b410f6af
+# ╠═ec761da6-35af-406c-9917-8e7f111a5325
+# ╠═5ab48a64-8dbb-4502-bd8b-707dcd7482ce
+# ╟─ae78dea0-e602-4a29-831d-577f14737af2
+# ╠═975a07b0-0034-4ed4-be80-12fd6a577e92
+# ╟─f89fd1a4-6867-4e2c-b6b7-ad7306e420b0
 # ╟─fe683d58-68d5-11eb-22c6-8d59946b6043
 # ╟─640b2da0-68d6-11eb-1e2d-cdf06b701b35
 # ╟─d1f91354-68d6-11eb-011d-c7dbdb310949

@@ -85,7 +85,7 @@ md"""
 # ╔═╡ 5cb86662-64e1-11eb-0c04-41643ac1fc94
 md"""
 !!! languages
-    Both the C programming language and Python use also the symbol `=` as assignment operator.
+    The C programming language, Python and MATLAB use also the symbol `=` as assignment operator.
 
     In the C Programming Language, you have to specify the type as a *declaration* before the name of the variable:
     ```c
@@ -104,6 +104,19 @@ md"""
     >>> message = 'And now for something completely different'
     >>> n = 17
     >>> pi = 3.141592653589793
+    ```
+
+    MATLAB:
+    ```matlab
+    >> message = 'And now for something completely different'
+    message =
+        'And now for something completely different'
+    >> n = 17
+    n =
+        17
+    >> pi = 3.141592653589793
+    pi = 
+       3.141592653589793
     ```
 """
 
@@ -401,6 +414,12 @@ md"""
     # compute the percentage of the hour that has elapsed
     percentage = (minute * 100) / 60 # percentage of an hour
     ```
+
+    MATLAB starts a comment with the `%` symbol:
+    ```matlab
+    % compute the percentage of the hour that has elapsed
+    percentage = (minute * 100) / 60 % percentage of an hour
+    ```
 """
 
 # ╔═╡ d42b0690-64e5-11eb-16c8-e96f57c5dab8
@@ -454,6 +473,9 @@ To run a statement and do what it says.
 
 *compound statement*:
 A statement grouping multiple statements. Its result is the last statement executed.
+
+*`begin` block*:
+A basic compound statement, mostly used to gather multiple statement together into a notebook cell.
 
 *interactive mode*:
 A way of using the Julia REPL by typing code at the prompt.
