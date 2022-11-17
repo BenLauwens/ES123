@@ -1,4 +1,4 @@
-const downloadfolder = joinpath(homedir(),"Documents","ES123","Lectures")
+const downloadfolder = joinpath(homedir(),"Documents","ES123")
 ispath(downloadfolder) || error("Course is not installed.\nPlease run julia install.jl!")
 cd(downloadfolder)
 

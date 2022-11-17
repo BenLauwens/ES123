@@ -24,9 +24,9 @@ md"""## Programming Algorithms and Project
 # ╔═╡ ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 md"""## Documentation
 
-* All notebooks can be found on github: [https://github.com/BenLauwens/ES123](https://github.com/BenLauwens/ES123)
+* All notebooks can be found on github: [https://github.com/BenLauwens/ES123/Lectures](https://github.com/BenLauwens/ES123/Lectures)
 
-* Complete book is available online: [https://benlauwens.github.io/ThinkJulia.jl/latest/book.html](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)."""
+* Complete book is available online: [https://github.com/BenLauwens/ES123/html](https://github.com/BenLauwens/ES123/html)"""
 
 # ╔═╡ 1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 md"""## Schedule
@@ -98,7 +98,7 @@ catch err
     @info err
 end
 ```
-* Start Julia and enter following command in the REPL:
+* Start Julia and enter following command in the REPL when your laptop is connected to a network without proxy, i.e. not to CDN:
 ```
 julia> include(joinpath(homedir(),"Downloads","install.jl"))
 ```
@@ -109,8 +109,21 @@ md"""## Pluto Notebook interface
 
 The browser based interface can be started from the Julia REPL with the following command:
 ```
-julia> include(joinpath(homedir(),"Documents","ES123.jl","setup","start.jl"))
+julia> include(joinpath(homedir(),"Documents","ES123","setup","start.jl"))
 ```
+!!! tip
+    Please copy the lectures files from `Lectures` to `work` and open the files in the `work` directory. 
+"""
+
+# ╔═╡ 780f0527-14a8-494f-9c08-3819dd06dc50
+md"""## Updating the Lectures
+
+Enter the following command in the Julia REPL when your laptop is connected to a network without proxy to update the lectures:
+```
+julia> include(joinpath(homedir(),"Downloads","update.jl"))
+```
+!!! warning
+    Be warned, all local changes except those in the `work` directory will be deleted!
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -138,5 +151,6 @@ project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
 # ╟─325b6010-64a6-11eb-06bb-dd521b29756f
 # ╟─12ec8511-9c21-4509-8ba8-b3141f7d5705
+# ╟─780f0527-14a8-494f-9c08-3819dd06dc50
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
