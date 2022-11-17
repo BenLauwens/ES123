@@ -424,7 +424,7 @@ md"""Parameters are also local. For example, outside `printtwice`, there is no s
 """
 
 # ╔═╡ 23dd6e64-ee48-4604-b978-935e0b7b9a77
-md"""!!! remark
+md"""!!! tip
     You can consider a `let` block as a function body that is executed immediately after its definition.
 """
 
@@ -541,6 +541,8 @@ cattwice_err(line1, line2)
 md"""This list of functions is called a *stacktrace*. It tells you what program file the error occurred in, and what line, and what functions were executing at the time. It also shows the line of code that caused the error.
 
 The order of the functions in the stacktrace is the inverse of the order of the frames in the stack diagram. The function that is currently running is at the top.
+
+When clicking on error locations specified in a stack trace, the corresponding code is highlighted in the notebook interface.
 """
 
 # ╔═╡ a0971d9e-68d4-11eb-0614-0d91989881cd

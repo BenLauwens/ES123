@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.17.7
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
@@ -7,10 +7,15 @@ using InteractiveUtils
 # ╔═╡ 2ade0260-68da-11eb-3c47-51af562ca746
 begin
     import Pkg
-    Pkg.activate()
-
-    using PlutoUI
-	using NativeSVG
+	io = IOBuffer()
+    Pkg.activate(io = io)
+	deps = [pair.second for pair in Pkg.dependencies()]
+	direct_deps = filter(p -> p.is_direct_dep, deps)
+    pkgs = [x.name for x in direct_deps]
+	if "NativeSVG" ∉ pkgs
+		Pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
+	end
+	import NativeSVG: Drawing, Turtle, forward, turn, penup, pendown
 end
 
 # ╔═╡ 02c52b84-6991-11eb-1dbd-93af9a7ca7f1
@@ -67,8 +72,7 @@ This chapter presents a case study that demonstrates a process for designing fun
 
 It introduces turtle graphics, a way to create programmatic drawings. Turtle graphics are not included in the standard library, so to use them you’ll have to add the `NativeSVG` package to your Julia setup.
 
-
-The examples in this chapter can be executed in a graphical web-based notebook using the `Pluto` package, which combines code, formatted text, math, and multimedia in a single document (see Appendix B).
+The examples in this chapter are best executed in a graphical web-based notebook using the `Pluto` package, which combines code, formatted text, math, and multimedia in a single document.
 """
 
 # ╔═╡ 3dcb939c-68da-11eb-2546-85b34837f29c
@@ -81,7 +85,7 @@ Packages can be installed in the REPL:
 ```julia
 julia> using Pkg
 
-julia> pkg.add("https://github.com/BenLauwens/NativeSVG.jl.git")
+julia> pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
 ```
 
 This can take some time.
@@ -90,19 +94,13 @@ Before we can use the functions in a module, we have to import it with a using s
 
 ```julia
 using NativeSVG
-🐢 = Turtle()
 ```
+
+In the notebook of this chapter these instructions are executed during the startup and can be found in the first cell.
 
 The NativeSVG module provides a function called `Turtle` that creates a turtle object, which we assign to a variable named `🐢` (**`\:turtle: TAB`**).
 
 Once you create a turtle, you can call a function to move it around. For example, to move the turtle forward:
-
-```julia
-forward(🐢, 100)
-Drawing(🐢, 720, 10)
-```
-
-The `Drawing` function creates an SVG picture (Figure 4-1). Its first argument is the turtle object, the second the width of the drawing and the third the height.
 """
 
 # ╔═╡ 319c52f2-68dd-11eb-130c-f3672af50055
@@ -116,7 +114,9 @@ end
 md"*Figure 4-1. Moving the turtle forward.*"
 
 # ╔═╡ 09d4cbb2-68df-11eb-2eec-bbe39ef9880d
-md"""The arguments of `forward` are the turtle and a distance in pixels, so the actual size of the line that’s drawn depends on your display.
+md"""The `Drawing` function creates an SVG picture (Figure 4-1). Its first argument is the turtle object, the second the width of the drawing and the third the height.
+
+The arguments of `forward` are the turtle and a distance in pixels, so the actual size of the line that’s drawn depends on your display.
 
 !!! info
     Each turtle is holding a pen, which is either down or up; if the pen is down (the default), the turtle leaves a trail when it moves. Figure 4-1 shows the trail left behind by the turtle. To move the turtle without drawing a line, first call the function `penup`. To start drawing again, call `pendown`.
@@ -124,8 +124,9 @@ md"""The arguments of `forward` are the turtle and a distance in pixels, so the 
 Another function you can call with a turtle as an argument is `turn` for turning. The second argument for turn is an angle in degrees.
 
 To draw a right angle:
+"""
 
-```julia
+# ╔═╡ 8c935a48-5d7a-4620-a13f-15b520b98608
 let
 	🐢 = Turtle()
 	forward(🐢, 100)
@@ -133,10 +134,6 @@ let
 	forward(🐢, 100)
 	Drawing(🐢, 720, 210)
 end
-```
-
-The keyword `let` is used to group and isolate the statements. The result of the last statement in the let block is visualized in a Pluto notebook.
-"""
 
 # ╔═╡ c64b81dc-68df-11eb-1086-d57b61651791
 md"""#### Exercise 4-1
@@ -148,8 +145,9 @@ Now modify the macro to draw a square. Don’t go on until you’ve got it worki
 md"""## Simple Repetition
 
 Chances are you wrote something like this:
+"""
 
-```julia
+# ╔═╡ 142af96b-ee0d-4723-b4e9-b5aac9b4f8f1
 let 
 	🐢 = Turtle()
 	forward(🐢, 100)
@@ -161,27 +159,24 @@ let
 	forward(🐢, 100)
 	Drawing(🐢, 720, 210)
 end
-```
 
-We can do the same thing more concisely with a `for` statement:
+# ╔═╡ e6fe5f35-901b-4058-85d3-1009c7127f94
+md"""We can do the same thing more concisely with a `for` statement:
+"""
 
-```julia
-julia> for i in 1:4
-           println("Hello!")
-       end
-Hello!
-Hello!
-Hello!
-Hello!
-```
+# ╔═╡ 1c3b3ba5-9013-46fe-8342-894979c9a7ab
+for i in 1:4
+	println("Hello!")
+end
 
-This is the simplest use of the `for` statement; we will see more later. But that should be enough to let you rewrite your square-drawing program. Don’t go on until you do.
+# ╔═╡ 53747809-9b77-4f80-8cdf-657c30a9616f
+md"""This is the simplest use of the `for` statement; we will see more later. But that should be enough to let you rewrite your square-drawing program. Don’t go on until you do.
 
 
 Here is a `for` statement that draws a square:
+"""
 
-
-```julia
+# ╔═╡ 85c81806-4e81-46c8-aff7-ef7174a1cfe3
 let
 	🐢 = Turtle()
 	for i in 1:4 
@@ -190,13 +185,11 @@ let
 	end
 	Drawing(🐢, 720, 210)
 end
-```
 
-The syntax of a `for` statement is similar to a function definition. It has a header and a body that ends with the keyword `end`. The body can contain any number of state‐ ments.
-
+# ╔═╡ 984498ad-9b55-4d71-82b4-ff2ef6d7c5ec
+md"""The syntax of a `for` statement is similar to a function definition. It has a header and a body that ends with the keyword `end`. The body can contain any number of state‐ ments.
 
 A `for` statement is also called a *loop* because the flow of execution runs through the body and then loops back to the top. In this case, it runs the body four times.
-
 
 This version is actually a little different from the previous square-drawing code because it makes another turn after drawing the last side of the square. The extra turn takes more time, but it simplifies the code if we do the same thing every time through the loop. This version also has the effect of leaving the turtle back in the starting position, facing in the starting direction.
 """
@@ -204,6 +197,14 @@ This version is actually a little different from the previous square-drawing cod
 # ╔═╡ 81fd8b28-6976-11eb-2737-69f3b0b4624c
 md"""
 !!! languages
+    MATLAB has a quasi identical `for` statement:
+
+    ```matlab
+    >> for i = 1:4
+           disp('Hello!')
+       end
+    ```
+
     In Python the `for` statement is very similar:
     
     ```python
@@ -266,60 +267,65 @@ Make a more general version of circle called `arc` that takes an additional para
 md"""## Encapsulation
 
 The first exercise asks you to put your square-drawing code into a function definition and then call the function, passing the turtle as a parameter. Here is a solution:
+"""
 
-```julia
+# ╔═╡ 0eaec8fe-2896-4719-aecf-46306d0de34a
 function square(t)
 	for i in 1:4
 		forward(t, 100)
 		turn(t, -90)
 	end
 end
-```
 
-To draw the square, a call to `Drawing` is needed:
+# ╔═╡ d50b345c-5cc0-485b-ad90-835c8bf9910b
+md"""To draw the square, a call to `Drawing` is needed:
+"""
 
-```julia
-let
-	🐢 = Turtle()
-	square(🐢) 
-	Drawing(🐢, 720, 210)
-end
-```
-
-The innermost statements, `forward` and `turn`, are indented twice to show that they are inside the for loop, which is inside the function definition.
-
+# ╔═╡ 13877d52-734f-4b9d-a8be-2a5583e9ff96
+md"""The innermost statements, `forward` and `turn`, are indented twice to show that they are inside the for loop, which is inside the function definition.
 
 Inside the function, `t` refers to the same turtle `🐢`, so `turn(t, -90)` has the same effect as `turn(🐢, -90)`. In that case, why not call the parameter `🐢`? The idea is that `t` can be any turtle, not just `🐢` so you could create a second turtle and pass it as an argument to `square`:
+"""
 
-```julia
-let
-	🐫 = Turtle()
-	square(🐫) 
-	Drawing(🐫, 720, 210)
-end
-```
-
-Wrapping a piece of code up in a function is called *encapsulation*. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you reuse the code, it is more concise to call a function twice than to copy and paste the body!
+# ╔═╡ 613ce8b6-5aef-495f-8be9-34b1e0dd2633
+md"""Wrapping a piece of code up in a function is called *encapsulation*. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you reuse the code, it is more concise to call a function twice than to copy and paste the body!
 """
 
 # ╔═╡ c9fa13ec-697b-11eb-1a40-4b899f07dde7
 md"""## Generalization
 
 The next step is to add a `len` parameter to `square`. Here is a solution:
+"""
 
-```julia
+# ╔═╡ 9cc4acf7-d264-49f6-bd96-49e9a1f5a60b
 function square(t, len) 
 	for i in 1:4
     	forward(t, len)
-	turn(t, -90)
+		turn(t, -90)
+	end
 end
-```
 
-Adding a parameter to a function is called *generalization* because it makes the function more general. In the previous version, the square is always the same size; in this version it can be any size.
+# ╔═╡ f67b0e4d-8e3f-416c-a15f-0e95a9239079
+let
+	🐢 = Turtle()
+	square(🐢) 
+	Drawing(🐢, 720, 210)
+end
+
+# ╔═╡ e9be17fc-273d-47fd-9887-57d9b1d839df
+let
+	🐫 = Turtle()
+	square(🐫) 
+	Drawing(🐫, 720, 210)
+end
+
+# ╔═╡ 13f09fbd-4005-464a-8922-fe320647bc0e
+md"""Adding a parameter to a function is called *generalization* because it makes the function more general. In the previous version, the square is always the same size; in this version it can be any size.
 
 The next step is also a generalization. Instead of drawing squares, polygon draws regular polygons with any number of sides. Here is a solution:
+"""
 
-```julia
+# ╔═╡ 9f4b47a0-ed16-4c92-85a8-3b3984859bc2
 function polygon(t, n, len) 
 	angle = 360 / n
 	for i in 1:n 
@@ -327,34 +333,34 @@ function polygon(t, n, len)
 		turn(t, -angle)
 	end
 end
-```
 
-To draw a 7-sided polygon with side length 70:
+# ╔═╡ ef042c48-9068-48af-aa69-3afe8523e4af
+md"""To draw a 7-sided polygon with side length 70:
+"""
 
-```julia
+# ╔═╡ 80433f1c-dd1a-4449-851b-a01020ddf7ae
 let
 	🐢 = Turtle()
 	polygon(🐢, 7, 70) 
 	Drawing(🐢, 720, 320)
 end
-```
-"""
 
 # ╔═╡ 372310ae-697f-11eb-3217-f1afed271f4a
 md"""## Interface Design
 
 The next step is to write `circle`, which takes a radius, `r`, as a parameter. Here is a simple solution that uses `polygon` to draw a 50-sided polygon:
+"""
 
-```julia
+# ╔═╡ d18c5a05-ff08-4638-8dca-90a98e2595b4
 function circle(t, r) 
 	circumference = 2π * r 
 	n=50
 	len = circumference / n 
 	polygon(t, n, len)
 end
-```
 
-The first line computes the circumference of a circle with radius ``r`` using the formula ``2πr``. `n` is the number of line segments in our approximation of a circle, so len is the length of each segment. Thus, polygon draws a 50-sided polygon that approximates a circle with radius ``r``.
+# ╔═╡ ad812198-803c-45d9-82f4-ec182c0fc873
+md"""The first line computes the circumference of a circle with radius ``r`` using the formula ``2πr``. `n` is the number of line segments in our approximation of a circle, so len is the length of each segment. Thus, polygon draws a 50-sided polygon that approximates a circle with radius ``r``.
 
 One limitation of this solution is that `n` is a constant, which means that for very big circles, the line segments are too long, and for small circles, we waste time drawing very small segments. One solution would be to generalize the function by taking `n` as a parameter. This would give the user (whoever calls `circle`) more control, but the interface would be less clean.
 
@@ -363,19 +369,22 @@ The *interface* of a function is a summary of how it is used: What are the param
 In this example, `r` belongs in the interface because it specifies the circle to be drawn. `n` is less appropriate because it pertains to the details of how the circle should be rendered.
 
 Rather than cluttering up the interface, it is better to choose an appropriate value of `n` depending on circumference:
+"""
 
-```julia
-function circle(t, r)
+# ╔═╡ f3845314-201d-4f13-86f3-6e9f270e98d3
+function circle_opt(t, r)
 	circumference = 2π * r
 	n = trunc(circumference / 3) + 3 
 	len = circumference / n 
 	polygon(t, n, len)
 end
-```
 
-Now the number of segments is an integer near `circumference/3`, so the length of each segment is approximately ``3``, which is small enough that the circles look good but big enough to be efficient, and acceptable for any size circle.
+# ╔═╡ d3aadf12-e773-41b6-8667-5fce73eb2949
+md"""Now the number of segments is an integer near `circumference/3`, so the length of each segment is approximately ``3``, which is small enough that the circles look good but big enough to be efficient, and acceptable for any size circle.
 
 Adding `3` to `n` guarantees that the polygon has at least three sides.
+
+We had to give this function in the notebook interface another name because a function with the same arguments can not be defined multiple times in different cells. In the REPL only the last definition is valid.
 """
 
 # ╔═╡ 1b946992-6980-11eb-14ee-a11b07a08c75
@@ -384,9 +393,9 @@ md"""## Refactoring
 When I wrote `circle`, I was able to reuse `polygon` because a many-sided polygon is a good approximation of a circle. But `arc` is not as cooperative; we can’t use `polygon` or `circle` to draw an arc.
 
 One alternative is to start with a copy of `polygon` and transform it into `arc`. The result might look like this:
+"""
 
-
-```julia
+# ╔═╡ aa3ef788-7a3b-4b5b-8e27-513df4008101
 function arc(t, r, angle) 
 	arc_len = 2π * r * angle / 360 
 	n = trunc(arc_len / 3) + 1 
@@ -397,46 +406,49 @@ function arc(t, r, angle)
 		turn(t, -step_angle) 
 	end
 end
-```
 
-The second half of this function looks like `polygon`, but we can’t reuse `polygon` without changing the interface. We could generalize `polygon` to take an `angle` as a third argument, but then `polygon` would no longer be an appropriate name! Instead, let’s call the more general function `polyline`:
+# ╔═╡ 7eac5d23-b43a-4a2c-9d9a-71866a9526ad
+md"""The second half of this function looks like `polygon`, but we can’t reuse `polygon` without changing the interface. We could generalize `polygon` to take an `angle` as a third argument, but then `polygon` would no longer be an appropriate name! Instead, let’s call the more general function `polyline`:
+"""
 
-```julia
+# ╔═╡ ac687ae7-0a35-474e-8df4-f410adefb21a
 function polyline(t, n, len, angle) 
 	for i in 1:n
     	forward(t, len)
 		turn(t, -angle)
 	end
 end
-```
 
-Now we can rewrite `polygon` and `arc` to use `polyline`:
+# ╔═╡ b5379851-9479-4d04-b3f4-7f93f7aaa4d0
+md"""Now we can rewrite `polygon` and `arc` to use `polyline`:
+"""
 
-```julia
-function polygon(t, n, len) 
+# ╔═╡ e15b2c4e-d870-4c9c-8c0e-2fe263b32726
+function polygon_refactor(t, n, len) 
 	angle = 360 / n
 	polyline(t, n, len, angle) 
 end
 
-function arc(t, r, angle) 
+# ╔═╡ 5e2c5081-84e2-4ef8-a375-d6a8816b0813
+function arc_refactor(t, r, angle) 
 	arc_len = 2π * r * angle / 360
 	n = trunc(arc_len / 3) + 1
 	step_len = arc_len / n
 	step_angle = angle / n
 	polyline(t, n, step_len, step_angle)
 end
-```
 
-Finally, we can rewrite `circle` to use `arc`:
+# ╔═╡ be730cdf-e009-427b-a27f-0ed467388c1e
+md"""Finally, we can rewrite `circle` to use `arc`:
+"""
 
-
-```julia
-function circle(t, r) 
-	arc(t, r, 360)
+# ╔═╡ 59e21093-e467-4a13-8340-81d2dac1c367
+function circle_refactor(t, r) 
+	arc_refactor(t, r, 360)
 end
-```
 
-This process—rearranging a program to improve interfaces and facilitate code reuse —is called *refactoring*. In this case, we noticed that there was similar code in `arc` and `polygon`, so we “factored it out” into `polyline`.
+# ╔═╡ 80ffee27-cc6e-4aea-aaf1-0bb30ef9b20d
+md"""This process—rearranging a program to improve interfaces and facilitate code reuse —is called *refactoring*. In this case, we noticed that there was similar code in `arc` and `polygon`, so we “factored it out” into `polyline`.
 
 If we had planned ahead, we might have written `polyline` first and avoided refactoring, but often you don’t know enough at the beginning of a project to design all the interfaces. Once you start coding, you understand the problem better. Sometimes refactoring is a sign that you have learned something.
 """
@@ -459,31 +471,34 @@ This process has some drawbacks—we will see alternatives later—but it can be
 md"""## Docstring
 
 A *docstring* is a string before a function that explains the interface (“doc” is short for “documentation”). Here is an example:
+"""
 
-```julia
-\"\"\"
-polyline(t, n, len, angle)
+# ╔═╡ 9f3e27f5-17a4-4c1c-9b44-bc22ae1a9b2d
+"""
+polyline_doc(t, n, len, angle)
 
 Draws n line segments with the given length and angle (in degrees) between them. t is a turtle. 
-\"\"\"
-function polyline(t, n, len, angle)
+"""
+function polyline_doc(t, n, len, angle)
 	for i in 1:n 
 		forward(t, len)
 		turn(t, -angle) 
 	end
 end
-```
 
-Documentation can be accessed in the REPL or in a notebook by typing `?` followed by the name of a function, and pressing Enter:
+# ╔═╡ fe79f4b6-760e-4d7e-832e-701a34a3accb
+md"""Documentation can be accessed in the REPL by typing `?` followed by the name of a function, and pressing Enter:
 
 ```julia
-help?> polyline
-search: polyline
+help?> polyline_doc
+search: polyline_doc
 
-  polyline(t, n, len, angle)
+  polyline_doc(t, n, len, angle)
 
   Draws n line segments with the given length and angle (in degrees) between them. t is a turtle.
 ```
+
+In the lower right corner of the notebook interface, you can click on the “Live docs” panel to search the documentation. When the panel is expanded, clicking on a function name in a cell displays the corresponding help text in the panel.
 
 Docstrings are often triple-quoted strings, also known as “multiline” strings because the triple quotes allow the string to span more than one line.
 
@@ -623,19 +638,52 @@ md"*Figure 4-4. Archimedean spiral.*"
 # ╟─2ade0260-68da-11eb-3c47-51af562ca746
 # ╟─dc4299ea-68d9-11eb-273b-a597294ef196
 # ╟─3dcb939c-68da-11eb-2546-85b34837f29c
-# ╟─319c52f2-68dd-11eb-130c-f3672af50055
+# ╠═319c52f2-68dd-11eb-130c-f3672af50055
 # ╟─b1f3a4cc-68de-11eb-3de9-87b14a76490e
 # ╟─09d4cbb2-68df-11eb-2eec-bbe39ef9880d
+# ╠═8c935a48-5d7a-4620-a13f-15b520b98608
 # ╟─c64b81dc-68df-11eb-1086-d57b61651791
 # ╟─717ad810-6975-11eb-262d-7bc4027d58b6
+# ╠═142af96b-ee0d-4723-b4e9-b5aac9b4f8f1
+# ╟─e6fe5f35-901b-4058-85d3-1009c7127f94
+# ╠═1c3b3ba5-9013-46fe-8342-894979c9a7ab
+# ╟─53747809-9b77-4f80-8cdf-657c30a9616f
+# ╠═85c81806-4e81-46c8-aff7-ef7174a1cfe3
+# ╟─984498ad-9b55-4d71-82b4-ff2ef6d7c5ec
 # ╟─81fd8b28-6976-11eb-2737-69f3b0b4624c
 # ╟─dd37018e-6978-11eb-2885-29267aaac26a
 # ╟─25a280d6-697b-11eb-3279-95bb0e4d8229
+# ╠═0eaec8fe-2896-4719-aecf-46306d0de34a
+# ╟─d50b345c-5cc0-485b-ad90-835c8bf9910b
+# ╠═f67b0e4d-8e3f-416c-a15f-0e95a9239079
+# ╟─13877d52-734f-4b9d-a8be-2a5583e9ff96
+# ╠═e9be17fc-273d-47fd-9887-57d9b1d839df
+# ╟─613ce8b6-5aef-495f-8be9-34b1e0dd2633
 # ╟─c9fa13ec-697b-11eb-1a40-4b899f07dde7
+# ╠═9cc4acf7-d264-49f6-bd96-49e9a1f5a60b
+# ╟─13f09fbd-4005-464a-8922-fe320647bc0e
+# ╠═9f4b47a0-ed16-4c92-85a8-3b3984859bc2
+# ╟─ef042c48-9068-48af-aa69-3afe8523e4af
+# ╠═80433f1c-dd1a-4449-851b-a01020ddf7ae
 # ╟─372310ae-697f-11eb-3217-f1afed271f4a
+# ╠═d18c5a05-ff08-4638-8dca-90a98e2595b4
+# ╟─ad812198-803c-45d9-82f4-ec182c0fc873
+# ╠═f3845314-201d-4f13-86f3-6e9f270e98d3
+# ╟─d3aadf12-e773-41b6-8667-5fce73eb2949
 # ╟─1b946992-6980-11eb-14ee-a11b07a08c75
+# ╠═aa3ef788-7a3b-4b5b-8e27-513df4008101
+# ╟─7eac5d23-b43a-4a2c-9d9a-71866a9526ad
+# ╠═ac687ae7-0a35-474e-8df4-f410adefb21a
+# ╟─b5379851-9479-4d04-b3f4-7f93f7aaa4d0
+# ╠═e15b2c4e-d870-4c9c-8c0e-2fe263b32726
+# ╠═5e2c5081-84e2-4ef8-a375-d6a8816b0813
+# ╟─be730cdf-e009-427b-a27f-0ed467388c1e
+# ╠═59e21093-e467-4a13-8340-81d2dac1c367
+# ╟─80ffee27-cc6e-4aea-aaf1-0bb30ef9b20d
 # ╟─090f60d4-6981-11eb-1c3d-df12052e6c4f
 # ╟─31ff7108-6981-11eb-1fb7-2ff7384538ab
+# ╠═9f3e27f5-17a4-4c1c-9b44-bc22ae1a9b2d
+# ╟─fe79f4b6-760e-4d7e-832e-701a34a3accb
 # ╟─d24c63c8-6981-11eb-3be3-2f258a4436c5
 # ╟─4f879090-698e-11eb-2aa6-37a98c300038
 # ╟─d2baf7ea-698e-11eb-1261-db00582907a3
