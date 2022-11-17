@@ -1,15 +1,20 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ d6bc6cde-7686-11eb-0a34-f1e7c9841275
 begin
-	import Pkg
-    Pkg.activate()
-
-    using PlutoUI
+    import Pkg
+	io = IOBuffer()
+    Pkg.activate(io = io)
+	deps = [pair.second for pair in Pkg.dependencies()]
+	direct_deps = filter(p -> p.is_direct_dep, deps)
+    pkgs = [x.name for x in direct_deps]
+	if "NativeSVG" ∉ pkgs
+		Pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
+	end
 	using NativeSVG
 end
 
