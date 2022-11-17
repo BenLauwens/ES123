@@ -26,7 +26,7 @@ md"""## Documentation
 
 * All notebooks can be found on github: [https://github.com/BenLauwens/ES123/Lectures](https://github.com/BenLauwens/ES123/Lectures)
 
-* Complete book is available online: [https://github.com/BenLauwens/ES123/html](https://github.com/BenLauwens/ES123/html)"""
+* Complete book from 2019 is available online (lecture notes are more recent and include supplementary information): [https://benlauwens.github.io/ThinkJulia.jl/latest/book.html](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)."""
 
 # ╔═╡ 1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 md"""## Schedule
