@@ -75,12 +75,8 @@ Drawing(width=720, height=110) do
 	text(x=220, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("3.141592653589793") 
 	end
+	@info "State diagram."
 end
-
-# ╔═╡ 7f908a10-64d6-11eb-1629-9179dc49bad7
-md"""
-*Figure 2-1. State diagram.*
-"""
 
 # ╔═╡ 5cb86662-64e1-11eb-0c04-41643ac1fc94
 md"""
@@ -304,9 +300,7 @@ md"""## Operator Precedence
 
 When an expression contains more than one operator, the order of evaluation depends on the *operator precedence*. For mathematical operators, Julia follows mathematical convention. The acronym *PEMDAS* is a useful way to remember the rules:
 
-* *P*arentheses have the highest precedence and can be used to force an expression
-to evaluate in the order you want. Since expressions in parentheses are evaluated
-first, `2*(3-1)` is `4`, and `(1+1)^(5-2)` is `8`. You can also use parentheses to make an expression easier to read, as in `(minute * 100) / 60`, even if it doesn’t change the result.
+* *P*arentheses have the highest precedence and can be used to force an expression to evaluate in the order you want. Since expressions in parentheses are evaluated first, `2*(3-1)` is `4`, and `(1+1)^(5-2)` is `8`. You can also use parentheses to make an expression easier to read, as in `(minute * 100) / 60`, even if it doesn’t change the result.
 * *E*xponentiation has the next highest precedence, so `1+2^3` is `9`, not `27`, and `2*3^2` is `18`, not `36`.
 * *M*ultiplication and *D*ivision have higher precedence than *A*ddition and *S*ubtraction. So, `2*3-1` is `5`, not `4`, and `6+4/2` is `8`, not `5`.
 * Operators with the same precedence are evaluated from left to right (except exponentiation). So in the expression `degrees / 2 * π`, the division happens first and the result is multiplied by π. To divide by 2π, you can use parentheses, or write `degrees / 2 / π` or `degrees / 2π`.
@@ -541,7 +535,6 @@ Practice using the Julia REPL as a calculator:
 # ╠═ad15ca54-8fd9-4acb-8a06-cb7dfc86c77a
 # ╟─7a3f5809-5a58-4280-93ef-83366bd893d5
 # ╟─58ba9f20-64d1-11eb-30e7-71ec2290f593
-# ╟─7f908a10-64d6-11eb-1629-9179dc49bad7
 # ╟─5cb86662-64e1-11eb-0c04-41643ac1fc94
 # ╟─60d71100-64ce-11eb-2a71-dd40eded5474
 # ╠═346735bc-ca51-41eb-8a8e-61e5f60bda3c
@@ -564,7 +557,7 @@ Practice using the Julia REPL as a calculator:
 # ╟─ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 # ╟─9f56ada0-64dd-11eb-2689-89413775adb1
 # ╟─c95baab0-64dd-11eb-00c7-af9957ec1614
-# ╠═d619bb60-64de-11eb-3d7b-572676f08d00
+# ╟─d619bb60-64de-11eb-3d7b-572676f08d00
 # ╠═bb26a1de-fd67-4823-8c78-1a640be4b363
 # ╠═8f0d0c96-0466-4ad5-954b-da25dee96737
 # ╠═ee43eb83-ab63-4db2-9935-42fe30f95b61

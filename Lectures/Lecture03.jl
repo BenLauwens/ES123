@@ -504,12 +504,8 @@ Drawing(width=720, height=220) do
 	text(x=320, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
 		str("\"Bing tiddle tiddle bang\"") 
 	end
+	@info "Stack diagram."
 end
-
-# ╔═╡ e8234ee4-68d4-11eb-2ab7-b7427f356d4c
-md"""
-*Figure 3-1. Stack diagram.*
-"""
 
 # ╔═╡ 73f6657c-68d1-11eb-1537-8b9791787e36
 md"""The frames are arranged in a stack that indicates which function called which. In this example, `printtwice` was called by `cattwice`, and `cattwice` was called by `Main`, which is a special name for the topmost frame. When you create a variable outside of any function, it belongs to `Main`.
@@ -852,7 +848,6 @@ md"""#### Exercise 3-4
 # ╟─23dd6e64-ee48-4604-b978-935e0b7b9a77
 # ╟─b0a0c234-6808-11eb-062f-b5be2390f714
 # ╟─94c0413e-68d0-11eb-23c2-31909597a1f8
-# ╟─e8234ee4-68d4-11eb-2ab7-b7427f356d4c
 # ╟─73f6657c-68d1-11eb-1537-8b9791787e36
 # ╠═400680b0-6162-4812-8a2d-c82e757a51a0
 # ╠═645d2eaf-17f1-4f95-8d1e-ec1d4e971727
