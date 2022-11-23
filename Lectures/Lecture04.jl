@@ -20,6 +20,7 @@ end
 
 # ╔═╡ 02c52b84-6991-11eb-1dbd-93af9a7ca7f1
 let
+	@info "Turtle flowers."
 	include("../src/chap04.jl")
 	🐢 = Turtle()
 	penup(🐢)
@@ -39,6 +40,7 @@ end
 
 # ╔═╡ 7933043e-6992-11eb-27b6-c10f5cb6dd29
 let
+	@info "Turtle pies."
 	include("../src/chap04.jl")
 	🐢 = Turtle()
 	penup(🐢)
@@ -54,6 +56,7 @@ end
 
 # ╔═╡ 31bc6732-6993-11eb-295e-eb9f409a95fa
 let
+	@info "Archimedean spiral."
 	include("../src/chap04.jl")
 	🐢 = Turtle()
 	penup(🐢)
@@ -554,7 +557,7 @@ The process of modifying a working program to improve function interfaces and ot
 A process for writing programs.
 
 *docstring*:
-A string that appears at the top of a function definition to document the func‐ tion’s 
+A string that appears at the top of a function definition to document the function's behaviour. 
 
 *precondition*:
 A requirement that should be satisfied by the caller before a function starts.
@@ -605,17 +608,11 @@ md"""#### Exercise 4-8
 Write an appropriately general set of functions that can draw flowers as in Figure 4-2.
 """
 
-# ╔═╡ 6168b66a-6991-11eb-1721-37fcb97a3b8b
-md"*Figure 4-2. Turtle flowers.*"
-
 # ╔═╡ 68fa7d90-6992-11eb-06f8-01089d2b49b9
 md"""#### Exercise 4-9
 
 Write an appropriately general set of functions that can draw shapes as in Figure 4-3.
 """
-
-# ╔═╡ c791f734-6992-11eb-2187-8b79c9ae0e61
-md"*Figure 4-3. Turtle pies.*"
 
 # ╔═╡ 9e8cecc2-6992-11eb-39e9-fd8b983a88f7
 md"""#### Exercise 4-10
@@ -630,9 +627,6 @@ md"""#### Exercise 4-11
 
 Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedia.org/wiki/Spiral); then write a program that draws an Archimedean spiral as in Figure 4-4.
 """
-
-# ╔═╡ 03c84024-6994-11eb-1619-6b1d19725997
-md"*Figure 4-4. Archimedean spiral.*"
 
 # ╔═╡ Cell order:
 # ╟─2ade0260-68da-11eb-3c47-51af562ca746
@@ -690,11 +684,8 @@ md"*Figure 4-4. Archimedean spiral.*"
 # ╟─e3fd2546-698e-11eb-3031-c1cde742aa22
 # ╟─9beec042-698f-11eb-3808-058f5e8e3bab
 # ╟─02c52b84-6991-11eb-1dbd-93af9a7ca7f1
-# ╟─6168b66a-6991-11eb-1721-37fcb97a3b8b
 # ╟─68fa7d90-6992-11eb-06f8-01089d2b49b9
 # ╟─7933043e-6992-11eb-27b6-c10f5cb6dd29
-# ╟─c791f734-6992-11eb-2187-8b79c9ae0e61
 # ╟─9e8cecc2-6992-11eb-39e9-fd8b983a88f7
 # ╟─0e943bec-6993-11eb-39d4-b3350f7b238c
 # ╟─31bc6732-6993-11eb-295e-eb9f409a95fa
-# ╟─03c84024-6994-11eb-1619-6b1d19725997

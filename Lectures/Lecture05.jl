@@ -30,6 +30,7 @@ end
 
 # ╔═╡ 66ddc134-6bea-11eb-3bde-0fea30c863af
 let
+	@info "A Koch curve."
 	t = Turtle()
 	include("../src/chap05.jl")
 	penup(t)
@@ -124,7 +125,7 @@ x ≤ y  # (\le TAB)
 ```
 
 !!! danger
-    Although these operations are probably familiar to you, the Julia symbols are different from the mathematical symbols. A common error is to use a single equals sign (`=`) instead of a double equals sign (`==`). Remember that `=` is an assignment operator and `==` is a relational operator. There is no such thing as `=<` or `=>`.
+    Although these operations are probably familiar to you, the Julia symbols are different from the mathematical symbols. A common error is to use a single equals sign (`=`) instead of a double equals sign (`==`). Remember that `=` is an assignment operator and `==` is a relational operator. There is no such thing as `=<` or `=``>`.
 """
 
 # ╔═╡ 01a13616-6bdb-11eb-1b8b-8bdda36e623f
@@ -380,6 +381,7 @@ Every time a function gets called, Julia creates a frame to contain the function
 
 # ╔═╡ e7bc0384-6bdf-11eb-23d5-1f8454e713f2
 Drawing(width=720, height=200) do
+	@info "Stack diagram."
 	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
 		str("Main") 
 	end
@@ -437,9 +439,6 @@ Drawing(width=720, height=200) do
 		str("0") 
 	end
 end
-
-# ╔═╡ 85d66ec4-6be0-11eb-32c2-f7068bc06a62
-md"*Figure 5-1. Stack diagram.*"
 
 # ╔═╡ 0658bd3c-6be0-11eb-21bd-d753ae791777
 md"""As usual, at the top of the stack is the frame for `Main`. It is empty because we did not create any variables in `Main` or pass any arguments to it.
@@ -721,9 +720,6 @@ md"""#### Exercise 5-7
 The Koch curve is a fractal that looks something like Figure 5-2.
 """
 
-# ╔═╡ a70a425e-6beb-11eb-08e3-5d02826766e1
-md"*Figure 5-2. A Koch curve.*"
-
 # ╔═╡ b7655da0-6beb-11eb-21e4-a3372fe53c50
 md"""To draw a Koch curve with length ``x``, all you have to do is:
 
@@ -739,9 +735,9 @@ The exception is if ``x`` is less than ``3``: in that case, you can just draw a 
 
 1. Write a function called `koch` that takes a turtle and a length as parameters, and that uses the turtle to draw a Koch curve with the given length.
 
-2. Write a function called `snowflake` that draws three Koch curves to make the out‐ line of a snowflake.
+2. Write a function called `snowflake` that draws three Koch curves to make the outline of a snowflake.
 
-3. The Koch curve can be generalized in several ways. See [https://en.wikipedia.org/ wiki/Koch_snowflake](https://en.wikipedia.org/ wiki/Koch_snowflake) for examples and implement your favorite.
+3. The Koch curve can be generalized in several ways. See [https://en.wikipedia.org/wiki/Koch_snowflake](https://en.wikipedia.org/wiki/Koch_snowflake) for examples and implement your favorite.
 """
 
 # ╔═╡ Cell order:
@@ -792,7 +788,6 @@ The exception is if ``x`` is less than ``3``: in that case, you can just draw a 
 # ╟─7a3af9f7-05d1-4991-942b-863690b0a98c
 # ╟─481f2708-6bde-11eb-2e2f-059722a2e288
 # ╟─e7bc0384-6bdf-11eb-23d5-1f8454e713f2
-# ╟─85d66ec4-6be0-11eb-32c2-f7068bc06a62
 # ╟─0658bd3c-6be0-11eb-21bd-d753ae791777
 # ╟─c7a395b0-6be1-11eb-2d6c-8d15b718faa9
 # ╟─f94724b0-6be1-11eb-2183-1d97bab81764
@@ -816,5 +811,4 @@ The exception is if ``x`` is less than ``3``: in that case, you can just draw a 
 # ╟─052ec49c-6bea-11eb-325f-d924ddacca6f
 # ╟─5609252e-6bea-11eb-073c-0db3c1ab2da7
 # ╟─66ddc134-6bea-11eb-3bde-0fea30c863af
-# ╟─a70a425e-6beb-11eb-08e3-5d02826766e1
 # ╟─b7655da0-6beb-11eb-21e4-a3372fe53c50

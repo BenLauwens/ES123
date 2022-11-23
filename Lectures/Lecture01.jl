@@ -4,6 +4,13 @@
 using Markdown
 using InteractiveUtils
 
+# ╔═╡ 14207048-d900-4d0c-966b-1dd3560c3c2e
+begin
+    import Pkg
+	io = IOBuffer()
+    Pkg.activate(io = io)
+end
+
 # ╔═╡ b40446e0-64a6-11eb-3652-85fdb1612e5e
 md"""# The Way of the Program
 
@@ -67,57 +74,8 @@ Now we can install the Pluto *notebook* interface:
 julia> using Pkg
 
 julia> pkg"add Pluto"
-  Resolving package versions...
-   Installed RegistryInstances ─────── v0.1.0
-   Installed BitFlags ──────────────── v0.1.6
-   Installed LoggingExtras ─────────── v1.0.0
-   Installed RelocatableFolders ────── v1.0.0
-   Installed Tables ────────────────── v1.10.0
-   Installed DataAPI ───────────────── v1.13.0
-   Installed ExproniconLite ────────── v0.7.6
-   Installed OpenSSL ───────────────── v1.3.1
-   Installed TranscodingStreams ────── v0.9.9
-   Installed HTTP ──────────────────── v1.5.4
-   Installed MbedTLS ───────────────── v1.1.7
-   Installed LazilyInitializedFields ─ v1.2.0
-   Installed Pluto ─────────────────── v0.19.15
-    Updating `~/.julia/environments/v1.8/Project.toml`
-  [c3e4b0f8] + Pluto v0.19.15
-    Updating `~/.julia/environments/v1.8/Manifest.toml`
-  [d1d4a3ce] + BitFlags v0.1.6
-  [944b1d66] + CodecZlib v0.7.0
-  [5218b696] + Configurations v0.17.4
-  [9a962f9c] + DataAPI v1.13.0
-  [e2d170a0] + DataValueInterfaces v1.0.0
-  [55351af7] + ExproniconLite v0.7.6
-  [fb4132e2] + FuzzyCompletions v0.5.1
-  [cd3eb016] + HTTP v1.5.4
-  [ac1192a8] + HypertextLiteral v0.9.4
-  [83e8ac13] + IniFile v0.5.1
-  [82899510] + IteratorInterfaceExtensions v1.0.0
-  [0e77f7df] + LazilyInitializedFields v1.2.0
-  [e6f89c97] + LoggingExtras v1.0.0
-  [6c6e2e6c] + MIMEs v0.1.4
-  [739be429] + MbedTLS v1.1.7
-  [99f44e22] + MsgPack v1.1.0
-  [4d8831e6] + OpenSSL v1.3.1
-  [bac558e1] + OrderedCollections v1.4.1
-  [c3e4b0f8] + Pluto v0.19.15
-  [91cefc8d] + PrecompileSignatures v3.0.3
-  [2792f1a3] + RegistryInstances v0.1.0
-  [05181044] + RelocatableFolders v1.0.0
-  [6c6a2e73] + Scratch v1.1.1
-  [777ac1f9] + SimpleBufferStream v1.1.0
-  [3783bdb8] + TableTraits v1.0.1
-  [bd369af6] + Tables v1.10.0
-  [3bb67fe8] + TranscodingStreams v0.9.9
-  [410a4b4d] + Tricks v0.1.6
-  [5c2747f8] + URIs v1.4.0
-  [8ba89e20] + Distributed
-  [37e2e46d] + LinearAlgebra
-  [8dfed614] + Test
-  [4536629a] + OpenBLAS_jll v0.3.20+0
-  [8e850b90] + libblastrampoline_jll v5.1.1+0
+Resolving package versions...
+   ...
 Precompiling project...
   31 dependencies successfully precompiled in 16 seconds. 14 already precompiled.
 ```
@@ -441,23 +399,8 @@ Start the Julia REPL and use it as a calculator.
 3. If you run a 10-kilometer race in 37 minutes 48 seconds, what is your average pace (time per mile in minutes and seconds)? What is your average speed in miles per hour?
 """
 
-# ╔═╡ 00000000-0000-0000-0000-000000000001
-PLUTO_PROJECT_TOML_CONTENTS = """
-[deps]
-"""
-
-# ╔═╡ 00000000-0000-0000-0000-000000000002
-PLUTO_MANIFEST_TOML_CONTENTS = """
-# This file is machine-generated - editing it directly is not advised
-
-julia_version = "1.8.2"
-manifest_format = "2.0"
-project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
-
-[deps]
-"""
-
 # ╔═╡ Cell order:
+# ╟─14207048-d900-4d0c-966b-1dd3560c3c2e
 # ╟─b40446e0-64a6-11eb-3652-85fdb1612e5e
 # ╟─6b1e8390-64a7-11eb-2249-adcf7f79fc61
 # ╟─b2560330-64bd-11eb-0a30-57ada26f6ad1
@@ -489,5 +432,3 @@ project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 # ╟─a7270080-64c8-11eb-175a-192fbae1322b
 # ╟─ce5393c0-64c9-11eb-25ec-c55227798aa8
 # ╟─6472f940-64ca-11eb-0492-0953cf692c54
-# ╟─00000000-0000-0000-0000-000000000001
-# ╟─00000000-0000-0000-0000-000000000002
