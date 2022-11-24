@@ -28,15 +28,18 @@ This chapter is about iteration, which is the ability to run a block of statemen
 md"""## Reassignment
 
 As you may have discovered, it is legal to make more than one assignment to the same variable. A new assignment makes an existing variable refer to a new value (and stop referring to the old value):
+"""
 
-```julia
-julia> x = 5 
-5 
-julia> x = 7 
-7
-```
+# ╔═╡ 1c2fd536-e0f9-409d-a036-7e7b24735938
+let
+	x = 5
+	@show x
+	x = 7
+	@show x
+end;
 
-The first time we display `x`, its value is `5`; the second time, its value is `7`. 
+# ╔═╡ 54be42ba-8181-47ec-b4f6-5195cf012eab
+md"""The first time we display `x`, its value is `5`; the second time, its value is `7`. 
 
 Figure 7-1 shows what *reassignment* looks like in a state diagram.
 """
@@ -71,19 +74,19 @@ md"""At this point I want to address a common source of confusion. Because Julia
 First, equality is a symmetric relationship and assignment is not. For example, in mathematics, if ``a = 7`` then ``7 = a``. But in Julia, the statement `a = 7` is legal and `7 = a` is not.
 
 Also, in mathematics, a proposition of equality is either true or false for all time. If ``a = b`` now, then ``a`` will always equal ``b``. In Julia, an assignment statement can make two variables equal, but they don’t have to stay that way:
+"""
 
-```julia
-julia> a = 5 
-5
-julia> b = a # a and b are now equal
-5
-julia> a = 3 # a and b are no longer equal
-3
-julia> b
-5
-```
+# ╔═╡ 6bbbd8e7-cc25-4634-9dd8-312daf606a5f
+let
+	a = 5
+	b = a
+	@show a b
+	a = 3
+	@show a b
+end;
 
-The third line changes the value of `a `but does not change the value of `b`, so they are no longer equal.
+# ╔═╡ d9daf308-96df-4a1a-acd1-a0a4ed3b099f
+md"""The third line changes the value of `a `but does not change the value of `b`, so they are no longer equal.
 
 !!! danger
     Reassigning variables is often useful, but you should use it with caution. If the values of variables change frequently, it can make the code difficult to read and debug.
@@ -95,38 +98,49 @@ The third line changes the value of `a `but does not change the value of `b`, so
 md"""## Updating Variables
 
 A common kind of reassignment is an update, where the new value of the variable depends on the old:
+"""
 
-```julia
-julia> x = x + 1
-8
-```
+# ╔═╡ f4cad654-1469-4d31-8a0b-481980337d15
+let
+	x = 7
+	@show x
+	x = x + 1
+	@show x
+end;
 
-or
+# ╔═╡ e821fa5c-2ba0-4534-bacc-b525e02731ab
+md"or"
 
-```julia
-julia> x += 1
-8
-```
+# ╔═╡ a91d900d-ab22-4168-85ee-696c8edeafb3
+let
+	x = 7
+	@show x
+	x += 1
+	@show x
+end;
 
-This means “get the current value of `x`, add 1, and then update `x` with the new value.” 
+# ╔═╡ f1d4c343-4c3d-460f-90d7-42d79c40ccc5
+md"""This means “get the current value of `x`, add 1, and then update `x` with the new value.” 
 
 If you try to update a variable that doesn’t exist, you get an error, because Julia evaluates the right side before it assigns a value to x: 
+"""
 
-```julia
-julia> y = y + 1
-ERROR: UndefVarError: y not defined
-```
+# ╔═╡ 227d3fbf-0752-4c8d-b904-490e0558af9d
+y = y + 1
 
-Before you can update a variable, you have to initialize it, usually with a simple assignment:
+# ╔═╡ bd739229-1cf5-42bb-b329-1224a69912f1
+md"""Before you can update a variable, you have to initialize it, usually with a simple assignment:
+"""
 
-```julia
-julia> y = 0 
-0
-julia> y = y + 1
-1
-```
+# ╔═╡ 4207cc0f-547f-4800-a7aa-4c9eebdaf17b
+let
+	y = 0
+	y = y + 1
+	@show y
+end;
 
-Updating a variable by adding 1 is called an *increment*; subtracting 1 is called a *decrement*.
+# ╔═╡ 6bf44532-2c65-45ec-bcc1-a496119c44ba
+md"""Updating a variable by adding 1 is called an *increment*; subtracting 1 is called a *decrement*.
 """
 
 # ╔═╡ 658792ba-768f-11eb-0e59-6d3a8c392c59
@@ -137,8 +151,9 @@ Computers are often used to automate repetitive tasks. Repeating identical or si
 We have already seen two functions, `countdown` and `printn`, that iterate using recursion. Because iteration is so common, Julia provides language features to make it easier. One is the `for` statement we saw in “Simple Repetition”. We’ll get back to that later.
 
 Another is the *`while` statement*. Here is a version of `countdown` that uses a `while` statement:
+"""
 
-```julia
+# ╔═╡ afded099-5415-46bb-abd5-6357835f3e83
 function countdown(n) 
 	while n > 0
 		print(n, " ")
@@ -146,9 +161,9 @@ function countdown(n)
 	end
 	println("Blastoff!")
 end
-```
 
-You can almost read the `while` statement as if it were English. It means, “While `n` is greater than `0`, display the value of `n` and then decrement `n`. When you get to `0`, display the word `"Blastoff!"`”
+# ╔═╡ 8fe33b17-8288-4a51-8cc4-680eb5960b9a
+md"""You can almost read the `while` statement as if it were English. It means, “While `n` is greater than `0`, display the value of `n` and then decrement `n`. When you get to `0`, display the word `"Blastoff!"`”
 
 More formally, here is the flow of execution for a `while` statement:
 
@@ -165,8 +180,9 @@ The body of the loop should change the value of one or more variables so that th
 In the case of `countdown`, we can prove that the loop terminates: if `n` is `0` or negative, the loop never runs. Otherwise, `n` gets smaller each time through the loop, so eventually we have to get to `0`.
 
 For some other loops, it is not so easy to tell. For example:
+"""
 
-```julia
+# ╔═╡ b45aaed5-4436-491d-825f-7df9d98458f9
 function seq(n) 
 	while n != 1
 		println(n) 
@@ -177,9 +193,9 @@ function seq(n)
 		end
 	end 
 end
-```
 
-The condition for this loop is `n != 1`, so the loop will continue until `n` is `1`, which makes the condition false.
+# ╔═╡ b54af953-a3a2-4f7c-b798-114773f5f2bb
+md"""The condition for this loop is `n != 1`, so the loop will continue until `n` is `1`, which makes the condition false.
 
 Each time through the loop, the program outputs the value of `n` and then checks whether it is even or odd. If it is even, `n` is divided by 2. If it is odd, the value ofnis replaced with `3n + 1`. For example, if the argument passed to `seq` is `3`, the resulting values of `n` are `3`, `10`, `5.0`, `16.0`, `8.0`, `4.0`, `2.0`, `1.0`.
 
@@ -196,7 +212,7 @@ Rewrite the function `printn` from “Recursion” using iteration instead of re
 
 # ╔═╡ 87bc44b0-76a4-11eb-3e5a-13df6d96717d
 md"""!!! languages
-    Both Python and the C programming language have a `while` statement:
+    Python, MATLAB and the C programming language have a `while` statement:
     
     ```python
     def countdown(n):
@@ -205,6 +221,18 @@ md"""!!! languages
             n = n - 1
         
         print('Blastoff!')
+    ```
+    
+    and
+
+    ```matlab
+    function countdown(n)
+        while n > 0
+            printf('%i ', n)
+            n -= 1;
+        end
+        printf('Blastoff!\n')
+    end
     ```
     
     The conventions for each language are always similar.
@@ -257,29 +285,24 @@ This way of writing `while` loops is common because you can check the condition 
 # ╔═╡ 0aa7430a-76a7-11eb-1626-05ef9338e919
 md"""## `continue`
 
-The `break` statement exits the loop. When a *`continue` statement* is encountered inside a loop, control jumps to the beginning of the loop for the next iteration, skipping the execution of statements inside the body of the loop for the current iteration. For example, this
+The `break` statement exits the loop. When a *`continue` statement* is encountered inside a loop, control jumps to the beginning of the loop for the next iteration, skipping the execution of statements inside the body of the loop for the current iteration. For example,
+"""
 
-```julia
+# ╔═╡ 1f074f6d-b562-485a-aebc-a081d9af65fa
 for i in 1:10 
 	if i % 3 == 0
 		continue 
 	end
 	print(i, " ") 
 end
-```
 
-outputs
-
-```
-1 2 4 5 7 8 10
-```
-
-If `i` is divisible by `3`, the continue statement stops the current iteration and the nex iteration starts. Only the numbers in the range 1 to 10 not divisible by 3 are printed.
+# ╔═╡ b3ec7984-37d0-4dbb-bf89-fdd02fa77720
+md"""If `i` is divisible by `3`, the continue statement stops the current iteration and the nex iteration starts. Only the numbers in the range 1 to 10 not divisible by 3 are printed.
 """
 
 # ╔═╡ c6aaba90-76a8-11eb-1e6f-495fb7759e5d
 md"""!!! languages
-    Both Python and the C programming language have `break` and `continue` statements.
+    Python, MATLAB and the C programming language have `break` and `continue` statements.
 """
 
 # ╔═╡ e74d8976-76a8-11eb-199d-c33a925a4d7f
@@ -294,72 +317,63 @@ y=\frac{1}{2}\left(x+\frac{a}{x}\right)
 ```
 
 For example, if ``a`` is ``4`` and ``x`` is ``3``:
+"""
 
-```julia
-julia> a = 4
-4
-julia> x = 3
-3
-julia> y = 0.5(x + a/x)
-2.1666666666666665
-```
+# ╔═╡ 9fe2f34e-6aa6-4727-b5fd-1dbd8191edd8
+a = 4
 
-The result is closer to the correct answer (``\sqrt 4 = 2``). If we repeat the process with the new estimate, it gets even closer:
+# ╔═╡ 840028c4-9913-4216-8a05-40c097adf945
+x = 3
 
-```julia
-julia> x = y
-2.1666666666666665
+# ╔═╡ 9c2e7346-c22f-4cee-8efb-0d39b20abe7c
+y1 = let x = x
+	0.5(x + a/x)
+end
 
-julia> y = 0.5(x + a/x)
-2.0064102564102564
-```
+# ╔═╡ 08188917-f1b1-444c-9556-adba29fb1420
+md"""The result is closer to the correct answer (``\sqrt 4 = 2``). If we repeat the process with the new estimate, it gets even closer:
+"""
 
-After a few more updates, the estimate is almost exact:
+# ╔═╡ 6c2361c6-e168-42cd-a208-6b56895068cb
+y2 = let x = y1
+	0.5(x + a/x)
+end
 
-```julia
-julia> x = y
-2.0064102564102564
+# ╔═╡ 3b3e81a2-492f-46b3-8fb1-299f95ecdd93
+md"""After a few more updates, the estimate is almost exact:
+"""
 
-julia> y = 0.5(x + a/x)
-2.0000102400262145
+# ╔═╡ 0e05362a-7de3-4549-b0ec-41924bf40998
+y3 = let x = y2
+	0.5(x + a/x)
+end
 
-julia> x = y
-2.0000102400262145
+# ╔═╡ 53a097d1-9d85-4bcb-8a56-eaea04fcf3ca
+y4 = let x = y3
+	0.5(x + a/x)
+end
 
-julia> y = 0.5(x + a/x)
-2.0000000000262146
-```
+# ╔═╡ 74e45886-2e05-41f2-a766-f227c9f980c8
+y5 = let x = y4
+	0.5(x + a/x)
+end
 
-In general we don’t know ahead of time how many steps it takes to get to the right answer, but we know when we get there because the estimate stops changing:
+# ╔═╡ 12b90faa-c974-45b3-9923-980b0a4f1021
+md"""When `y == x`, we can stop. Here is a loop that starts with an initial estimate, `x`, and improves it until it stops changing:
+"""
 
-```julia
-julia> x = y
-2.0000000000262146
-
-julia> y = 0.5(x + a/x)
-2.0
-
-julia> x = y
-2.0
-
-julia> y = 0.5(x + a/x)
-2.0
-```
-
-When `y == x`, we can stop. Here is a loop that starts with an initial estimate, `x`, and improves it until it stops changing:
-
-```julia
+# ╔═╡ 2e5d1c7c-d803-43ca-8a37-51f7414b815c
 while true
-	println(x)
+	@show x
 	y = 0.5(x + a/x)
 	if y == x
 		break
 	end
 	x = y
 end
-```
 
-For most values of a this works fine, but in general it is dangerous to test float equality. Floating-point values are only approximately right: most rational numbers, like ``\frac{1}{3}``, and irrational numbers, like ``\sqrt 2``, can’t be represented exactly with a `Float64`.
+# ╔═╡ 631b265f-83e9-4b99-92e0-07303f4944e5
+md"""For most values of a this works fine, but in general it is dangerous to test float equality. Floating-point values are only approximately right: most rational numbers, like ``\frac{1}{3}``, and irrational numbers, like ``\sqrt 2``, can’t be represented exactly with a `Float64`.
 
 Rather than checking whether `x` and `y` are exactly equal, it is safer to use the built-in function `abs` to compute the absolute value, or magnitude, of the difference between them:
 
@@ -470,23 +484,23 @@ The first column is a number, `a`; the second column is the square root of a com
 md"""#### Exercise 7-3
 
 The built-in function `Meta.parse` takes a string and transforms it into an expression. This expression can be evaluated in Julia with the function `Core.eval`. For example:
+"""
 
-```julia
-julia> expr = Meta.parse("1+2*3") 
-:(1 + 2 * 3)
-julia> eval(expr)
-7
-julia> expr = Meta.parse("sqrt(π)") 
-:(sqrt(π))
-julia> eval(expr) 
-1.7724538509055159
-```
+# ╔═╡ 8c9dbc04-3ee6-490b-a689-1783e70b1bc0
+expr = Meta.parse("1+2*3") 
 
-Write a function called `evalloop` that iteratively prompts the user, takes the resulting input and evaluates it using `eval`, and prints the result. It should continue until the user enters **`done`**, and then return the value of the last expression it evaluated.
+# ╔═╡ 12e215f8-1f46-48bd-9869-3871a2c8da04
+eval(expr)
+
+# ╔═╡ f65bc050-1562-416c-a267-c9d8744cdf1b
+eval(Meta.parse("sqrt(π)"))
+
+# ╔═╡ 83947812-6799-42a8-866b-f2e594f53663
+md"""Write a function called `evalloop` that iteratively prompts the user, takes the resulting input and evaluates it using `eval`, and prints the result. It should continue until the user enters **`done`**, and then return the value of the last expression it evaluated.
 """
 
 # ╔═╡ 2c14de1c-76b1-11eb-03f7-b73b33ae0d24
-md"""## Exercise 7-4
+md"""#### Exercise 7-4
 
 The mathematician Srinivasa Ramanujan found an infinite series that can be used to generate a numerical approximation of ``\frac{1}{π}``:
 
@@ -501,20 +515,54 @@ Write a function called `estimatepi` that uses this formula to compute and retur
 # ╟─d6bc6cde-7686-11eb-0a34-f1e7c9841275
 # ╟─f030f70c-7686-11eb-3c72-c59f85af6c83
 # ╟─b464d026-7687-11eb-2e68-99bb4a60f392
-# ╠═f001d996-7687-11eb-1215-5940f40d3fed
+# ╠═1c2fd536-e0f9-409d-a036-7e7b24735938
+# ╟─54be42ba-8181-47ec-b4f6-5195cf012eab
+# ╟─f001d996-7687-11eb-1215-5940f40d3fed
 # ╟─55c7f344-768d-11eb-2f35-e52d557f4c61
 # ╟─67411830-768d-11eb-1cf0-f9011222c68d
+# ╠═6bbbd8e7-cc25-4634-9dd8-312daf606a5f
+# ╟─d9daf308-96df-4a1a-acd1-a0a4ed3b099f
 # ╟─13602200-768e-11eb-389b-fb726834e96f
+# ╠═f4cad654-1469-4d31-8a0b-481980337d15
+# ╟─e821fa5c-2ba0-4534-bacc-b525e02731ab
+# ╠═a91d900d-ab22-4168-85ee-696c8edeafb3
+# ╟─f1d4c343-4c3d-460f-90d7-42d79c40ccc5
+# ╠═227d3fbf-0752-4c8d-b904-490e0558af9d
+# ╟─bd739229-1cf5-42bb-b329-1224a69912f1
+# ╠═4207cc0f-547f-4800-a7aa-4c9eebdaf17b
+# ╟─6bf44532-2c65-45ec-bcc1-a496119c44ba
 # ╟─658792ba-768f-11eb-0e59-6d3a8c392c59
+# ╠═afded099-5415-46bb-abd5-6357835f3e83
+# ╟─8fe33b17-8288-4a51-8cc4-680eb5960b9a
+# ╠═b45aaed5-4436-491d-825f-7df9d98458f9
+# ╟─b54af953-a3a2-4f7c-b798-114773f5f2bb
 # ╟─f51d8d5c-7690-11eb-3eea-e5a92768f7e6
 # ╟─87bc44b0-76a4-11eb-3e5a-13df6d96717d
 # ╟─5adbadaa-76a6-11eb-34b0-0b02b1cd9f95
 # ╟─0aa7430a-76a7-11eb-1626-05ef9338e919
+# ╠═1f074f6d-b562-485a-aebc-a081d9af65fa
+# ╟─b3ec7984-37d0-4dbb-bf89-fdd02fa77720
 # ╟─c6aaba90-76a8-11eb-1e6f-495fb7759e5d
 # ╟─e74d8976-76a8-11eb-199d-c33a925a4d7f
+# ╠═9fe2f34e-6aa6-4727-b5fd-1dbd8191edd8
+# ╠═840028c4-9913-4216-8a05-40c097adf945
+# ╠═9c2e7346-c22f-4cee-8efb-0d39b20abe7c
+# ╟─08188917-f1b1-444c-9556-adba29fb1420
+# ╠═6c2361c6-e168-42cd-a208-6b56895068cb
+# ╟─3b3e81a2-492f-46b3-8fb1-299f95ecdd93
+# ╠═0e05362a-7de3-4549-b0ec-41924bf40998
+# ╠═53a097d1-9d85-4bcb-8a56-eaea04fcf3ca
+# ╠═74e45886-2e05-41f2-a766-f227c9f980c8
+# ╟─12b90faa-c974-45b3-9923-980b0a4f1021
+# ╠═2e5d1c7c-d803-43ca-8a37-51f7414b815c
+# ╟─631b265f-83e9-4b99-92e0-07303f4944e5
 # ╟─c5327386-76af-11eb-1311-0f0f5cd2c507
 # ╟─0c60279e-76b0-11eb-0687-bf8d44d9cd47
 # ╟─2b84de3a-76b0-11eb-184e-fbf49560e122
 # ╟─7e6a42ea-76b0-11eb-0587-0b2e3932b601
 # ╟─f24e401a-76b0-11eb-1530-930c3df061fc
+# ╠═8c9dbc04-3ee6-490b-a689-1783e70b1bc0
+# ╠═12e215f8-1f46-48bd-9869-3871a2c8da04
+# ╠═f65bc050-1562-416c-a267-c9d8744cdf1b
+# ╟─83947812-6799-42a8-866b-f2e594f53663
 # ╟─2c14de1c-76b1-11eb-03f7-b73b33ae0d24

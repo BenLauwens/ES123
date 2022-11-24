@@ -235,7 +235,7 @@ let
 end
 
 # ╔═╡ 4374af23-b021-4ac9-8bb1-5fe7fd896cf3
-md"""Again, you would run the program at this stage and check the output (which should be `25`). Superscript numbers are also available (**`\^2 TAB`**). Finally, you can use `sqrt` or `√`(**`\sqrt TAB`**) to compute and return the result:
+md"""Again, you would run the program at this stage and check the output (which should be `25`). Superscript numbers are also available (**`\^2 TAB`**). Finally, you can use `sqrt` or `√` (**`\sqrt TAB`**) to compute and return the result:
 """
 
 # ╔═╡ 4c5f679a-0a37-4279-be37-2c53fe0d925c
@@ -455,6 +455,7 @@ Figure 6-1 shows what the stack diagram looks like for this sequence of function
 
 # ╔═╡ 2e8091da-7618-11eb-3181-a5801b7aaacb
 Drawing(width=720, height=200) do
+	@info "Stack diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
@@ -588,9 +589,6 @@ Drawing(width=720, height=200) do
 	end
 end
 
-# ╔═╡ 336130c4-761d-11eb-3574-3b57c12a393a
-md"*Figure 6-1. Stack diagram.*"
-
 # ╔═╡ 885ca14c-761f-11eb-072c-c9a4a2421f8f
 md"""The return values are shown being passed back up the stack. In each frame, the return value is the value of result, which is the product of n and recurse.
 
@@ -715,7 +713,7 @@ Adding print statements at the beginning and end of a function can help make the
 
 # ╔═╡ 2b4f7fdf-ecd8-4c06-a86e-0eafd215be68
 function fact_debug(n)
-	space = " " ^ (4 * n) 
+	space = "_" ^ (4 * n) 
 	println(space, "factorial ", n) 
 	if n == 0
 		println(space, "returning 1")
@@ -728,7 +726,7 @@ function fact_debug(n)
 end
 
 # ╔═╡ 2ac4a181-fc31-4b5d-8533-0c9275eebf9d
-md"""`space` is a string of space characters that controls the indentation of the output:
+md"""`space` is a string of underscore characters that controls the indentation of the output:
 """
 
 # ╔═╡ a238ab4e-4f33-4d05-b931-a4fd1d74eaec
@@ -898,7 +896,6 @@ Write a function called `gcd` that takes parameters `a` and `b` and returns thei
 # ╠═c665c76f-1b7f-4b61-976f-c134a670fccf
 # ╟─dc241e23-e6d5-4997-b7fa-1e44d66226c0
 # ╟─2e8091da-7618-11eb-3181-a5801b7aaacb
-# ╟─336130c4-761d-11eb-3574-3b57c12a393a
 # ╟─885ca14c-761f-11eb-072c-c9a4a2421f8f
 # ╟─a4c4b8a8-761f-11eb-345c-572d653d9b0b
 # ╟─d9ce6ae4-761f-11eb-346a-df17c8a60871
