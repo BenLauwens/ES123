@@ -148,12 +148,10 @@ It turns out that `struct` is one of Julia’s keywords. The REPL uses *keywords
 Julia has these keywords:
 
 ```
-abstract  type      baremodule  begin       break      catch
-const     continue  do          else        elseif     end 
-export    finally   for         false       function   global 
-if        import    in          let         local      macro 
-module    mutable   primitive   type        quote      return
-true      try       using       struct      where      while
+abstract  type     baremodule  begin   break    catch  const   continue  do
+else      elseif   end         export  finally  for    false   function  global
+if        import   in          let     local    macro  module  mutable   primitive
+type      quote    return      true    try      using  struct  where     while
 ```
 
 You don’t have to memorize this list. In most development environments, keywords are displayed in a different color; if you try to use one as a variable name, you’ll know.

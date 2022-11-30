@@ -1,15 +1,20 @@
 ### A Pluto.jl notebook ###
-# v0.12.21
+# v0.19.15
 
 using Markdown
 using InteractiveUtils
 
 # ╔═╡ 2444e25e-76e3-11eb-021a-e9e976b267bb
 begin
-	import Pkg
-    Pkg.activate()
-
-    using PlutoUI
+    import Pkg
+	io = IOBuffer()
+    Pkg.activate(io = io)
+	deps = [pair.second for pair in Pkg.dependencies()]
+	direct_deps = filter(p -> p.is_direct_dep, deps)
+    pkgs = [x.name for x in direct_deps]
+	if "NativeSVG" ∉ pkgs
+		Pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
+	end
 	using NativeSVG
 end
 
@@ -29,62 +34,66 @@ There are, of course, many other characters used in non-English languages, inclu
 The *Unicode standard* tackles the complexities of what exactly a character is, and is generally accepted as the definitive standard addressing this problem. It provides a unique number for every character on a worldwide scale.
 
 A `Char` value represents a single character and is surrounded by single quotes:
+"""
 
-```julia
-julia> 'x'
-'x': ASCII/Unicode U+0078 (category Ll: Letter, lowercase)
-julia> typeof('x')
-Char
-julia> '🍌'
-'🍌': Unicode U+1F34C (category So: Symbol, other)
-```
+# ╔═╡ c6ea295e-e172-497d-8d21-e1f67b99c8f4
+'x'
 
-Even emojis are part of the Unicode standard (**`\:banana: TAB`**).
+# ╔═╡ 3fdc38b1-79ca-4cfa-82d3-ddb3e652805d
+typeof('x')
+
+# ╔═╡ a683a0d3-1149-4efd-a50f-16ded14338e5
+'🍌'
+
+# ╔═╡ f91236cd-dbf7-4e61-82af-356397cab6bb
+md"""Even emojis are part of the Unicode standard (**`\:banana: TAB`**).
 """
 
 # ╔═╡ b29b3ca6-76e3-11eb-0970-1bee030205f2
 md"""## A String Is a Sequence
 
 A string is a sequence of characters. You can access the characters one at a time with the bracket operator (`[]`):
+"""
 
-```julia
-julia> fruit = "banana"
-"banana"
-julia> letter = fruit[1]
-'b': ASCII/Unicode U+0062 (category Ll: Letter, lowercase)
-```
+# ╔═╡ 07d91b17-bd32-4472-9187-2c2548c2141b
+fruit = "banana"
 
-The second statement selects character number 1 from `fruit` and assigns it to `letter`.
+# ╔═╡ 01cee916-d6f2-41d1-b45f-ab33869f1a2c
+letter = fruit[1]
+
+# ╔═╡ 8222bd8d-cc71-4cb3-8a13-ad2a513e10f9
+md"""The second statement selects character number 1 from `fruit` and assigns it to `letter`.
 
 The expression in brackets is called an *index*. The index indicates which character in the sequence you want (hence the name).
 
 All indexing in Julia is 1-based—the first element of any integer-indexed object is found at index `1` or `begin` and the last element at index `end`:
-
-```julia
-julia> fruit[begin]
-'b': ASCII/Unicode U+0062 (category Ll: Letter, lowercase)
-julia> fruit[end]
-'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase)
-```
-
-As an index, you can use an expression that contains variables and operators:
-
-```julia
-julia> i = 1
-1
-julia> fruit[i+1]
-'a': ASCII/Unicode U+0061 (category Ll: Letter, lowercase) 
-julia> fruit[end-1]
-'n': ASCII/Unicode U+006e (category Ll: Letter, lowercase)
-```
-
-But the value of the index has to be an integer. Otherwise, you get:
-
-```julia
-julia> letter = fruit[1.5]
-ERROR: MethodError: no method matching getindex(::String, ::Float64)
-```
 """
+
+# ╔═╡ 01d2fa7b-d382-4dd1-9bd6-0a2a0125b594
+fruit[begin]
+
+# ╔═╡ 7251c0b7-6bfe-49f5-8eb8-54684b341cbf
+fruit[end]
+
+# ╔═╡ edb7be60-9931-480c-8001-02c7ab084cfb
+md"""As an index, you can use an expression that contains variables and operators:
+"""
+
+# ╔═╡ 61bce329-54a2-47eb-a326-489c678b6be1
+i = 1
+
+# ╔═╡ 9b7680b6-fa6f-4f86-a108-066fddea209f
+fruit[i+1]
+
+# ╔═╡ e89e7ae5-1530-435c-8629-f02ea48553cc
+fruit[end-1]
+
+# ╔═╡ 80a039ba-9b7a-47e3-9107-f9ec2c3dca4a
+md"""But the value of the index has to be an integer. Otherwise, you get:
+"""
+
+# ╔═╡ 72323498-88be-408c-8195-6d9ad06c083b
+fruit[1.5]
 
 # ╔═╡ ade32e66-76e4-11eb-165e-13867b2cdc2d
 md"""## `length`
@@ -682,7 +691,22 @@ Potentially offensive jokes on the internet are sometimes encoded in ROT13, whic
 # ╟─2444e25e-76e3-11eb-021a-e9e976b267bb
 # ╟─d77c9e58-76e2-11eb-27a0-23914499f29f
 # ╟─3eeafd32-76e3-11eb-01dc-53af6f26eaf7
+# ╠═c6ea295e-e172-497d-8d21-e1f67b99c8f4
+# ╠═3fdc38b1-79ca-4cfa-82d3-ddb3e652805d
+# ╠═a683a0d3-1149-4efd-a50f-16ded14338e5
+# ╟─f91236cd-dbf7-4e61-82af-356397cab6bb
 # ╟─b29b3ca6-76e3-11eb-0970-1bee030205f2
+# ╠═07d91b17-bd32-4472-9187-2c2548c2141b
+# ╠═01cee916-d6f2-41d1-b45f-ab33869f1a2c
+# ╟─8222bd8d-cc71-4cb3-8a13-ad2a513e10f9
+# ╠═01d2fa7b-d382-4dd1-9bd6-0a2a0125b594
+# ╠═7251c0b7-6bfe-49f5-8eb8-54684b341cbf
+# ╟─edb7be60-9931-480c-8001-02c7ab084cfb
+# ╠═61bce329-54a2-47eb-a326-489c678b6be1
+# ╠═9b7680b6-fa6f-4f86-a108-066fddea209f
+# ╠═e89e7ae5-1530-435c-8629-f02ea48553cc
+# ╟─80a039ba-9b7a-47e3-9107-f9ec2c3dca4a
+# ╠═72323498-88be-408c-8195-6d9ad06c083b
 # ╟─ade32e66-76e4-11eb-165e-13867b2cdc2d
 # ╟─ac377fee-76e5-11eb-1736-9190b5c92214
 # ╟─20c034f2-76e6-11eb-1f6d-891ef3f93b29
