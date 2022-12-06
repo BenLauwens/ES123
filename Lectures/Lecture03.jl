@@ -6,6 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ 83a971d0-6806-11eb-3d06-d585d1137246
 begin
+	include("../src/chap03.jl")
     import Pkg
 	io = IOBuffer()
     Pkg.activate(io = io)
@@ -26,7 +27,7 @@ In the context of programming, a *function* is a named sequence of statements th
 # ╔═╡ d0c2a30c-6803-11eb-3c6d-69265f8e8e8a
 md"""## Function Calls
 
-We have already seen one example of a function call: 
+We have already seen one example of a function call:
 """
 
 # ╔═╡ 1800c6a4-ff70-4499-86e1-07d5ff495bfd
@@ -57,10 +58,10 @@ md"""`trunc` can convert floating-point values to integers, but it doesn’t rou
 trunc(Int64, 3.99999)
 
 # ╔═╡ db0cc555-31a4-4e7a-9e56-847a430c6919
-trunc(Int64, -2.3) 
+trunc(Int64, -2.3)
 
 # ╔═╡ 12871031-7c0a-46d2-9e99-c1caf0986380
-md"""`float` converts integers to floating-point numbers: 
+md"""`float` converts integers to floating-point numbers:
 """
 
 # ╔═╡ a38b1abd-74bd-40bc-8897-2455b4777db5
@@ -71,10 +72,10 @@ md"""Finally, `string` converts its argument to a string:
 """
 
 # ╔═╡ 6ac117cc-c47f-46a8-8e67-99bdb794949e
-string(32) 
+string(32)
 
 # ╔═╡ 46f32313-f91d-4216-aca0-a9bec58561f0
-string(3.14159) 
+string(3.14159)
 
 # ╔═╡ 5c7adb76-6804-11eb-3e57-4f0e9ff68b17
 md"""## Math Functions
@@ -108,7 +109,7 @@ If you know trigonometry, you can check the previous result by comparing it to t
 """
 
 # ╔═╡ 20b00dd0-3644-4fbd-bcbd-b565523b0506
-sqrt(2) / 2 
+sqrt(2) / 2
 
 # ╔═╡ 46a2dff3-660c-4838-91d8-51f0b02060bf
 md"""!!! tip
@@ -148,8 +149,8 @@ end
 
 # ╔═╡ acb13fae-d14d-4c08-9916-6f3ac51cd945
 let
-	radians = degrees / 180 * π 
-	sin(radians) 
+	radians = degrees / 180 * π
+	sin(radians)
 end
 
 # ╔═╡ d81ea2b9-5528-4e22-b747-a400cf84ddf2
@@ -166,7 +167,7 @@ So far, we have only been using the functions that come with Julia, but it is al
 
 # ╔═╡ bff25d47-cbd0-45dd-b83e-fdb21de50235
 function printlyrics()
-	println("I'm a lumberjack, and I'm okay.") 
+	println("I'm a lumberjack, and I'm okay.")
 	println("I sleep all night and I work all day.")
 end
 
@@ -180,9 +181,9 @@ The quotation marks must be "straight quotes," usually located next to Enter on 
 
 If you type a function definition in interactive mode, the REPL indents to let you know that the definition isn’t complete:
 
-```julia
+```jlcon
 julia> function printlyrics()
-println("I'm a lumberjack, and I'm okay.")
+       println("I'm a lumberjack, and I'm okay.")
 ```
 
 To end the function, you have to enter `end`.
@@ -198,9 +199,9 @@ md"""Once you have defined a function, you can use it inside another function. F
 """
 
 # ╔═╡ d8b2cf61-32f8-4191-8e4d-beb51b1ce7e4
-function repeatlyrics() 
+function repeatlyrics()
 	printlyrics()
-	printlyrics() 
+	printlyrics()
 end
 
 # ╔═╡ 497a72bb-9c99-4deb-a714-87deaf37fd50
@@ -216,20 +217,21 @@ md"""But that’s not really how the song goes.
 
 # ╔═╡ 5edc214e-68cb-11eb-23a6-2bbae196847e
 md"""
-!!! languages
+!!! python
     The function definition of `printlyrics` in Python has the same ingredients:
 
     ```python
     >>> def printlyrics():
     ...    print("I'm a lumberjack, and I'm okay.")
     ...    print("I sleep all night and I work all day.")
-    ...    
+    ...
     ```
-    
+
     `def` instead of `function` is used to indicate that this is a function definition. The header ends with a colon and the body is indented. To end the function definition, you have to enter an empty line.
 
+!!! c
     In C the function definition of `printlyrics` is also similar:
-    
+
     ```c
     void printlyrics() {
         printf("I'm a lumberjack, and I'm okay.\n");
@@ -239,6 +241,7 @@ md"""
 
     The keyword `void` indicates that this function does not return a value. The body of the function is enclosed between brackets.
 
+!!! matlab
     MATLAB requires that the function is defined in a file having as name the function name and extension `.m`:
 
     ```matlab
@@ -258,11 +261,11 @@ Pulling together the code fragments from the previous section, the whole program
 
 ```julia
 function printlyrics()
-    println("I'm a lumberjack, and I'm okay.") 
+    println("I'm a lumberjack, and I'm okay.")
     println("I sleep all night and I work all day.")
 end
 
-function repeatlyrics() 
+function repeatlyrics()
     printlyrics()
     printlyrics()
 end
@@ -276,7 +279,7 @@ As you might expect, you have to create a function before you can run it. In oth
 """
 
 # ╔═╡ ff341d78-6806-11eb-1cf9-e75f47ca002e
-md"""#### Exercise 3-1
+md"""### Exercise 3-1
 
 Move the last line of this program to the top, so the function call appears before the definitions. Run the program and see what error message you get.
 
@@ -310,9 +313,9 @@ Inside the function, the arguments are assigned to variables called *parameters*
 """
 
 # ╔═╡ 2d882d96-f751-40d6-963c-1ad4f0b1af35
-function printtwice(bruce) 
+function printtwice(bruce)
 	println(bruce)
-	println(bruce) 
+	println(bruce)
 end
 
 # ╔═╡ 81f9ccbc-6143-47f3-abd6-645047a098da
@@ -322,7 +325,7 @@ This function works with any value that can be printed:
 """
 
 # ╔═╡ 6f198f09-29ba-45fa-ae31-3020443e5a6f
-printtwice("Spam") 
+printtwice("Spam")
 
 # ╔═╡ efd471aa-cdfa-456a-8b05-114dd6806793
 printtwice(42)
@@ -335,10 +338,10 @@ md"""The same rules of composition that apply to built-in functions also apply t
 """
 
 # ╔═╡ 818f33df-e7dd-4109-814b-963f91fe30a4
-printtwice("Spam "^4) 
+printtwice("Spam "^4)
 
 # ╔═╡ add7e8f0-7680-4794-9659-23fb8b54029e
-printtwice(cos(π)) 
+printtwice(cos(π))
 
 # ╔═╡ c9f63a60-6ed7-4bdd-80f2-774bce24c293
 md"""The argument is evaluated before the function is called, so in these examples the expressions `"Spam "^4` and `cos(π)` are only evaluated once.
@@ -358,9 +361,9 @@ md"""The name of the variable we pass as an argument (michael) has nothing to do
 
 # ╔═╡ 05da4942-68ce-11eb-3634-4f77c713ba1e
 md"""
-!!! languages
+!!! python
     In Python the arguments of a function are specified after the function name:
-    
+
     ```python
     >>> def printtwice(bruce):
     ...     print(bruce)
@@ -368,7 +371,8 @@ md"""
     ...
     ```
 
-    and this is also the case for MATLAB:
+!!! matlab
+    This is also the case for MATLAB:
 
     ```matlab
     function printtwice(bruce)
@@ -376,16 +380,17 @@ md"""
         disp(bruce)
     end
     ```
-    
+
+!!! c
     The type of arguments has to be specified in C:
-    
+
     ```c
     void printtwice(char* bruce) {
         printf("%s\n", bruce);
         printf("%s\n", bruce);
     }
     ```
-    
+
     In this case `bruce` is of type `char*`, i.e. a pointer to the first character of the string.
 """
 
@@ -396,8 +401,8 @@ When you create a variable inside a function, it is local, which means that it o
 """
 
 # ╔═╡ 9ab6f64d-0621-4af0-9321-4f9401d190a2
-function cattwice(part1, part2) 
-	concat = part1 * part2 
+function cattwice(part1, part2)
+	concat = part1 * part2
 	printtwice(concat)
 end
 
@@ -440,69 +445,69 @@ Each function is represented by a *frame*. A frame is a box with the name of a f
 Drawing(width=720, height=220) do
     rect(x=210, y=10, width=400, height=60, fill="rgb(242, 242, 242)", stroke="black")
 	text(x=180, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("Main") 
+		str("Main")
 	end
 	text(x=280, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("line1") 
+		str("line1")
 	end
-	text(x=290, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"Bing tiddle \"") 
+	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"Bing tiddle \"")
 	end
 	text(x=280, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("line2") 
+		str("line2")
 	end
-	text(x=290, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"tiddle bang\"") 
+	text(x=320, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"tiddle bang\"")
 	end
 	rect(x=210, y=80, width=400, height=90, fill="rgb(242, 242, 242)", stroke="black")
 	text(x=180, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("cattwice") 
+		str("cattwice")
 	end
 	text(x=280, y=100, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("part1") 
+		str("part1")
 	end
-	text(x=290, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"Bing tiddle \"") 
+	text(x=320, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"Bing tiddle \"")
 	end
 	text(x=280, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("part2") 
+		str("part2")
 	end
-	text(x=290, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"tiddle bang\"") 
+	text(x=320, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"tiddle bang\"")
 	end
 	text(x=280, y=160, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("concat") 
+		str("concat")
 	end
-	text(x=290, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"Bing tiddle tiddle bang\"") 
+	text(x=320, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"Bing tiddle tiddle bang\"")
 	end
 	rect(x=210, y=180, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
 	text(x=180, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("printtwice") 
+		str("printtwice")
 	end
 	text(x=280, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
-		str("bruce") 
+		str("bruce")
 	end
-	text(x=290, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=290, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=320, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"Bing tiddle tiddle bang\"") 
+	text(x=320, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"Bing tiddle tiddle bang\"")
 	end
 	@info "Stack diagram."
 end
@@ -518,15 +523,15 @@ For example, if you try to access `concat` from within `printtwice_err`, you get
 """
 
 # ╔═╡ 400680b0-6162-4812-8a2d-c82e757a51a0
-function printtwice_err(bruce) 
+function printtwice_err(bruce)
 	println(bruce)
 	concat
-	println(bruce) 
+	println(bruce)
 end
 
 # ╔═╡ 645d2eaf-17f1-4f95-8d1e-ec1d4e971727
-function cattwice_err(part1, part2) 
-	concat = part1 * part2 
+function cattwice_err(part1, part2)
+	concat = part1 * part2
 	printtwice_err(concat)
 end
 
@@ -573,7 +578,7 @@ begin
 end
 
 # ╔═╡ d1e3f107-bd3a-4a87-848e-1ab5b410f6af
-md"""This `begin` block computes the square root of 5, but since it doesn’t store or display the result, it is not very useful. The square root of 9 however is the result of the compound statement, its last executed statement, and as such will be displayed. 
+md"""This `begin` block computes the square root of 5, but since it doesn’t store or display the result, it is not very useful. The square root of 9 however is the result of the compound statement, its last executed statement, and as such will be displayed.
 
 Void functions might display something on the screen or have some other effect, but they don’t have a return value. If you assign the result to a variable, you get a special value called `nothing`:
 """
@@ -591,7 +596,7 @@ The value `nothing` is not the same as the string `"nothing"`. It is a special v
 """
 
 # ╔═╡ 975a07b0-0034-4ed4-be80-12fd6a577e92
-typeof(nothing) 
+typeof(nothing)
 
 # ╔═╡ f89fd1a4-6867-4e2c-b6b7-ad7306e420b0
 md"""The functions we have written so far are all void. We will start writing fruitful functions in a few chapters.
@@ -619,7 +624,7 @@ In some ways debugging is like detective work. You are confronted with clues and
 Debugging is also like an experimental science. Once you have an idea about what is going wrong, you modify your program and try again. If your hypothesis was correct, you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one. As Sherlock Holmes pointed out,
 
 > When you have eliminated the impossible, whatever remains, however improbable, must be the truth.
-> 
+>
 > —A. Conan Doyle, *The Sign of Four*
 
 For some people, programming and debugging are the same thing. That is, program‐ ming is the process of gradually debugging a program until it does what you want. The idea is that you should start with a working program and make small modifications, debugging them as you go.
@@ -682,7 +687,7 @@ A list of the functions that are executing, printed when an exception occurs.
 A function that returns a value.
 
 *void function*:
-A function that always returns nothing. 
+A function that always returns nothing.
 
 *`nothing`*:
 A special value returned by void functions.
@@ -696,42 +701,45 @@ md"""## Exercises
 """
 
 # ╔═╡ ba4efec0-68d7-11eb-1670-f3b243ec16d4
-md"""#### Exercise 3-2
+md"""### Exercise 3-2
 
 Write a function named rightjustify that takes a string named s as a parameter and prints the string with enough leading spaces so that the last letter of the string is in column 70 of the display:
+"""
 
-```julia
-julia> rightjustify("monty")
-                                                                       monty
-```
+# ╔═╡ 97fae609-58c4-4a55-89db-bccee4f9ca0d
+rightjustify("monty")
 
-!!! tip
+# ╔═╡ 599e70fe-658a-484f-a4fb-4a93aad186f7
+md"""!!! tip
     Use string concatenation and repetition. Also, Julia provides a built-in function called `length` that returns the length of a string, so the value of `length("monty")` is `5`.
 """
 
 # ╔═╡ 21ee9e2a-68d8-11eb-2378-8f86ad348501
-md"""#### Exercise 3-3
+md"""### Exercise 3-3
 
 A function object is a value you can assign to a variable or pass as an argument. For example, `dotwice` is a function that takes a function object as an argument and calls it twice:
+"""
 
-```julia
-function dotwice(f) 
+# ╔═╡ 654989f2-838a-47e5-b326-22bec2c2085b
+function dotwice(f)
     f()
-    f() 
+    f()
 end
-```
 
-Here’s an example that uses `dotwice` to call a function named `printspam` twice:
+# ╔═╡ a1813e13-1739-42d9-87c2-9c6a7568831f
+md"""Here’s an example that uses `dotwice` to call a function named `printspam` twice:
+"""
 
-```julia
-function printspam() 
+# ╔═╡ c018177c-a572-4641-8980-fb0ea73b4a72
+function printspam()
     println("spam")
 end
 
+# ╔═╡ ad346f8a-5477-41ca-b905-00e6f9b96abd
 dotwice(printspam)
-```
 
-1. Type this example into a script and test it.
+# ╔═╡ 868cf6fd-be0a-4b12-be2f-b238029c95c9
+md"""1. Type this example into a script and test it.
 2. Modify `dotwice` so that it takes two arguments, a function object and a value, and calls the function twice, passing the value as an argument.
 3. Copy the definition of `printtwice` from earlier in this chapter to your script.
 4. Use the modified version of `dotwice` to call `printtwice` twice, passing `"spam"` as an argument.
@@ -739,42 +747,33 @@ dotwice(printspam)
 """
 
 # ╔═╡ a6646e6e-68d8-11eb-2b06-75b6abfc177a
-md"""#### Exercise 3-4
+md"""### Exercise 3-4
 
-1. Write a function `printgrid` that draws a grid like the following:
-   
-   ```julia
-   julia> printgrid()
-   + - - - - + - - - - +
-   |         |         |
-   |         |         |
-   |         |         |
-   |         |         |
-   + - - - - + - - - - +
-   |         |         |
-   |         |         |
-   |         |         |
-   |         |         |
-   + - - - - + - - - - +
-   ```
-2. Write a function that draws a similar grid with four rows and four columns.
+Write a function `printgrid` that draws a grid like the following:
+"""
+
+# ╔═╡ 5788df5c-9389-4b0e-86e7-859c6e91718a
+printgrid()
+
+# ╔═╡ 16a8e9c3-33f2-484d-bd6c-959de24dc865
+md"""Write now a function that draws a similar grid with four rows and four columns.
 
 *Credit*: This exercise is based on an exercise in *Practical C Programming*, by Steve Oualline (O’Reilly).
 
 !!! tip
-    To print more than one value on a line, you can print a comma- separated sequence of values:
-    
+    To print more than one value on a line, you can print a comma-separated sequence of values:
+
     ```julia
     println("+", "-")
     ```
-    
+
     The function print does not advance to the next line:
-    
+
     ```julia
     print("+ ")
     println("-")
     ```
-    
+
     The output of these statements is `"+ -"` on the same line. The output from the next print statement would begin on the next line.
 """
 
@@ -871,5 +870,14 @@ md"""#### Exercise 3-4
 # ╟─d1f91354-68d6-11eb-011d-c7dbdb310949
 # ╟─924657fc-68d7-11eb-068e-1f86cd76b173
 # ╟─ba4efec0-68d7-11eb-1670-f3b243ec16d4
+# ╠═97fae609-58c4-4a55-89db-bccee4f9ca0d
+# ╟─599e70fe-658a-484f-a4fb-4a93aad186f7
 # ╟─21ee9e2a-68d8-11eb-2378-8f86ad348501
+# ╟─654989f2-838a-47e5-b326-22bec2c2085b
+# ╟─a1813e13-1739-42d9-87c2-9c6a7568831f
+# ╠═c018177c-a572-4641-8980-fb0ea73b4a72
+# ╠═ad346f8a-5477-41ca-b905-00e6f9b96abd
+# ╟─868cf6fd-be0a-4b12-be2f-b238029c95c9
 # ╟─a6646e6e-68d8-11eb-2b06-75b6abfc177a
+# ╠═5788df5c-9389-4b0e-86e7-859c6e91718a
+# ╟─16a8e9c3-33f2-484d-bd6c-959de24dc865

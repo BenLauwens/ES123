@@ -27,7 +27,7 @@ The `::` operator attaches *type annotations* to expressions and variables, indi
 
 ```julia
 julia> (1 + 2) :: Float64
-ERROR: TypeError: in typeassert, expected Float64, got Int64 
+ERROR: TypeError: in typeassert, expected Float64, got Int64
 julia> (1 + 2) :: Int64
 3
 ```
@@ -37,11 +37,11 @@ This helps to confirm that your program works the way you expect.
 The `::` operator can also be appended to the lefthand side of an assignment, or included as part of a declaration:
 
 ```julia
-julia> function returnfloat() 
+julia> function returnfloat()
 	       x::Float64 = 100
 	       x
        end
-returnfloat (generic function with 1 method) 
+returnfloat (generic function with 1 method)
 julia> x = returnfloat()
 100.0
 julia> typeof(x)
@@ -53,11 +53,11 @@ The variable `x` is always of type `Float64` and the value is converted to a flo
 A type annotation can also be attached to the header of a function definition:
 
 ```julia
-function sinc(x)::Float64 
+function sinc(x)::Float64
 	if x === 0
-		return 1 
+		return 1
 	end
-	sin(x)/(x) 
+	sin(x)/(x)
 end
 ```
 
@@ -74,10 +74,10 @@ In “Time”, we defined a struct named `MyTime` and you wrote a function named
 ```julia
 using Printf
 
-struct MyTime 
+struct MyTime
 	hour :: Int64
 	minute :: Int64
-	second :: Int64 
+	second :: Int64
 end
 
 function printtime(time)
@@ -90,9 +90,9 @@ As you can see, type declarations can (and should, for performance reasons) be a
 To call this function, we have to pass a `MyTime` object as an argument:
 
 ```julia
-julia> start = MyTime(9, 45, 0) 
+julia> start = MyTime(9, 45, 0)
 MyTime(9, 45, 0)
-julia> printtime(start) 
+julia> printtime(start)
 09:45:00
 ```
 
@@ -106,7 +106,7 @@ end
 
 A method is a function definition with a specific signature: `printtime` has one argument of type `MyTime`.
 
-Calling the function `printtime` with a `MyTime` object yields the same result as before: 
+Calling the function `printtime` with a `MyTime` object yields the same result as before:
 
 ```julia
 julia> printtime(start)
@@ -130,7 +130,7 @@ I don't know how to print the argument time.
 """
 
 # ╔═╡ f34a98f4-8ff8-11eb-3cd3-f170eae0c30d
-md"""#### Exercise 17-1
+md"""### Exercise 17-1
 
 Rewrite `timetoint` and `inttotime` (from “Prototyping Versus Planning”) to specify their arguments.
 """
@@ -141,8 +141,8 @@ md"""## Additional Examples
 Here’s a version of `increment` (from “Modifiers”) rewritten to specify its arguments:
 
 ```julia
-function increment(time::MyTime, seconds::Int64) 
-	seconds += timetoint(time) 
+function increment(time::MyTime, seconds::Int64)
+	seconds += timetoint(time)
 	inttotime(seconds)
 end
 ```
@@ -150,9 +150,9 @@ end
 Note that now it is a pure function, not a modifier. Here’s how you would invoke `increment`:
 
 ```julia
-julia> start = MyTime(9, 45, 0) 
+julia> start = MyTime(9, 45, 0)
 MyTime(9, 45, 0)
-julia> increment(start, 1337) 
+julia> increment(start, 1337)
 MyTime(10, 7, 17)
 ```
 
@@ -176,7 +176,7 @@ end
 By the way, optional arguments are implemented as syntax for multiple method definitions. For example, this definition:
 
 ```julia
-function f(a=1, b=2) 
+function f(a=1, b=2)
 	a + 2b
 end
 ```
@@ -184,8 +184,8 @@ end
 translates to the following three methods:
 
 ```julia
-f(a,b) = a + 2b 
-f(a) = f(a, 2) 
+f(a,b) = a + 2b
+f(a) = f(a, 2)
 f() = f(1, 2)
 ```
 
@@ -205,7 +205,7 @@ MyTime(hour::Int64, minute::Int64, second::Int64)
 We can also add our own *outer constructor* methods:
 
 ```julia
-function MyTime(time::MyTime) 
+function MyTime(time::MyTime)
 	MyTime(time.hour, time.minute, time.second)
 end
 ```
@@ -215,7 +215,7 @@ This method is called a *copy constructor* because the new `MyTim` object is a c
 To enforce invariants, we need *inner constructor* methods:
 
 ```julia
-struct MyTime 
+struct MyTime
 	hour :: Int64
 	minute :: Int64
 	second :: Int64
@@ -223,7 +223,7 @@ struct MyTime
 		@assert(0 ≤ minute < 60, "Minute is not between 0 and 60.")
 		@assert(0 ≤ second < 60, "Second is not between 0 and 60.")
 		new(hour, minute, second)
-	end 
+	end
 end
 ```
 
@@ -232,7 +232,7 @@ The struct `MyTime` now has four inner constructor methods:
 ```julia
 MyTime()
 MyTime(hour::Int64)
-MyTime(hour::Int64, minute::Int64) 
+MyTime(hour::Int64, minute::Int64)
 MyTime(hour::Int64, minute::Int64, second::Int64)
 ```
 
@@ -244,7 +244,7 @@ An inner constructor method is always defined inside the block of a type declara
 A second method without arguments of the local function new exists:
 
 ```julia
-struct MyTime 
+struct MyTime
 	hour :: Int
 	minute :: Int
 	second :: Int
@@ -256,7 +256,7 @@ struct MyTime
 		time.minute = minute
 		time.second = second
 		time
-	end 
+	end
 end
 ```
 
@@ -278,7 +278,7 @@ end
 
 The prefix `Base` is needed because we want to add a new method to the `Base.show` function.
 
-When you print an object, Julia invokes the `show` function: 
+When you print an object, Julia invokes the `show` function:
 
 ```julia
 julia> time = MyTime(9, 45)
@@ -289,7 +289,7 @@ When I write a new composite type, I almost always start by writing an outer con
 """
 
 # ╔═╡ 6021d5b0-8ffa-11eb-053a-85008d0a7f1a
-md"""#### Exercise 17-2
+md"""### Exercise 17-2
 
 Write an outer constructor method for the `Point` class that takes `x` and `y` as optional parameters and assigns them to the corresponding fields.
 """
@@ -305,7 +305,7 @@ Here is what the definition might look like:
 import Base.+
 
 function +(t1::MyTime, t2::MyTime)
-	seconds = timetoint(t1) + timetoint(t2) 
+	seconds = timetoint(t1) + timetoint(t2)
 	inttotime(seconds)
 end
 ```
@@ -316,11 +316,11 @@ The import statement adds the `+` operator to the local scope so that methods ca
 And here is how you could use it:
 
 ```julia
-julia> start = MyTime(9, 45) 
+julia> start = MyTime(9, 45)
 09:45:00
-julia> duration = MyTime(1, 35, 0) 
+julia> duration = MyTime(1, 35, 0)
 01:35:00
-julia> start + duration 
+julia> start + duration
 11:20:00
 ```
 
@@ -335,7 +335,7 @@ md"""## Multiple Dispatch
 In the previous section we added two `MyTime` objects, but you also might want to add an integer to a `MyTime` object:
 
 ```julia
-function +(time::MyTime, seconds::Int64) 
+function +(time::MyTime, seconds::Int64)
 	increment(time, seconds)
 end
 ```
@@ -343,16 +343,16 @@ end
 Here is an example that uses the `+` operator with a `MyTime` object and an integer:
 
 ```julia
-julia> start = MyTime(9, 45) 
+julia> start = MyTime(9, 45)
 09:45:00
-julia> start + 1337 
+julia> start + 1337
 10:07:17
 ```
 
 Addition is a commutative operator, so we have to add another method:
 
 ```julia
-function +(seconds::Int64, time::MyTime) 
+function +(seconds::Int64, time::MyTime)
 	time + seconds
 end
 ```
@@ -360,7 +360,7 @@ end
 And we get the same result:
 
 ```julia
-julia> 1337 + start 
+julia> 1337 + start
 10:07:17
 ```
 
@@ -368,7 +368,7 @@ The *dispatch* mechanism determines which method to execute when a function is c
 """
 
 # ╔═╡ 20fdca9e-8ffb-11eb-3066-59f9a3689bf8
-md"""#### Exercise 17-3
+md"""### Exercise 17-3
 
 Write `+` methods for Point objects:
 
@@ -384,13 +384,13 @@ Multiple dispatch is useful when it is necessary, but (fortunately) it is not al
 Many of the functions we wrote for strings also work for other sequence types. For example, in “Dictionaries as Collections of Counters” we used `histogram` to count the number of times each letter appears in a word:
 
 ```julia
-function histogram(s) 
+function histogram(s)
 	d = Dict()
 	for c in s
 		if c ∉ keys(d)
-			d[c] = 1 
+			d[c] = 1
 		else
-			d[c] += 1 
+			d[c] += 1
 		end
 	end
 	d
@@ -400,7 +400,7 @@ end
 This function also works for lists, tuples, and even dictionaries, as long as the elements of `s` are hashable so they can be used as keys in `d`:
 
 ```julia
-julia> t = ("spam", "egg", "spam", "spam", "bacon", "spam") 
+julia> t = ("spam", "egg", "spam", "spam", "bacon", "spam")
 ("spam", "egg", "spam", "spam", "bacon", "spam")
 julia> histogram(t)
 Dict{Any,Any} with 3 entries:
@@ -416,13 +416,13 @@ For example, the built-in function sum, which adds the elements of a sequence, w
 Since a `+` method is provided for `MyTime` objects, they work with `sum`:
 
 ```julia
-julia> t1 = MyTime(1, 7, 2) 
+julia> t1 = MyTime(1, 7, 2)
 01:07:02
-julia> t2 = MyTime(1, 5, 8) 
+julia> t2 = MyTime(1, 5, 8)
 01:05:08
-julia> t3 = MyTime(1, 5, 0) 
+julia> t3 = MyTime(1, 5, 0)
 01:05:00
-julia> sum((t1, t2, t3)) 
+julia> sum((t1, t2, t3))
 03:17:10
 ```
 
@@ -458,8 +458,8 @@ To know what methods are available for a given function, you can use the functio
 
 ```julia
 julia> methods(printtime)
-# 2 methods for generic function "printtime": 
-[1] printtime(time::MyTime) in Main at REPL[3]:2 
+# 2 methods for generic function "printtime":
+[1] printtime(time::MyTime) in Main at REPL[3]:2
 [2] printtime(time) in Main at REPL[4]:2
 ```
 
@@ -510,14 +510,14 @@ A function whose argument(s) can be of several types.
 """
 
 # ╔═╡ 2250f414-8ffd-11eb-3cd1-db7908b3544f
-md"""## Exercises 
+md"""## Exercises
 
-#### Exercise 17-4
+### Exercise 17-4
 Change the fields of `MyTime` to be a single integer representing seconds since midnight. Then modify the methods defined in this chapter to work with the new implementation.
 """
 
 # ╔═╡ 5ce1e624-8ffd-11eb-0ca8-63ad122f224d
-md"""#### Exercise 17-5
+md"""### Exercise 17-5
 
 Write a definition for a type named `Kangaroo` with a field named `pouchcontents` of type `Array` and the following methods:
 

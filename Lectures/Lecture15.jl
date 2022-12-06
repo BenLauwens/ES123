@@ -38,7 +38,7 @@ Creating a new type is more complicated than the other options, but it has advan
 A programmer-defined *composite type* is also called a *struct*. The `struct` definition for a point looks like this:
 
 ```julia
-struct Point 
+struct Point
 	x
 	y
 end
@@ -50,7 +50,7 @@ The header indicates that the new struct is called `Point`. The body defines the
 A struct is like a factory for creating objects. To create a point, you call `Point` as if it were a function having as arguments the values of the fields. When `Point` is used as a function, it is called a *constructor*:
 
 ```julia
-julia> p = Point(3.0, 4.0) 
+julia> p = Point(3.0, 4.0)
 Point(3.0, 4.0)
 ```
 
@@ -73,26 +73,26 @@ Drawing(width=720, height=90) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=275, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("p ->") 
+	text(x=275, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("p ->")
 	end
 	rect(x=325, y=30, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=335, y=20, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("Point") 
+	text(x=335, y=20, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("Point")
 	end
-	text(x=335, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("x") 
+	text(x=335, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("x")
 	end
 	line(x1=355, y1=45, x2=395, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=415, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("3.0") 
+	text(x=415, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("3.0")
 	end
-	text(x=335, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("y") 
+	text(x=335, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("y")
 	end
 	line(x1=355, y1=65, x2=395, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=415, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("4.0") 
+	text(x=415, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("4.0")
 	end
 end
 
@@ -105,9 +105,9 @@ md"""## Structs Are Immutable
 You can get the values of the fields using `.` notation:
 
 ```julia
-julia> x = p.x 
+julia> x = p.x
 3.0
-julia> p.y 
+julia> p.y
 4.0
 ```
 
@@ -116,7 +116,7 @@ The expression `p.x` means, “Go to the object `p` refers to and get the value 
 You can use dot notation as part of any expression. For example:
 
 ```julia
-julia> distance = sqrt(p.x^2 + p.y^2) 
+julia> distance = sqrt(p.x^2 + p.y^2)
 5.0
 ```
 
@@ -140,7 +140,7 @@ md"""## Mutable Structs
 Where required, mutable composite types can be declared with the keyword `mutable struct`. Here is the definition of a mutable point:
 
 ```julia
-mutable struct MPoint 
+mutable struct MPoint
 	x
 	y
 end
@@ -149,11 +149,11 @@ end
 You can assign values to an instance of a mutable struct using dot notation:
 
 ```julia
-julia> blank = MPoint(0.0, 0.0) 
+julia> blank = MPoint(0.0, 0.0)
 MPoint(0.0, 0.0)
 julia> blank.x = 3.0
 3.0
-julia> blank.y = 4.0 
+julia> blank.y = 4.0
 4.0
 ```
 """
@@ -173,7 +173,7 @@ At this point it is hard to say whether one is better than the other, so we’ll
 ```julia
 \"\"\"
 Represents a rectangle.
-fields: width, height, corner 
+fields: width, height, corner
 \"\"\"
 struct Rectangle
 	width
@@ -188,9 +188,9 @@ The docstring lists the fields: `width` and `height` are numbers; corner is a `P
 To represent a rectangle, you have to instantiate a `Rectangle` object:
 
 ```julia
-julia> origin = MPoint(0.0, 0.0) 
+julia> origin = MPoint(0.0, 0.0)
 MPoint(0.0, 0.0)
-julia> box = Rectangle(100.0, 200.0, origin) 
+julia> box = Rectangle(100.0, 200.0, origin)
 Rectangle(100.0, 200.0, MPoint(0.0, 0.0))
 ```
 
@@ -204,48 +204,48 @@ Drawing(width=720, height=120) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("box ->") 
+	text(x=140, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("box ->")
 	end
 	rect(x=200, y=30, width=200, height=70, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=210, y=20, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("Rectangle") 
+	text(x=210, y=20, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("Rectangle")
 	end
-	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do 
-		str("width") 
+	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+		str("width")
 	end
 	line(x1=280, y1=45, x2=320, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=340, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("100.0") 
+	text(x=340, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("100.0")
 	end
-	text(x=270, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do 
-		str("height") 
+	text(x=270, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+		str("height")
 	end
 	line(x1=280, y1=65, x2=320, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=340, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("200.0") 
+	text(x=340, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("200.0")
 	end
-	text(x=270, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do 
-		str("corner") 
+	text(x=270, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+		str("corner")
 	end
 	line(x1=280, y1=85, x2=440, y2=85, stroke="black", marker_end="url(#arrow)")
 	rect(x=450, y=60, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=460, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("MPoint") 
+	text(x=460, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("MPoint")
 	end
-	text(x=460, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("x") 
+	text(x=460, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("x")
 	end
 	line(x1=480, y1=75, x2=520, y2=75, stroke="black", marker_end="url(#arrow)")
-	text(x=540, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("0.0") 
+	text(x=540, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("0.0")
 	end
-	text(x=460, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("y") 
+	text(x=460, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("y")
 	end
 	line(x1=480, y1=95, x2=520, y2=95, stroke="black", marker_end="url(#arrow)")
-	text(x=540, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("0.0") 
+	text(x=540, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("0.0")
 	end
 end
 
@@ -258,7 +258,7 @@ md"""## Instances as Arguments
 You can pass an instance as an argument in the usual way. For example:
 
 ```julia
-function printpoint(p) 
+function printpoint(p)
 	println("($(p.x), $(p.y))")
 end
 ```
@@ -266,13 +266,13 @@ end
 `printpoint` takes a `Point` as an argument and displays it in mathematical notation. To invoke it, you can pass `p` as an argument:
 
 ```julia
-julia> printpoint(blank) 
+julia> printpoint(blank)
 (3.0, 4.0)
 ```
 """
 
 # ╔═╡ c0d707c4-8c8b-11eb-2784-7b62508b0a19
-md"""#### Exercise 15-1
+md"""### Exercise 15-1
 Write a function called `distancebetweenpoints` that takes two points as arguments and returns the distance between them.
 """
 
@@ -280,7 +280,7 @@ Write a function called `distancebetweenpoints` that takes two points as argumen
 md"""If a mutable struct object is passed to a function as an argument, the function can modify the fields of the object. For example, `movepoint!` takes a mutable `Point` object and two numbers, `dx` and `dy`, and adds the numbers to, respectively, the `x` and the ``y attribute of the `Point`:
 
 ```julia
-function movepoint!(p, dx, dy) 
+function movepoint!(p, dx, dy)
 	p.x += dx
 	p.y += dy
 	nothing
@@ -290,17 +290,17 @@ end
 Here is an example that demonstrates the effect:
 
 ```julia
-julia> origin = MPoint(0.0, 0.0) 
+julia> origin = MPoint(0.0, 0.0)
 MPoint(0.0, 0.0)
 julia> movepoint!(origin, 1.0, 2.0)
 
-julia> origin 
+julia> origin
 MPoint(1.0, 2.0)
 ```
 
 Inside the function, `p` is an alias for `origin`, so when the function modifies `p`, `origin` changes.
 
-Passing an immutable Point object to movepoint! causes an error: 
+Passing an immutable Point object to movepoint! causes an error:
 
 ```julia
 julia> movepoint!(p, 1.0, 2.0)
@@ -310,7 +310,7 @@ ERROR: setfield! immutable struct of type Point cannot be changed
 You can, however, modify the value of a mutable attribute of an immutable object. For example, moverectangle! has as arguments a `Rectangle` object and two numbers, `dx` and `dy`, and uses `movepoint!` to move the corner of the rectangle:
 
 ```julia
-function moverectangle!(rect, dx, dy) 
+function moverectangle!(rect, dx, dy)
 	movepoint!(rect.corner, dx, dy)
 end
 ```
@@ -319,7 +319,7 @@ Now `p` in `movepoint!` is an alias for `rect.corner`, so when `p` is modified, 
 
 ```julia
 julia> box
-Rectangle(100.0, 200.0, MPoint(0.0, 0.0)) 
+Rectangle(100.0, 200.0, MPoint(0.0, 0.0))
 julia> moverectangle!(box, 1.0, 2.0)
 
 julia> box
@@ -328,7 +328,7 @@ Rectangle(100.0, 200.0, MPoint(1.0, 2.0))
 
 !!! danger
     You cannot reassign a mutable attribute of an immutable object:
-    
+
     ```julia
     julia> box.corner = MPoint(1.0, 2.0)
     ERROR: setfield! immutable struct of type Rectangle cannot be changed
@@ -352,7 +352,7 @@ The expression `rect.corner.x` means, “Go to the object `rect` refers to and s
 Here is an example that passes `box` as an argument and assigns the resulting `Point` to center:
 
 ```julia
-julia> center = findcenter(box) 
+julia> center = findcenter(box)
 Point(51.0, 102.0)
 ```
 """
@@ -365,13 +365,13 @@ Aliasing can make a program difficult to read because changes in one place might
 Copying an object is often an alternative to aliasing. Julia provides a function called `deepcopy` that performs a *deep copy* and can duplicate any object, including the contents of any embedded objects:
 
 ```julia
-julia> p1 = MPoint(3.0, 4.0) 
+julia> p1 = MPoint(3.0, 4.0)
 MPoint(3.0, 4.0)
-julia> p2 = deepcopy(p1) 
+julia> p2 = deepcopy(p1)
 MPoint(3.0, 4.0)
-julia> p1 ≡ p2 
+julia> p1 ≡ p2
 false
-julia> p1 == p2 
+julia> p1 == p2
 false
 ```
 
@@ -379,7 +379,7 @@ The `≡` operator indicates that `p1` and `p2` are not the same object, which i
 """
 
 # ╔═╡ 2762ab0a-8c8d-11eb-280d-bb3cc9a654ed
-md"""#### Exercise 15-2
+md"""### Exercise 15-2
 
 Create a `Point` instance, make a copy of it, and check the equivalence and the egality of the two objects. The result may surprise you, but it explains why aliasing is a non-issue for an immutable object.
 """
@@ -390,7 +390,7 @@ md"""## Debugging
 When you start working with objects, you are likely to encounter some new exceptions. If you try to access a field that doesn’t exist, you get:
 
 ```julia
-julia> p = Point(3.0, 4.0) 
+julia> p = Point(3.0, 4.0)
 Point(3.0, 4.0)
 julia> p.z = 1.0
 ERROR: type Point has no field z Stacktrace:
@@ -401,11 +401,11 @@ ERROR: type Point has no field z Stacktrace:
 If you are not sure what type an object is, you can ask:
 
 ```julia
-julia> typeof(p) 
+julia> typeof(p)
 Point
 ```
 
-You can also use `isa` to check whether an object is an instance of a type: 
+You can also use `isa` to check whether an object is an instance of a type:
 
 ```julia
 julia> p isa Point
@@ -415,16 +415,16 @@ true
 If you are not sure whether an object has a particular attribute, you can use the built-in function `fieldnames`:
 
 ```julia
-julia> fieldnames(Point) 
+julia> fieldnames(Point)
 (:x, :y)
 ```
 
 or the function `isdefined`:
 
 ```julia
-julia> isdefined(p, :x) 
+julia> isdefined(p, :x)
 true
-julia> isdefined(p, :z) 
+julia> isdefined(p, :z)
 false
 ```
 
@@ -460,9 +460,9 @@ To copy the contents of an object as well as any embedded objects, and any objec
 """
 
 # ╔═╡ 28c26714-8c8e-11eb-2966-a9f47946b1d0
-md"""## Exercises 
+md"""## Exercises
 
-#### Exercise 15-3
+### Exercise 15-3
 
 1. Write a definition for a type named `Circle` with fields `center` and `radius`, where center is a `Point` object and `radius` is a number.
 2. Instantiate a `Circle` object that represents a circle with its center at ``(150, 100)`` and radius ``75``.
@@ -472,7 +472,7 @@ md"""## Exercises
 """
 
 # ╔═╡ 8d10564a-8c8e-11eb-159f-63a1fbcb3aef
-md"""#### Exercise 15-4
+md"""### Exercise 15-4
 
 1. Write a function called `drawrect` that takes a `Turtle` object and a `Rectangle` object and uses the turtle to draw the rectangle. See Chapter 4 for examples using `Turtle` objects.
 2. Write a function called `drawcircle` that takes a `Turtle` object and a `Circle` object and draws the circle.

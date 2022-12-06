@@ -40,16 +40,16 @@ The functions we have written so far are void. Speaking casually, they have no r
 """
 
 # ╔═╡ fbb22aac-ed8a-4e25-8fb7-515798a7f72d
-function area(radius) 
+function area(radius)
 	a = π * radius^2
-	return a 
+	return a
 end
 
 # ╔═╡ b96ba715-ddda-47af-9dac-407923b6d03a
 md"""We have seen the return statement before, but in a fruitful function the return statement includes an expression. This statement means: “Return immediately from this function and use the following expression as a return value.” The expression can be arbitrarily complicated, so we could have written this function more concisely:
 
 ```julia
-function area(radius) 
+function area(radius)
 	π * radius^2
 end
 ```
@@ -70,11 +70,11 @@ Sometimes it is useful to have multiple return statements, one in each branch of
 """
 
 # ╔═╡ 6887201f-1ebb-4201-8cd4-6f592aa12efd
-function absvalue(x) 
+function absvalue(x)
 	if x < 0
-		return -x 
+		return -x
 	else
-		return x 
+		return x
 	end
 end
 
@@ -82,11 +82,11 @@ end
 md"""or
 
 ```julia
-function absvalue(x) 
+function absvalue(x)
 	if x < 0
-		-x 
+		-x
 	else
-		x 
+		x
 	end
 end
 ```
@@ -101,13 +101,13 @@ In a fruitful function, it is a good idea to ensure that every possible path thr
 """
 
 # ╔═╡ 129075a2-a215-4905-8d6e-d04da70fe69a
-function absvalue_err(x) 
+function absvalue_err(x)
 	if x < 0
-		return -x 
+		return -x
 	end
-	if x > 0 
+	if x > 0
 		return x
-	end 
+	end
 end
 
 # ╔═╡ 4e7abb20-5521-436e-a9fa-9bfd0fbdf47e
@@ -115,7 +115,7 @@ md"""This function is incorrect because if `x` happens to be `0`, neither condit
 """
 
 # ╔═╡ 131480f6-71d7-42a3-a7b0-a2112ef2abfe
-show(absvalue_err(0)) 
+show(absvalue_err(0))
 
 # ╔═╡ 1a73c7ad-bc08-415a-b37f-ebe7acc8a8a9
 md"""!!! tip
@@ -123,26 +123,27 @@ md"""!!! tip
 """
 
 # ╔═╡ 4219f3ac-7612-11eb-3167-f55e643f9235
-md"""#### Exercise 6-1
+md"""### Exercise 6-1
 
 Write a compare function that takes two values, `x` and `y`, and returns `1` if `x > y`, `0` if `x == y`, and `-1` if `x < y`.
 """
 
 # ╔═╡ 8b79bba4-7682-11eb-2ea1-0986a9911b40
-md"""!!! languages
-    In Python and the C programming language, `return` cannot be omitted, neither is the last evaluated expression returned automatically.
-    
+md"""!!! python
+    In Python `return` cannot be omitted, neither is the last evaluated expression returned automatically.
+
     ```python
     def absvalue(x):
         if x < 0:
             return -x
         else:
             return x
-    
+
     ```
-    
+
+!!! c
     The return type has to be provided in C:
-    
+
     ```c
     double absvalue(double x) {
         if (x < 0) {
@@ -152,7 +153,8 @@ md"""!!! languages
         }
     }
     ```
-    
+
+!!! matlab
     MATLAB uses a `return` statement without argument. A function stops after this statements and returns the values specified in the header:
 
     ```matlab
@@ -188,7 +190,7 @@ Immediately you can write an outline of the function and call it with sample arg
 
 # ╔═╡ e4dc510b-c45a-45ad-8f36-c173c3fd587e
 let
-	function distance(x₁, y₁, x₂, y₂) 
+	function distance(x₁, y₁, x₂, y₂)
 		return 0.0
 	end
 
@@ -208,10 +210,10 @@ let
 	function distance(x₁, y₁, x₂, y₂)
 		dx = x₂ - x₁
 		dy = y₂ - y₁
-		@show dx dy 
+		@show dx dy
 		return 0.0
 	end
-	
+
 	distance(1.0, 2.0, 4.0, 6.0)
 end
 
@@ -227,7 +229,7 @@ let
 		dx = x₂ - x₁
 		dy = y₂ - y₁
 		d² = dx^2 + dy^2
-		@show d² 
+		@show d²
 		return 0.0
 	end
 
@@ -243,7 +245,7 @@ function distance(x₁, y₁, x₂, y₂)
 	dx = x₂ - x₁
 	dy = y₂ - y₁
 	d² = dx^2 + dy^2
-	return √d² 
+	return √d²
 end
 
 # ╔═╡ bb9f9b67-d76a-4956-9fbe-6b0a934eeb0e
@@ -267,7 +269,7 @@ The key aspects of the process are:
 md"""We used `let` blocks to create new local definitions of the `distance` function to illustrate the different steps. Normally, you modify the code in the cell during the development process. As a best practice, you create the function call with default parameters before the function definition. In the notebook interface it will be automatically executed every time you modify the function definition."""
 
 # ╔═╡ f5edc4c2-7613-11eb-0765-cba4f0286212
-md"""#### Exercise 6-2
+md"""### Exercise 6-2
 
 Use incremental development to write a function called hypotenuse that returns the length of the hypotenuse of a right triangle given the lengths of the other two legs as arguments. Record each stage of the development process as you go."""
 
@@ -291,8 +293,8 @@ result = area(radius)
 Encapsulating these steps in a function, we get:
 
 ```julia
-function circlearea(xc, yc, xp, yp) 
-	radius = distance(xc, yc, xp, yp) 
+function circlearea(xc, yc, xp, yp)
+	radius = distance(xc, yc, xp, yp)
 	result = area(radius)
 	return result
 end
@@ -302,7 +304,7 @@ The temporary variables `radius` and `result` are useful for development and deb
 """
 
 # ╔═╡ 80890607-b4be-4541-bea0-11744cabbadb
-begin
+let
 	circlearea(xc, yc, xp, yp) = area(distance(xc, yc, xp, yp))
 	circlearea(1.0, 2.0, 4.0, 6.0)
 end
@@ -314,7 +316,7 @@ Functions can return Booleans, which is often convenient for hiding complicated 
 """
 
 # ╔═╡ aa7f4b2d-a6c9-4c61-ae18-9c929ecd117e
-function isdivisible(x, y) 
+function isdivisible(x, y)
 	if x % y == 0
 		return true
 	else
@@ -329,10 +331,10 @@ Here is an example:
 """
 
 # ╔═╡ 5fa7bb83-b035-4ddf-9447-7eecfa09e952
-isdivisible(6, 4) 
+isdivisible(6, 4)
 
 # ╔═╡ 69a47f53-bc26-4603-a1fd-47f0ccecfffe
-isdivisible(6, 3) 
+isdivisible(6, 3)
 
 # ╔═╡ cf96bc1e-a42f-42fd-a3b1-e6318da2daf0
 md"""The result of the `==` operator is a Boolean, so we can write the function more concisely by returning it directly:
@@ -353,7 +355,7 @@ end
 md"""It might be tempting to write something like:
 
 ```julia
-if isdivisible(x, y) == true 
+if isdivisible(x, y) == true
 	println("x is divisible by y")
 end
 ```
@@ -362,7 +364,7 @@ But the extra comparison with `true` is unnecessary.
 """
 
 # ╔═╡ 3a20604e-7616-11eb-20c6-1fb57dbbb3c8
-md"""#### Exercise 6-3
+md"""### Exercise 6-3
 Write a function `isbetween(x, y, z)` that returns `true` if `x ≤ y ≤ z` or `false` otherwise.
 """
 
@@ -399,8 +401,7 @@ let
 	function fact(n)
 		return 0
 	end
-	@show fact(0)
-	@show fact(5)
+	@show fact(0) fact(5)
 end;
 
 # ╔═╡ aba2610e-6673-42cd-9db8-1bb14adc3c6a
@@ -417,8 +418,7 @@ let
 		end
 		return 0
 	end
-	@show fact(0)
-	@show fact(5)
+	@show fact(0) fact(5)
 end;
 
 # ╔═╡ dc3e37f9-d686-4e72-9b46-5fcbba041f5b
@@ -431,20 +431,19 @@ begin
 		if n == 0
 			return 1
 		end
-		recurse = fact(n-1) 
-		result = n * recurse 
+		recurse = fact(n-1)
+		result = n * recurse
 		return result
 	end
-	@show fact(0)
-	@show fact(5)
+	@show fact(0) fact(5)
 end;
 
 # ╔═╡ dc241e23-e6d5-4997-b7fa-1e44d66226c0
 md"""The flow of execution for this program is similar to the flow of `countdown` in “Recursion”. If we call fact with the value `3`:
 
-* Since `3` is not `0`, we take the second branch and calculate the factorial of `n-1`... 
+* Since `3` is not `0`, we take the second branch and calculate the factorial of `n-1`...
   * Since `2` is not `0`, we take the second branch and calculate the factorial of `n-1`...
-    * Since `1` is not `0`, we take the second branch and calculate the factorial of `n-1`... 
+    * Since `1` is not `0`, we take the second branch and calculate the factorial of `n-1`...
       * Since `0` equals `0`, we take the first branch and return `1` without making an more recursive calls.
     * The return value, `1`, is multiplied by `n`, which is `1`, and the result is returned.
   * The return value, `1`, is multiplied by `n`, which is `2`, and the result is returned.
@@ -461,131 +460,131 @@ Drawing(width=720, height=200) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("Main") 
+	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("Main")
 	end
     rect(x=170, y=10, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("fact") 
+	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("fact")
 	end
     rect(x=170, y=50, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=190, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=210, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=210, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=240, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("3") 
+	text(x=240, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("3")
 	end
-	text(x=300, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("recurse") 
+	text(x=300, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("recurse")
 	end
-	text(x=370, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=370, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("2") 
+	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("2")
 	end
-	text(x=460, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("result") 
+	text(x=460, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("result")
 	end
-	text(x=520, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=520, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=550, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("6") 
+	text(x=550, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("6")
 	end
-	text(x=140, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("fact") 
+	text(x=140, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("fact")
 	end
     rect(x=170, y=90, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=190, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=210, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=210, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=240, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("2") 
+	text(x=240, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("2")
 	end
-	text(x=300, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("recurse") 
+	text(x=300, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("recurse")
 	end
-	text(x=370, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=370, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
-	text(x=460, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("result") 
+	text(x=460, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("result")
 	end
-	text(x=520, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=520, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=550, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("2") 
+	text(x=550, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("2")
 	end
-	text(x=140, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("fact") 
+	text(x=140, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("fact")
 	end
     rect(x=170, y=130, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=190, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=210, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=210, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=240, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=240, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
-	text(x=300, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("recurse") 
+	text(x=300, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("recurse")
 	end
-	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
-	text(x=460, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("result") 
+	text(x=460, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("result")
 	end
-	text(x=520, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=520, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=550, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=550, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
-	text(x=140, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("fact") 
+	text(x=140, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("fact")
 	end
     rect(x=170, y=170, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=190, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=210, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=210, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("0") 
+	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("0")
 	end
 	path(d="M 570 50 C 595 50 595 40 580 40", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("6") 
+	text(x=600, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("6")
 	end
 	path(d="M 570 90 C 595 90 595 80 580 80", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("2") 
+	text(x=600, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("2")
 	end
 	path(d="M 570 130 C 595 130 595 120 580 120", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=600, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
 	path(d="M 570 170 C 595 170 595 160 580 160", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=170, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=600, y=170, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
 end
 
@@ -663,13 +662,13 @@ We can use the built-in operator `isa` to verify the type of the argument. While
 # ╔═╡ 9f7ddc22-6e1d-40da-b5bc-076a7844daa0
 function fact_guard(n)
 	if !(n isa Int64)
-		error("Factorial is only defined for integers.") 
+		error("Factorial is only defined for integers.")
 	elseif n < 0
-		error("Factorial is not defined for negative integers.") 
+		error("Factorial is not defined for negative integers.")
 	elseif n == 0
-		return 1 
+		return 1
 	else
-		return n * fact_guard(n-1) 
+		return n * fact_guard(n-1)
 	end
 end
 
@@ -713,15 +712,15 @@ Adding print statements at the beginning and end of a function can help make the
 
 # ╔═╡ 2b4f7fdf-ecd8-4c06-a86e-0eafd215be68
 function fact_debug(n)
-	space = "_" ^ (4 * n) 
-	println(space, "factorial ", n) 
+	space = "_" ^ (4 * n)
+	println(space, "factorial ", n)
 	if n == 0
 		println(space, "returning 1")
-		return 1 
+		return 1
 	end
 	recurse = fact_debug(n-1)
 	result = n * recurse
-	println(space, "returning ", result) 
+	println(space, "returning ", result)
 	return result
 end
 
@@ -757,36 +756,40 @@ A programming pattern that uses a conditional statement to check for and handle 
 # ╔═╡ e30a3db6-7621-11eb-0dbd-b962759a4c5a
 md"""## Exercises
 
-#### Exercise 6-4
+### Exercise 6-4
 
 Draw a stack diagram for the following program. What does the program print?
-
-```julia
-function b(z) 
-	prod = a(z, z)
-    println(z, " ", prod)
-	prod
-end
-
-function a(x, y) 
-	x=x+1
-	x*y 
-end
-
-function c(x, y, z) 
-	total=x+y+z 
-	square = b(total)^2 
-	square
-end
-
-x=1
-y=x+1
-println(c(x, y+3, x+y))
-```
 """
 
+# ╔═╡ 11ce420e-f3c1-4909-90b5-2c20216c9bd9
+function a(x, y)
+	x = x + 1
+	return x * y
+end
+
+# ╔═╡ c76b0cae-f0a3-4677-9143-982a410e328c
+function b(z)
+	prod = a(z, z)
+    println(z, " ", prod)
+	return prod
+end
+
+# ╔═╡ fe5eb236-95bb-493a-b87f-062a5c75e9e0
+function c(x, y, z)
+	total = x + y + z
+	square = b(total)^2
+	return square
+end
+
+# ╔═╡ cfc82848-410b-4928-b860-b4b18a116e0a
+let
+	x = 1
+	y = x+1
+	c(x, y+3, x+y)
+end
+
 # ╔═╡ 1269fe6e-7622-11eb-3da2-df0623082981
-md"""#### Exercise 6-5
+md"""### Exercise 6-5
 
 The Ackermann function, ``A(m, n)``, is defined as:
 
@@ -802,37 +805,41 @@ Write a function named `ack` that evaluates the Ackermann function. Use your fun
 """
 
 # ╔═╡ 80d44aee-7622-11eb-0555-e3f485a65fe9
-md"""#### Exercise 6-6
+md"""### Exercise 6-6
 
 A palindrome is a word that is spelled the same backward and forward, like “noon” or “redivider.” Recursively, a word is a palindrome if the first and last letters are the same and the middle is a palindrome.
 
 The following are functions that take a string argument and return the first, last, and middle letters:
+"""
 
-```julia
+# ╔═╡ c295dbfc-8de9-4ee2-9d6d-0d0a85dc2852
 function first(word)
-	first = firstindex(word) 
+	first = firstindex(word)
 	word[first]
 end
 
+# ╔═╡ cdbb04d3-09ed-4e58-8cec-a0207f1e37cf
 function last(word)
 	last = lastindex(word)
-	word[last] 
+	word[last]
 end
 
+# ╔═╡ 85911597-1060-428c-be89-f242d1c9af12
 function middle(word)
 	first = firstindex(word)
 	last = lastindex(word)
 	word[nextind(word, first) : prevind(word, last)]
 end
-```
 
-We’ll see how they work in Chapter 8.
+# ╔═╡ c7488854-503f-4cce-a84d-b017bd8d4da7
+md"""We’ll see how they work in Chapter 8.
 
 1. Test these functions out. What happens if you call `middle` with a string with two letters? One letter? What about the empty string, which is written "" and contains no letters?
-2. Write a function called `ispalindrome` that takes a string argument and returns `true` if it is a palindrome and `false` otherwise. Remember that you can use the built-in function length to check the length of a string."""
+2. Write a function called `ispalindrome` that takes a string argument and returns `true` if it is a palindrome and `false` otherwise. Remember that you can use the built-in function length to check the length of a string.
+"""
 
 # ╔═╡ cc009a36-7622-11eb-1c86-1fbb98e9fdb3
-md"""#### Exercise 6-7
+md"""### Exercise 6-7
 
 A number, ``a``, is a power of ``b`` if it isdivisible by ``b`` and ``\frac{a}{b}`` is a power of ``b``. Write a function called `ispower` that takes parameters `a` and `b` and returns `true` if `a` is a power of `b`.
 
@@ -841,7 +848,7 @@ A number, ``a``, is a power of ``b`` if it isdivisible by ``b`` and ``\frac{a}{b
 """
 
 # ╔═╡ 260955f6-7623-11eb-332f-dbba32b4a3d9
-md"""#### Exercise 6-8
+md"""### Exercise 6-8
 
 The greatest common divisor (GCD) of ``a`` and ``b`` is the largest number that divides both of them with no remainder.
 
@@ -916,7 +923,15 @@ Write a function called `gcd` that takes parameters `a` and `b` and returns thei
 # ╟─1e77e67d-dd11-41f3-ac73-da3db8dd13f2
 # ╟─b23efabc-7621-11eb-1d20-9959e0cda861
 # ╟─e30a3db6-7621-11eb-0dbd-b962759a4c5a
+# ╠═c76b0cae-f0a3-4677-9143-982a410e328c
+# ╠═11ce420e-f3c1-4909-90b5-2c20216c9bd9
+# ╠═fe5eb236-95bb-493a-b87f-062a5c75e9e0
+# ╠═cfc82848-410b-4928-b860-b4b18a116e0a
 # ╟─1269fe6e-7622-11eb-3da2-df0623082981
 # ╟─80d44aee-7622-11eb-0555-e3f485a65fe9
+# ╠═c295dbfc-8de9-4ee2-9d6d-0d0a85dc2852
+# ╠═cdbb04d3-09ed-4e58-8cec-a0207f1e37cf
+# ╠═85911597-1060-428c-be89-f242d1c9af12
+# ╟─c7488854-503f-4cce-a84d-b017bd8d4da7
 # ╟─cc009a36-7622-11eb-1c86-1fbb98e9fdb3
 # ╟─260955f6-7623-11eb-332f-dbba32b4a3d9

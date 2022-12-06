@@ -6,6 +6,7 @@ using InteractiveUtils
 
 # ╔═╡ d6bc6cde-7686-11eb-0a34-f1e7c9841275
 begin
+	include("../src/chap07.jl")
     import Pkg
 	io = IOBuffer()
     Pkg.activate(io = io)
@@ -39,34 +40,32 @@ let
 end;
 
 # ╔═╡ 54be42ba-8181-47ec-b4f6-5195cf012eab
-md"""The first time we display `x`, its value is `5`; the second time, its value is `7`. 
+md"""The first time we display `x`, its value is `5`; the second time, its value is `7`.
 
 Figure 7-1 shows what *reassignment* looks like in a state diagram.
 """
 
 # ╔═╡ f001d996-7687-11eb-1215-5940f40d3fed
 Drawing(width=720, height=50) do
+	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
     rect(x=310, y=10, width=100, height=40, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=330, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("x") 
+	text(x=330, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("x")
 	end
-	text(x=390, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("5") 
+	text(x=390, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("5")
 	end
-	text(x=390, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("7") 
+	text(x=390, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("7")
 	end
 	line(x1=335, y1=30, x2=370, y2=23, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
 	line(x1=335, y1=32, x2=370, y2=37, stroke="black", marker_end="url(#arrow)")
 end
-
-# ╔═╡ 55c7f344-768d-11eb-2f35-e52d557f4c61
-md"*7-1. State diagram.*"
 
 # ╔═╡ 67411830-768d-11eb-1cf0-f9011222c68d
 md"""At this point I want to address a common source of confusion. Because Julia uses the equals sign (`=`) for assignment, it is tempting to interpret a statement like `a = b` as a mathematical proposition of equality; that is, the claim that `a` and `b` are equal. But this interpretation is wrong.
@@ -90,7 +89,7 @@ md"""The third line changes the value of `a `but does not change the value of `b
 
 !!! danger
     Reassigning variables is often useful, but you should use it with caution. If the values of variables change frequently, it can make the code difficult to read and debug.
-    
+
     It is illegal to define a function that has the same name as a previously defined variable.
 """
 
@@ -120,9 +119,9 @@ let
 end;
 
 # ╔═╡ f1d4c343-4c3d-460f-90d7-42d79c40ccc5
-md"""This means “get the current value of `x`, add 1, and then update `x` with the new value.” 
+md"""This means “get the current value of `x`, add 1, and then update `x` with the new value.”
 
-If you try to update a variable that doesn’t exist, you get an error, because Julia evaluates the right side before it assigns a value to x: 
+If you try to update a variable that doesn’t exist, you get an error, because Julia evaluates the right side before it assigns a value to x:
 """
 
 # ╔═╡ 227d3fbf-0752-4c8d-b904-490e0558af9d
@@ -154,7 +153,7 @@ Another is the *`while` statement*. Here is a version of `countdown` that uses a
 """
 
 # ╔═╡ afded099-5415-46bb-abd5-6357835f3e83
-function countdown(n) 
+function countdown(n)
 	while n > 0
 		print(n, " ")
 		n -= 1
@@ -183,15 +182,15 @@ For some other loops, it is not so easy to tell. For example:
 """
 
 # ╔═╡ b45aaed5-4436-491d-825f-7df9d98458f9
-function seq(n) 
+function seq(n)
 	while n != 1
-		println(n) 
+		println(n)
 		if n % 2 == 0   # n is even
 			n /= 2
 		else
 			n = 3n + 1  # n is odd
 		end
-	end 
+	end
 end
 
 # ╔═╡ b54af953-a3a2-4f7c-b798-114773f5f2bb
@@ -205,26 +204,25 @@ The hard question is whether we can prove that this program terminates for all p
 """
 
 # ╔═╡ f51d8d5c-7690-11eb-3eea-e5a92768f7e6
-md"""#### Exercise 7-1
+md"""### Exercise 7-1
 
 Rewrite the function `printn` from “Recursion” using iteration instead of recursion.
 """
 
 # ╔═╡ 87bc44b0-76a4-11eb-3e5a-13df6d96717d
-md"""!!! languages
+md"""!!! python
     Python, MATLAB and the C programming language have a `while` statement:
-    
     ```python
     def countdown(n):
         while n > 0:
             print(n, end=' ')
             n = n - 1
-        
+
         print('Blastoff!')
     ```
-    
-    and
 
+!!! matlab
+    The `while` loop in MATLAB is identical to the `while` statement in Julia:
     ```matlab
     function countdown(n)
         while n > 0
@@ -234,9 +232,9 @@ md"""!!! languages
         printf('Blastoff!\n')
     end
     ```
-    
-    The conventions for each language are always similar.
-    
+
+!!! c
+    The C syntax is similar:
     ```c
     void countdown(int n) {
         while (n > 0) {
@@ -273,9 +271,9 @@ The loop condition is `true`, which is always true, so the loop runs until it hi
 Each time through, it prompts the user with an angle bracket. If the user types **`done`**, the `break` statement exits the loop. Otherwise, the program echoes whatever the user types and goes back to the top of the loop. Here’s a sample run:
 
 ```
-> not done 
-not done 
-> done 
+> not done
+not done
+> done
 Done!
 ```
 
@@ -289,11 +287,11 @@ The `break` statement exits the loop. When a *`continue` statement* is encounter
 """
 
 # ╔═╡ 1f074f6d-b562-485a-aebc-a081d9af65fa
-for i in 1:10 
+for i in 1:10
 	if i % 3 == 0
-		continue 
+		continue
 	end
-	print(i, " ") 
+	print(i, " ")
 end
 
 # ╔═╡ b3ec7984-37d0-4dbb-bf89-fdd02fa77720
@@ -302,7 +300,7 @@ md"""If `i` is divisible by `3`, the continue statement stops the current iterat
 
 # ╔═╡ c6aaba90-76a8-11eb-1e6f-495fb7759e5d
 md"""!!! languages
-    Python, MATLAB and the C programming language have `break` and `continue` statements.
+    Python, MATLAB and the C programming language have also `break` and `continue` statements.
 """
 
 # ╔═╡ e74d8976-76a8-11eb-199d-c33a925a4d7f
@@ -457,37 +455,28 @@ A general process for solving a category of problems.
 # ╔═╡ 7e6a42ea-76b0-11eb-0587-0b2e3932b601
 md"""## Exercises
 
-#### Exercise 7-2
+### Exercise 7-2
 
 Copy the loop from “Square Roots” and encapsulate it in a function called `mysqrt` that takes `a` as a parameter, chooses a reasonable value of `x`, and returns an estimate of the square root of `a`.
 
 To test it, write a function named `testsquareroot` that prints a table like this:
+"""
 
-```
-a   mysqrt             sqrt               diff
--   ------             ----               ----
-1.0 1.0                1.0                0.0
-2.0 1.414213562373095  1.4142135623730951 2.220446049250313e-16
-3.0 1.7320508075688772 1.7320508075688772 0.0
-4.0 2.0                2.0                0.0
-5.0 2.23606797749979   2.23606797749979   0.0
-6.0 2.449489742783178  2.449489742783178  0.0
-7.0 2.6457513110645907 2.6457513110645907 0.0
-8.0 2.82842712474619   2.8284271247       4.440892098500626e-16
-9.0 3.0                3.0                0.0
-```
+# ╔═╡ e437c749-0469-473b-a9af-6946786d6d9b
+testsquareroot()
 
-The first column is a number, `a`; the second column is the square root of a computed with `mysqrt`; the third column is the square root computed by `sqrt`; and the fourth column is the absolute value of the difference between the two estimates.
+# ╔═╡ e884a527-ff85-4d00-a4cf-990e25bc0d7e
+md"""The first column is a number, `a`; the second column is the square root of a computed with `mysqrt`; the third column is the square root computed by `sqrt`; and the fourth column is the absolute value of the difference between the two estimates.
 """
 
 # ╔═╡ f24e401a-76b0-11eb-1530-930c3df061fc
-md"""#### Exercise 7-3
+md"""### Exercise 7-3
 
 The built-in function `Meta.parse` takes a string and transforms it into an expression. This expression can be evaluated in Julia with the function `Core.eval`. For example:
 """
 
 # ╔═╡ 8c9dbc04-3ee6-490b-a689-1783e70b1bc0
-expr = Meta.parse("1+2*3") 
+expr = Meta.parse("1+2*3")
 
 # ╔═╡ 12e215f8-1f46-48bd-9869-3871a2c8da04
 eval(expr)
@@ -500,7 +489,7 @@ md"""Write a function called `evalloop` that iteratively prompts the user, takes
 """
 
 # ╔═╡ 2c14de1c-76b1-11eb-03f7-b73b33ae0d24
-md"""#### Exercise 7-4
+md"""### Exercise 7-4
 
 The mathematician Srinivasa Ramanujan found an infinite series that can be used to generate a numerical approximation of ``\frac{1}{π}``:
 
@@ -518,7 +507,6 @@ Write a function called `estimatepi` that uses this formula to compute and retur
 # ╠═1c2fd536-e0f9-409d-a036-7e7b24735938
 # ╟─54be42ba-8181-47ec-b4f6-5195cf012eab
 # ╟─f001d996-7687-11eb-1215-5940f40d3fed
-# ╟─55c7f344-768d-11eb-2f35-e52d557f4c61
 # ╟─67411830-768d-11eb-1cf0-f9011222c68d
 # ╠═6bbbd8e7-cc25-4634-9dd8-312daf606a5f
 # ╟─d9daf308-96df-4a1a-acd1-a0a4ed3b099f
@@ -560,6 +548,8 @@ Write a function called `estimatepi` that uses this formula to compute and retur
 # ╟─0c60279e-76b0-11eb-0687-bf8d44d9cd47
 # ╟─2b84de3a-76b0-11eb-184e-fbf49560e122
 # ╟─7e6a42ea-76b0-11eb-0587-0b2e3932b601
+# ╟─e437c749-0469-473b-a9af-6946786d6d9b
+# ╟─e884a527-ff85-4d00-a4cf-990e25bc0d7e
 # ╟─f24e401a-76b0-11eb-1530-930c3df061fc
 # ╠═8c9dbc04-3ee6-490b-a689-1783e70b1bc0
 # ╠═12e215f8-1f46-48bd-9869-3871a2c8da04

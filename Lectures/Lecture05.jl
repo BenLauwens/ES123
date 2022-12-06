@@ -177,7 +177,7 @@ A second form of the `if` statement is “alternative execution,” in which the
 if x % 2 == 0
 	println("x is even")
 else
-	println("x is odd") 
+	println("x is odd")
 end
 
 # ╔═╡ 98904be3-2ad2-4fb2-883f-89598454fc85
@@ -220,7 +220,7 @@ Each condition is checked in order. If the first is false, the next is checked, 
 
 # ╔═╡ 9a3080ec-6be4-11eb-32eb-f162987e0fd6
 md"""
-!!! languages
+!!! matlab
     MATLAB has an identical `if` statement:
 
     ```matlab
@@ -233,6 +233,7 @@ md"""
 	end
     ```
 
+!!! python
     In Python, `if` statements have the same structure as function definitions: a header followed by an indented body.
 
     ```python
@@ -244,9 +245,10 @@ md"""
         print('x and y are equal')
 
     ```
-    
+
+!!! c
     In the C programming language, we find a similar `if` statement:
-    
+
     ```c
     if (x < y) {
         printf("x is less than y\n");
@@ -271,10 +273,10 @@ if x == y
 	println("x and y are equal")
 else
 	if x < y
-		println("x is less than y") 
+		println("x is less than y")
 	else
 		println("x is greater than y")
-	end 
+	end
 end
 
 # ╔═╡ 2ef6f4f6-01dc-4825-a484-b57cca5a447c
@@ -286,9 +288,9 @@ Logical operators often provide a way to simplify nested conditional statements.
 """
 
 # ╔═╡ 717b3051-d69d-4cef-ab92-c79fe411ced5
-if 0 < x 
+if 0 < x
 	if x < 10
-		println("x is a positive single-digit number.") 
+		println("x is a positive single-digit number.")
 	end
 end
 
@@ -317,12 +319,12 @@ It is legal for one function to call another; it is also legal for a function to
 """
 
 # ╔═╡ a90afcce-cb6b-4e9c-93ad-27351444871f
-function countdown(n) 
+function countdown(n)
 	if n ≤ 0
-		println("Blastoff!") 
+		println("Blastoff!")
 	else
 		print(n, " ")
-		countdown(n-1) 
+		countdown(n-1)
 	end
 end
 
@@ -349,18 +351,18 @@ md"""* The execution of `countdown` begins with `n = 3`, and since `n` is greate
 
 * The countdown that got `n = 3` returns. And then you’re back in `Main`.
 
-A function that calls itself is *recursive*; the process of executing it is called *recursion*. 
+A function that calls itself is *recursive*; the process of executing it is called *recursion*.
 
 As another example, we can write a function that prints a string ``n`` times:
 """
 
 # ╔═╡ 64f15c9b-aa43-45d2-8eda-c3447d013a1a
-function printn(s, n) 
+function printn(s, n)
 	if n ≤ 0
-		return 
+		return
 	end
 	println(s)
-	printn(s, n-1) 
+	printn(s, n-1)
 end
 
 # ╔═╡ 7a3af9f7-05d1-4991-942b-863690b0a98c
@@ -382,61 +384,61 @@ Every time a function gets called, Julia creates a frame to contain the function
 # ╔═╡ e7bc0384-6bdf-11eb-23d5-1f8454e713f2
 Drawing(width=720, height=200) do
 	@info "Stack diagram."
-	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("Main") 
+	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("Main")
 	end
     rect(x=360, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("countdown") 
+	text(x=320, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("countdown")
 	end
     rect(x=360, y=50, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=380, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("3") 
+	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("3")
 	end
-	text(x=320, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("countdown") 
+	text(x=320, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("countdown")
 	end
     rect(x=360, y=90, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=380, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=430, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("2") 
+	text(x=430, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("2")
 	end
-	text(x=320, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("countdown") 
+	text(x=320, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("countdown")
 	end
     rect(x=360, y=130, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=380, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=430, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("1") 
+	text(x=430, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("1")
 	end
-	text(x=320, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("countdown") 
+	text(x=320, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("countdown")
 	end
     rect(x=360, y=170, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=380, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=400, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=400, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=430, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("0") 
+	text(x=430, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("0")
 	end
 end
 
@@ -446,7 +448,7 @@ md"""As usual, at the top of the stack is the frame for `Main`. It is empty beca
 The four `countdown` frames have different values for the parameter `n`. The bottom of the stack, where `n = 0`, is called the *base case*. It does not make a recursive call, so there are no more frames."""
 
 # ╔═╡ c7a395b0-6be1-11eb-2d6c-8d15b718faa9
-md"""#### Exercise 5-1
+md"""### Exercise 5-1
 
 As an exercise, draw a stack diagram for printn called with `s = "Hello"` and `n = 2`. Then write a function called `do_n` that takes a function object and a number, `n`, as arguments, and that calls the given function `n` times.
 """
@@ -458,16 +460,13 @@ If a recursion never reaches a base case, it goes on making recursive calls fore
 """
 
 # ╔═╡ 7d5989d9-1e72-43d6-bbd4-0767e0a84553
-function recurse() 
+function recurse()
 	recurse()
 end
 
 # ╔═╡ 19d99641-c825-4c91-8b6d-282cadbc7bf1
 md"""In most programming environments, a program with an infinite recursion does not really run forever. Julia reports an error message when the maximum recursion depth is reached:
 """
-
-# ╔═╡ acdc4a64-8cfa-4217-ade5-a159018f9892
-recurse()
 
 # ╔═╡ 4dcc5481-e031-48a7-a868-5680de17199e
 md"""If you encounter an infinite recursion by accident, review your function to confirm that there is a base case that does not make a recursive call. And if there is a base case, check whether you are guaranteed to reach it.
@@ -480,7 +479,7 @@ The programs we have written so far accept no input from the user. They just do 
 
 Julia provides a built-in function called readline that stops the program and waits for the user to type something. When the user presses Return or Enter, the program resumes and readline returns what the user typed as a string:
 
-```julia
+```jlcon
 julia> text = readline()
 What are you waiting for?
 "What are you waiting for?"
@@ -488,9 +487,9 @@ What are you waiting for?
 
 Before getting input from the user, it is a good idea to print a prompt telling her what to type:
 
-```julia
+```jlcon
 julia> print("What...is your name? "); readline()
-What...is your name? Arthur, King of the Britons! 
+What...is your name? Arthur, King of the Britons!
 "Arthur, King of the Britons!"
 ```
 
@@ -498,7 +497,7 @@ A semicolon (`;`) allows you to put multiple statements on the same line. Only t
 
 If you expect the user to type an integer, you can try to convert the return value to `Int64`:
 
-```julia
+```jlcon
 julia> println("What...is the airspeed velocity of an unladen swallow?"); speed = readline()
 What...is the airspeed velocity of an unladen swallow?
 42
@@ -509,7 +508,7 @@ julia> parse(Int64, speed)
 
 But if the user types something other than a string of digits, you get an error:
 
-```julia
+```jlcon
 julia> println("What...is the airspeed velocity of an unladen swallow? "); speed = readline();
 What...is the airspeed velocity of an unladen swallow?
 What do you mean, an African or a European swallow?
@@ -624,24 +623,24 @@ A recursion that doesn’t have a base case, or never reaches it. Eventually, an
 """
 
 # ╔═╡ 81e8c81e-6be7-11eb-1052-434aee7931cf
-md"""## Exercises 
+md"""## Exercises
 
-#### Exercise 5-2
+### Exercise 5-2
 
 The function `time` returns the current Greenwich Mean Time in seconds since “the epoch,” which is an arbitrary time used as a reference point. On Unix systems, the epoch is 1 January 1970:
+"""
 
-```julia
-julia> time() 
-1.612992834821836e9
-```
+# ╔═╡ 533f8738-7216-4947-b6bd-b2c6d9a7ebd0
+time()
 
-Write a script that reads the current time and converts it to a time of day in hours, minutes, and seconds, plus the number of days since the epoch.
+# ╔═╡ b1f26aba-5c99-49be-bd8c-30d15ea7a41d
+md"""Write a script that reads the current time and converts it to a time of day in hours, minutes, and seconds, plus the number of days since the epoch.
 """
 
 # ╔═╡ bdd9c6c0-6be7-11eb-1cf0-65fbaf11abd0
-md"""#### Exercise 5-3
+md"""### Exercise 5-3
 
-Fermat’s Last Theorem says that there are no positive integers ``a``, ``b``, and ``c`` such that: 
+Fermat’s Last Theorem says that there are no positive integers ``a``, ``b``, and ``c`` such that:
 
 ```math
 a^n + b^n = c^n
@@ -655,7 +654,7 @@ for any value of ``n`` greater than ``2``.
 """
 
 # ╔═╡ 3a3ae2be-6be8-11eb-1fdc-db6aadd33a76
-md"""#### Exercise 5-4
+md"""### Exercise 5-4
 
 If you are given three sticks, you may or may not be able to arrange them in a triangle. For example, if one of the sticks is 12 inches long and the other two are 1 inch long, you will not be able to get the short sticks to meet in the middle. For any three lengths, there is a simple test to see if it is possible to form a triangle:
 
@@ -667,23 +666,28 @@ If you are given three sticks, you may or may not be able to arrange them in a t
 """
 
 # ╔═╡ 894fdcfe-6be8-11eb-021a-df6b152e0a2d
-md"""#### Exercise 5-5
+md"""### Exercise 5-5
 
 What is the output of the following program? Draw a stack diagram that shows the state of the program when it prints the result.
+"""
 
-```julia
-function recurse(n, s) 
+# ╔═╡ 8b3ebf2e-7f30-46c1-a7c3-3469687176d9
+function recurse(n, s)
 	if n == 0
-		println(s) 
+		println(s)
 	else
-		recurse(n-1, n+s) 
+		recurse(n-1, n+s)
 	end
 end
 
-recurse(3, 0)
-```
+# ╔═╡ acdc4a64-8cfa-4217-ade5-a159018f9892
+recurse()
 
-1. What would happen if you called this function like this: `recurse(-1, 0)`?
+# ╔═╡ 4df7d58b-69a3-4347-aaee-31f93c04845b
+recurse(3, 0)
+
+# ╔═╡ 855d808b-c0fc-44ee-915d-a70693136958
+md"""1. What would happen if you called this function like this: `recurse(-1, 0)`?
 
 2. Write a docstring that explains everything someone would need to know in order to use this function (and nothing else).
 """
@@ -693,14 +697,15 @@ md"""
 !!! info
     The following exercises use the `NativeSVG` module, described in Chapter 4.
 
-#### Exercise 5-6
+### Exercise 5-6
 
 Read the following function and see if you can figure out what it does. Then run it and see if you got it right.
+"""
 
-```julia
-function draw(t, length, n) 
+# ╔═╡ 16797608-536e-4fbd-b27e-33e436930bba
+function draw(t, length, n)
 	if n == 0
-		return 
+		return
 	end
 	angle = 50
 	forward(t, length*n)
@@ -711,11 +716,9 @@ function draw(t, length, n)
 	turn(t, -angle)
 	forward(t, -length*n)
 end
-```
-"""
 
 # ╔═╡ 5609252e-6bea-11eb-073c-0db3c1ab2da7
-md"""#### Exercise 5-7
+md"""### Exercise 5-7
 
 The Koch curve is a fractal that looks something like Figure 5-2.
 """
@@ -805,10 +808,16 @@ The exception is if ``x`` is less than ``3``: in that case, you can just draw a 
 # ╟─0757d165-7f30-48fe-9211-5ae031900ebe
 # ╟─acd667ba-6be3-11eb-00a0-55632ca86594
 # ╟─81e8c81e-6be7-11eb-1052-434aee7931cf
+# ╠═533f8738-7216-4947-b6bd-b2c6d9a7ebd0
+# ╟─b1f26aba-5c99-49be-bd8c-30d15ea7a41d
 # ╟─bdd9c6c0-6be7-11eb-1cf0-65fbaf11abd0
 # ╟─3a3ae2be-6be8-11eb-1fdc-db6aadd33a76
 # ╟─894fdcfe-6be8-11eb-021a-df6b152e0a2d
+# ╠═8b3ebf2e-7f30-46c1-a7c3-3469687176d9
+# ╠═4df7d58b-69a3-4347-aaee-31f93c04845b
+# ╟─855d808b-c0fc-44ee-915d-a70693136958
 # ╟─052ec49c-6bea-11eb-325f-d924ddacca6f
+# ╠═16797608-536e-4fbd-b27e-33e436930bba
 # ╟─5609252e-6bea-11eb-073c-0db3c1ab2da7
 # ╟─66ddc134-6bea-11eb-3bde-0fea30c863af
 # ╟─b7655da0-6beb-11eb-21e4-a3372fe53c50

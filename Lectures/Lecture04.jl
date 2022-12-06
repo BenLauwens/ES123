@@ -85,7 +85,7 @@ A *module* contains a collection of related functions. Julia provides some modul
 
 Packages can be installed in the REPL:
 
-```julia
+```jlcon
 julia> using Pkg
 
 julia> pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
@@ -104,25 +104,31 @@ In the notebook of this chapter these instructions are executed during the start
 The NativeSVG module provides a function called `Turtle` that creates a turtle object, which we assign to a variable named `🐢` (**`\:turtle: TAB`**).
 
 Once you create a turtle, you can call a function to move it around. For example, to move the turtle forward:
-"""
 
-# ╔═╡ 319c52f2-68dd-11eb-130c-f3672af50055
+```julia
 let
 	🐢 = Turtle()
 	forward(🐢, 100)
 	Drawing(🐢, 720, 10)
 end
+```
+"""
 
-# ╔═╡ b1f3a4cc-68de-11eb-3de9-87b14a76490e
-md"*Figure 4-1. Moving the turtle forward.*"
+# ╔═╡ 319c52f2-68dd-11eb-130c-f3672af50055
+let
+	@info "A Turtle drawing."
+	🐢 = Turtle()
+	forward(🐢, 100)
+	Drawing(🐢, 720, 10)
+end
 
 # ╔═╡ 09d4cbb2-68df-11eb-2eec-bbe39ef9880d
-md"""The `Drawing` function creates an SVG picture (Figure 4-1). Its first argument is the turtle object, the second the width of the drawing and the third the height.
+md"""The `Drawing` function creates an SVG picture. Its first argument is the turtle object, the second the width of the drawing and the third the height.
 
 The arguments of `forward` are the turtle and a distance in pixels, so the actual size of the line that’s drawn depends on your display.
 
 !!! info
-    Each turtle is holding a pen, which is either down or up; if the pen is down (the default), the turtle leaves a trail when it moves. Figure 4-1 shows the trail left behind by the turtle. To move the turtle without drawing a line, first call the function `penup`. To start drawing again, call `pendown`.
+    Each turtle is holding a pen, which is either down or up; if the pen is down (the default), the turtle leaves a trail when it moves. The picture shows the trail left behind by the turtle. To move the turtle without drawing a line, first call the function `penup`. To start drawing again, call `pendown`.
 
 Another function you can call with a turtle as an argument is `turn` for turning. The second argument for turn is an angle in degrees.
 
@@ -133,13 +139,13 @@ To draw a right angle:
 let
 	🐢 = Turtle()
 	forward(🐢, 100)
-	turn(🐢, -90) 
+	turn(🐢, -90)
 	forward(🐢, 100)
 	Drawing(🐢, 720, 210)
 end
 
 # ╔═╡ c64b81dc-68df-11eb-1086-d57b61651791
-md"""#### Exercise 4-1
+md"""### Exercise 4-1
 
 Now modify the macro to draw a square. Don’t go on until you’ve got it working!
 """
@@ -151,14 +157,14 @@ Chances are you wrote something like this:
 """
 
 # ╔═╡ 142af96b-ee0d-4723-b4e9-b5aac9b4f8f1
-let 
+let
 	🐢 = Turtle()
 	forward(🐢, 100)
 	turn(🐢, -90)
-	forward(🐢, 100) 
-	turn(🐢, -90) 
-	forward(🐢, 100) 
-	turn(🐢, -90) 
+	forward(🐢, 100)
+	turn(🐢, -90)
+	forward(🐢, 100)
+	turn(🐢, -90)
 	forward(🐢, 100)
 	Drawing(🐢, 720, 210)
 end
@@ -182,8 +188,8 @@ Here is a `for` statement that draws a square:
 # ╔═╡ 85c81806-4e81-46c8-aff7-ef7174a1cfe3
 let
 	🐢 = Turtle()
-	for i in 1:4 
-		forward(🐢, 100) 
+	for i in 1:4
+		forward(🐢, 100)
 		turn(🐢, -90)
 	end
 	Drawing(🐢, 720, 210)
@@ -199,7 +205,7 @@ This version is actually a little different from the previous square-drawing cod
 
 # ╔═╡ 81fd8b28-6976-11eb-2737-69f3b0b4624c
 md"""
-!!! languages
+!!! matlab
     MATLAB has a quasi identical `for` statement:
 
     ```matlab
@@ -208,25 +214,27 @@ md"""
        end
     ```
 
+!!! python
     In Python the `for` statement is very similar:
-    
+
     ```python
     >>> for i in range(4):
     ...     print('Hello!')
     ...
     ```
-    
+
     As in Julia the `for` statement ressembles the function definition with a header that ends with a colon and an indented body. An empty line closes the loop.
-    
+
+!!! c
     The `for` statement is the C programming language is less trivial:
-    
+
     ```c
     for (int i=0; i<4; i++) {
         printf("Hello!\n");
     }
     ```
-    
-    The header has three arguments: initial value, end condition and increment. The body is enclosed in brackets. 
+
+    The header has three arguments: initial value, end condition and increment. The body is enclosed in brackets.
 """
 
 # ╔═╡ dd37018e-6978-11eb-2885-29267aaac26a
@@ -237,31 +245,31 @@ The following is a series of exercises using turtles. They are meant to be fun, 
 !!! tip
     The following sections contain solutions to the exercises, so don’t look until you have finished (or at least tried them).
 
-#### Exercise 4-2
+### Exercise 4-2
 
 Write a function called `square` that takes a parameter named `t`, which is a turtle. It should use the turtle to draw a square.
 
 Write a function call that passes `t` as an argument to `square`, and then call `Drawing`.
 
-#### Exercise 4-3
+### Exercise 4-3
 
 Add another parameter, named `len`, to `square`. Modify the body so the length of the sides is `len`, and then modify the function call to provide a second argument. Call `Drawing again`. Test with a range of values for `len`.
 
-#### Exercise 4-4
+### Exercise 4-4
 
 Make a copy of `square` and change the name to `polygon`. Add another parameter named `n` and modify the body so it draws an ``n``-sided regular polygon.
 
 !!! tip
     The exterior angles of an ``n``-sided regular polygon are ``\frac{360}{n}`` degrees.
 
-#### Exercise 4-5
+### Exercise 4-5
 
 Write a function called `circle` that takes a turtle, `t`, and radius, `r`, as parameters and that draws an approximate circle by calling polygon with an appropriate length and number of sides. Test your function with a range of values of `r`.
 
 !!! tip
     Figure out the circumference of the circle and make sure that `len * n == circumference`.
 
-#### Exercise 4-6
+### Exercise 4-6
 
 Make a more general version of circle called `arc` that takes an additional parameter `angle`, which determines what fraction of a circle to draw. `angle` is in units of degrees, so when `angle = 360`, `arc` should draw a complete circle.
 """
@@ -301,7 +309,7 @@ The next step is to add a `len` parameter to `square`. Here is a solution:
 """
 
 # ╔═╡ 9cc4acf7-d264-49f6-bd96-49e9a1f5a60b
-function square(t, len) 
+function square(t, len)
 	for i in 1:4
     	forward(t, len)
 		turn(t, -90)
@@ -311,14 +319,14 @@ end
 # ╔═╡ f67b0e4d-8e3f-416c-a15f-0e95a9239079
 let
 	🐢 = Turtle()
-	square(🐢) 
+	square(🐢)
 	Drawing(🐢, 720, 210)
 end
 
 # ╔═╡ e9be17fc-273d-47fd-9887-57d9b1d839df
 let
 	🐫 = Turtle()
-	square(🐫) 
+	square(🐫)
 	Drawing(🐫, 720, 210)
 end
 
@@ -329,9 +337,9 @@ The next step is also a generalization. Instead of drawing squares, polygon draw
 """
 
 # ╔═╡ 9f4b47a0-ed16-4c92-85a8-3b3984859bc2
-function polygon(t, n, len) 
+function polygon(t, n, len)
 	angle = 360 / n
-	for i in 1:n 
+	for i in 1:n
 		forward(t, len)
 		turn(t, -angle)
 	end
@@ -344,7 +352,7 @@ md"""To draw a 7-sided polygon with side length 70:
 # ╔═╡ 80433f1c-dd1a-4449-851b-a01020ddf7ae
 let
 	🐢 = Turtle()
-	polygon(🐢, 7, 70) 
+	polygon(🐢, 7, 70)
 	Drawing(🐢, 720, 320)
 end
 
@@ -355,10 +363,10 @@ The next step is to write `circle`, which takes a radius, `r`, as a parameter. H
 """
 
 # ╔═╡ d18c5a05-ff08-4638-8dca-90a98e2595b4
-function circle(t, r) 
-	circumference = 2π * r 
+function circle(t, r)
+	circumference = 2π * r
 	n=50
-	len = circumference / n 
+	len = circumference / n
 	polygon(t, n, len)
 end
 
@@ -377,8 +385,8 @@ Rather than cluttering up the interface, it is better to choose an appropriate v
 # ╔═╡ f3845314-201d-4f13-86f3-6e9f270e98d3
 function circle_opt(t, r)
 	circumference = 2π * r
-	n = trunc(circumference / 3) + 3 
-	len = circumference / n 
+	n = trunc(circumference / 3) + 3
+	len = circumference / n
 	polygon(t, n, len)
 end
 
@@ -399,14 +407,14 @@ One alternative is to start with a copy of `polygon` and transform it into `arc`
 """
 
 # ╔═╡ aa3ef788-7a3b-4b5b-8e27-513df4008101
-function arc(t, r, angle) 
-	arc_len = 2π * r * angle / 360 
-	n = trunc(arc_len / 3) + 1 
-	step_len = arc_len / n 
-	step_angle = angle / n 
+function arc(t, r, angle)
+	arc_len = 2π * r * angle / 360
+	n = trunc(arc_len / 3) + 1
+	step_len = arc_len / n
+	step_angle = angle / n
 	for i in 1:n
     	forward(t, step_len)
-		turn(t, -step_angle) 
+		turn(t, -step_angle)
 	end
 end
 
@@ -415,7 +423,7 @@ md"""The second half of this function looks like `polygon`, but we can’t reuse
 """
 
 # ╔═╡ ac687ae7-0a35-474e-8df4-f410adefb21a
-function polyline(t, n, len, angle) 
+function polyline(t, n, len, angle)
 	for i in 1:n
     	forward(t, len)
 		turn(t, -angle)
@@ -427,13 +435,13 @@ md"""Now we can rewrite `polygon` and `arc` to use `polyline`:
 """
 
 # ╔═╡ e15b2c4e-d870-4c9c-8c0e-2fe263b32726
-function polygon_refactor(t, n, len) 
+function polygon_refactor(t, n, len)
 	angle = 360 / n
-	polyline(t, n, len, angle) 
+	polyline(t, n, len, angle)
 end
 
 # ╔═╡ 5e2c5081-84e2-4ef8-a375-d6a8816b0813
-function arc_refactor(t, r, angle) 
+function arc_refactor(t, r, angle)
 	arc_len = 2π * r * angle / 360
 	n = trunc(arc_len / 3) + 1
 	step_len = arc_len / n
@@ -446,7 +454,7 @@ md"""Finally, we can rewrite `circle` to use `arc`:
 """
 
 # ╔═╡ 59e21093-e467-4a13-8340-81d2dac1c367
-function circle_refactor(t, r) 
+function circle_refactor(t, r)
 	arc_refactor(t, r, 360)
 end
 
@@ -480,19 +488,19 @@ A *docstring* is a string before a function that explains the interface (“doc�
 """
 polyline_doc(t, n, len, angle)
 
-Draws n line segments with the given length and angle (in degrees) between them. t is a turtle. 
+Draws n line segments with the given length and angle (in degrees) between them. t is a turtle.
 """
 function polyline_doc(t, n, len, angle)
-	for i in 1:n 
+	for i in 1:n
 		forward(t, len)
-		turn(t, -angle) 
+		turn(t, -angle)
 	end
 end
 
 # ╔═╡ fe79f4b6-760e-4d7e-832e-701a34a3accb
 md"""Documentation can be accessed in the REPL by typing `?` followed by the name of a function, and pressing Enter:
 
-```julia
+```jlcon
 help?> polyline_doc
 search: polyline_doc
 
@@ -557,7 +565,7 @@ The process of modifying a working program to improve function interfaces and ot
 A process for writing programs.
 
 *docstring*:
-A string that appears at the top of a function definition to document the function's behaviour. 
+A string that appears at the top of a function definition to document the function's behaviour.
 
 *precondition*:
 A requirement that should be satisfied by the caller before a function starts.
@@ -570,52 +578,42 @@ A requirement that should be satisfied by the function before it ends.
 md"## Exercises"
 
 # ╔═╡ e3fd2546-698e-11eb-3031-c1cde742aa22
-md"""#### Exercise 4-7
+md"""### Exercise 4-7
 
 Enter the code in this chapter in a Pluto notebook.
 
 1. Draw a stack diagram that shows the state of the program while executing `circle(🐢, radius)`. You can do the arithmetic by hand or add print statements to the code.
 
 2. The version of `arc` in “Refactoring” is not very accurate because the linear approximation of the circle is always outside the true circle. As a result, the turtle ends up a few pixels away from the correct destination. The solution shown here illustrates a way to reduce the effect of this error. Read the code and see if it makes sense to you. If you draw a diagram, you might see how it works.
-   
-   ```julia
-   \"\"\"
-   arc(t, r, angle)
-   
-   Draws an arc with the given radius and angle:
-   
-       t: turtle
-       r: radius
-       angle: angle subtended by the arc, in degrees
-   \"\"\"
-   function arc(t, r, angle) 
-       arc_len = 2π * r * abs(angle) / 360 
-       n = trunc(arc_len / 4) + 3
-       step_len = arc_len / n
-       step_angle = angle / n
-       
-       # making a slight left turn before starting reduces
-       # the error caused by the linear approximation of the arc 
-       turn(t, -step_angle/2)
-       polyline(t, n, step_len, step_angle)
-       turn(t, step_angle/2)
-   end
-   ```
 """
 
+# ╔═╡ 4f230be6-415d-4403-bfab-9962364242cc
+function arc_modif(t, r, angle)
+    arc_len = 2π * r * abs(angle) / 360
+    n = trunc(arc_len / 4) + 3
+    step_len = arc_len / n
+    step_angle = angle / n
+
+    # making a slight left turn before starting reduces
+    # the error caused by the linear approximation of the arc
+    turn(t, -step_angle/2)
+    polyline(t, n, step_len, step_angle)
+    turn(t, step_angle/2)
+end
+
 # ╔═╡ 9beec042-698f-11eb-3808-058f5e8e3bab
-md"""#### Exercise 4-8
+md"""### Exercise 4-8
 Write an appropriately general set of functions that can draw flowers as in Figure 4-2.
 """
 
 # ╔═╡ 68fa7d90-6992-11eb-06f8-01089d2b49b9
-md"""#### Exercise 4-9
+md"""### Exercise 4-9
 
 Write an appropriately general set of functions that can draw shapes as in Figure 4-3.
 """
 
 # ╔═╡ 9e8cecc2-6992-11eb-39e9-fd8b983a88f7
-md"""#### Exercise 4-10
+md"""### Exercise 4-10
 
 The letters of the alphabet can be constructed from a moderate number of basic elements, like vertical and horizontal lines and a few curves. Design an alphabet that can be drawn with a minimal number of basic elements and then write functions that draw the letters.
 
@@ -623,7 +621,7 @@ You should write one function for each letter, with names `draw_a`, `draw_b`, et
 """
 
 # ╔═╡ 0e943bec-6993-11eb-39d4-b3350f7b238c
-md"""#### Exercise 4-11
+md"""### Exercise 4-11
 
 Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedia.org/wiki/Spiral); then write a program that draws an Archimedean spiral as in Figure 4-4.
 """
@@ -632,8 +630,7 @@ Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedi
 # ╟─2ade0260-68da-11eb-3c47-51af562ca746
 # ╟─dc4299ea-68d9-11eb-273b-a597294ef196
 # ╟─3dcb939c-68da-11eb-2546-85b34837f29c
-# ╠═319c52f2-68dd-11eb-130c-f3672af50055
-# ╟─b1f3a4cc-68de-11eb-3de9-87b14a76490e
+# ╟─319c52f2-68dd-11eb-130c-f3672af50055
 # ╟─09d4cbb2-68df-11eb-2eec-bbe39ef9880d
 # ╠═8c935a48-5d7a-4620-a13f-15b520b98608
 # ╟─c64b81dc-68df-11eb-1086-d57b61651791
@@ -682,6 +679,7 @@ Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedi
 # ╟─4f879090-698e-11eb-2aa6-37a98c300038
 # ╟─d2baf7ea-698e-11eb-1261-db00582907a3
 # ╟─e3fd2546-698e-11eb-3031-c1cde742aa22
+# ╠═4f230be6-415d-4403-bfab-9962364242cc
 # ╟─9beec042-698f-11eb-3808-058f5e8e3bab
 # ╟─02c52b84-6991-11eb-1dbd-93af9a7ca7f1
 # ╟─68fa7d90-6992-11eb-06f8-01089d2b49b9

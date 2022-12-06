@@ -48,32 +48,32 @@ A common way to represent variables on paper is to write the name of each with a
 # ╔═╡ 58ba9f20-64d1-11eb-30e7-71ec2290f593
 Drawing(width=720, height=110) do
     rect(x=110, y=10, width=500, height=90, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("message") 
+	text(x=180, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("message")
 	end
-	text(x=190, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=190, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("\"And now for something completely different\"") 
+	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("\"And now for something completely different\"")
 	end
-	text(x=180, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("n") 
+	text(x=180, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("n")
 	end
-	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=220, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("17") 
+	text(x=220, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("17")
 	end
-	text(x=180, y=90, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do 
-		str("π_val") 
+	text(x=180, y=90, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+		str("π_val")
 	end
-	text(x=190, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("→") 
+	text(x=190, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("→")
 	end
-	text(x=220, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("3.141592653589793") 
+	text(x=220, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("3.141592653589793")
 	end
 	@info "State diagram."
 end
@@ -83,6 +83,7 @@ md"""
 !!! languages
     The C programming language, Python and MATLAB use also the symbol `=` as assignment operator.
 
+!!! c
     In the C Programming Language, you have to specify the type as a *declaration* before the name of the variable:
     ```c
     char[] message = "And now for something completely different";
@@ -95,14 +96,16 @@ md"""
     n = 17;
     ```
 
-    Python:
+!!! python
+    Assignment in Python is similar to assignment in Julia:
     ```python
     >>> message = 'And now for something completely different'
     >>> n = 17
     >>> pi = 3.141592653589793
     ```
 
-    MATLAB:
+!!! matlab
+    The syntax of Matlab is identical to Julia:
     ```matlab
     >> message = 'And now for something completely different'
     message =
@@ -111,7 +114,7 @@ md"""
     n =
         17
     >> pi = 3.141592653589793
-    pi = 
+    pi =
        3.141592653589793
     ```
 """
@@ -199,7 +202,7 @@ begin
 end
 
 # ╔═╡ 3c0d30cd-a56e-44d4-8389-fd2deb1e907d
-md"""All print statements will be displayed but only the result of the last executed statement in the `begin` block will be shown. The result of a compound statement is the result of the last executed statement in the block. A variable can be assigned to a compound statements and its value will logically be this result: 
+md"""All print statements will be displayed but only the result of the last executed statement in the `begin` block will be shown. The result of a compound statement is the result of the last executed statement in the block. A variable can be assigned to a compound statements and its value will logically be this result:
 """
 
 # ╔═╡ d5949df7-0d18-4ad3-b8bb-34970aeb0863
@@ -221,7 +224,7 @@ Because Julia provides both modes, you can test bits of code in interactive mode
 
 For example, if you are using Julia as a calculator, you might type:
 
-```julia
+```jlcon
 julia> miles = 26.2
 26.2
 julia> miles * 1.61
@@ -265,7 +268,7 @@ md"""A script can be included in a notebook cell using the function call `includ
 
 # ╔═╡ ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 md"""
-!!! languages
+!!! c
     The C programming language has no script mode. All statements have to be in a file:
     ```c
     #include <stdio.h>
@@ -280,9 +283,9 @@ md"""
 """
 
 # ╔═╡ 9f56ada0-64dd-11eb-2689-89413775adb1
-md"""#### Exercise 2-1
+md"""### Exercise 2-1
 
-To check your understanding, type the following statements in the Julia REPL or using a `begin` block in the notebook interface and see what they do:
+To check your understanding, type the following statements in the Julia REPL or in different cells in the notebook interface and see what they do:
 
 ```julia
 5
@@ -290,7 +293,7 @@ x = 5
 x + 1
 ```
 
-Now put the same statements in a script and run it. What is the output? Modify the script by transforming each expression into a print statement and then run it again.
+Now put the same statements in a script or using a `begin` block in a notebook and run it. What is the output? Modify the script by transforming each expression into a print statement and then run it again.
 """
 
 # ╔═╡ c95baab0-64dd-11eb-00c7-af9957ec1614
@@ -313,8 +316,8 @@ md"""## String Operations
 In general, you can’t perform mathematical operations on strings, even if the strings look like numbers, so the following are illegal:
 
 ```julia
-"2" - "1" 
-"eggs" / "easy" 
+"2" - "1"
+"eggs" / "easy"
 "third" + "a charm"
 ```
 
@@ -340,7 +343,7 @@ This use of `*` and `^` makes sense by analogy with multiplication and exponenti
 
 # ╔═╡ 0579eaa0-64e0-11eb-3fba-211e3857675f
 md"""
-!!! languages
+!!! python
     Python uses the `+` and the `*` operator to perform string concatenation and repetition:
 
     ```python
@@ -393,7 +396,7 @@ v = 5 # velocity in meters/second
 
 # ╔═╡ e11055b0-64e3-11eb-2bdd-6702d0a3fe84
 md"""
-!!! languages
+!!! c
     Comments in the C programming language start with `//`:
     ```c
     // compute the percentage of the hour that has elapsed
@@ -401,12 +404,14 @@ md"""
     percentage = (minute * 100) / 60; // percentage of an hour
     ```
 
+!!! python
     Python uses also the `#` symbol to start a comment:
     ```python
     # compute the percentage of the hour that has elapsed
     percentage = (minute * 100) / 60 # percentage of an hour
     ```
 
+!!! matlab
     MATLAB starts a comment with the `%` symbol:
     ```matlab
     % compute the percentage of the hour that has elapsed
@@ -503,7 +508,7 @@ An error in a program that makes it do something other than what the programmer 
 # ╔═╡ 763c5320-64e7-11eb-16e0-1bdc148f2e24
 md"""## Exercises
 
-#### Exercise 2-2
+### Exercise 2-2
 
 Repeating my advice from the previous chapter, whenever you learn a new feature, you should try it out in interactive mode and make errors on purpose to see what goes wrong.
 
@@ -515,7 +520,7 @@ Repeating my advice from the previous chapter, whenever you learn a new feature,
 """
 
 # ╔═╡ c3de97a2-64e7-11eb-077e-a1692cd76929
-md"""#### Exercise 2-3
+md"""### Exercise 2-3
 
 Practice using the Julia REPL as a calculator:
 

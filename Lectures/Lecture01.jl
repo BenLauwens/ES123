@@ -43,25 +43,26 @@ One of the challenges of getting started with Julia is that you might have to in
 We will start out running Julia in the terminal and in a browser. Later, when you are comfortable with Julia, I’ll make suggestions for installing a dedicated programming environment on your computer.
 
 The Julia *REPL* (Read–Eval–Print Loop) is a program that reads and executes Julia code. You can start the REPL by opening a terminal on your computer and typing **`julia`** on the command line. When it starts, you should see output like this:
+"""
 
-```
-               _
-   _       _ _(_)_     |  Documentation: https://docs.julialang.org
-  (_)     | (_) (_)    |
-   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
-  | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.8.1 (2022-09-11)
- _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
-|__/                   |
+# ╔═╡ efe28168-b88f-4e8c-a0f0-ec577b869ee5
+let
+	io = IOBuffer()
+	Base.banner(io)
+	banner = String(take!(io))
+	Markdown.parse("""
+	```jlcon
+	$banner julia>
+	```
+	""")
+end
 
-julia> 
-```
-
-The first lines contain information about the REPL, so it might be different for you. But you should check that the version number is at least 1.6.5.
+# ╔═╡ 7015855e-3f88-4ca8-b6af-5c3ac289269a
+md"""The first lines contain information about the REPL, so it might be different for you. But you should check that the version number is at least 1.6.5.
 
 The last line is a *prompt* that indicates that the REPL is ready for you to enter code. If you type a line of code and hit Enter, the REPL displays the result:
 
-```julia
+```jlcon
 julia> 1 + 1
 2
 ```
@@ -70,19 +71,18 @@ Code snippets can be copied and pasted verbatim, including the `julia>` prompt a
 
 Now we can install the Pluto *notebook* interface:
 
-```julia
+```jlcon
 julia> using Pkg
 
 julia> pkg"add Pluto"
 Resolving package versions...
    ...
 Precompiling project...
-  31 dependencies successfully precompiled in 16 seconds. 14 already precompiled.
 ```
 
 Once installed the browser based environment can be started with:
 
-```julia
+```jlcon
 julia> using Pluto
 
 julia> Pluto.run()
@@ -95,7 +95,7 @@ julia> Pluto.run()
 └
 ```
 
-Your default browser opens a tab with the “Welcome to Pluto.jl” page. From there you can create a new notebook or open and existing one.
+Your default browser opens a tab with the “Welcome to Pluto.jl” page. From there you can create a new notebook or open an existing one.
 
 A Pluto notebook is made up of cells containg arbitrary Julia code. After entering the code, cells are evaluated by hitting **`SHIFT ENTER`**. During the opening of an existing notebook all cells will be evaluated automatically. **`CTRL ENTER`** will also evaluate the active cell and will create a new cell having focus.
 
@@ -109,7 +109,7 @@ md"""## The First Program
 Traditionally, the first program you write in a new language is called “Hello, World!” because all it does is display the words “Hello, World!” In Julia, it looks like this:
 """
 
-# ╔═╡ 5ed8116e-c007-46e3-8975-078d16402e95
+# ╔═╡ 6209d2a0-6494-43ac-9890-e89db0a5d33b
 println("Hello, World!")
 
 # ╔═╡ 758ae87d-5d83-4b08-b9d0-939996fcd968
@@ -121,10 +121,10 @@ The parentheses indicate that `println` is a function. We’ll get to functions 
 """
 
 # ╔═╡ 224a71b0-64e3-11eb-0f83-4d671426a415
-md"""
-!!! languages
+md"""!!! languages
     Other programming languages have a similar first program.
 
+!!! c 
     In the C programming language, the following lines have to be put in a file and compiled before the program can run:
     ```c
     #include <stdio.h>
@@ -134,11 +134,13 @@ md"""
     }
     ```
 
+!!! python
     Python provides a REPL:
     ```python
     >>> print('Hello, World!')
     ```
 
+!!! matlab
 	MATLAB has also a REPL:
     ```matlab
     >> disp('Hello, world!')
@@ -225,7 +227,7 @@ You can get the expected result using `1_000_000`, however.
 
 # ╔═╡ 437336b0-64e3-11eb-39de-3bec9939b989
 md"""
-!!! languages
+!!! python
     Python has a similar feature:
     ```python
     >>> type(2)
@@ -236,7 +238,8 @@ md"""
     <class 'str'>
     ```
 
-    and so has MATLAB:
+!!! matlab
+    And so has MATLAB:
     ```matlab
     >> class(2)
     ans =
@@ -255,15 +258,15 @@ md"""## Formal and Natural Languages
 
 *Natural languages* are the languages people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.
 
-*Formal languages* are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols. Chemists use a formal language to represent the chemical structure of molecules. And most importantly, programming languages are formal languages that have been designed to express computations.
+*Formal languages* are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols. Chemists use a formal language to represent the chemical structure of molecules. And most importantly, **programming languages are formal languages that have been designed to express computations**.
 
 Formal languages tend to have strict *syntax* rules that govern the structure of statements. For example, in mathematics the statement ``3 + 3 = 6`` has correct syntax, but ``3 + = 3\$6`` does not. In chemistry, ``H_2O`` is a syntactically correct formula, but ``_2Zz`` is not.
 
-Syntax rules come in two flavors: tokens and structure. Tokens are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with ``3 + = 3\$6`` is that ``\$`` is not a legal token in mathematics (at least as far as I know). Similarly, ``_2Zz`` is not legal because there is no element with the abbreviation ``Zz``.
+Syntax rules come in two flavors: tokens and structure. Tokens are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with ``3 + = 3\$6`` is that ``\$`` is not a legal token in mathematics (at least as far as I know). Similarly, ``\mathit{_2Zz}`` is not legal because there is no element with the abbreviation ``\mathit{Zz}``.
 
 The second type of syntax rule pertains to the way tokens are combined. The equation ``3 + = 3`` is illegal because even though ``+`` and ``=`` are legal tokens, you can’t have one right after the other. Similarly, in a chemical formula the subscript comes after the element name, not before.
 
-This is ``@`` well-structured ``Engli\$h`` sentence with invalid ``t*kens`` in it. This sentence all valid tokens has, but invalid structure with.
+This is ``@`` well-structured ``\mathit{Engli\$h}`` sentence with invalid ``\mathit{t\textrm{*}kens}`` in it. This sentence all valid tokens has, but invalid structure with.
 
 When you read a sentence in English or a statement in a formal language, you have to figure out the structure (although in a natural language you do this subconsciously). This process is called *parsing*.
 
@@ -376,7 +379,7 @@ md"""## Exercises
 !!! tip
     It is a good idea to read this book in front of a computer or in your browser so you can try out the examples as you go.
 
-#### Exercise 1-1
+### Exercise 1-1
 
 Whenever you are experimenting with a new feature, you should try to make mistakes. For example, in the “Hello, World!” program, what happens if you leave out one of the quotation marks? What if you leave out both? What if you spell println wrong?
 
@@ -390,7 +393,7 @@ This kind of experiment helps you remember what you read; it also helps when you
 """
 
 # ╔═╡ 6472f940-64ca-11eb-0492-0953cf692c54
-md"""#### Exercise 1-2
+md"""### Exercise 1-2
 
 Start the Julia REPL and use it as a calculator.
 
@@ -404,8 +407,10 @@ Start the Julia REPL and use it as a calculator.
 # ╟─b40446e0-64a6-11eb-3652-85fdb1612e5e
 # ╟─6b1e8390-64a7-11eb-2249-adcf7f79fc61
 # ╟─b2560330-64bd-11eb-0a30-57ada26f6ad1
+# ╟─efe28168-b88f-4e8c-a0f0-ec577b869ee5
+# ╟─7015855e-3f88-4ca8-b6af-5c3ac289269a
 # ╟─cdb192f0-64bf-11eb-0a21-2987e4b81296
-# ╠═5ed8116e-c007-46e3-8975-078d16402e95
+# ╠═6209d2a0-6494-43ac-9890-e89db0a5d33b
 # ╟─758ae87d-5d83-4b08-b9d0-939996fcd968
 # ╟─224a71b0-64e3-11eb-0f83-4d671426a415
 # ╟─5a40a0b0-64c2-11eb-00e4-6fb54d1a31bb

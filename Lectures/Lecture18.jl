@@ -34,9 +34,9 @@ An alternative is to use integers to *encode* the ranks and suits. In this conte
 
 For example, we might map the suits to integer codes as follows:
 
-* ♠ ⟼ 4 
-* ♥ ⟼ 3 
-* ♦ ⟼ 2 
+* ♠ ⟼ 4
+* ♥ ⟼ 3
+* ♦ ⟼ 2
 * ♣ ⟼ 1
 
 This makes it easy to compare cards; because higher suits map to higher numbers, we can compare suits by comparing their codes.
@@ -53,11 +53,11 @@ struct Card
 		@assert(1 ≤ suit ≤ 4, "suit is not between 1 and 4")
 		@assert(1 ≤ rank ≤ 13, "rank is not between 1 and 13")
 		new(suit, rank)
-	end 
+	end
 end
 ```
 
-To create a `Card`, you call `Card` with the suit and rank of the card you want: 
+To create a `Card`, you call `Card` with the suit and rank of the card you want:
 
 ```julia
 julia> queen_of_diamonds = Card(2, 12)
@@ -72,7 +72,7 @@ In order to print `Card` objects in a way that people can easily read, we need a
 
 ```julia
 const suit_names = ["♣", "♦", "♥", "♠"]
-const rank_names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", 
+const rank_names = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J",
                     "Q", "K"]
 ```
 
@@ -89,7 +89,7 @@ end
 The expression `rank_names[card.rank]` means “use the field rank from the object card as an index into the array `rank_names`, and select the appropriate string.”
 
 
-With the methods we have so far, we can create and print `Card`: 
+With the methods we have so far, we can create and print `Card`:
 
 ```julia
 julia> Card(3, 11)
@@ -106,7 +106,7 @@ The correct ordering for cards is not obvious. For example, which is better, the
 
 The answer might depend on what game you are playing, but to keep things simple, we’ll make the arbitrary choice that suit is more important, so all of the Spades outrank all of the Diamonds and so on.
 
-With that decided, we can write `<`: 
+With that decided, we can write `<`:
 
 ```julia
 Base.isless(c1::Card, c2::Card) = (c1.suit, c1.rank) < (c2.suit, c2.rank)
@@ -114,7 +114,7 @@ Base.isless(c1::Card, c2::Card) = (c1.suit, c1.rank) < (c2.suit, c2.rank)
 """
 
 # ╔═╡ eb053c18-91f5-11eb-0fae-c762d9d17018
-md"""#### Exercise 18-1
+md"""### Exercise 18-1
 
 Write a `<` method for `MyTime` objects. You can use tuple comparison, but you also might consider comparing integers.
 """
@@ -124,14 +124,14 @@ md"""## Unit Testing
 
 *Unit testing* allows you to verify the correctness of your code by comparing the results of your code to what you expect. This can be useful to be sure that your code is still correct after modifications, and it is also a way to predefine the correct behavior of your code during development.
 
-Simple unit testing can be performed with the `@test` macro: 
+Simple unit testing can be performed with the `@test` macro:
 
 ```julia
 julia> using Test
 
 julia> @test Card(1, 4) < Card(2, 4)
 Test Passed
-julia> @test Card(1, 3) < Card(1, 4) 
+julia> @test Card(1, 3) < Card(1, 4)
 Test Passed
 ```
 
@@ -150,11 +150,11 @@ struct Deck
 end
 
 function Deck()
-	deck = Deck(Card[]) 
+	deck = Deck(Card[])
 	for suit in 1:4
 		for rank in 1:13
 			push!(deck.cards, Card(suit, rank))
-		end 
+		end
 	end
 	deck
 end
@@ -165,18 +165,18 @@ The easiest way to populate the deck is with a nested loop. The outer loop enume
 Here is a `show` method for `Deck`:
 
 ```julia
-function Base.show(io::IO, deck::Deck) 
+function Base.show(io::IO, deck::Deck)
 	for card in deck.cards
-		print(io, card, " ") 
+		print(io, card, " ")
 	end
-	println() 
+	println()
 end
 ```
 
 Here’s what the result looks like:
 
 ```julia
-julia> Deck() 
+julia> Deck()
 A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♦ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦
 A♥ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠
 ```
@@ -196,7 +196,7 @@ Since `pop!` removes the last `Card` in the array, we are dealing from the botto
 To add a `Card`, we can use the function `push!`:
 
 ```julia
-function Base.push!(deck::Deck, card::Card) 
+function Base.push!(deck::Deck, card::Card)
 	push!(deck.cards, card)
 	deck
 end
@@ -211,7 +211,7 @@ As another example, we can write a method named `shuffle!` using the function `R
 ```julia
 using Random
 
-function Random.shuffle!(deck::Deck) 
+function Random.shuffle!(deck::Deck)
 	shuffle!(deck.cards)
 	deck
 end
@@ -219,7 +219,7 @@ end
 """
 
 # ╔═╡ 7c970f54-9213-11eb-3d29-c38b10f3cf1c
-md"""#### Exercise 18-2
+md"""### Exercise 18-2
 
 Write a function named `sort!` that uses the function `sort!` to sort the `cards` in a `Deck`. `sort!` uses the `<` method we defined to determine the order.
 """
@@ -233,7 +233,7 @@ A hand is also different from a deck; there are operations we want for hands tha
 
 So, we need a way to group related *concrete types*. In Julia this is done by defining an *abstract type* that serves as a parent for both `Deck` and `Hand`. This is called *subtyping*.
 
-Let’s call this abstract type `CardSet`: 
+Let’s call this abstract type `CardSet`:
 
 ```julia
 abstract type CardSet end
@@ -248,34 +248,34 @@ When no *supertype* is given, the default supertype is `Any`—a predefined abst
 We can now express that `Deck` is a descendant of `CardSet`:
 
 ```julia
-struct Deck <: CardSet 
+struct Deck <: CardSet
 	cards :: Array{Card, 1}
 end
 
 function Deck()
-	deck = Deck(Card[]) 
+	deck = Deck(Card[])
 	for suit in 1:4
 		for rank in 1:13
 			push!(deck.cards, Card(suit, rank))
-		end 
+		end
 	end
 	deck
 end
 ```
 
-The operator `isa` checks whether an object is of a given type: 
+The operator `isa` checks whether an object is of a given type:
 
 ```julia
 julia> deck = Deck();
 
-julia> deck isa CardSet 
+julia> deck isa CardSet
 true
 ```
 
 A `Hand` is also a kind of `CardSet`:
 
 ```julia
-struct Hand <: CardSet cards :: Array{Card, 1} 
+struct Hand <: CardSet cards :: Array{Card, 1}
 	label :: String
 end
 
@@ -285,7 +285,7 @@ Hand(label::String="") = Hand(Card[], label)
 Instead of populating the hand with 52 new Cards, the constructor for `Hand` initializes cards with an empty array. An optional argument can be passed to the constructor giving a label to the `Hand`:
 
 ```julia
-julia> hand = Hand("new hand") 
+julia> hand = Hand("new hand")
 Hand(Card[], "new hand")
 ```
 """
@@ -296,7 +296,7 @@ md"""## Abstract Types and Functions
 We can now express the common operations between `Deck` and `Hand` as functions having a `CardSet` as an argument:
 
 ```julia
-function Base.show(io::IO, cs::CardSet) 
+function Base.show(io::IO, cs::CardSet)
 	for card in cs.cards
 		print(io, card, " ")
 	end
@@ -304,7 +304,7 @@ end
 
 Base.pop!(cs::CardSet) = pop!(cs.cards)
 
-function Base.push!(cs::CardSet, card::Card) 
+function Base.push!(cs::CardSet, card::Card)
 	push!(cs.cards, card)
 	nothing
 end
@@ -313,11 +313,11 @@ end
 We can use `pop!` and `push!` to deal a card:
 
 ```julia
-julia> deck = Deck() 
+julia> deck = Deck()
 A♣ 2♣ 3♣ 4♣ 5♣ 6♣ 7♣ 8♣ 9♣ 10♣ J♣ Q♣ K♣ A♦ 2♦ 3♦ 4♦ 5♦ 6♦ 7♦ 8♦ 9♦ 10♦ J♦ Q♦ K♦
 A♥ 2♥ 3♥ 4♥ 5♥ 6♥ 7♥ 8♥ 9♥ 10♥ J♥ Q♥ K♥ A♠ 2♠ 3♠ 4♠ 5♠ 6♠ 7♠ 8♠ 9♠ 10♠ J♠ Q♠ K♠
-julia> shuffle!(deck) 
-4♠ Q♦ A♣ 9♦ Q♠ 6♣ 10♣ Q♥ A♦ 8♥ 9♥ Q♣ 4♦ 5♥ 9♠ 10♥ A♠ 7♣ 2♠ 5♠ 2♦ K♣ J♠ 10♠ 7♦ 2♥ 
+julia> shuffle!(deck)
+4♠ Q♦ A♣ 9♦ Q♠ 6♣ 10♣ Q♥ A♦ 8♥ 9♥ Q♣ 4♦ 5♥ 9♠ 10♥ A♠ 7♣ 2♠ 5♠ 2♦ K♣ J♠ 10♠ 7♦ 2♥
 3♦ 7♠ 8♦ A♥ K♥ 7♥ J♥ 6♦ J♦ 6♥ K♦ 8♠ 5♦ 4♥ 8♣ J♣ 9♣ 3♠ 2♣ K♠ 3♥ 5♣ 6♠ 10♦ 4♣ 3♣
 julia> card = pop!(deck)
 3♣
@@ -327,11 +327,11 @@ julia> push!(hand, card)
 A natural next step is to encapsulate this code in a function called `move!`:
 
 ```julia
-function move!(cs1::CardSet, cs2::CardSet, n::Int) 
-	@assert 1 ≤ n ≤ length(cs1.cards) 
+function move!(cs1::CardSet, cs2::CardSet, n::Int)
+	@assert 1 ≤ n ≤ length(cs1.cards)
 	for _ in 1:n
 		card = pop!(cs1)
-		push!(cs2, card) 
+		push!(cs2, card)
 	end
 	nothing
 end
@@ -369,30 +369,30 @@ Drawing(width=720, height=150) do
 		end
 	end
 	rect(x=310, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=335, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("CardSet") 
+	text(x=335, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("CardSet")
 	end
 	rect(x=150, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=185, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("Deck") 
+	text(x=185, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("Deck")
 	end
 	line(x1=250, y1=60, x2=301, y2=43, stroke="black", marker_end="url(#hollowarrow)")
 	rect(x=470, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=505, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("Hand") 
+	text(x=505, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("Hand")
 	end
 	line(x1=470, y1=60, x2=419, y2=43, stroke="black", marker_end="url(#hollowarrow)")
 	rect(x=310, y=110, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=345, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("Card") 
+	text(x=345, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("Card")
 	end
 	line(x1=250, y1=90, x2=301, y2=107, stroke="black", marker_end="url(#arrow)")
 	line(x1=470, y1=90, x2=419, y2=107, stroke="black", marker_end="url(#arrow)")
-	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("*") 
+	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("*")
 	end
-	text(x=405, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do 
-		str("*") 
+	text(x=405, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+		str("*")
 	end
 end
 
@@ -424,7 +424,7 @@ Base.sort!(hand::Hand) = sort!(hand.cards)
 
 Any time you are unsure about the flow of execution through your program, the simplest solution is to add print statements at the beginning of the relevant methods. If `shuffle!` prints a message that says something like `"Running shuffle! Deck"`, then as the program runs it traces the flow of execution.
 
-As a better alternative, you can use the `@which` macro: 
+As a better alternative, you can use the `@which` macro:
 
 ```julia
 julia> @which sort!(hand)
@@ -437,7 +437,7 @@ Here’s a design suggestion: when you override a method, the interface of the n
 
 If you violate this rule, which is called the “Liskov substitution principle,” your code will collapse like (sorry) a house of cards.
 
-The function `supertype` can be used to find the direct supertype of a type: 
+The function `supertype` can be used to find the direct supertype of a type:
 
 ```julia
 julia> supertype(Deck)
@@ -455,7 +455,7 @@ But sometimes it is less obvious what objects you need and how they should inter
 Markov analysis, described in “Markov Analysis”, provides a good example. If you look at my solution to “Exercise 13-8”, you’ll see that it uses two global variables—`suffixes` and `prefix`—that are read and written from several functions:
 
 ```julia
-const suffixes = Dict() 
+const suffixes = Dict()
 const prefix = []
 ```
 
@@ -464,12 +464,12 @@ Because these variables are global, we can only run one analysis at a time. If w
 To run multiple analyses, and keep them separate, we can encapsulate the state of each analysis in an object. Here’s what that looks like:
 
 ```julia
-struct Markov 
+struct Markov
 	order :: Int64
 	suffixes :: Dict{Tuple{String,Vararg{String}}, Array{String, 1}}
-	prefix :: Array{String, 1} 
+	prefix :: Array{String, 1}
 	function Markov(order::Int64=2)
-		new(order, Dict{Tuple{String,Vararg{String}}, Array{String, 1}}(), Array{String, 1}()) 
+		new(order, Dict{Tuple{String,Vararg{String}}, Array{String, 1}}(), Array{String, 1}())
 	end
 end
 ```
@@ -477,13 +477,13 @@ end
 Next, we transform the functions into methods. For example, here’s `processword`:
 
 ```julia
-function processword(markov::Markov, word::String) 
+function processword(markov::Markov, word::String)
 	if length(markov.prefix) < markov.order
 		push!(markov.prefix, word)
-		return 
+		return
 	end
-	get!(markov.suffixes, (markov.prefix...,), Array{String, 1}()) 		
-	push!(markov.suffixes[(markov.prefix...,)], word) 
+	get!(markov.suffixes, (markov.prefix...,), Array{String, 1}())
+	push!(markov.suffixes[(markov.prefix...,)], word)
 	popfirst!(markov.prefix)
 	push!(markov.prefix, word)
 end
@@ -500,7 +500,7 @@ This example suggests a development plan for designing types:
 """
 
 # ╔═╡ ccb90fe0-925f-11eb-3786-15147a772503
-md"""#### Exercise 18-3
+md"""### Exercise 18-3
 
 Download my Markov code from GitHub, and follow the steps described here to encapsulate the global variables as attributes of a new struct called `Markov`.
 """
@@ -552,16 +552,16 @@ A program development plan that involves a prototype using global variables and 
 """
 
 # ╔═╡ 266416f4-9260-11eb-226b-4b8e377b7e18
-md"""## Exercises 
+md"""## Exercises
 
-#### Exercise 18-4
+### Exercise 18-4
 
 For the following program, draw a type diagram that shows these types and the relationships among them.
 
 ```julia
 abstract type PingPongParent end
 
-struct Ping <: PingPongParent 
+struct Ping <: PingPongParent
 	pong :: PingPongParent
 end
 
@@ -572,7 +572,7 @@ struct Pong <: PingPongParent
 	end
 end
 
-function addping(pong::Pong, ping::Ping) 
+function addping(pong::Pong, ping::Ping)
 	push!(pong.pings, ping)
 	nothing
 end
@@ -584,7 +584,7 @@ addping(pong, ping)
 """
 
 # ╔═╡ 5f0e371c-9260-11eb-2edf-9b5dd31992d8
-md"""#### Exercise 18-5
+md"""### Exercise 18-5
 
 Write a method called `deal!` that takes three parameters: a `Deck`, the number of `Hand`s, and the number of `Card`s per `Hand`. It should create the appropriate number of `Hand` objects, deal the appropriate number of `Card`s per `Hand`, and return an array of `Hand`s.
 """

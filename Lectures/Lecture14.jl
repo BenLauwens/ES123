@@ -39,7 +39,7 @@ md"""## Reading and Writing
 
 A *text file* is a sequence of characters stored on a permanent medium like a hard drive or flash memory. We saw how to open and read a file in “Reading Word Lists”.
 
-To write a file, you have to open it with mode `"w"` as a second parameter: 
+To write a file, you have to open it with mode `"w"` as a second parameter:
 
 ```julia
 julia> fout = open("output.txt", "w")
@@ -49,7 +49,7 @@ IOStream(<file output.txt>)
 If the file already exists, opening it in write mode clears out the old data and starts fresh, so be careful! If the file doesn’t exist, a new one is created. open returns a file object and the write function puts data into the file:
 
 ```julia
-julia> line1 = "This here's the wattle,\n"; 
+julia> line1 = "This here's the wattle,\n";
 
 julia> write(fout, line1)
 24
@@ -58,7 +58,7 @@ julia> write(fout, line1)
 The return value is the number of characters that were written. The file object keeps track of where it is, so if you call write again, it adds the new data to the end of the file:
 
 ```julia
-julia> line2 = "the emblem of our land.\n"; 
+julia> line2 = "the emblem of our land.\n";
 
 julia> write(fout, line2)
 24
@@ -78,7 +78,7 @@ md"""## Formatting
 The argument of `write` has to be a string, so if we want to put other values in a file, we have to convert them to strings. The easiest way to do that is with `string` or string interpolation:
 
 ```julia
-julia> fout = open("output.txt", "w") 
+julia> fout = open("output.txt", "w")
 IOStream(<file output.txt>)
 julia> write(fout, string(150))
 3
@@ -101,7 +101,7 @@ md"""## Filenames and Paths
 
 Files are organized into *directories* (also called “folders”). Every running program has a “current directory,” which is the default directory for most operations. For example, when you open a file for reading, Julia looks for it in the current directory.
 
-The function `pwd` returns the name of the current directory: 
+The function `pwd` returns the name of the current directory:
 
 ```julia
 julia> cwd = pwd()
@@ -117,23 +117,23 @@ A simple filename like *memo.txt* is also considered a path, but it is a *relati
 A path that begins with */* does not depend on the current directory; it is called an *absolute path*. To find the absolute path to a file, you can use `abspath`:
 
 ```julia
-julia> abspath("memo.txt") 
+julia> abspath("memo.txt")
 "/home/ben/memo.txt"
 ```
 
 Julia provides other functions for working with filenames and paths. For example, `ispath` checks whether a file or directory exists:
 
 ```julia
-julia> ispath("memo.txt") 
+julia> ispath("memo.txt")
 true
 ```
 
 If it exists, `isdir` checks whether it’s a directory:
 
 ```julia
-julia> isdir("memo.txt") 
+julia> isdir("memo.txt")
 false
-julia> isdir("/home/ben") 
+julia> isdir("/home/ben")
 true
 ```
 
@@ -142,7 +142,7 @@ Similarly, `isfile` checks whether it’s a file.
 `readdir` returns an array of the files (and other directories) in the given directory:
 
 ```julia
-julia> readdir(cwd) 
+julia> readdir(cwd)
 3-element Array{String,1}:
  "memo.txt"
  "music"
@@ -154,13 +154,13 @@ To demonstrate these functions, the following example “walks” through a dire
 ```julia
 function walk(dirname)
 	for name in readdir(dirname)
-		path = joinpath(dirname, name) 
+		path = joinpath(dirname, name)
 		if isfile(path)
-			println(path) 
+			println(path)
 		else
-			walk(path) 
+			walk(path)
 		end
-	end 
+	end
 end
 ```
 
@@ -195,9 +195,9 @@ It’s easier to go ahead and try, and deal with problems if they happen—which
 
 ```julia
 try
-	fin = open("bad_file.txt") 
+	fin = open("bad_file.txt")
 catch exc
-	println("Something went wrong: $exc") 
+	println("Something went wrong: $exc")
 end
 ```
 
@@ -208,12 +208,12 @@ Handling an exception with a `try` statement is called *catching* an exception. 
 In code that performs state changes or uses resources like files, there is typically cleanup work (such as closing files) that needs to be done when the code is finished. Exceptions potentially complicate this task, since they can cause a block of code to exit before reaching its normal end. The `finally` keyword provides a way to run some code when a given block of code exits, regardless of how it exits:
 
 ```julia
-f = open("output.txt") 
+f = open("output.txt")
 try
 	line = readline(f)
-	println(line) 
+	println(line)
 finally
-	close(f) 
+	close(f)
 end
 ```
 
@@ -241,11 +241,11 @@ The mode `"c"` means that the database should be created if it doesn’t already
 When you create a new item, `GDBM` updates the database file:
 
 ```julia
-julia> db["cleese.png"] = "Photo of John Cleese." 
+julia> db["cleese.png"] = "Photo of John Cleese."
 "Photo of John Cleese."
 ```
 
-When you access one of the items, `GDBM` reads the file: 
+When you access one of the items, `GDBM` reads the file:
 
 ```julia
 julia> db["cleese.png"]
@@ -255,7 +255,7 @@ julia> db["cleese.png"]
 If you make another assignment to an existing key, `GDBM` replaces the old value:
 
 ```julia
-julia> db["cleese.png"] = "Photo of John Cleese doing a silly walk." 
+julia> db["cleese.png"] = "Photo of John Cleese doing a silly walk."
 "Photo of John Cleese doing a silly walk."
 julia> db["cleese.png"]
 "Photo of John Cleese doing a silly walk."
@@ -264,7 +264,7 @@ julia> db["cleese.png"]
 Some functions that take a dictionary as an argument, like `keys` and `values`, don’t work with database objects. But iteration with a `for` loop works:
 
 ```julia
-for (key, value) in db 
+for (key, value) in db
 	println(key, ": ", value)
 end
 ```
@@ -285,9 +285,9 @@ A limitation of `GDBM` is that the keys and the values have to be strings or byt
 The functions `serialize` and `deserialize` can help. The `serialize` function can translate almost any type of object into a byte array (an `IOBuffer`) suitable for storage in a database:
 
 ```julia
-julia> using Serialization 
+julia> using Serialization
 
-julia> io = IOBuffer(); 
+julia> io = IOBuffer();
 
 julia> t = [1, 2, 3];
 
@@ -300,15 +300,15 @@ UInt8[0x37, 0x4a, 0x4c, 0x07, 0x04, 0x00, 0x00, 0x00, 0x15, 0x00, 0x08, 0xe2, 0x
 The format isn’t obvious to human readers; it is meant to be easy for Julia to interpret. `deserialize` reconstitutes the object:
 
 ```julia
-julia> io = IOBuffer(); 
+julia> io = IOBuffer();
 
-julia> t1 = [1, 2, 3]; 
+julia> t1 = [1, 2, 3];
 
 julia> serialize(io, t1)
 24
 julia> s = take!(io);
 
-julia> t2 = deserialize(IOBuffer(s)); 
+julia> t2 = deserialize(IOBuffer(s));
 
 julia> print(t2)
 [1, 2, 3]
@@ -320,9 +320,9 @@ julia> print(t2)
 Although the new object has the same value as the old one, it is not (in general) the same object:
 
 ```julia
-julia> t1 == t2 
+julia> t1 == t2
 true
-julia> t1 ≡ t2 
+julia> t1 ≡ t2
 false
 ```
 
@@ -342,14 +342,14 @@ Most operating systems provide a command-line interface, also known as a shell. 
 Any program that you can launch from the shell can also be launched from Julia using a *command object*:
 
 ```julia
-julia> cmd = `echo hello` 
+julia> cmd = `echo hello`
 `echo hello`
 ```
 
 Backticks are used to delimit the command. The function `run` executes the command:
 
 ```julia
-julia> run(cmd); 
+julia> run(cmd);
 hello
 ```
 
@@ -368,9 +368,9 @@ For example, most Unix systems provide a command called `md5sum` or `md5` that r
 You can use a command object to run `md5` from Julia and get the result:
 
 ```julia
-julia> filename = "output.txt" 
+julia> filename = "output.txt"
 "output.txt"
-julia> cmd = `md5 $filename` 
+julia> cmd = `md5 $filename`
 `md5 output.txt`
 julia> res = read(cmd, String)
 "MD5 (output.txt) = d41d8cd98f00b204e9800998ecf8427e\n"
@@ -382,9 +382,9 @@ md"""## Modules
 Suppose you have a file named *wc.jl* with the following code:
 
 ```julia
-function linecount(filename) 
+function linecount(filename)
 	count = 0
-	for line in eachline(filename) 
+	for line in eachline(filename)
 		count += 1
 	end
 	count
@@ -396,7 +396,7 @@ print(linecount("wc.jl"))
 If you run this program, it reads itself and prints the number of lines in the file, which is 9. You can also include it in the REPL like this:
 
 ```julia
-julia> include("wc.jl") 
+julia> include("wc.jl")
 9
 ```
 
@@ -405,34 +405,34 @@ What if you don’t want the `linecount` function to be directly available in `M
 A module starts with the keyword `module` and ends with `end`. Using modules allows you to avoid naming conflicts between your own top-level definitions and those found in somebody else’s code. `import` allows you to control which names from other modules are visible, and `export` specifies which of your names are public (i.e., can be used outside the module without being prefixed with the name of the module):
 
 ```julia
-module LineCount 
+module LineCount
 	export linecount
-	function linecount(filename) 
+	function linecount(filename)
 		count = 0
-		for line in eachline(filename) 
+		for line in eachline(filename)
 			count += 1
 		end
 		count
-	end 
+	end
 end
 ```
 
 The `using` statement allows you to make use of a module’s public names from elsewhere, so you can use the `linecount` function that `LineCount` provides outside that module as follows:
 
 ```julia
-julia> using LineCount 
+julia> using LineCount
 
 julia> linecount("wc.jl")
 11
 ```
 
-#### Exercise 14-1
+### Exercise 14-1
 
 Type this example into a file named *wc.jl*, include it into the REPL, and enter **`using LineCount`**.
 
 !!! danger
     If you import a module that has already been imported, Julia does nothing. It does not reread the file, even if it has changed.
-    
+
     If you want to reload a module, you have to restart the REPL. If you want to avoid this, you can use the `Revise` package to keep your sessions running longer.
 
 """
@@ -445,7 +445,7 @@ When you are reading and writing files, you might run into problems with whitesp
 ```julia
 julia> s = "1 2\t 3\n 4";
 
-julia> println(s) 
+julia> println(s)
 1 2 	3
  4
 ```
@@ -454,8 +454,8 @@ The built-in functions `repr` and `dump` can help. They take any object as an ar
 
 ```julia
 julia> repr(s)
-"\"1 2\\t 3\\n 4\"" 
-julia> dump(s) 
+"\"1 2\\t 3\\n 4\""
+julia> dump(s)
 String "1 2\t 3\n 4"
 ```
 
@@ -504,9 +504,9 @@ A separate global variable workspace used to avoid naming conflicts.
 """
 
 # ╔═╡ 21f358fa-8a7f-11eb-0630-4f3d9dbc6869
-md"""## Exercises 
+md"""## Exercises
 
-#### Exercise 14-2
+### Exercise 14-2
 
 Write a function called `sed` that takes as arguments a pattern string, a replacement string, and two filenames; it should read the first file and write the contents into the second file (creating it if necessary). If the pattern string appears anywhere in the file, it should be replaced with the replacement string.
 
@@ -515,7 +515,7 @@ If an error occurs while opening, reading, writing, or closing files, your progr
 """
 
 # ╔═╡ 35895b6c-8a7f-11eb-19e3-f96884b91d48
-md"""#### Exercise 14-3
+md"""### Exercise 14-3
 
 If you have done “Exercise 12-3”, you’ll see that a dictionary is created that maps from a sorted string of letters to the array of words that can be spelled with those letters. For example, `"opst"` maps to the array `["opts", "post", "pots", "spot", "stop", "tops"]`.
 
@@ -523,7 +523,7 @@ Write a module that imports `anagramsets` and provides two new functions: `store
 """
 
 # ╔═╡ 5d0288be-8a7f-11eb-0519-dd123ae3db3c
-md"""#### Exercise 14-4
+md"""### Exercise 14-4
 
 In a large collection of MP3 files, there may be more than one copy of the same song, stored in different directories or with different filenames. The goal of this exercise is to search for duplicates.
 
