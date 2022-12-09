@@ -117,6 +117,7 @@ function processline(line, hist)
         word = lowercase(word)
         hist[word] = get(hist, word, 0) + 1
 	end
+	return nothing
 end
 
 # ╔═╡ 61a8a5a1-ec9d-49fe-ad17-27e866e7901b
@@ -461,7 +462,9 @@ Debugging by explaining your problem to an inanimate object such as a rubber duc
 """
 
 # ╔═╡ 97b91802-89bc-11eb-1adc-856eeae921ab
-md"""## Exercises Exercise 13-9
+md"""## Exercises 
+
+### Exercise 13-9
 
 The “rank” of a word is its position in an array of words sorted by frequency: the most common word has rank 1, the second most common has rank 2, etc.
 
