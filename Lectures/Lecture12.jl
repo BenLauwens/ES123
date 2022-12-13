@@ -561,7 +561,7 @@ More anagrams!
 # ╔═╡ 586908a2-872e-11eb-3919-f96ba66ee674
 md"""### Exercise 12-4
 
-Two words form a “metathesis pair” if you can transform one into the other by swap‐ ping two letters; for example, “converse” and “conserve.” Write a program that finds all of the metathesis pairs in *words.txt*.
+Two words form a “metathesis pair” if you can transform one into the other by swapping two letters; for example, “converse” and “conserve.” Write a program that finds all of the metathesis pairs in *words.txt*.
 
 !!! tip
     Don’t test all pairs of words, and don’t test all possible swaps.
