@@ -12,7 +12,7 @@ md"""## Who are we?
 
 * Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
-* Assistant: CDT Piet Van Der Paelt / D30.xy / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
+* Assistant: CDT Piet Van Der Paelt / D30.17 / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
 
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
