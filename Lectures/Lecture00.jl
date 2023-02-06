@@ -31,33 +31,20 @@ md"""## Documentation
 # ╔═╡ 1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 md"""## Schedule
 
-### Theory
+|Lectures|Theory|Exercises|Project|
+|:-------|:-----|:--------|:------|
+|1/2|06/02|08/02|       |
+|3/4|07/02|20/02|       |
+|5/6|14/02|27/02|       |
+|7/8|28/02|06/03|      |
+|9/10|07/03|13/03|      |
+|11/12|14/03|20/03|      |
+|13/14/15|21/03|27/03|      |
+|16/17/18|28/03|25/04|      |
+|Project list available|      |         |03/04|
+|First feedback (groups of 2)|      |         |17/04|
+|Final feedback (groups of 2)|      |         |15-16/05|
 
-* 06/02: 1/2 Hr
-* 07/02: 3/4 Hr
-* 14/02: 5/6 Hr
-* 28/02: 7/8 Hr
-* 07/03: 9/10 Hr
-* 14/03: 11/12 Hr
-* 21/03: 13/14 Hr
-* 28/03: 15/16 Hr
-
-### Exercises
-
-* 08/02: 1/2 Hr
-* 20/02: 3/4 Hr
-* 27/02: 5/6 Hr
-* 06/03: 7/8 Hr
-* 13/03: 9/10 Hr
-* 20/03: 11/12 Hr
-* 27/03: 13/14 Hr
-* 25/04: 15/16 Hr
-
-### Project
-
-* 03/04: Project list available
-* 17/04: First feedback (groups of 2)
-* 15-16/05: Final feedback (groups of 2)
 
 We are always available during contact hours"""
 
