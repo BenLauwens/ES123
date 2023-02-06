@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.22
 
 using Markdown
 using InteractiveUtils
@@ -40,7 +40,7 @@ md"""## Schedule
 * 07/03: 9/10 Hr
 * 14/03: 11/12 Hr
 * 21/03: 13/14 Hr
-* 24/04: 15/16 Hr
+* 28/03: 15/16 Hr
 
 ### Exercises
 
@@ -57,7 +57,7 @@ md"""## Schedule
 
 * 03/04: Project list available
 * 17/04: First feedback (groups of 2)
-* 15-16/05: Final feedback
+* 15-16/05: Final feedback (groups of 2)
 
 We are always available during contact hours"""
 
@@ -134,7 +134,7 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.2"
+julia_version = "1.8.5"
 manifest_format = "2.0"
 project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
 
