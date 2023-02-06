@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.22
 
 using Markdown
 using InteractiveUtils
@@ -351,7 +351,7 @@ md"""
     >>> second_str = 'warbler'
     >>> first_str + second_str
     'throatwarbler'
-    >>> 'spam'*3
+    >>> 'spam' * 3
     'spamspamspam'
     ```
 """
