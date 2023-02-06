@@ -12,7 +12,7 @@ md"""## Who are we?
 
 * Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
-* Assistant: CDT Piet Van Der Paelt / D30.xy / [piet.vanderpaelt@mil.be](mailto:francois.dossogne@mil.be)"""
+* Assistant: CDT Piet Van Der Paelt / D30.xy / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
 
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
@@ -33,39 +33,38 @@ md"""## Schedule
 
 ### Theory
 
-* 14/02: 1/2 Hr
-* 15/02: 3/4 Hr
-* 21/02: 5/6 Hr
-* 07/03: 7/8 Hr
-* 14/03: 9/10 Hr
-* 21/03: 11/12 Hr
-* 28/03: 13/14 Hr
-* 04/04: 15/16 Hr
+* 06/02: 1/2 Hr
+* 07/02: 3/4 Hr
+* 14/02: 5/6 Hr
+* 28/02: 7/8 Hr
+* 07/03: 9/10 Hr
+* 14/03: 11/12 Hr
+* 21/03: 13/14 Hr
+* 24/04: 15/16 Hr
 
 ### Exercises
 
-* 08/02: Revision
-* 22/02: 1/2 Hr
-* 08/03: 3/4 Hr
-* 15/03: 5/6 Hr
-* 22/03: 7/8 Hr
-* 29/03: 9/10 Hr
-* 05/04: 11/12 Hr
-* 19/04: 13/14 Hr
+* 08/02: 1/2 Hr
+* 20/02: 3/4 Hr
+* 27/02: 5/6 Hr
+* 06/03: 7/8 Hr
+* 13/03: 9/10 Hr
+* 20/03: 11/12 Hr
+* 27/03: 13/14 Hr
 * 25/04: 15/16 Hr
 
 ### Project
 
-* 19/04: Project list available
-* 25/04: Choice of project (groups of 2)
-* 16-17/05: Feedback project
+* 03/04: Project list available
+* 17/04: First feedback (groups of 2)
+* 15-16/05: Final feedback
 
 We are always available during contact hours"""
 
 # ╔═╡ b227f7b0-64a4-11eb-384b-8ba98563d161
 md"""## Evaluation
 
-Test: 31/03 - 2Hr: Exercises
+Test: 30/03 - 2Hr: Exercises
 
 Exam: final evaluation of project (individual)"""
 
