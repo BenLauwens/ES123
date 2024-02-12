@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.22
+# v0.19.32
 
 using Markdown
 using InteractiveUtils
@@ -33,17 +33,17 @@ md"""## Schedule
 
 |Lectures|Theory|Exercises|Project|
 |:-------|:-----|:--------|:------|
-|1/2|06/02|08/02|       |
-|3/4|07/02|20/02|       |
-|5/6|14/02|27/02|       |
-|7/8|28/02|06/03|      |
-|9/10|07/03|13/03|      |
-|11/12|14/03|20/03|      |
-|13/14/15|21/03|27/03|      |
-|16/17/18|28/03|25/04|      |
-|Project list available|      |         |03/04|
-|First feedback (groups of 2)|      |         |17/04|
-|Final feedback (groups of 2)|      |         |15-16/05|
+|1/2|12/02|19/02|       |
+|3/4|13/02|22/02|       |
+|5/6|20/02|05/03|       |
+|7/8|12/03|18/03|      |
+|9/10|19/03|25/03|      |
+|11/12|26/03|09/04|      |
+|13/14/15|16/04|29/04|      |
+|16/17/18|30/04|06/05|      |
+|Project list available|      |         |09/04|
+|First feedback (groups of 2)|      |         |23/04|
+|Final feedback (groups of 2)|      |         |21/05|
 
 
 We are always available during contact hours"""
@@ -51,7 +51,7 @@ We are always available during contact hours"""
 # ╔═╡ b227f7b0-64a4-11eb-384b-8ba98563d161
 md"""## Evaluation
 
-Test: 30/03 - 2Hr: Exercises
+Test: 14/03 - 2Hr: Exercises
 
 Exam: final evaluation of project (individual)"""
 
