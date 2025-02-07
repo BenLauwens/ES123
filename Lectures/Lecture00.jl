@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.32
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -10,7 +10,7 @@ md"""# Introduction"""
 # ╔═╡ 0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
 md"""## Who are we?
 
-* Lecturer: LCL IMM Ben Lauwens / D30.20 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
+* Lecturer: LCL IMM Ben Lauwens / D30.19 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
 * Assistant: CDT Piet Van Der Paelt / D30.17 / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
 
@@ -19,7 +19,7 @@ md"""## Programming Algorithms and Project
 
 * Theory: 16 Hr 	→ 48 Hr (preparation of exercises)
 * Exercises: 16 Hr 	→ 32 Hr (preparation of project)
-* Project: 10 Hr 	→ 30 Hr (implementation of project)"""
+* Project: 28 Hr 	→ 56 Hr (implementation of project)"""
 
 # ╔═╡ ba22b0c2-64a1-11eb-2849-3d2d7f279e81
 md"""## Documentation
@@ -33,17 +33,28 @@ md"""## Schedule
 
 |Lectures|Theory|Exercises|Project|
 |:-------|:-----|:--------|:------|
-|1/2|12/02|19/02|       |
-|3/4|13/02|22/02|       |
-|5/6|20/02|05/03|       |
-|7/8|12/03|18/03|      |
-|9/10|19/03|25/03|      |
-|11/12|26/03|09/04|      |
-|13/14/15|16/04|29/04|      |
-|16/17/18|30/04|06/05|      |
-|Project list available|      |         |09/04|
-|First feedback (groups of 2)|      |         |23/04|
-|Final feedback (groups of 2)|      |         |21/05|
+|1/2|10/02|12/02|       |
+|3/4|11/02|14/02|       |
+|5/6|17/02|19/02|       |
+|7/8|18/02|21/02|      |
+|9/10|24/02|28/02|      |
+|11/12|10/03|07/03|      |
+|13/14/15|11/03|14/03|      |
+|16/17/18|17/03|21/03|      |
+|Project list available|      |         |24/03|
+|Project|      |         |25/03|
+|Project|      |         |31/03|
+|Project|      |         |04/04|
+|Project|      |         |07/04|
+|Project|      |         |08/04|
+|Project|      |         |11/04|
+|Project|      |         |25/04|
+|Project|      |         |02/05|
+|Project|      |         |05/05|
+|Project|      |         |09/05|
+|Project|      |         |12/05|
+|Project|      |         |13/05|
+|Project|      |         |16/05|
 
 
 We are always available during contact hours"""
@@ -51,7 +62,9 @@ We are always available during contact hours"""
 # ╔═╡ b227f7b0-64a4-11eb-384b-8ba98563d161
 md"""## Evaluation
 
-Test: 14/03 - 2Hr: Exercises
+Test:
+- 20/03 - 2Hr: Exercises
+- 28-29/04: Presentation project (group)
 
 Exam: final evaluation of project (individual)"""
 
