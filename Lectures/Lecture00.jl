@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.21
 
 using Markdown
 using InteractiveUtils
@@ -12,7 +12,9 @@ md"""## Who are we?
 
 * Lecturer: LCL IMM Ben Lauwens / D30.19 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
-* Assistant: CDT Piet Van Der Paelt / D30.17 / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
+* Responsable Projects: Mr Philippe Blondeel / D30.14 / [philippe.blondeel@mil.be](mailto:philippe.blondeel@mil.be)
+
+* Assistant: MAJ Piet Van Der Paelt / D30.17 / [piet.vanderpaelt@mil.be](mailto:piet.vanderpaelt@mil.be)"""
 
 # ╔═╡ 4bfff530-64a1-11eb-2baa-270ad32c69f9
 md"""## Programming Algorithms and Project
@@ -33,28 +35,20 @@ md"""## Schedule
 
 |Lectures|Theory|Exercises|Project|
 |:-------|:-----|:--------|:------|
-|1/2|10/02|12/02|       |
-|3/4|11/02|14/02|       |
-|5/6|17/02|19/02|       |
-|7/8|18/02|21/02|      |
-|9/10|24/02|28/02|      |
-|11/12|10/03|07/03|      |
-|13/14/15|11/03|14/03|      |
-|16/17/18|17/03|21/03|      |
-|Project list available|      |         |24/03|
-|Project|      |         |25/03|
-|Project|      |         |31/03|
-|Project|      |         |04/04|
-|Project|      |         |07/04|
-|Project|      |         |08/04|
-|Project|      |         |11/04|
-|Project|      |         |25/04|
-|Project|      |         |02/05|
-|Project|      |         |05/05|
-|Project|      |         |09/05|
-|Project|      |         |12/05|
-|Project|      |         |13/05|
-|Project|      |         |16/05|
+|1/2|09/02|20/02|       |
+|3/4|13/02|27/02|       |
+|5/6|16/02|06/03|       |
+|7/8|02/03|13/03|      |
+|9/10|09/03|20/03|      |
+|11/12|16/03|27/03|      |
+|13/14/15|23/03|17/04||
+|16/17/18|30/03|24/04|      |
+|Project|      |         |30/03-31/03|
+|Project|      |         |13/04-14/04|
+|Project|      |         |20/04-21/04|
+|Project|      |         |27/04-28/04|
+|Project|      |         |04/05-05/05|
+|Project|      |         |08/05|
 
 
 We are always available during contact hours"""
@@ -63,10 +57,10 @@ We are always available during contact hours"""
 md"""## Evaluation
 
 Test:
-- 20/03 - 2Hr: Exercises
-- 28-29/04: Presentation project (group)
+- 19/03 - 2Hr: Exercises
+- 04-05-08/05: Presentation project common part (group)
 
-Exam: final evaluation of project (individual)"""
+Exam: 4Hr Exercises + written report project individual part"""
 
 # ╔═╡ 325b6010-64a6-11eb-06bb-dd521b29756f
 md"""## Julia
@@ -134,9 +128,9 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.8.5"
+julia_version = "1.12.4"
 manifest_format = "2.0"
-project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+project_hash = "71853c6197a6a7f222db0f1978c7cb232b87c5ee"
 
 [deps]
 """
