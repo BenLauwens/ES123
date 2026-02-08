@@ -10,7 +10,7 @@ md"""# Introduction"""
 # ╔═╡ 0d5727e0-64a1-11eb-2f03-ebae9b5bb6e6
 md"""## Who are we?
 
-* Lecturer: LCL IMM Ben Lauwens / D30.19 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
+* Lecturer: COL IMM Ben Lauwens / D30.19 / [ben.lauwens@mil.be](mailto:ben.lauwens@mil.be)
 
 * Responsable Projects: Mr Philippe Blondeel / D30.14 / [philippe.blondeel@mil.be](mailto:philippe.blondeel@mil.be)
 
