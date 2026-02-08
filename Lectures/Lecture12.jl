@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -198,7 +198,7 @@ md"""Here is an example of a function that returns a tuple:
 minmax(t) = minimum(t), maximum(t)
 
 # ╔═╡ 2e006454-8e48-46ce-9650-035ebbd67e70
-md"""`maximum` and `minimum` are built-in functions that find the largest and smallest ele‐ ments of a sequence. `minmax` computes both and returns a tuple of two values. The built-in function `extrema` is more efficient."""
+md"""`maximum` and `minimum` are built-in functions that find the largest and smallest elements of a sequence. `minmax` computes both and returns a tuple of two values. The built-in function `extrema` is more efficient."""
 
 # ╔═╡ a5a354be-8728-11eb-2ab3-4f994c1939c1
 md"""## Variable-Length Argument Tuples
@@ -303,7 +303,7 @@ md"""You can use tuple assignment in a `for` loop to traverse an array of tuples
 """
 
 # ╔═╡ d98ea074-d7d2-4fba-bc26-6c5a78c9f377
-for (letter, number) in collect(z)
+for (letter, number) in z
 	println(number, " ", letter)
 end
 
@@ -585,7 +585,7 @@ Write a program to find all words that can be reduced in this way, and then find
 !!! tip
     This exercise is a little more challenging than most, so here are some suggestions:
 
-    1. You might want to write a function that takes a word and com‐ putes an array of all the words that can be formed by removing one letter. These are the “children” of the word.
+    1. You might want to write a function that takes a word and computes an array of all the words that can be formed by removing one letter. These are the “children” of the word.
 
     2. Recursively, a word is reducible if any of its children are reducible. As a base case, you can consider the empty string reducible.
 

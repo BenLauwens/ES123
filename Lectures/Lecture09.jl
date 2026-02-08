@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -202,10 +202,8 @@ For `isabecedarian` we have to compare adjacent letters, which is a little trick
 
 # ╔═╡ eeef5017-b1a1-4b24-b175-82098b9f1398
 function isabecedarian(word)
-	i = firstindex(word)
-	previous = word[i]
-	j = nextind(word, i)
-	for c in word[j:end]
+	previous = ' '
+	for c in word
 		if c < previous
 			return false
 		end

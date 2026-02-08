@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -17,6 +17,9 @@ begin
 	end
 	using NativeSVG
 end
+
+# ╔═╡ 809642fe-949c-4d3f-8fdf-1992cbef88a8
+using Printf
 
 # ╔═╡ fc9cf982-8cde-11eb-04af-f9bf7f6b865d
 md"""# Structs and Functions
@@ -97,11 +100,23 @@ Write a function called `printtime` that takes a `MyTime` object and prints it i
 
 """
 
+# ╔═╡ 0715ccf7-ada7-4406-83a7-eb6b4394caf9
+printtime2(t) = @printf("%02d:%02d:%02d", t.hour, t.minute, t.second)
+
+# ╔═╡ 69f7584c-5c9c-4f36-b9ab-2ae840df7c93
+printtime2(time)
+
 # ╔═╡ 7c4db8b4-8ce0-11eb-0c61-e1720a80093f
 md"""### Exercise 16-2
 
 Write a Boolean function called isafter that takes two `MyTime` objects, `t1` and `t2`, and returns `true` if `t1` follows `t2` chronologically and `false` otherwise. Challenge: don’t use an `if` statement.
 """
+
+# ╔═╡ b622425a-26d9-46af-8aef-c14f0aeab85e
+isafter(t1, t2) = (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
+
+# ╔═╡ feb29a89-b7af-4def-81ae-6a369684ead4
+isafter(MyTime(1, 2, 3), MyTime(1, 2, 2))
 
 # ╔═╡ 9e07ce7a-8ce0-11eb-0d2c-614b707d5a30
 md"""## Pure Functions
@@ -386,7 +401,12 @@ Julia provides `Time` objects that are similar to the `MyTime` objects in this c
 # ╟─d3d4ac34-6da3-45fa-aea1-563c92a420b0
 # ╟─6b6345ec-8cdf-11eb-24f0-0f0996d2f81b
 # ╟─5b1d092c-8ce0-11eb-24e1-3f46146d7671
+# ╠═809642fe-949c-4d3f-8fdf-1992cbef88a8
+# ╠═0715ccf7-ada7-4406-83a7-eb6b4394caf9
+# ╠═69f7584c-5c9c-4f36-b9ab-2ae840df7c93
 # ╟─7c4db8b4-8ce0-11eb-0c61-e1720a80093f
+# ╠═b622425a-26d9-46af-8aef-c14f0aeab85e
+# ╠═feb29a89-b7af-4def-81ae-6a369684ead4
 # ╟─9e07ce7a-8ce0-11eb-0d2c-614b707d5a30
 # ╠═d271b35e-387f-4a30-95b5-3e4dd70de08e
 # ╟─bf45464c-e9ac-42b3-8e8b-ecb66b05940f

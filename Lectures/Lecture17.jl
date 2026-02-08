@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -313,7 +313,7 @@ md"""When I write a new composite type, I almost always start by writing an oute
 # ╔═╡ 6021d5b0-8ffa-11eb-053a-85008d0a7f1a
 md"""### Exercise 17-2
 
-Write an outer constructor method for the `Point` class that takes `x` and `y` as optional parameters and assigns them to the corresponding fields.
+Write an outer constructor method for the `Point` type that takes `x` and `y` as optional parameters and assigns them to the corresponding fields.
 """
 
 # ╔═╡ 757c2abc-8ffa-11eb-1b8c-edb1f8938d82

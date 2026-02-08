@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -299,7 +299,7 @@ A function call is like a detour in the flow of execution. Instead of going to t
 
 That sounds simple enough, until you remember that one function can call another. While in the middle of one function, the program might have to run the statements in another function. Then, while running that new function, the program might have to run yet another function!
 
-Fortunately, Julia is good at keeping track of where it is, so each time a function com‐ pletes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.
+Fortunately, Julia is good at keeping track of where it is, so each time a function completes, the program picks up where it left off in the function that called it. When it gets to the end of the program, it terminates.
 
 In summary, when you read a program, you don’t always want to read from top to bottom. Sometimes it makes more sense if you follow the flow of execution.
 """
@@ -627,7 +627,7 @@ Debugging is also like an experimental science. Once you have an idea about what
 >
 > —A. Conan Doyle, *The Sign of Four*
 
-For some people, programming and debugging are the same thing. That is, program‐ ming is the process of gradually debugging a program until it does what you want. The idea is that you should start with a working program and make small modifications, debugging them as you go.
+For some people, programming and debugging are the same thing. That is, programming is the process of gradually debugging a program until it does what you want. The idea is that you should start with a working program and make small modifications, debugging them as you go.
 
 For example, Linux is an operating system that contains millions of lines of code, but it started out as a simple program Linus Torvalds used to explore the Intel 80386 chip. According to Larry Greenfield in *The Linux Users’ Guide* (version beta-1), “One of Linus’s earlier projects was a program that would switch between printing AAAA and BBBB. This later evolved to Linux.”
 """

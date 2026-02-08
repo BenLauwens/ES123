@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -265,7 +265,8 @@ md"""A `Hand` is also a kind of `CardSet`:"""
 
 # ╔═╡ d7449874-fe2d-49c5-88dc-cdeda9d73eb4
 begin
-	struct Hand <: CardSet cards :: Array{Card, 1}
+	struct Hand <: CardSet 
+		cards :: Array{Card, 1}
 		label :: String
 	end
 	

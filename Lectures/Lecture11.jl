@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -225,7 +225,7 @@ Here is a function that takes a value and returns the first key that maps to tha
 # ╔═╡ c3bc7538-7a21-46d1-a796-aac97e052c46
 function reverselookup(d, v)
 	for k in keys(d)
-		if d[k]==v
+		if d[k] == v
 			return k
 		end
 	end
@@ -567,7 +567,7 @@ md"""## Debugging
 As you work with bigger datasets, it can become unwieldy to debug by printing and checking the output by hand. Here are some suggestions for debugging large datasets:
 * Scale down the input.
 
-  If possible, reduce the size of the dataset. For example, if the program reads a text file, start with just the first 10 lines, or with the smallest example you can find that errors. You should not edit the files themselves, but rather modify the pro‐ gram so it reads only the first n lines.
+  If possible, reduce the size of the dataset. For example, if the program reads a text file, start with just the first 10 lines, or with the smallest example you can find that errors. You should not edit the files themselves, but rather modify the program so it reads only the first n lines.
 
   If there is an error, you can reduce n to the smallest value that manifests the error, and then increase it gradually as you find and correct errors.
 
@@ -650,7 +650,7 @@ md"""## Exercises
 
 ### Exercise 11-2
 
-Write a function that reads the words in words.txt and stores them as keys in a dictionary. It doesn’t matter what the values are. Then you can use the `∈` operator as a fast way to check whether a string is in the dictionar.
+Write a function that reads the words in words.txt and stores them as keys in a dictionary. It doesn’t matter what the values are. Then you can use the `∈` operator as a fast way to check whether a string is in the dictionary.
 
 If you did “Exercise 10-10”, you can compare the speed of this implementation with the array `∈` operator and the bisection search.
 """

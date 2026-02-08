@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -183,7 +183,7 @@ For some other loops, it is not so easy to tell. For example:
 
 # ╔═╡ b45aaed5-4436-491d-825f-7df9d98458f9
 function seq(n)
-	while n != 1
+	while n ≠ 1
 		println(n)
 		if n % 2 == 0   # n is even
 			n /= 2
@@ -408,7 +408,7 @@ One way to cut your debugging time is “debugging by bisection.” For example,
 
 Instead, try to break the problem in half. Look at the middle of the program, or near it, for an intermediate value you can check. Add a print statement (or something else that has a verifiable effect) and run the program.
 
-If the midpoint check is incorrect, there must be a problem in the first half of the pro‐ gram. If it is correct, the problem is in the second half.
+If the midpoint check is incorrect, there must be a problem in the first half of the program. If it is correct, the problem is in the second half.
 
 Every time you perform a check like this, you halve the number of lines you have to search. In theory, after six steps (which is significantly fewer than 100), you’ll be down to one or two lines of code.
 

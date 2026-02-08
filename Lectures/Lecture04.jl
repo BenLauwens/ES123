@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -88,7 +88,7 @@ Packages can be installed in the REPL:
 ```jlcon
 julia> using Pkg
 
-julia> pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
+julia> Pkg.add(url="https://github.com/BenLauwens/NativeSVG.jl.git")
 ```
 
 This can take some time.
@@ -298,6 +298,9 @@ md"""The innermost statements, `forward` and `turn`, are indented twice to show 
 Inside the function, `t` refers to the same turtle `🐢`, so `turn(t, -90)` has the same effect as `turn(🐢, -90)`. In that case, why not call the parameter `🐢`? The idea is that `t` can be any turtle, not just `🐢` so you could create a second turtle and pass it as an argument to `square`:
 """
 
+# ╔═╡ 751f6565-44a2-4d37-9027-6211d184bd8f
+
+
 # ╔═╡ 613ce8b6-5aef-495f-8be9-34b1e0dd2633
 md"""Wrapping a piece of code up in a function is called *encapsulation*. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you reuse the code, it is more concise to call a function twice than to copy and paste the body!
 """
@@ -365,7 +368,7 @@ The next step is to write `circle`, which takes a radius, `r`, as a parameter. H
 # ╔═╡ d18c5a05-ff08-4638-8dca-90a98e2595b4
 function circle(t, r)
 	circumference = 2π * r
-	n=50
+	n = 50
 	len = circumference / n
 	polygon(t, n, len)
 end
@@ -649,6 +652,7 @@ Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedi
 # ╠═f67b0e4d-8e3f-416c-a15f-0e95a9239079
 # ╟─13877d52-734f-4b9d-a8be-2a5583e9ff96
 # ╠═e9be17fc-273d-47fd-9887-57d9b1d839df
+# ╠═751f6565-44a2-4d37-9027-6211d184bd8f
 # ╟─613ce8b6-5aef-495f-8be9-34b1e0dd2633
 # ╟─c9fa13ec-697b-11eb-1a40-4b899f07dde7
 # ╠═9cc4acf7-d264-49f6-bd96-49e9a1f5a60b

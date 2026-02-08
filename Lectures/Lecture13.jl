@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.15
+# v0.19.40
 
 using Markdown
 using InteractiveUtils
@@ -110,7 +110,7 @@ Here is a program that reads a file and builds a histogram of the words in the f
 """
 
 # ╔═╡ f5a49856-5805-40c0-8f11-505ab84d9f0f
-function processline(line, hist)
+function processline!(line, hist)
 	line = replace(line, '-' => ' ')
 	for word in split(line)
     	word = string(filter(isletter, [word...])...)
@@ -124,7 +124,7 @@ end
 function processfile(filename)
 	hist = Dict()
 	for line in eachline(filename)
-		processline(line, hist)
+		processline!(line, hist)
 	end
 	return hist
 end
@@ -180,7 +180,8 @@ function mostcommon(hist)
 	for (key, value) in hist
 		push!(t, (value, key))
 	end
-	reverse(sort(t))
+	#reverse(sort(t))
+	sort(t, rev=true)
 end
 
 # ╔═╡ 1ae01c23-9c19-4a69-a66f-387959b23871
