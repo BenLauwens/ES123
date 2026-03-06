@@ -48,7 +48,8 @@ The Julia *REPL* (Read–Eval–Print Loop) is a program that reads and executes
 # ╔═╡ efe28168-b88f-4e8c-a0f0-ec577b869ee5
 let
 	io = IOBuffer()
-	Base.banner(io)
+    using REPL
+	REPL.banner(io)
 	banner = String(take!(io))
 	Markdown.parse("""
 	```jlcon

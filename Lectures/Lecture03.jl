@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.21
 
 using Markdown
 using InteractiveUtils
@@ -442,71 +442,71 @@ Each function is represented by a *frame*. A frame is a box with the name of a f
 """
 
 # ╔═╡ 94c0413e-68d0-11eb-23c2-31909597a1f8
-Drawing(width=720, height=220) do
-    rect(x=210, y=10, width=400, height=60, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+Drawing(width=420, height=220) do
+    rect(x=0, y=10, width=420, height=60, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=100, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
-	text(x=280, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("line1")
 	end
-	text(x=290, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Bing tiddle \"")
 	end
-	text(x=280, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=60, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("line2")
 	end
-	text(x=290, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"tiddle bang\"")
 	end
-	rect(x=210, y=80, width=400, height=90, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	rect(x=0, y=80, width=420, height=90, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=100, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("cattwice")
 	end
-	text(x=280, y=100, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=100, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("part1")
 	end
-	text(x=290, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Bing tiddle \"")
 	end
-	text(x=280, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=130, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("part2")
 	end
-	text(x=290, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"tiddle bang\"")
 	end
-	text(x=280, y=160, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=160, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("concat")
 	end
-	text(x=290, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=160, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=160, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=160, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Bing tiddle tiddle bang\"")
 	end
-	rect(x=210, y=180, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	rect(x=0, y=180, width=420, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=100, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("printtwice")
 	end
-	text(x=280, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=200, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("bruce")
 	end
-	text(x=290, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=200, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=320, y=200, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=200, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Bing tiddle tiddle bang\"")
 	end
 	@info "Stack diagram."
