@@ -109,54 +109,54 @@ Drawing(width=720, height=230) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=300, y=55, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=55, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("cheeses ->")
 	end
     rect(x=310, y=10, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=335, y1=25, x2=355, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Cheddar\"")
 	end
-	text(x=320, y=55, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=335, y1=50, x2=355, y2=50, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=55, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Edam\"")
 	end
-	text(x=320, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
 	line(x1=335, y1=75, x2=355, y2=75, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Gouda\"")
 	end
-	text(x=300, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("numbers ->")
 	end
     rect(x=310, y=105, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=125, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=335, y1=120, x2=355, y2=120, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=125, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("42")
 	end
-	text(x=320, y=165, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=165, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("123")
 	end
 	line(x1=335, y1=158, x2=355, y2=150, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
-	text(x=370, y=180, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=180, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("5")
 	end
 	line(x1=335, y1=162, x2=355, y2=170, stroke="black", marker_end="url(#arrow)")
-	text(x=300, y=215, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=215, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("empty ->")
 	end
     rect(x=310, y=200, width=160, height=20, fill="rgb(242, 242, 242)", stroke="black")
@@ -533,28 +533,28 @@ Drawing(width=720, height=70) do
 	end
     rect(x=210, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
 	rect(x=360, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
 	line(x1=235, y1=25, x2=255, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=270, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=270, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"banana\"")
 	end
-	text(x=220, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=220, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
 	line(x1=235, y1=45, x2=255, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"banana\"")
 	end
-	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
 	line(x1=385, y1=25, x2=405, y2=30, stroke="black", marker_end="url(#arrow)")
-	text(x=420, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=420, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"banana\"")
 	end
-	text(x=370, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
 	line(x1=385, y1=45, x2=405, y2=40, stroke="black", marker_end="url(#arrow)")
@@ -594,18 +594,18 @@ Drawing(width=720, height=70) do
 		end
 	end
     rect(x=290, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
 	line(x1=315, y1=25, x2=335, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=350, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
-	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
 	line(x1=315, y1=45, x2=335, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=350, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
 end
@@ -641,14 +641,14 @@ Drawing(width=720, height=70) do
 		end
 	end
     rect(x=290, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
 	line(x1=315, y1=25, x2=335, y2=30, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=350, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
-	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
 	line(x1=315, y1=45, x2=335, y2=40, stroke="black", marker_end="url(#arrow)")
@@ -716,42 +716,42 @@ Drawing(width=720, height=90) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
     rect(x=170, y=10, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("letters")
 	end
 	line(x1=250, y1=25, x2=390, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("deletehead!")
 	end
     rect(x=170, y=50, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=180, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("t")
 	end
 	line(x1=200, y1=65, x2=390, y2=65, stroke="black", marker_end="url(#arrow)")
 	rect(x=400, y=10, width=90, height=70, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=410, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=410, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=425, y1=25, x2=440, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=455, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
-	text(x=410, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=410, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=425, y1=45, x2=440, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=455, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'b'")
 	end
-	text(x=410, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=410, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
 	line(x1=425, y1=65, x2=440, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=455, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'c'")
 	end
 end

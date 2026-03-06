@@ -460,130 +460,130 @@ Drawing(width=720, height=200) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
     rect(x=170, y=10, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("fact")
 	end
     rect(x=170, y=50, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=210, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=210, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=240, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	text(x=300, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("recurse")
 	end
-	text(x=370, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=460, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=460, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("result")
 	end
-	text(x=520, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=520, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=550, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=550, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("6")
 	end
-	text(x=140, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("fact")
 	end
     rect(x=170, y=90, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=210, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=210, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=240, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=300, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("recurse")
 	end
-	text(x=370, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=460, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=460, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("result")
 	end
-	text(x=520, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=520, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=550, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=550, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=140, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("fact")
 	end
     rect(x=170, y=130, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=210, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=210, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=240, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=300, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=300, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("recurse")
 	end
-	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=460, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=460, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("result")
 	end
-	text(x=520, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=520, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=550, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=550, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=140, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("fact")
 	end
     rect(x=170, y=170, width=400, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=190, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=190, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=210, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=210, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0")
 	end
 	path(d="M 570 50 C 595 50 595 40 580 40", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=600, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("6")
 	end
 	path(d="M 570 90 C 595 90 595 80 580 80", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=600, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	path(d="M 570 130 C 595 130 595 120 580 120", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=600, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	path(d="M 570 170 C 595 170 595 160 580 160", stroke="black", fill="transparent", marker_end="url(#arrow)")
-	text(x=600, y=170, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=600, y=170, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 end

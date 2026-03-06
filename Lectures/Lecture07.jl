@@ -54,13 +54,13 @@ Drawing(width=720, height=50) do
 		end
 	end
     rect(x=310, y=10, width=100, height=40, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=330, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=330, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("x")
 	end
-	text(x=390, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=390, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("5")
 	end
-	text(x=390, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=390, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("7")
 	end
 	line(x1=335, y1=30, x2=370, y2=23, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")

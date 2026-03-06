@@ -386,60 +386,60 @@ Every time a function gets called, Julia creates a frame to contain the function
 # ╔═╡ e7bc0384-6bdf-11eb-23d5-1f8454e713f2
 Drawing(width=720, height=200) do
 	@info "Stack diagram."
-	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
     rect(x=360, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
     rect(x=360, y=50, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=380, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	text(x=320, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
     rect(x=360, y=90, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=380, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=430, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=320, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
     rect(x=360, y=130, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=380, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=150, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=430, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=320, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=320, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
     rect(x=360, y=170, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=380, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=400, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=430, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0")
 	end
 end

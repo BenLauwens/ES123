@@ -393,29 +393,29 @@ Drawing(width=720, height=150) do
 		end
 	end
 	rect(x=310, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=335, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=335, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("CardSet")
 	end
 	rect(x=150, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=185, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=185, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Deck")
 	end
 	line(x1=250, y1=60, x2=301, y2=43, stroke="black", marker_end="url(#hollowarrow)")
 	rect(x=470, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=505, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=505, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Hand")
 	end
 	line(x1=470, y1=60, x2=419, y2=43, stroke="black", marker_end="url(#hollowarrow)")
 	rect(x=310, y=110, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=345, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=345, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Card")
 	end
 	line(x1=250, y1=90, x2=301, y2=107, stroke="black", marker_end="url(#arrow)")
 	line(x1=470, y1=90, x2=419, y2=107, stroke="black", marker_end="url(#arrow)")
-	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("*")
 	end
-	text(x=405, y=105, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=405, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("*")
 	end
 end

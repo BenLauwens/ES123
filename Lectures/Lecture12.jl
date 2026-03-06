@@ -399,18 +399,18 @@ Drawing(width=720, height=70) do
 		end
 	end
 	rect(x=285, y=10, width=150, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=295, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=295, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=315, y1=25, x2=355, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=375, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=375, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Cleese")
 	end
-	text(x=295, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=295, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=315, y1=45, x2=355, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=375, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=375, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("John")
 	end
 end
@@ -427,46 +427,46 @@ Drawing(width=720, height=150) do
 		end
 	end
 	rect(x=175, y=10, width=370, height=130, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=355, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Cleese\", \"John\")")
 	end
 	line(x1=365, y1=25, x2=405, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Chapman\", \"Graham\")")
 	end
 	line(x1=365, y1=45, x2=405, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Idle\", \"Eric\")")
 	end
 	line(x1=365, y1=65, x2=405, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Gilliam\", \"Terry\")")
 	end
 	line(x1=365, y1=85, x2=405, y2=85, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Jones\", \"Terry\")")
 	end
 	line(x1=365, y1=105, x2=405, y2=105, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600, text_anchor="end") do
+	text(x=355, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Palin\", \"Michael\")")
 	end
 	line(x1=365, y1=125, x2=405, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=425, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
 end

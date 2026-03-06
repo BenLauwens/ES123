@@ -299,91 +299,91 @@ Drawing(width=720, height=150) do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=105, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=105, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("hist ->")
 	end
 	rect(x=120, y=20, width=150, height=110, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=140, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'o'")
 	end
 	line(x1=170, y1=35, x2=220, y2=35, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=40, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=140, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
 	line(x1=170, y1=55, x2=220, y2=55, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=140, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'p'")
 	end
-	text(x=140, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'t'")
 	end
-	text(x=140, y=120, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=140, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'r'")
 	end
 	line(x1=170, y1=115, x2=220, y2=115, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=120, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=170, y1=95, x2=220, y2=95, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=100, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=170, y1=75, x2=220, y2=75, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=80, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=410, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="0.85rem", font_weight=600) do
+	text(x=410, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("inverse ->")
 	end
     rect(x=520, y=10, width=150, height=90, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=540, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=540, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=560, y1=25, x2=610, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=630, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'o'")
 	end
-	text(x=540, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=540, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=560, y1=45, x2=610, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=630, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
-	text(x=540, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=540, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
 	line(x1=560, y1=65, x2=610, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=70, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=630, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'p'")
 	end
-	text(x=540, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=540, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("4")
 	end
 	line(x1=560, y1=85, x2=610, y2=85, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=90, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=630, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'t'")
 	end
 	rect(x=520, y=110, width=150, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=540, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=540, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=560, y1=125, x2=610, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=630, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'r'")
 	end
 	rect(x=420, y=10, width=50, height=130, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=440, y=60, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=440, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=460, y1=55, x2=510, y2=55, stroke="black", marker_end="url(#arrow)")
-	text(x=440, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=440, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=460, y1=125, x2=510, y2=125, stroke="black", marker_end="url(#arrow)")
@@ -413,110 +413,110 @@ Drawing(width=720, height=310) do
 		end
 	end
 	rect(x=310, y=10, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=325, y=30, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=325, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=325, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=325, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=340, y1=45, x2=375, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=390, y=50, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=390, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("4")
 	end
 	line(x1=310, y1=60, x2=260, y2=85, stroke="black", marker_end="url(#arrow)")
 	line(x1=410, y1=60, x2=460, y2=85, stroke="black", marker_end="url(#arrow)")
 	rect(x=150, y=90, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=165, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=165, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=165, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=165, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=180, y1=125, x2=215, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=230, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=230, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
 	line(x1=150, y1=140, x2=130, y2=162, stroke="black", marker_end="url(#arrow)")
 	rect(x=75, y=170, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=90, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=90, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=90, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=90, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=105, y1=205, x2=140, y2=205, stroke="black", marker_end="url(#arrow)")
-	text(x=155, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=155, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=250, y1=140, x2=270, y2=162, stroke="black", marker_end="url(#arrow)")
 	rect(x=225, y=170, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=240, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=240, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=255, y1=205, x2=290, y2=205, stroke="black", marker_end="url(#arrow)")
-	text(x=305, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=305, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=75, y1=220, x2=53, y2=242, stroke="black", marker_end="url(#arrow)")
 	rect(x=0, y=250, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=15, y=270, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=15, y=270, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=15, y=290, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=15, y=290, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=30, y1=285, x2=65, y2=285, stroke="black", marker_end="url(#arrow)")
-	text(x=80, y=290, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=80, y=290, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 	line(x1=175, y1=220, x2=197, y2=242, stroke="black", marker_end="url(#arrow)")
 	rect(x=150, y=250, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=150+15, y=270, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=150+15, y=270, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=150+15, y=290, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=150+15, y=290, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=150+30, y1=285, x2=150+65, y2=285, stroke="black", marker_end="url(#arrow)")
-	text(x=150+80, y=290, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=150+80, y=290, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0")
 	end
 	rect(x=470, y=90, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=485, y=110, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=485, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=485, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=485, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=500, y1=125, x2=535, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=550, y=130, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=550, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
 	line(x1=570, y1=140, x2=590, y2=162, stroke="black", marker_end="url(#arrow)")
 	rect(x=720-175, y=170, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=720-175+15, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-175+15, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=720-175+15, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-175+15, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=720-175+30, y1=205, x2=720-175+65, y2=205, stroke="black", marker_end="url(#arrow)")
-	text(x=720-175+80, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-175+80, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0")
 	end
 	line(x1=470, y1=140, x2=450, y2=162, stroke="black", marker_end="url(#arrow)")
 	rect(x=720-325, y=170, width=100, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=720-325+15, y=190, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-325+15, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("fibonacci")
 	end
-	text(x=720-325+15, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-325+15, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
 	line(x1=720-325+30, y1=205, x2=720-325+65, y2=205, stroke="black", marker_end="url(#arrow)")
-	text(x=720-325+80, y=210, font_family="JuliaMono, monospace", font_size="0.85rem", font_weight=600) do
+	text(x=720-325+80, y=210, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
 end
