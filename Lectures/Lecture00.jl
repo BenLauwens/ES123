@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -87,24 +87,29 @@ try
     run(`$(git()) clone https://github.com/BenLauwens/ES123.git`)
     @info "Download complete"
 catch err
-    @warn "Something went wrong, check one of the following:\n  - .gitignore file location\n  - destination folder already is a git repository"
+    @warn "Something went wrong, check one of the following:\n" *
+	"- .gitignore file location\n" *
+	"- destination folder already is a git repository"
     @info err
-end
+end 
 ```
 * Start Julia and enter following command in the REPL when your laptop is connected to a network without proxy, i.e. not to CDN:
-```
-julia> include(joinpath(homedir(),"Downloads","install.jl"))
-```
 """
+
+# ╔═╡ 1a00318e-5074-47a5-8ec0-9f24f64b8d44
+print("""julia> include(joinpath(homedir(),"Downloads","install.jl")))""")
 
 # ╔═╡ 12ec8511-9c21-4509-8ba8-b3141f7d5705
 md"""## Pluto Notebook interface
 
 The browser based interface can be started from the Julia REPL with the following command:
-```
-julia> include(joinpath(homedir(),"Documents","ES123","setup","start.jl"))
-```
-!!! tip
+"""
+
+# ╔═╡ d94fe11c-3ee4-4e8d-a026-6f2d8bdb3dc6
+print("""julia> include(joinpath(homedir(),"Documents","ES123","setup","start.jl"))""")
+
+# ╔═╡ e039d8d4-8dfe-40ce-9e2b-f28d62e2da7d
+md"""!!! tip
     Please copy the lectures files from `Lectures` to `work` and open the files in the `work` directory. 
 """
 
@@ -112,12 +117,14 @@ julia> include(joinpath(homedir(),"Documents","ES123","setup","start.jl"))
 md"""## Updating the Lectures
 
 Enter the following command in the Julia REPL when your laptop is connected to a network without proxy to update the lectures:
-```
-julia> include(joinpath(homedir(),"Downloads","update.jl"))
-```
-!!! warning
-    Be warned, all local changes except those in the `work` directory will be deleted!
 """
+
+# ╔═╡ 4d839b5f-6315-42c3-aea4-e12b9b151235
+print("""julia> include(joinpath(homedir(),"Downloads","update.jl"))""")
+
+# ╔═╡ 079380b2-8eaf-449c-9aab-64af68c1ed20
+md"""!!! warning 
+    Be warned, all local changes except those in the `work` directory will be deleted!"""
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -143,7 +150,12 @@ project_hash = "71853c6197a6a7f222db0f1978c7cb232b87c5ee"
 # ╟─1650e820-64a3-11eb-2e13-7b4fcebcdbc1
 # ╟─b227f7b0-64a4-11eb-384b-8ba98563d161
 # ╟─325b6010-64a6-11eb-06bb-dd521b29756f
+# ╟─1a00318e-5074-47a5-8ec0-9f24f64b8d44
 # ╟─12ec8511-9c21-4509-8ba8-b3141f7d5705
+# ╟─d94fe11c-3ee4-4e8d-a026-6f2d8bdb3dc6
+# ╟─e039d8d4-8dfe-40ce-9e2b-f28d62e2da7d
 # ╟─780f0527-14a8-494f-9c08-3819dd06dc50
+# ╟─4d839b5f-6315-42c3-aea4-e12b9b151235
+# ╟─079380b2-8eaf-449c-9aab-64af68c1ed20
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

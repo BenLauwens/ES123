@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -46,25 +46,25 @@ Figure 7-1 shows what *reassignment* looks like in a state diagram.
 """
 
 # ╔═╡ f001d996-7687-11eb-1215-5940f40d3fed
-Drawing(width=720, height=50) do
+Drawing(width=500, height=50) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-    rect(x=310, y=10, width=100, height=40, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=330, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+    rect(x=210, y=10, width=100, height=40, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=230, y=35, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("x")
 	end
-	text(x=390, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=290, y=25, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("5")
 	end
-	text(x=390, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=290, y=45, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("7")
 	end
-	line(x1=335, y1=30, x2=370, y2=23, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
-	line(x1=335, y1=32, x2=370, y2=37, stroke="black", marker_end="url(#arrow)")
+	line(x1=235, y1=30, x2=270, y2=23, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
+	line(x1=235, y1=32, x2=270, y2=37, stroke="black", marker_end="url(#arrow)")
 end
 
 # ╔═╡ 67411830-768d-11eb-1cf0-f9011222c68d
@@ -252,9 +252,10 @@ md"""## `break`
 Sometimes you don’t know it’s time to end a loop until you get halfway through the body. In that case you can use the *`break` statement* to jump out of the loop.
 
 For example, suppose you want to take input from the user until they type **`done`**. You could write:
+"""
 
-```julia
-while true
+# ╔═╡ f0c5a9f7-6f32-4287-a6d1-7fa1f69df66e
+print("""while true
     print("> ")
     line = readline()
     if line == "done"
@@ -262,22 +263,23 @@ while true
 	end
 	println(line)
 end
-println("Done!")
-```
+println("Done!")""")
 
-The loop condition is `true`, which is always true, so the loop runs until it hits the
+# ╔═╡ b082d8b5-5204-41e6-a8c5-269a534a8d88
+md"""The loop condition is `true`, which is always true, so the loop runs until it hits the
 `break` statement.
 
 Each time through, it prompts the user with an angle bracket. If the user types **`done`**, the `break` statement exits the loop. Otherwise, the program echoes whatever the user types and goes back to the top of the loop. Here’s a sample run:
+"""
 
-```
-> not done
+# ╔═╡ 957c311f-540a-4903-a881-d39ccb859353
+print("""> not done
 not done
 > done
-Done!
-```
+Done!""")
 
-This way of writing `while` loops is common because you can check the condition anywhere in the loop (not just at the top) and you can express the stop condition affirmatively (“stop when this happens”) rather than negatively (“keep going until that happens”).
+# ╔═╡ 8982e2ac-3d9d-469f-871c-405fa1498064
+md"""This way of writing `while` loops is common because you can check the condition anywhere in the loop (not just at the top) and you can express the stop condition affirmatively (“stop when this happens”) rather than negatively (“keep going until that happens”).
 """
 
 # ╔═╡ 0aa7430a-76a7-11eb-1626-05ef9338e919
@@ -308,23 +310,23 @@ md"""## Square Roots
 
 Loops are often used in programs that compute numerical results by starting with an approximate answer and iteratively improving it.
 
-For example, one way of computing square roots is Newton’s method. Suppose that you want to know the square root of a. If you start with almost any estimate, x, you can compute a better estimate with the following formula:
+For example, one way of computing square roots is Newton’s method. Suppose that you want to know the square root of a. If you start with almost any estimate, ``x_0``, you can compute a better estimate with the following formula:
 
 ```math
-y=\frac{1}{2}\left(x+\frac{a}{x}\right)
+x_1=\frac{1}{2}\left(x_0+\frac{a}{x_0}\right)
 ```
 
-For example, if ``a`` is ``4`` and ``x`` is ``3``:
+For example, if ``a`` is ``4`` and ``x_0`` is ``3``:
 """
 
 # ╔═╡ 9fe2f34e-6aa6-4727-b5fd-1dbd8191edd8
 a = 4
 
 # ╔═╡ 840028c4-9913-4216-8a05-40c097adf945
-x = 3
+x₀ = 3
 
 # ╔═╡ 9c2e7346-c22f-4cee-8efb-0d39b20abe7c
-y1 = let x = x
+x₁ = let x = x₀
 	0.5(x + a/x)
 end
 
@@ -333,7 +335,7 @@ md"""The result is closer to the correct answer (``\sqrt 4 = 2``). If we repeat 
 """
 
 # ╔═╡ 6c2361c6-e168-42cd-a208-6b56895068cb
-y2 = let x = y1
+x₂ = let x = x₁
 	0.5(x + a/x)
 end
 
@@ -342,17 +344,17 @@ md"""After a few more updates, the estimate is almost exact:
 """
 
 # ╔═╡ 0e05362a-7de3-4549-b0ec-41924bf40998
-y3 = let x = y2
+x₃ = let x = x₂
 	0.5(x + a/x)
 end
 
 # ╔═╡ 53a097d1-9d85-4bcb-8a56-eaea04fcf3ca
-y4 = let x = y3
+x₄ = let x = x₃
 	0.5(x + a/x)
 end
 
 # ╔═╡ 74e45886-2e05-41f2-a766-f227c9f980c8
-y5 = let x = y4
+x₅ = let x = x₄
 	0.5(x + a/x)
 end
 
@@ -361,13 +363,16 @@ md"""When `y == x`, we can stop. Here is a loop that starts with an initial esti
 """
 
 # ╔═╡ 2e5d1c7c-d803-43ca-8a37-51f7414b815c
-while true
-	@show x
-	y = 0.5(x + a/x)
-	if y == x
-		break
+begin
+	x = x₀
+	while true
+		@show x
+		y = 0.5(x + a/x)
+		if y == x
+			break
+		end
+		x = y
 	end
-	x = y
 end
 
 # ╔═╡ 631b265f-83e9-4b99-92e0-07303f4944e5
@@ -527,6 +532,10 @@ Write a function called `estimatepi` that uses this formula to compute and retur
 # ╟─f51d8d5c-7690-11eb-3eea-e5a92768f7e6
 # ╟─87bc44b0-76a4-11eb-3e5a-13df6d96717d
 # ╟─5adbadaa-76a6-11eb-34b0-0b02b1cd9f95
+# ╟─f0c5a9f7-6f32-4287-a6d1-7fa1f69df66e
+# ╟─b082d8b5-5204-41e6-a8c5-269a534a8d88
+# ╟─957c311f-540a-4903-a881-d39ccb859353
+# ╟─8982e2ac-3d9d-469f-871c-405fa1498064
 # ╟─0aa7430a-76a7-11eb-1626-05ef9338e919
 # ╠═1f074f6d-b562-485a-aebc-a081d9af65fa
 # ╟─b3ec7984-37d0-4dbb-bf89-fdd02fa77720

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -391,26 +391,26 @@ There are two ways to represent tuples in a state diagram. The more detailed ver
 """
 
 # ╔═╡ ce6beec2-872a-11eb-3b39-5531bfc637cb
-Drawing(width=720, height=70) do
+Drawing(width=500, height=70) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	rect(x=285, y=10, width=150, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=295, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=185, y=10, width=150, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=195, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=315, y1=25, x2=355, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=375, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=215, y1=25, x2=255, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=275, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Cleese")
 	end
-	text(x=295, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=195, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=315, y1=45, x2=355, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=375, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=215, y1=45, x2=255, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=275, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("John")
 	end
 end
@@ -419,54 +419,54 @@ end
 md"""But in a larger diagram you might want to leave out the details. For example, a diagram of the telephone directory might appear as in Figure 12-2."""
 
 # ╔═╡ c608335e-872b-11eb-278e-51296de15fbc
-Drawing(width=720, height=150) do
+Drawing(width=500, height=150) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	rect(x=175, y=10, width=370, height=130, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=355, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	rect(x=75, y=10, width=370, height=130, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=255, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Cleese\", \"John\")")
 	end
-	line(x1=365, y1=25, x2=405, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=25, x2=305, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=255, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Chapman\", \"Graham\")")
 	end
-	line(x1=365, y1=45, x2=405, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=45, x2=305, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=255, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Idle\", \"Eric\")")
 	end
-	line(x1=365, y1=65, x2=405, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=65, x2=305, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=255, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Gilliam\", \"Terry\")")
 	end
-	line(x1=365, y1=85, x2=405, y2=85, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=85, x2=305, y2=85, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=255, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Jones\", \"Terry\")")
 	end
-	line(x1=365, y1=105, x2=405, y2=105, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=105, x2=305, y2=105, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
-	text(x=355, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=255, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("(\"Palin\", \"Michael\")")
 	end
-	line(x1=365, y1=125, x2=405, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=425, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=265, y1=125, x2=305, y2=125, stroke="black", marker_end="url(#arrow)")
+	text(x=325, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("08700 100 222")
 	end
 end
@@ -541,21 +541,22 @@ md"""### Exercise 12-3
 
 More anagrams!
 
-1. Write a program that reads a word list from a file (see “Reading Word Lists”) and prints all the sets of words that are anagrams. Here is an example of what the output might look like:
+Write a program that reads a word list from a file (see “Reading Word Lists”) and prints all the sets of words that are anagrams. Here is an example of what the output might look like:
+"""
 
-   ```
-   ["deltas", "desalt", "lasted", "salted", "slated", "staled"]
-   ["retainers", "ternaries"]
-   ["generating", "greatening"]
-   ["resmelts", "smelters", "termless"]
-   ```
+# ╔═╡ 3b7b84f6-69a7-49c6-8bea-a6e9a77f4af9
+print("""["deltas", "desalt", "lasted", "salted", "slated", "staled"]
+["retainers", "ternaries"]
+["generating", "greatening"]
+["resmelts", "smelters", "termless"]""")
 
-   !!! tip
-       You might want to build a dictionary that maps from a collection of letters to an array of words that can be spelled with those letters. The question is, how can you represent the col‐ lection of letters in a way that can be used as a key?
+# ╔═╡ 977dbf7f-ca60-451c-b7f3-2e4b6cfa7250
+md"""!!! tip
+    You might want to build a dictionary that maps from a collection of letters to an array of words that can be spelled with those letters. The question is, how can you represent the col‐ lection of letters in a way that can be used as a key?
 
-2. Modify the previous program so that it prints the longest array of anagrams first, followed by the second longest, and so on.
+Modify the previous program so that it prints the longest array of anagrams first, followed by the second longest, and so on.
 
-3. In Scrabble a “bingo” is when you play all seven tiles in your rack, along with a letter on the board, to form an eight-letter word. What collection of eight letters forms the most possible bingos?
+In Scrabble a “bingo” is when you play all seven tiles in your rack, along with a letter on the board, to form an eight-letter word. What collection of eight letters forms the most possible bingos?
 """
 
 # ╔═╡ 586908a2-872e-11eb-3919-f96ba66ee674
@@ -681,5 +682,7 @@ Write a program to find all words that can be reduced in this way, and then find
 # ╟─96a213d2-872d-11eb-25e4-fdd44a16150d
 # ╟─e7f038d6-872d-11eb-28a3-6307d3e72e85
 # ╟─05a7a222-872e-11eb-3de9-c73ab5da92a0
+# ╟─3b7b84f6-69a7-49c6-8bea-a6e9a77f4af9
+# ╟─977dbf7f-ca60-451c-b7f3-2e4b6cfa7250
 # ╟─586908a2-872e-11eb-3919-f96ba66ee674
 # ╟─8a7b57dc-872e-11eb-189c-7f2d7cb2e695

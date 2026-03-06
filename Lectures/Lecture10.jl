@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -102,64 +102,64 @@ md"""The second element of `numbers`, which used to be `123`, is now `5`. Figure
 """
 
 # ╔═╡ 1b70a1d2-7eb7-11eb-2ab9-6739d60fcf89
-Drawing(width=720, height=230) do
+Drawing(width=500, height=230) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=300, y=55, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=200, y=55, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("cheeses ->")
 	end
-    rect(x=310, y=10, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=210, y=10, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=335, y1=25, x2=355, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=25, x2=255, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=270, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Cheddar\"")
 	end
-	text(x=320, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=220, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=335, y1=50, x2=355, y2=50, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=50, x2=255, y2=50, stroke="black", marker_end="url(#arrow)")
+	text(x=270, y=55, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Edam\"")
 	end
-	text(x=320, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=220, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	line(x1=335, y1=75, x2=355, y2=75, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=75, x2=255, y2=75, stroke="black", marker_end="url(#arrow)")
+	text(x=270, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"Gouda\"")
 	end
-	text(x=300, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=200, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("numbers ->")
 	end
-    rect(x=310, y=105, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=210, y=105, width=160, height=85, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=220, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=335, y1=120, x2=355, y2=120, stroke="black", marker_end="url(#arrow)")
-	text(x=370, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=120, x2=255, y2=120, stroke="black", marker_end="url(#arrow)")
+	text(x=270, y=125, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("42")
 	end
-	text(x=320, y=165, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=220, y=165, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=370, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=270, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("123")
 	end
-	line(x1=335, y1=158, x2=355, y2=150, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
-	text(x=370, y=180, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=158, x2=255, y2=150, stroke="black", stroke_dasharray="5,5", marker_end="url(#arrow)")
+	text(x=270, y=180, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("5")
 	end
-	line(x1=335, y1=162, x2=355, y2=170, stroke="black", marker_end="url(#arrow)")
-	text(x=300, y=215, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	line(x1=235, y1=162, x2=255, y2=170, stroke="black", marker_end="url(#arrow)")
+	text(x=200, y=215, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("empty ->")
 	end
-    rect(x=310, y=200, width=160, height=20, fill="rgb(242, 242, 242)", stroke="black")
+    rect(x=210, y=200, width=160, height=20, fill="rgb(242, 242, 242)", stroke="black")
 end
 
 # ╔═╡ d3894a90-7ebb-11eb-0541-133459689a2d
@@ -524,40 +524,40 @@ md"""we know that `a` and `b` both refer to a string, but we don’t know whethe
 """
 
 # ╔═╡ 04e15ba6-7ec0-11eb-3c7d-211e84ba32c0
-Drawing(width=720, height=70) do
+Drawing(width=500, height=70) do
 	@info "State diagrams."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-    rect(x=210, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	rect(x=360, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=220, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=110, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	rect(x=260, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=120, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
-	line(x1=235, y1=25, x2=255, y2=25, stroke="black", marker_end="url(#arrow)")
+	line(x1=135, y1=25, x2=155, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=170, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+		str("\"banana\"")
+	end
+	text(x=120, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+		str("b")
+	end
+	line(x1=135, y1=45, x2=155, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=170, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+		str("\"banana\"")
+	end
 	text(x=270, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
-		str("\"banana\"")
-	end
-	text(x=220, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
-		str("b")
-	end
-	line(x1=235, y1=45, x2=255, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
-		str("\"banana\"")
-	end
-	text(x=370, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
-	line(x1=385, y1=25, x2=405, y2=30, stroke="black", marker_end="url(#arrow)")
-	text(x=420, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=285, y1=25, x2=305, y2=30, stroke="black", marker_end="url(#arrow)")
+	text(x=320, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("\"banana\"")
 	end
-	text(x=370, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
-	line(x1=385, y1=45, x2=405, y2=40, stroke="black", marker_end="url(#arrow)")
+	line(x1=285, y1=45, x2=305, y2=40, stroke="black", marker_end="url(#arrow)")
 end
 
 # ╔═╡ b218e204-7ec2-11eb-3321-3f0082f5e74d
@@ -586,26 +586,26 @@ md"""So the state diagram looks like Figure 10-3.
 """
 
 # ╔═╡ 91741fb0-7ec3-11eb-1c35-03f99160c75d
-Drawing(width=720, height=70) do
+Drawing(width=500, height=70) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-    rect(x=290, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=190, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=200, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
-	line(x1=315, y1=25, x2=335, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=215, y1=25, x2=235, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=250, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
-	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=200, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
-	line(x1=315, y1=45, x2=335, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=215, y1=45, x2=235, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=250, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
 end
@@ -633,25 +633,25 @@ md"""The state diagram looks like Figure 10-4.
 """
 
 # ╔═╡ 4ff0e338-7ec4-11eb-15ff-a17321526a29
-Drawing(width=720, height=70) do
+Drawing(width=500, height=70) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-    rect(x=290, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=300, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=190, y=10, width=140, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=200, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("a")
 	end
-	line(x1=315, y1=25, x2=335, y2=30, stroke="black", marker_end="url(#arrow)")
-	text(x=350, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=215, y1=25, x2=235, y2=30, stroke="black", marker_end="url(#arrow)")
+	text(x=250, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("[1, 2, 3]")
 	end
-	text(x=300, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=200, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("b")
 	end
-	line(x1=315, y1=45, x2=335, y2=40, stroke="black", marker_end="url(#arrow)")
+	line(x1=215, y1=45, x2=235, y2=40, stroke="black", marker_end="url(#arrow)")
 end
 
 # ╔═╡ 85204788-7ec4-11eb-2337-c7f0728c2c5b
@@ -709,49 +709,49 @@ md"""The parameter `t` and the variable `letters` are aliases for the same objec
 """
 
 # ╔═╡ 11e91384-7ec5-11eb-325d-859e008c7cb1
-Drawing(width=720, height=90) do
+Drawing(width=500, height=90) do
 	@info "Stack diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=90, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
-    rect(x=170, y=10, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=120, y=10, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=130, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("letters")
 	end
-	line(x1=250, y1=25, x2=390, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=140, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	line(x1=200, y1=25, x2=340, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=90, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("deletehead!")
 	end
-    rect(x=170, y=50, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=180, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=120, y=50, width=200, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=130, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("t")
 	end
-	line(x1=200, y1=65, x2=390, y2=65, stroke="black", marker_end="url(#arrow)")
-	rect(x=400, y=10, width=90, height=70, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=410, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=150, y1=65, x2=340, y2=65, stroke="black", marker_end="url(#arrow)")
+	rect(x=350, y=10, width=90, height=70, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=360, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=425, y1=25, x2=440, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=375, y1=25, x2=390, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=405, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
-	text(x=410, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=360, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=425, y1=45, x2=440, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=375, y1=45, x2=390, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=405, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'b'")
 	end
-	text(x=410, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=360, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	line(x1=425, y1=65, x2=440, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=455, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=375, y1=65, x2=390, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=405, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'c'")
 	end
 end
@@ -831,48 +831,50 @@ end
 # ╔═╡ 96e036b0-7ec7-11eb-0308-1d445f8d21fa
 md"""## Debugging
 
-Careless use of arrays (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them:
+Careless use of arrays (and other mutable objects) can lead to long hours of debugging. Here are some common pitfalls and ways to avoid them.
 
-* Most array functions modify the argument. This is the opposite of the string functions, which return a new string and leave the original alone.
+Most array functions modify the argument. This is the opposite of the string functions, which return a new string and leave the original alone.
 
-  If you are used to writing string code like this:
+If you are used to writing string code like this:
 
-  ```julia
-  new_word = strip(word)
-  ```
+```julia
+new_word = strip(word)
+```
 
-  It is tempting to write array code like this:
+It is tempting to write array code like this:
 
-  ```julia
-  t2 = sort!(t1)
-  ```
+```julia
+t2 = sort!(t1)
+```
 
-  Because `sort!` returns the modified original array `t1`, `t2` is an alias of `t1`.
+Because `sort!` returns the modified original array `t1`, `t2` is an alias of `t1`.
 
-  !!! tip
-      Before using array functions and operators, you should read the documentation carefully and then test them in interactive mode.
+!!! tip
+    Before using array functions and operators, you should read the documentation carefully and then test them in interactive mode.
+"""
 
-* Pick an idiom and stick with it.
+# ╔═╡ 74090f6b-feed-478f-b776-507a5c6c260c
+md"""Pick an idiom and stick with it.
 
-  Part of the problem with arrays is that there are too many ways to do things. For example, to remove an element from an array, you can use `pop!`, `popfirst!`, `delete_at`, or even a slice assignment. To add an element, you can use `push!`, `pushfirst!`, `insert!`, or `vcat`. Assuming that `t` is an array and `x` is an array element, these are correct:
+Part of the problem with arrays is that there are too many ways to do things. For example, to remove an element from an array, you can use `pop!`, `popfirst!`, `delete_at`, or even a slice assignment. To add an element, you can use `push!`, `pushfirst!`, `insert!`, or `vcat`. Assuming that `t` is an array and `x` is an array element, these are correct:
 
-  ```julia
-  insert!(t, 4, x)
-  push!(t, x)
-  append!(t, [x])
-  ```
+```julia
+insert!(t, 4, x)
+push!(t, x)
+append!(t, [x])
+```
 
-  And these are wrong:
+And these are wrong:
 
-  ```julia
-  insert!(t, 4, [x])     # WRONG!
-  push!(t, [x])          # WRONG!
-  vcat(t, [x])           # WRONG!
-  ```
+```julia
+insert!(t, 4, [x])     # WRONG!
+push!(t, [x])          # WRONG!
+vcat(t, [x])           # WRONG!
+```
 
-* Make copies to avoid aliasing.
+Make copies to avoid aliasing.
 
-  If you want to use a function like sort! that modifies the argument, but you need to keep the original array as well, you can make a copy:
+If you want to use a function like sort! that modifies the argument, but you need to keep the original array as well, you can make a copy:
 """
 
 # ╔═╡ 4ec3992f-ebc4-42db-ad59-61d1befb3fa7
@@ -1196,6 +1198,7 @@ Two words “interlock” if taking alternating letters from each forms a new wo
 # ╟─658e704a-37e6-40bc-bf83-2360b2670101
 # ╠═dad9d83b-2dc8-43bc-9fb4-2dad0d264fe5
 # ╟─96e036b0-7ec7-11eb-0308-1d445f8d21fa
+# ╟─74090f6b-feed-478f-b776-507a5c6c260c
 # ╠═4ec3992f-ebc4-42db-ad59-61d1befb3fa7
 # ╟─5ee8da4d-34d4-43a9-9221-097a912b70b4
 # ╠═5f4d9fb9-f926-4b0b-a178-0485d1284ea2

@@ -223,15 +223,16 @@ If you know how to create and run a script on your computer, you are ready to go
 Because Julia provides both modes, you can test bits of code in interactive mode before you put them in a script. But there are differences between interactive mode and script mode that can be confusing.
 
 For example, if you are using Julia as a calculator, you might type:
+"""
 
-```jlcon
-julia> miles = 26.2
+# ╔═╡ e2a94fda-17db-475e-aa83-d5402b1baa75
+print("""julia> miles = 26.2
 26.2
 julia> miles * 1.61
-42.182
-```
+42.182""")
 
-The first line assigns a value to `miles` and displays the value. The second line is an expression, so the REPL evaluates it and displays the result. It turns out that a mara thon is about 42 kilometers.
+# ╔═╡ 92294bb8-016e-4187-944b-ac18b979aae3
+md"""The first line assigns a value to `miles` and displays the value. The second line is an expression, so the REPL evaluates it and displays the result. It turns out that a mara thon is about 42 kilometers.
 
 But if you type the same code into a script and run it, you get no output at all. In script mode an expression, all by itself, has no visible effect. Julia actually evaluates the expression, but it doesn’t display the value unless you tell it to:
 
@@ -253,17 +254,19 @@ println(x)
 ```
 
 produces the output:
-
-```
-1
-2
-```
-
-The assignment statement produces no output.
 """
 
+# ╔═╡ 6fe13239-1c15-47cd-bd52-446b64081216
+begin
+	println(1)
+	x = 2
+	println(x)
+end
+
 # ╔═╡ 4ed959f8-3202-4a4d-9af9-19985032d739
-md"""A script can be included in a notebook cell using the function call `include("`**`name_of_the_script.jl`**`")`.
+md"""The assignment statement produces no output.
+
+A script can be included in a notebook cell using the function call `include("`**`name_of_the_script.jl`**`")`.
 """
 
 # ╔═╡ ff42a18e-64e4-11eb-0d79-b139fff2bcfd
@@ -556,6 +559,9 @@ Practice using the Julia REPL as a calculator:
 # ╟─3c0d30cd-a56e-44d4-8389-fd2deb1e907d
 # ╠═d5949df7-0d18-4ad3-b8bb-34970aeb0863
 # ╟─567fc950-64dc-11eb-22e2-df958738bfff
+# ╟─e2a94fda-17db-475e-aa83-d5402b1baa75
+# ╟─92294bb8-016e-4187-944b-ac18b979aae3
+# ╟─6fe13239-1c15-47cd-bd52-446b64081216
 # ╟─4ed959f8-3202-4a4d-9af9-19985032d739
 # ╟─ff42a18e-64e4-11eb-0d79-b139fff2bcfd
 # ╟─9f56ada0-64dd-11eb-2689-89413775adb1

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -24,18 +24,18 @@ let
 	include("../src/chap04.jl")
 	🐢 = Turtle()
 	penup(🐢)
-	forward(🐢, -200)
+	forward(🐢, -180)
 	pendown(🐢)
-	flower(🐢, 7, 110.0, 60.0)
+	flower(🐢, 7, 90.0, 60.0)
 	penup(🐢)
-	forward(🐢, 200)
+	forward(🐢, 180)
 	pendown(🐢)
-	flower(🐢, 10, 80.0, 80.0)
+	flower(🐢, 10, 65.0, 80.0)
 	penup(🐢)
-	forward(🐢, 200)
+	forward(🐢, 180)
 	pendown(🐢)
-	flower(🐢, 20, 280.0, 20.0)
-	Drawing(🐢, 720, 220)
+	flower(🐢, 20, 235.0, 20.0)
+	Drawing(🐢, 540, 220)
 end
 
 # ╔═╡ 7933043e-6992-11eb-27b6-c10f5cb6dd29
@@ -44,14 +44,14 @@ let
 	include("../src/chap04.jl")
 	🐢 = Turtle()
 	penup(🐢)
-	forward(🐢, -280)
+	forward(🐢, -200)
 	pendown(🐢)
-	size = 80
+	size = 60
 	drawpie(🐢, 5, size)
 	drawpie(🐢, 6, size)
 	drawpie(🐢, 7, size)
 	drawpie(🐢, 8, size)
-	Drawing(🐢, 720, 160)
+	Drawing(🐢, 520, 160)
 end
 
 # ╔═╡ 31bc6732-6993-11eb-295e-eb9f409a95fa
@@ -64,8 +64,8 @@ let
 	forward(🐢, 25)
 	turn(🐢, -90)
 	pendown(🐢)
-  	spiral(🐢, 230, 6, 0.1, 0.0002)
-	Drawing(🐢, 720, 220)
+  	spiral(🐢, 230, 5, 0.1, 0.0002)
+	Drawing(🐢, 500, 200)
 end
 
 # ╔═╡ dc4299ea-68d9-11eb-273b-a597294ef196
@@ -109,7 +109,7 @@ Once you create a turtle, you can call a function to move it around. For example
 let
 	🐢 = Turtle()
 	forward(🐢, 100)
-	Drawing(🐢, 720, 10)
+	Drawing(🐢, 500, 10)
 end
 ```
 """
@@ -119,7 +119,7 @@ let
 	@info "A Turtle drawing."
 	🐢 = Turtle()
 	forward(🐢, 100)
-	Drawing(🐢, 720, 10)
+	Drawing(🐢, 500, 10)
 end
 
 # ╔═╡ 09d4cbb2-68df-11eb-2eec-bbe39ef9880d
@@ -141,7 +141,7 @@ let
 	forward(🐢, 100)
 	turn(🐢, -90)
 	forward(🐢, 100)
-	Drawing(🐢, 720, 210)
+	Drawing(🐢, 500, 210)
 end
 
 # ╔═╡ c64b81dc-68df-11eb-1086-d57b61651791
@@ -166,7 +166,7 @@ let
 	forward(🐢, 100)
 	turn(🐢, -90)
 	forward(🐢, 100)
-	Drawing(🐢, 720, 210)
+	Drawing(🐢, 500, 210)
 end
 
 # ╔═╡ e6fe5f35-901b-4058-85d3-1009c7127f94
@@ -192,7 +192,7 @@ let
 		forward(🐢, 100)
 		turn(🐢, -90)
 	end
-	Drawing(🐢, 720, 210)
+	Drawing(🐢, 500, 210)
 end
 
 # ╔═╡ 984498ad-9b55-4d71-82b4-ff2ef6d7c5ec
@@ -298,9 +298,6 @@ md"""The innermost statements, `forward` and `turn`, are indented twice to show 
 Inside the function, `t` refers to the same turtle `🐢`, so `turn(t, -90)` has the same effect as `turn(🐢, -90)`. In that case, why not call the parameter `🐢`? The idea is that `t` can be any turtle, not just `🐢` so you could create a second turtle and pass it as an argument to `square`:
 """
 
-# ╔═╡ 751f6565-44a2-4d37-9027-6211d184bd8f
-
-
 # ╔═╡ 613ce8b6-5aef-495f-8be9-34b1e0dd2633
 md"""Wrapping a piece of code up in a function is called *encapsulation*. One of the benefits of encapsulation is that it attaches a name to the code, which serves as a kind of documentation. Another advantage is that if you reuse the code, it is more concise to call a function twice than to copy and paste the body!
 """
@@ -323,14 +320,14 @@ end
 let
 	🐢 = Turtle()
 	square(🐢)
-	Drawing(🐢, 720, 210)
+	Drawing(🐢, 500, 210)
 end
 
 # ╔═╡ e9be17fc-273d-47fd-9887-57d9b1d839df
 let
 	🐫 = Turtle()
 	square(🐫)
-	Drawing(🐫, 720, 210)
+	Drawing(🐫, 500, 210)
 end
 
 # ╔═╡ 13f09fbd-4005-464a-8922-fe320647bc0e
@@ -356,7 +353,7 @@ md"""To draw a 7-sided polygon with side length 70:
 let
 	🐢 = Turtle()
 	polygon(🐢, 7, 70)
-	Drawing(🐢, 720, 320)
+	Drawing(🐢, 500, 320)
 end
 
 # ╔═╡ 372310ae-697f-11eb-3217-f1afed271f4a
@@ -491,7 +488,8 @@ A *docstring* is a string before a function that explains the interface (“doc�
 """
 polyline_doc(t, n, len, angle)
 
-Draws n line segments with the given length and angle (in degrees) between them. t is a turtle.
+Draws n line segments with the given length and angle (in degrees) between them. 
+t is a turtle.
 """
 function polyline_doc(t, n, len, angle)
 	for i in 1:n
@@ -500,19 +498,21 @@ function polyline_doc(t, n, len, angle)
 	end
 end
 
-# ╔═╡ fe79f4b6-760e-4d7e-832e-701a34a3accb
-md"""Documentation can be accessed in the REPL by typing `?` followed by the name of a function, and pressing Enter:
-
-```jlcon
-help?> polyline_doc
+# ╔═╡ 3ff25df5-4232-4367-92e5-e49f27188840
+print("""help?> polyline_doc
 search: polyline_doc
 
   polyline_doc(t, n, len, angle)
 
-  Draws n line segments with the given length and angle (in degrees) between them. t is a turtle.
-```
+  Draws n line segments with the given length and angle (in degrees) between them. 
+  t is a turtle.""")
 
-In the lower right corner of the notebook interface, you can click on the “Live docs” panel to search the documentation. When the panel is expanded, clicking on a function name in a cell displays the corresponding help text in the panel.
+# ╔═╡ fe79f4b6-760e-4d7e-832e-701a34a3accb
+md"""Documentation can be accessed in the REPL by typing `?` followed by the name of a function, and pressing Enter:
+"""
+
+# ╔═╡ 30259d14-9d70-4058-9ca5-114d8d618140
+md"""In the lower right corner of the notebook interface, you can click on the “Live docs” panel to search the documentation. When the panel is expanded, clicking on a function name in a cell displays the corresponding help text in the panel.
 
 Docstrings are often triple-quoted strings, also known as “multiline” strings because the triple quotes allow the string to span more than one line.
 
@@ -652,7 +652,6 @@ Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedi
 # ╠═f67b0e4d-8e3f-416c-a15f-0e95a9239079
 # ╟─13877d52-734f-4b9d-a8be-2a5583e9ff96
 # ╠═e9be17fc-273d-47fd-9887-57d9b1d839df
-# ╠═751f6565-44a2-4d37-9027-6211d184bd8f
 # ╟─613ce8b6-5aef-495f-8be9-34b1e0dd2633
 # ╟─c9fa13ec-697b-11eb-1a40-4b899f07dde7
 # ╠═9cc4acf7-d264-49f6-bd96-49e9a1f5a60b
@@ -678,7 +677,9 @@ Read about spirals at [https://en.wikipedia.org/wiki/Spiral](https://en.wikipedi
 # ╟─090f60d4-6981-11eb-1c3d-df12052e6c4f
 # ╟─31ff7108-6981-11eb-1fb7-2ff7384538ab
 # ╠═9f3e27f5-17a4-4c1c-9b44-bc22ae1a9b2d
+# ╟─3ff25df5-4232-4367-92e5-e49f27188840
 # ╟─fe79f4b6-760e-4d7e-832e-701a34a3accb
+# ╟─30259d14-9d70-4058-9ca5-114d8d618140
 # ╟─d24c63c8-6981-11eb-3be3-2f258a4436c5
 # ╟─4f879090-698e-11eb-2aa6-37a98c300038
 # ╟─d2baf7ea-698e-11eb-1261-db00582907a3

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -69,32 +69,32 @@ A state diagram that shows an object and its fields is called an *object diagram
 """
 
 # ╔═╡ 26e5f764-340c-4fe1-a857-0515bcd43c40
-Drawing(width=720, height=90) do
+Drawing(width=500, height=90) do
 	@info "Object diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=275, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=175, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("p ->")
 	end
-	rect(x=325, y=30, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=335, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=225, y=30, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=235, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Point")
 	end
-	text(x=335, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=235, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("x")
 	end
-	line(x1=355, y1=45, x2=395, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=415, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=255, y1=45, x2=295, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=315, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3.0")
 	end
-	text(x=335, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=235, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("y")
 	end
-	line(x1=355, y1=65, x2=395, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=415, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=255, y1=65, x2=295, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=315, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("4.0")
 	end
 end
@@ -202,54 +202,54 @@ md"""Figure 15-2 shows the state of this object. An object that is a field of an
 """
 
 # ╔═╡ 1d636f6e-8c89-11eb-2762-9b68204ed3eb
-Drawing(width=720, height=120) do
+Drawing(width=500, height=120) do
 	@info " Object diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=140, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=40, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("box ->")
 	end
-	rect(x=200, y=30, width=200, height=70, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=210, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=100, y=30, width=200, height=70, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=110, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Rectangle")
 	end
-	text(x=270, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=170, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("width")
 	end
-	line(x1=280, y1=45, x2=320, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=340, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=180, y1=45, x2=220, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=240, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("100.0")
 	end
-	text(x=270, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=170, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("height")
 	end
-	line(x1=280, y1=65, x2=320, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=340, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=180, y1=65, x2=220, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=240, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("200.0")
 	end
-	text(x=270, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=170, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("corner")
 	end
-	line(x1=280, y1=85, x2=440, y2=85, stroke="black", marker_end="url(#arrow)")
-	rect(x=450, y=60, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=460, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=180, y1=85, x2=340, y2=85, stroke="black", marker_end="url(#arrow)")
+	rect(x=350, y=60, width=130, height=50, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=360, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("MPoint")
 	end
-	text(x=460, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=360, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("x")
 	end
-	line(x1=480, y1=75, x2=520, y2=75, stroke="black", marker_end="url(#arrow)")
+	line(x1=380, y1=75, x2=420, y2=75, stroke="black", marker_end="url(#arrow)")
 	text(x=540, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0.0")
 	end
-	text(x=460, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=360, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("y")
 	end
-	line(x1=480, y1=95, x2=520, y2=95, stroke="black", marker_end="url(#arrow)")
-	text(x=540, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=380, y1=95, x2=420, y2=95, stroke="black", marker_end="url(#arrow)")
+	text(x=440, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0.0")
 	end
 end

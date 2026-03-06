@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -9,6 +9,19 @@ begin
     import Pkg
 	io = IOBuffer()
     Pkg.activate(io = io)
+end
+
+# ╔═╡ efe28168-b88f-4e8c-a0f0-ec577b869ee5
+let
+	io = IOBuffer()
+    using REPL
+	REPL.banner(io)
+	banner = String(take!(io))
+	Markdown.parse("""
+	```jlcon
+	$banner julia>
+	```
+	""")
 end
 
 # ╔═╡ b40446e0-64a6-11eb-3652-85fdb1612e5e
@@ -45,46 +58,36 @@ We will start out running Julia in the terminal and in a browser. Later, when yo
 The Julia *REPL* (Read–Eval–Print Loop) is a program that reads and executes Julia code. You can start the REPL by opening a terminal on your computer and typing **`julia`** on the command line. When it starts, you should see output like this:
 """
 
-# ╔═╡ efe28168-b88f-4e8c-a0f0-ec577b869ee5
-let
-	io = IOBuffer()
-    using REPL
-	REPL.banner(io)
-	banner = String(take!(io))
-	Markdown.parse("""
-	```jlcon
-	$banner julia>
-	```
-	""")
-end
-
 # ╔═╡ 7015855e-3f88-4ca8-b6af-5c3ac289269a
 md"""The first lines contain information about the REPL, so it might be different for you. But you should check that the version number is at least 1.6.5.
 
 The last line is a *prompt* that indicates that the REPL is ready for you to enter code. If you type a line of code and hit Enter, the REPL displays the result:
+"""
 
-```jlcon
-julia> 1 + 1
-2
-```
+# ╔═╡ 252e3096-bd06-4d5c-ab0b-be0c7ce27bb3
+print("""julia> 1 + 1
+2""")
 
-Code snippets can be copied and pasted verbatim, including the `julia>` prompt and any output.
+# ╔═╡ af54faab-2b16-4e60-9202-3e406a3293fb
+md"""Code snippets can be copied and pasted verbatim, including the `julia>` prompt and any output.
 
 Now we can install the Pluto *notebook* interface:
+"""
 
-```jlcon
-julia> using Pkg
+# ╔═╡ 770df360-1456-44db-a99e-2bec04dc2d38
+print("""julia> using Pkg
 
 julia> pkg"add Pluto"
 Resolving package versions...
    ...
-Precompiling project...
-```
+Precompiling project...""")
 
-Once installed the browser based environment can be started with:
+# ╔═╡ daea2eab-450d-4d86-bee6-853d36cbade1
+md"""Once installed the browser based environment can be started with:
+"""
 
-```jlcon
-julia> using Pluto
+# ╔═╡ 3fa730e7-a5f9-4b5e-b46e-f1cc2ff0f0b5
+print("""julia> using Pluto
 
 julia> Pluto.run()
 [ Info: Loading...
@@ -93,10 +96,10 @@ julia> Pluto.run()
 └ Opening http://localhost:1234/?secret=F3mXM9nq in your default browser... ~ have fun!
 ┌ Info:
 │ Press Ctrl+C in this terminal to stop Pluto
-└
-```
+└""")
 
-Your default browser opens a tab with the “Welcome to Pluto.jl” page. From there you can create a new notebook or open an existing one.
+# ╔═╡ d6a1cc86-684c-444e-948a-9fc7465919a6
+md"""Your default browser opens a tab with the “Welcome to Pluto.jl” page. From there you can create a new notebook or open an existing one.
 
 A Pluto notebook is made up of cells containg arbitrary Julia code. After entering the code, cells are evaluated by hitting **`SHIFT ENTER`**. During the opening of an existing notebook all cells will be evaluated automatically. **`CTRL ENTER`** will also evaluate the active cell and will create a new cell having focus.
 
@@ -410,6 +413,12 @@ Start the Julia REPL and use it as a calculator.
 # ╟─b2560330-64bd-11eb-0a30-57ada26f6ad1
 # ╟─efe28168-b88f-4e8c-a0f0-ec577b869ee5
 # ╟─7015855e-3f88-4ca8-b6af-5c3ac289269a
+# ╟─252e3096-bd06-4d5c-ab0b-be0c7ce27bb3
+# ╟─af54faab-2b16-4e60-9202-3e406a3293fb
+# ╟─770df360-1456-44db-a99e-2bec04dc2d38
+# ╟─daea2eab-450d-4d86-bee6-853d36cbade1
+# ╟─3fa730e7-a5f9-4b5e-b46e-f1cc2ff0f0b5
+# ╟─d6a1cc86-684c-444e-948a-9fc7465919a6
 # ╟─cdb192f0-64bf-11eb-0a21-2987e4b81296
 # ╠═6209d2a0-6494-43ac-9890-e89db0a5d33b
 # ╟─758ae87d-5d83-4b08-b9d0-939996fcd968

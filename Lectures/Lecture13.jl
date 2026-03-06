@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -505,7 +505,7 @@ let
 	y1 = sin.(x)
 	y2 = cos.(x)
 	y3 = y2.^2 - y1.^2
-	plot(x, [y1 y2], label=["sin(x)" "cos(x)"], lw=[2 1], fontfamily="monospace")
+	plot(x, [y1 y2], label=["sin(x)" "cos(x)"], lw=[2 1])
 	plot!(x, y3, label="cos(x)^2 - sin(x)^2", lw=3, ls=:dot)
 	plot!(legend=:outerbottom, legendcolumns=3)
 	xlims!(0, 2pi)

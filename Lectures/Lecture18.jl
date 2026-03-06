@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -382,7 +382,7 @@ There are several kinds of relationships between types:
 """
 
 # ╔═╡ 3a94d66e-925b-11eb-385b-79e764664fad
-Drawing(width=720, height=150) do
+Drawing(width=500, height=150) do
 	@info "Type diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
@@ -392,30 +392,30 @@ Drawing(width=720, height=150) do
       		path(d="M0,0 L0,6 L9,3 z", fill="none", stroke="black")
 		end
 	end
-	rect(x=310, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=335, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=210, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=235, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("CardSet")
 	end
-	rect(x=150, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=185, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=50, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=85, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Deck")
 	end
-	line(x1=250, y1=60, x2=301, y2=43, stroke="black", marker_end="url(#hollowarrow)")
-	rect(x=470, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=505, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=150, y1=60, x2=201, y2=43, stroke="black", marker_end="url(#hollowarrow)")
+	rect(x=370, y=60, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=405, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Hand")
 	end
-	line(x1=470, y1=60, x2=419, y2=43, stroke="black", marker_end="url(#hollowarrow)")
-	rect(x=310, y=110, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=345, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=370, y1=60, x2=319, y2=43, stroke="black", marker_end="url(#hollowarrow)")
+	rect(x=210, y=110, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=245, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("Card")
 	end
-	line(x1=250, y1=90, x2=301, y2=107, stroke="black", marker_end="url(#arrow)")
-	line(x1=470, y1=90, x2=419, y2=107, stroke="black", marker_end="url(#arrow)")
-	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=150, y1=90, x2=201, y2=107, stroke="black", marker_end="url(#arrow)")
+	line(x1=370, y1=90, x2=319, y2=107, stroke="black", marker_end="url(#arrow)")
+	text(x=205, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("*")
 	end
-	text(x=405, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=305, y=105, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("*")
 	end
 end
@@ -488,8 +488,8 @@ struct Markov
 	order :: Int64
 	suffixes :: Dict{Tuple{String,Vararg{String}}, Array{String, 1}}
 	prefix :: Array{String, 1}
-	Markov(order::Int64=2) = new(order, Dict{Tuple{String,Vararg{String}}, 				Array{String, 1}}(), Array{String, 1}())
-	end
+	Markov(order::Int64=2) = new(order, Dict{Tuple{String,Vararg{String}},
+        Array{String, 1}}(), Array{String, 1}())
 end
 ```
 

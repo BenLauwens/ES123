@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -228,7 +228,7 @@ str[begin:6]
 str[8:end]
 
 # ╔═╡ 6bf5f856-d66d-4df6-bcbc-22d13b2d31f1
-md"""An empty string contains no characters and has length 0, but other than that, it is the same as any other string.
+md"""An empty string contains no characters and has length `0`, but other than that, it is the same as any other string.
 """
 
 # ╔═╡ 559c8a42-76e7-11eb-371c-391c5deba644
@@ -424,7 +424,7 @@ The relational operators work on strings. To see if two strings are equal, use `
 begin
 	word = "Pineapple"
 	if word == "banana"
-		println("All right, bananas.")
+		print("All right, bananas.")
 	end
 end
 
@@ -434,11 +434,11 @@ md"""Other relational operations are useful for putting words in alphabetical or
 
 # ╔═╡ 61d50d6f-c4f5-493e-9f2b-500ee5fdcd8a
 if word < "banana"
-	println("Your word, $word, comes before banana.")
+	print("Your word, $word, comes before banana.")
 elseif word > "banana"
-	println("Your word, $word, comes after banana.")
+	print("Your word, $word, comes after banana.")
 else
-	println("All right, bananas.")
+	print("All right, bananas.")
 end
 
 # ╔═╡ f38e7782-e427-4197-9415-17f282997ed2

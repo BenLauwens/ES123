@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -338,7 +338,7 @@ Here’s another Car Talk Puzzler:
 >
 > One mile after that, the middle 4 out of 6 numbers were palindromic. ... And you ready for this? One mile later, all 6 were palindromic! ...
 >
-> The question is, what did [I] see on the odometer when [I] first looked?
+> The question is, what did I see on the odometer when I first looked?
 
 Write a Julia program that tests all the six-digit numbers and prints any numbers that satisfy these requirements.
 """

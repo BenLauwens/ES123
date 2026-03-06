@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -56,39 +56,39 @@ md"""The object diagram for the `MyTime` object looks like Figure 16-1.
 """
 
 # ╔═╡ 6b6345ec-8cdf-11eb-24f0-0f0996d2f81b
-Drawing(width=720, height=120) do
+Drawing(width=500, height=120) do
 	@info "Object diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=230, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=130, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("time ->")
 	end
-	rect(x=290, y=30, width=200, height=70, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=300, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=190, y=30, width=200, height=70, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=200, y=20, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("MyTime")
 	end
-	text(x=360, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=260, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("hour")
 	end
-	line(x1=370, y1=45, x2=410, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=430, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=270, y1=45, x2=310, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=330, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("11")
 	end
-	text(x=360, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=260, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("minute")
 	end
-	line(x1=370, y1=65, x2=410, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=270, y1=65, x2=310, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=330, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("59")
 	end
-	text(x=360, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
+	text(x=260, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600, text_anchor="end") do
 		str("second")
 	end
-	line(x1=370, y1=85, x2=410, y2=85, stroke="black", marker_end="url(#arrow)")
-	text(x=430, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=270, y1=85, x2=310, y2=85, stroke="black", marker_end="url(#arrow)")
+	text(x=330, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("30")
 	end
 end

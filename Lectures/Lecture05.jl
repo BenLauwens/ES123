@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -42,7 +42,7 @@ let
 	turn(t,-90)
 	pendown(t)
 	koch(t, 400)
-	Drawing(t, 720, 130)
+	Drawing(t, 500, 130)
 end
 
 # ╔═╡ 4cc6b8ac-6bd9-11eb-1d23-f5d9caf02cd3
@@ -152,7 +152,7 @@ In order to write useful programs, we almost always need the ability to check co
 begin
 	x = 1
 	if x > 0
-		println("x is positive")
+		print("x is positive")
 	end
 end
 
@@ -177,9 +177,9 @@ A second form of the `if` statement is “alternative execution,” in which the
 
 # ╔═╡ c3037f74-0891-4120-a296-01b5fa279095
 if x % 2 == 0
-	println("x is even")
+	print("x is even")
 else
-	println("x is odd")
+	print("x is odd")
 end
 
 # ╔═╡ 98904be3-2ad2-4fb2-883f-89598454fc85
@@ -196,11 +196,11 @@ Sometimes there are more than two possibilities and we need more than two branch
 begin
 	y = -1
 	if x < y
-		println("x is less than y")
+		print("x is less than y")
 	elseif x > y
-		println("x is greater than y")
+		print("x is greater than y")
 	else
-		println("x and y are equal")
+		print("x and y are equal")
 	end
 end
 
@@ -272,12 +272,12 @@ One conditional can also be nested within another. We could have written the exa
 
 # ╔═╡ cdefa3d9-5516-41b8-a482-e9e21275e91f
 if x == y
-	println("x and y are equal")
+	print("x and y are equal")
 else
 	if x < y
-		println("x is less than y")
+		print("x is less than y")
 	else
-		println("x is greater than y")
+		print("x is greater than y")
 	end
 end
 
@@ -292,7 +292,7 @@ Logical operators often provide a way to simplify nested conditional statements.
 # ╔═╡ 717b3051-d69d-4cef-ab92-c79fe411ced5
 if 0 < x
 	if x < 10
-		println("x is a positive single-digit number.")
+		print("x is a positive single-digit number.")
 	end
 end
 
@@ -302,7 +302,7 @@ md"""The print statement runs only if we make it past both conditionals, so we c
 
 # ╔═╡ c64d55ee-6e7c-4c99-8a8d-afe10f7e5a87
 if 0 < x && x < 10
-	println("x is a positive single-digit number.")
+	print("x is a positive single-digit number.")
 end
 
 # ╔═╡ 2222e372-6c39-480c-9e5a-3f290456349e
@@ -311,7 +311,7 @@ md"""For this kind of condition, Julia provides a more concise syntax:
 
 # ╔═╡ 2088e670-b0e7-4107-96bc-c3d9ee623901
 if 0 < x < 10
-	println("x is a positive single-digit number.")
+	print("x is a positive single-digit number.")
 end
 
 # ╔═╡ 81410cd0-6bdd-11eb-3ac7-21c132df1a56
@@ -323,7 +323,7 @@ It is legal for one function to call another; it is also legal for a function to
 # ╔═╡ a90afcce-cb6b-4e9c-93ad-27351444871f
 function countdown(n)
 	if n ≤ 0
-		println("Blastoff!")
+		print("Blastoff!")
 	else
 		print(n, " ")
 		countdown(n-1)
@@ -384,62 +384,62 @@ Every time a function gets called, Julia creates a frame to contain the function
 """
 
 # ╔═╡ e7bc0384-6bdf-11eb-23d5-1f8454e713f2
-Drawing(width=720, height=200) do
+Drawing(width=500, height=200) do
 	@info "Stack diagram."
-	text(x=320, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=220, y=30, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("Main")
 	end
-    rect(x=360, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=320, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+    rect(x=260, y=10, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=220, y=70, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
-    rect(x=360, y=50, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=260, y=50, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=280, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=300, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=330, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	text(x=320, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=220, y=110, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
-    rect(x=360, y=90, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=260, y=90, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=280, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=300, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=330, y=110, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	text(x=320, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=220, y=150, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
-    rect(x=360, y=130, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=260, y=130, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=280, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=300, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=330, y=150, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=320, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=220, y=190, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("countdown")
 	end
-    rect(x=360, y=170, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=380, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=260, y=170, width=100, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=280, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("n")
 	end
-	text(x=400, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=300, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("→")
 	end
-	text(x=430, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=330, y=190, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("0")
 	end
 end
@@ -480,46 +480,45 @@ md"""## Keyboard Input
 The programs we have written so far accept no input from the user. They just do the same thing every time.
 
 Julia provides a built-in function called readline that stops the program and waits for the user to type something. When the user presses Return or Enter, the program resumes and readline returns what the user typed as a string:
+"""
 
-```jlcon
-julia> text = readline()
+# ╔═╡ 41ed3225-4edd-4dd7-9cda-b29807879788
+md"""Before getting input from the user, it is a good idea to print a prompt telling her what to type:
+"""
+
+# ╔═╡ f099e797-3812-42e8-9f52-2371e3710776
+print("""julia> text = readline()
 What are you waiting for?
-"What are you waiting for?"
-```
+"What are you waiting for?")""")
 
-Before getting input from the user, it is a good idea to print a prompt telling her what to type:
-
-```jlcon
-julia> print("What...is your name? "); readline()
-What...is your name? Arthur, King of the Britons!
-"Arthur, King of the Britons!"
-```
-
-A semicolon (`;`) allows you to put multiple statements on the same line. Only the last statement returns its value.
+# ╔═╡ 997c6f98-0100-42c1-8ff1-476e2f7e6eac
+md"""A semicolon (`;`) allows you to put multiple statements on the same line. Only the last statement returns its value.
 
 If you expect the user to type an integer, you can try to convert the return value to `Int64`:
+"""
 
-```jlcon
-julia> println("What...is the airspeed velocity of an unladen swallow?"); speed = readline()
+# ╔═╡ 6be09823-ca1e-4769-af70-d3f0ae95efaf
+print("""julia> println("What...is the airspeed velocity of an unladen swallow?"); speed = readline()
 What...is the airspeed velocity of an unladen swallow?
 42
 "42"
 julia> parse(Int64, speed)
-42
-```
+42""")
 
-But if the user types something other than a string of digits, you get an error:
+# ╔═╡ 7c23f5f8-9e25-48e3-8134-f527b234fb93
+md"""But if the user types something other than a string of digits, you get an error:
+"""
 
-```jlcon
-julia> println("What...is the airspeed velocity of an unladen swallow? "); speed = readline();
+# ╔═╡ 08fb8aaf-076c-466e-af33-94de01448039
+print("""julia> println("What...is the airspeed velocity of an unladen swallow? "); speed = readline();
 What...is the airspeed velocity of an unladen swallow?
 What do you mean, an African or a European swallow?
 julia> parse(Int64, speed)
 ERROR: ArgumentError: invalid base 10 digit 'W' in "What do you mean, an African or a European swallow?"
-[...]
-```
+[...]""")
 
-We will see how to handle this kind of error later.
+# ╔═╡ 5d869e22-f282-4030-81fa-dff2f044bd41
+md"""We will see how to handle this kind of error later.
 
 `readline` does not function in a Pluto notebook. However, a variable can be bound directly to a text input field:
 """
@@ -532,7 +531,7 @@ md"""Entering text in the text field will update the `txt` variable and all top 
 """
 
 # ╔═╡ 7b0d32fe-e2eb-4f72-bc99-d25b6549ed3b
-println(txt)
+show(txt)
 
 # ╔═╡ 4bf34876-203e-4694-a034-45ae50379a5f
 md"""All html input type are available.
@@ -676,7 +675,7 @@ What is the output of the following program? Draw a stack diagram that shows the
 # ╔═╡ 8b3ebf2e-7f30-46c1-a7c3-3469687176d9
 function recurse(n, s)
 	if n == 0
-		println(s)
+		print(s)
 	else
 		recurse(n-1, n+s)
 	end
@@ -801,6 +800,13 @@ The exception is if ``x`` is less than ``3``: in that case, you can just draw a 
 # ╠═acdc4a64-8cfa-4217-ade5-a159018f9892
 # ╟─4dcc5481-e031-48a7-a868-5680de17199e
 # ╟─b5bbb0ac-6be2-11eb-33fd-7971aa3a4c24
+# ╟─41ed3225-4edd-4dd7-9cda-b29807879788
+# ╟─f099e797-3812-42e8-9f52-2371e3710776
+# ╟─997c6f98-0100-42c1-8ff1-476e2f7e6eac
+# ╟─6be09823-ca1e-4769-af70-d3f0ae95efaf
+# ╟─7c23f5f8-9e25-48e3-8134-f527b234fb93
+# ╟─08fb8aaf-076c-466e-af33-94de01448039
+# ╟─5d869e22-f282-4030-81fa-dff2f044bd41
 # ╠═5014240d-80de-4b28-b1a9-f107fe86a4b9
 # ╟─071325c7-4f4e-427e-b0e7-4fc1ea90fef6
 # ╠═7b0d32fe-e2eb-4f72-bc99-d25b6549ed3b

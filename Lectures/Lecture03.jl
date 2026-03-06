@@ -180,13 +180,16 @@ The first line of the function definition is called the *header*; the rest is ca
 The quotation marks must be "straight quotes," usually located next to Enter on the keyboard. “Curly quotes,” like the ones in this sentence, are not legal in Julia.
 
 If you type a function definition in interactive mode, the REPL indents to let you know that the definition isn’t complete:
+"""
 
-```jlcon
-julia> function printlyrics()
-       println("I'm a lumberjack, and I'm okay.")
-```
+# ╔═╡ ab9918bb-57a8-4933-a721-04c6b1ce0d6e
+begin
+	println("julia> function printlyrics()")
+	print("""       println("I'm a lumberjack, and I'm okay.")""")
+end
 
-To end the function, you have to enter `end`.
+# ╔═╡ ece4faf7-e9d8-4947-bfa0-579f6a96138f
+md"""To end the function, you have to enter `end`.
 
 The syntax for calling the new function is the same as for built-in functions:
 """
@@ -813,6 +816,8 @@ md"""Write now a function that draws a similar grid with four rows and four colu
 # ╟─844c788e-6805-11eb-0387-6bf667e2ba6d
 # ╠═bff25d47-cbd0-45dd-b83e-fdb21de50235
 # ╟─7f296c1b-12c5-4916-b17e-9fb888f0c953
+# ╟─ab9918bb-57a8-4933-a721-04c6b1ce0d6e
+# ╟─ece4faf7-e9d8-4947-bfa0-579f6a96138f
 # ╠═0e7392d0-bcbb-4e22-9bd4-d989bafa316e
 # ╟─ba4cd1eb-c2d4-4d98-a66f-c53d30cb66a8
 # ╠═d8b2cf61-32f8-4191-8e4d-beb51b1ce7e4

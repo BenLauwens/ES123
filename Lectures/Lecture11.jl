@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.40
+# v0.20.23
 
 using Markdown
 using InteractiveUtils
@@ -292,101 +292,101 @@ md"""Figure 11-1 is a state diagram showing `hist` and `inverse`. A dictionary i
 """
 
 # ╔═╡ 4fb90040-85cb-11eb-23dd-ad9ea62b94c3
-Drawing(width=720, height=150) do
+Drawing(width=620, height=150) do
 	@info "State diagram."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
       		path(d="M0,0 L0,6 L9,3 z", fill="black")
 		end
 	end
-	text(x=105, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=55, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("hist ->")
 	end
-	rect(x=120, y=20, width=150, height=110, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=140, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=70, y=20, width=150, height=110, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=90, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'o'")
 	end
-	line(x1=170, y1=35, x2=220, y2=35, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=120, y1=35, x2=170, y2=35, stroke="black", marker_end="url(#arrow)")
+	text(x=190, y=40, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=140, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=90, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
-	line(x1=170, y1=55, x2=220, y2=55, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=120, y1=55, x2=170, y2=55, stroke="black", marker_end="url(#arrow)")
+	text(x=190, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=140, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=90, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'p'")
 	end
-	text(x=140, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=90, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'t'")
 	end
-	text(x=140, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=90, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'r'")
 	end
-	line(x1=170, y1=115, x2=220, y2=115, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=120, y1=115, x2=170, y2=115, stroke="black", marker_end="url(#arrow)")
+	text(x=190, y=120, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=170, y1=95, x2=220, y2=95, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=120, y1=95, x2=170, y2=95, stroke="black", marker_end="url(#arrow)")
+	text(x=190, y=100, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=170, y1=75, x2=220, y2=75, stroke="black", marker_end="url(#arrow)")
-	text(x=240, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=120, y1=75, x2=170, y2=75, stroke="black", marker_end="url(#arrow)")
+	text(x=190, y=80, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	text(x=410, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
+	text(x=360, y=80, font_family="JuliaMono, monospace", text_anchor="end", font_size="9pt", font_weight=600) do
 		str("inverse ->")
 	end
-    rect(x=520, y=10, width=150, height=90, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=540, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+    rect(x=470, y=10, width=150, height=90, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=490, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=560, y1=25, x2=610, y2=25, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=510, y1=25, x2=560, y2=25, stroke="black", marker_end="url(#arrow)")
+	text(x=580, y=30, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'o'")
 	end
-	text(x=540, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=490, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=560, y1=45, x2=610, y2=45, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=510, y1=45, x2=560, y2=45, stroke="black", marker_end="url(#arrow)")
+	text(x=580, y=50, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'a'")
 	end
-	text(x=540, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=490, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("3")
 	end
-	line(x1=560, y1=65, x2=610, y2=65, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=510, y1=65, x2=560, y2=65, stroke="black", marker_end="url(#arrow)")
+	text(x=580, y=70, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'p'")
 	end
-	text(x=540, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	text(x=490, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("4")
 	end
-	line(x1=560, y1=85, x2=610, y2=85, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=510, y1=85, x2=560, y2=85, stroke="black", marker_end="url(#arrow)")
+	text(x=580, y=90, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'t'")
 	end
-	rect(x=520, y=110, width=150, height=30, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=540, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=470, y=110, width=150, height=30, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=490, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=560, y1=125, x2=610, y2=125, stroke="black", marker_end="url(#arrow)")
-	text(x=630, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=510, y1=125, x2=560, y2=125, stroke="black", marker_end="url(#arrow)")
+	text(x=580, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("'r'")
 	end
-	rect(x=420, y=10, width=50, height=130, fill="rgb(242, 242, 242)", stroke="black")
-	text(x=440, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	rect(x=370, y=10, width=50, height=130, fill="rgb(242, 242, 242)", stroke="black")
+	text(x=390, y=60, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("1")
 	end
-	line(x1=460, y1=55, x2=510, y2=55, stroke="black", marker_end="url(#arrow)")
-	text(x=440, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
+	line(x1=410, y1=55, x2=460, y2=55, stroke="black", marker_end="url(#arrow)")
+	text(x=390, y=130, font_family="JuliaMono, monospace", font_size="9pt", font_weight=600) do
 		str("2")
 	end
-	line(x1=460, y1=125, x2=510, y2=125, stroke="black", marker_end="url(#arrow)")
+	line(x1=410, y1=125, x2=460, y2=125, stroke="black", marker_end="url(#arrow)")
 end
 
 # ╔═╡ 35e8ee92-85cf-11eb-215c-21912c5fc92b
@@ -405,7 +405,7 @@ To understand why, consider Figure 11-2, which shows the *call graph* for `fibon
 """
 
 # ╔═╡ c1e519e8-85cf-11eb-2ce1-4bcd389f56bf
-Drawing(width=720, height=310) do
+Drawing(width=650, height=310) do
 	@info "Call graph."
 	defs() do
         marker(id="arrow", markerWidth="10", markerHeight="10", refX="0", refY="3", orient="auto", markerUnits="strokeWidth") do
@@ -693,7 +693,7 @@ Here’s another Puzzler from Car Talk:
 >
 > Now I’m going to give you an example that doesn’t work. Let’s look at the five-letter word, ‘wrack.’ W-R-A-C-K, you know like to ‘wrack with pain.’ If I remove the first letter, I am left with a four-letter word, ‘R-A-C-K.’ As in, ‘Holy cow, did you see the rack on that buck! It must have been a nine-pointer!’ It’s a perfect homophone. If you put the ‘w’ back, and remove the ‘r,’ instead, you’re left with the word, ‘wack,’ which is a real word, it’s just not a homophone of the other two words.
 >
-> But there is, however, at least one word that [I] know of, which will yield two homophones if you remove either of the first two letters to make two, new four-letter words. The question is, what’s the word?
+> But there is, however, at least one word that I know of, which will yield two homophones if you remove either of the first two letters to make two, new four-letter words. The question is, what’s the word?
 
 You can use the dictionary from “Exercise 11-2” to check whether a string is in the word array.
 !!! tip
